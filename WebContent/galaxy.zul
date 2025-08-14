@@ -1,0 +1,193 @@
+<?page title="Module" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="winGalaxy" border="none"
+		apply="org.irri.iric.portal.galaxy.zkui.GalaxyController">
+		<vbox>
+			<hbox height="20px" />
+			<div id="divDiscovery">
+				<hbox>
+					<label value="Select Galaxy server"
+						style="font-size:14px;font-weight:bold;color:gray;" />
+					<listbox id="listboxServer" width="200px"
+						mold="select">
+						<listitem label="" />
+						<listitem label="rice" />
+						<listitem label="rice_dev" />
+						<listitem label="snpseek" selected="true" />
+						<listitem label="snpseek_dev" />
+					</listbox>
+					<button id="buttonClearCache" label="Clear cache" />
+				</hbox>
+
+
+				<hbox height="20px" />
+				<label value="Workflow and Tool Input Datatypes"
+					style="font-size:14px;font-weight:bold;color:gray;" />
+				<hbox>
+					<label value="Select Lists" />
+					<vbox>
+						<listbox id="listLists" multiple="true"
+							checkmark="true" width="150px" height="200px" rows="0">
+							<listhead>
+								<listheader label="Data lists" />
+							</listhead>
+							<listitem label="locuslist" />
+							<listitem label="samplelist" />
+							<listitem label="snplist" />
+							<listitem label="snpmatrix" />
+							<listitem label="phenolist" />
+						</listbox>
+						<button id="buttonWorkflows"
+							label="Find Workflows" />
+						<button id="buttonAllWorkflows"
+							label="All Workflows" />
+					</vbox>
+
+					<hbox>
+						<vbox width="50px" />
+						<vbox>
+							<label value="Select Data" />
+							<listbox id="listSection" multiple="true"
+								checkmark="true" width="200px" height="150px">
+								<listhead>
+									<listheader label="Tool Section" />
+								</listhead>
+							</listbox>
+							<hbox height="10px" />
+							<button id="buttonAll" label="Check all"
+								height="20px" visible="false" />
+							<button id="buttonNone" label="Uncheck all"
+								height="20px" visible="false" />
+							<button id="buttonCommon"
+								label="Check common" height="20px" />
+							<hbox height="10px" />
+							<button id="buttonDiscover"
+								label="Find Tools" />
+						</vbox>
+
+						<vbox width="20px" />
+						<listbox id="listData" multiple="true"
+							checkmark="true" width="300px" height="250px" rows="0">
+							<listhead>
+								<listheader label="Data class" />
+							</listhead>
+						</listbox>
+						<vbox width="10px" />
+						<listbox id="listFormat" multiple="true"
+							checkmark="true" width="300px" height="250px" rows="0">
+							<listhead>
+								<listheader label="File extension" />
+							</listhead>
+						</listbox>
+					</hbox>
+				</hbox>
+			</div>
+			<!--  hbox height="20px"/ -->
+		</vbox>
+		<!--  splitter id="splitter" collapse="before" open="true" width="100%" / -->
+		<vbox>
+			<hbox id="hboxServer2" visible="@{show_details}">
+				<label value="Select Galaxy server"
+					style="font-size:14px;font-weight:bold;color:gray;" />
+				<hbox height="10px" />
+				<listbox id="listboxServer2" width="200px"
+					mold="select">
+					<listitem label="" />
+					<listitem label="rice" />
+					<listitem label="rice_dev" />
+					<listitem label="snpseek" selected="true" />
+					<listitem label="snpseek_dev" />
+				</listbox>
+				<div visible="false">
+					<vbox width="40px" />
+					<radiogroup id="radioGroupType">
+						<radio label="Workflows" selected="true" />
+						<radio label="Tools" />
+					</radiogroup>
+					<vbox width="40px" />
+					<checkbox id="checkboxShowQueryoptions"
+						checked="false" label="Show tools display options" />
+				</div>
+			</hbox>
+			<hbox height="20px" />
+
+			<hbox widths="35%,5%,60%">
+				<vbox width="100%">
+					<!--  button id="buttonDiscover" label="Discover tools"/ -->
+					<label id="labelMatchedTools"
+						value="Workflows accepting data lists"
+						style="font-size:14px;font-weight:bold;color:gray;" />
+					<listbox id="listTools" width="98%" height="300px"
+						vflex="1" sizedByContent="true">
+						<listhead sizable="true">
+							<listheader label="Workflow name"
+								width="150px" sort="auto" />
+							<listheader id="listheaderSection"
+								label="Section" width="100px" sort="auto"
+								visible="@{show_details}" />
+							<listheader id="listheaderRequiredinput"
+								label="Required Inputs" width="80px" visible="@{show_details}" />
+							<!--   listheader label="All Inputs" width="400px"/ -->
+							<listheader id="listheaderAllinput"
+								label="All Inputs" width="130px" visible="@{show_details}" />
+							<listheader label="Description"
+								width="400px" />
+						</listhead>
+					</listbox>
+				</vbox>
+				<!--  hbox height="20px"/ -->
+				<vbox width="100%" />
+				<vbox width="100%">
+					<div visible="false">
+						<button upload="true,maxsize=-1,native"
+							onUpload="@command('onFileUpload')" label="Select File" />
+						<fileupload id="uploadButton2" label="Upload2"
+							onUpload="System.out.println(event.media.getName())" />
+						<fileupload id="uploadButton" label="Upload3" />
+						<button id="buttonUpload" label="Upload" />
+					</div>
+					<label value="Selected workflow inputs"
+						style="font-size:14px;font-weight:bold;color:gray;" />
+					<grid id="listInputs" width="98%">
+						<columns menupopup="auto">
+							<!--  column label="Parameter name" width="220px"/ -->
+							<column id="columnParametername"
+								label="Parameter name" width="150px" visible="@{show_details}"
+								sort="auto" />
+							<column label="Step" width="150px"
+								sort="auto" />
+							<column label="Parameter" width="170px" />
+							<column label="Value" width="500px" />
+							<!-- column label="Description" width="320px" sort="auto"/ -->
+							<column id="columnParametertype"
+								label="Type" width="200px" visible="@{show_details}" />
+						</columns>
+					</grid>
+					<hbox height="20px" />
+					<vbox>
+						<button id="buttonRun" label="Run Tool" />
+						<checkbox id="checkboxAsync"
+							label="Run in backgroud" checked="true" />
+
+						<!--  label id="labelDownloadProgressMsg"/>
+							<a id="aDownloadProgressURL" target="jobs"/>
+							<a id="aGalaxyLink" label=""  target="galaxy"/ -->
+						<vbox id="vboxProgress" />
+
+					</vbox>
+
+				</vbox>
+			</hbox>
+
+		</vbox>
+
+		<vbox id="vboxIframeHtml">
+			<hbox height="20px" />
+			<iframe id="iframeHtmlResult" visible="false" width="100%" />
+			<hbox height="20px" />
+			<iframe id="iframeHtmlResult2" visible="false" width="100%" />
+		</vbox>
+
+	</window>
+
+</zk>

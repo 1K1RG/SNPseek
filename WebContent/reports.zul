@@ -1,0 +1,182 @@
+<?page title="Contact Us" contentType="text/html;charset=UTF-8"?>
+<?link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css"?>
+<zk xmlns:w="http://www.zkoss.org/2005/zk/client">
+	<n:div xmlns:n="native">
+		<n:meta name="viewport"
+			content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+
+		<n:script
+			src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js" />
+		<style
+			src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css" />
+
+		<n:script src="assets/js/jquery.min.js" />
+		<n:script src="assets/bootstrap/js/bootstrap.min.js" />
+		<n:script
+			src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js" />
+
+		<n:script src="assets/js/Collapsible-Sidebar.js" />
+		<n:script src="assets/js/Material-Text-Input.js" />
+		<style src="assets/bootstrap/css/bootstrap.min.css" />
+		<style src="assets/css/Carousel-Hero.css" />
+		<style
+			src="https://fonts.googleapis.com/css?family=Nunito+Sans" />
+		<style src="https://fonts.googleapis.com/css?family=Poppins" />
+		<style src="https://fonts.googleapis.com/css?family=Roboto" />
+		<style src="https://fonts.googleapis.com/css?family=Rubik" />
+		<style src="assets/fonts/fontawesome-all.min.css" />
+		<style src="assets/fonts/font-awesome.min.css" />
+		<style src="assets/fonts/fontawesome5-overrides.min.css" />
+		<style src="assets/css/Footer-Dark.css" />
+		<style src="assets/css/styles.css" />
+		<style src="assets/css/styles_genotype.css" />
+		<style src="assets/css/Collapsible-Sidebar.css" />
+		<style src="assets/css/sidebar_home.css" />
+		<style src="assets/css/stylenav.css" />
+
+		<n:script src="https://www.google.com/recaptcha/api.js"
+			async="async" defer="defer">
+		</n:script>
+
+
+		<n:script>
+			
+			<![CDATA[ function afterValidate(response) {
+
+			var action = "signup";
+
+			var token = grecaptcha.getResponse(); console.log("reCAPTCHA
+			token: ", token);
+
+			console.log("reCAPTCHA validated: ", response);
+
+			// Log the event firing to make sure it reaches this point
+			console.log("Firing event to ZK server with response and
+			action...");
+
+			zk.Widget.$('$recaptchaDiv').fire('onRecaptchaValidated',
+			{'response': response, 'action': action, 'token': token},
+			{toServer: true});
+
+			console.log("reCAPTCHA firing OnUserRespond: "); var button
+			= zk.Widget.$('$buttonSubmit');
+
+			if (response) { button.setDisabled(false); // Enable the
+			button } else { button.setDisabled(true); // Disable the
+			button }
+
+			} ]]>
+			
+		</n:script>
+
+
+
+
+		<div style="margin:auto;margin-top:100px;"
+			apply="user.ui.module.ReportBugController">
+			<n:div class="container">
+				<n:div class="card shadow-lg o-hidden border-0 my-5">
+					<n:div class="card-body p-0">
+						<n:div>
+							<panel width="80%" framable="true"
+								border="normal">
+								<caption label="REPORT A BUG" />
+
+								<toolbar width="100%">
+									<vlayout width="100%">
+										<hlayout valign="middle"
+											style="padding:3px;">
+											<hlayout width="100px">
+												<label sclass="name"
+													value="Name" />
+											</hlayout>
+											<textbox id="textboxName"
+												hflex="1" />
+										</hlayout>
+										<hlayout valign="middle"
+											style="padding:3px;">
+											<hlayout width="100px">
+												<label sclass="name"
+													value="Email" />
+											</hlayout>
+											<textbox id="textboxEmail"
+												hflex="1" />
+										</hlayout>
+
+										<hlayout valign="middle"
+											style="padding:3px;">
+											<hlayout width="100px">
+												<label sclass="name"
+													value="Message" />
+											</hlayout>
+											<textbox id="textboxDesc"
+												multiline="true" rows="10" hflex="1" />
+										</hlayout>
+										<hlayout valign="middle"
+											style="padding:3px;">
+											<hlayout width="100px">
+												<label sclass="name"
+													value="Screenshots" />
+											</hlayout>
+
+											<vbox hflex="1">
+												<hlayout>
+													<fileupload
+														id="uploadBtn" label="Attach"
+														upload="true, maxsize=10240, multiple=true" />
+													<textbox
+														id="textboxTitle1"
+														Value="NOTE: Attachments will be scan for virus and malicious attacks. This may take a while."
+														readonly="true" hflex="1" />
+												</hlayout>
+												<vbox id="attachmentVb" />
+											</vbox>
+
+
+										</hlayout>
+										<hlayout valign="middle"
+											style="padding:3px;">
+											<hlayout width="100px">
+												<label sclass="name"
+													value="Recaptcha" />
+											</hlayout>
+											<div>
+												<n:div id="recaptcha"
+													class="g-recaptcha"
+													data-sitekey="6Lde5MEqAAAAAPfUDTkpvARIpETwSsiT-c0ne4eh"
+													data-callback="afterValidate" />
+
+												<div id="recaptchaDiv"
+													visible="false" />
+
+											</div>
+
+
+										</hlayout>
+
+
+									</vlayout>
+									<hlayout valign="middle"
+										width="100%"
+										style="height:75px;display: flex;align-items: center; justify-content: center; text-align: center; ">
+										<button width="85px"
+											id="buttonSubmit" label="Submit" disabled="true" />
+									</hlayout>
+								</toolbar>
+							</panel>
+						</n:div>
+					</n:div>
+				</n:div>
+			</n:div>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+			<script src="assets/js/chart.min.js"></script>
+			<script src="assets/js/bs-init.js"></script>
+			<script
+				src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js">
+			</script>
+			<script src="assets/js/theme.js"></script>
+		</div>
+
+	</n:div>
+</zk>

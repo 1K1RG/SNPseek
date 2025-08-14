@@ -1,0 +1,236 @@
+<zk xmlns:h="native">
+
+
+	<zscript>
+	import org.irri.iric.portal.AppContext;
+	String paramstr = AppContext.getJBrowseDefaulttracks(AppContext.getDefaultDataset());
+	//DNA,msu7gff,snp3k
+</zscript>
+
+	<div xmlns:n="native">
+		<n:script src="assets/js/jquery.min.js" />
+		<n:script src="assets/bootstrap/js/bootstrap.min.js" />
+		<n:script
+			src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js" />
+
+		<n:script src="assets/js/Collapsible-Sidebar.js" />
+		<n:script src="assets/js/Material-Text-Input.js" />
+
+		<style src="assets/bootstrap/css/bootstrap.min.css" />
+		<style src="https://fonts.googleapis.com/css?family=Poppins" />
+		<style src="https://fonts.googleapis.com/css?family=Roboto" />
+		<style src="https://fonts.googleapis.com/css?family=Rubik" />
+		<style src="assets/fonts/fontawesome-all.min.css" />
+		<style src="assets/fonts/font-awesome.min.css" />
+		<style src="assets/fonts/fontawesome5-overrides.min.css" />
+		<style src="assets/css/Footer-Dark.css" />
+		<style src="assets/css/Ludens-Users---1-Login.css" />
+		<style src="assets/css/Material-Text-Input.css" />
+		<style
+			src="assets/css/Parallax-Effect-Template-Landing-Page-Bootstrap-4.css" />
+		<style src="assets/css/Pricing-Table.css" />
+		<style src="assets/css/Process-Steps.css" />
+		<style src="assets/css/styles.css" />
+
+
+		<div id="main_sideBarDiv" visible="true"
+			apply="org.irri.iric.portal.SidebarController">
+			<n:div class="main-leftsidebar-div"
+				data-component="leftsidebar">
+
+				<n:div class="leftsidebar"
+					style="z-index:3000;position:sticky;top:0;">
+
+					<n:ul id="sidebarId"
+						class="nav list-group flex-column d-inline-block first-menu scrollbar-indigo thin first-main-menu">
+
+
+						<n:div id="emptyDiv" style="z-index:40001">
+							<n:li id="emptyLink"
+								class="nav-item list-group-item pl-1 py-2">
+								<a class="nav-link"
+									style="border-color: rgb(82, 154, 111);color: rgb(34 131 34);padding-left: 25px !important;">
+									<n:i id="emptyIcon" />
+									<n:br />
+									<n:span id="emptySpan"
+										class="ml-2 align-middle">
+
+									</n:span>
+								</a>
+							</n:li>
+						</n:div>
+						<n:div id="genotypeDiv" style="z-index:40001"
+							title="Search By Genotype">
+							<n:li id="genotypeLink"
+								class="nav-item list-group-item pl-1 py-2">
+								<a class="nav-link" href="genotype.zul"
+									style="border-color: rgb(82, 154, 111);color: rgb(34 131 34);padding-left: 20px !important;">
+									<n:i id="genotypeIcon"
+										title="Search By Genotype" class="fas fa-dna" />
+									<n:br />
+									<n:span id="genotypeSpan"
+										title="Search By Genotype" class="ml-2 align-middle"
+										style="margin-left: 0.0rem!important;">
+										Genotype
+									</n:span>
+								</a>
+							</n:li>
+						</n:div>
+						<n:div id="varietyDiv" style="z-index:40001"
+							title="Search By Variety">
+							<n:li id="varietyLink"
+								class="nav-item list-group-item pl-1 py-2">
+								<a class="nav-link" href="varieties.zul"
+									style="border-color: rgb(82, 154, 111);color: rgb(34 131 34);padding-left: 20px !important;">
+									<n:i id="varietyIcon"
+										title="Search By Variety" class="fab fa-pagelines" />
+									<n:br />
+									<n:span id="varietySpan"
+										title="Search By Variety" class="ml-2 align-middle"
+										style="margin-left: 0.0rem!important;">
+										Variety
+									</n:span>
+								</a>
+							</n:li>
+						</n:div>
+						<n:div id="geneLociDiv" style="z-index:40001"
+							title="Search By Gene Loci">
+							<n:li id="geneLociLink"
+								class="nav-item list-group-item pl-1 py-2">
+								<a class="nav-link" href="geneLoci.zul"
+									style="border-color: rgb(82, 154, 111);color: rgb(34 131 34);padding-left: 20px !important;">
+									<n:i id="geneLociIcon"
+										title="Search By Gene Loci" class="fas fa-search" />
+									<n:br />
+									<n:span id="geneLociSpan"
+										title="Search By Gene Loci" class="ml-2 align-middle"
+										style="margin-left: 0.0rem!important;">
+										Gene Loci
+									</n:span>
+								</a>
+							</n:li>
+						</n:div>
+						<n:div id="jbrowseDiv" style="z-index:40001"
+							title="Open Jbrowse">
+							<n:li id="jbrowseLink"
+								class="nav-item list-group-item pl-1 py-2">
+								<n:a class="nav-link"
+									href="_jbrowse.zul?tracks=${paramstr}"
+									style="border-color: rgb(82, 154, 111);color: rgb(34 131 34);padding-left: 20px !important;">
+									<n:i id="jbrowseIcon"
+										title="Open Jbrowse" class="fas fa-arrows-alt-h" />
+									<n:br />
+									<n:span id="jbrowseSpan"
+										title="Open Jbrowse" class="ml-2 align-middle"
+										style="margin-left: 0.0rem!important;">
+										Jbrowse
+									</n:span>
+								</n:a>
+							</n:li>
+						</n:div>
+						<div id="div_gwas">
+							<n:div id="gwasDiv" style="z-index:40001"
+								title="GWAS">
+								<n:li id="gwasLink"
+									class="nav-item list-group-item pl-1 py-2">
+									<n:a class="nav-link"
+										href="_gwas.zul"
+										style="border-color: rgb(82, 154, 111);color: rgb(34 131 34);padding-left: 20px !important;">
+										<n:i id="gwasIcon" title="GWAS"
+											class="far fa-chart-bar" />
+										<n:br />
+										<n:span id="gwasSpan"
+											title="GWAS" class="ml-2 align-middle"
+											style="margin-left: 0.0rem!important;">
+											Gwas
+										</n:span>
+									</n:a>
+								</n:li>
+							</n:div>
+						</div>
+						<div id="div_traitGenes">
+							<n:div id="traitGenesDiv" style="z-index:40001"
+								title="Trait Genes">
+								<n:li id="traitGenesLink"
+									class="nav-item list-group-item pl-1 py-2">
+									<n:a class="nav-link"
+										href="_ideo.zul?tracks=${paramstr}&amp;app=rice-ideogram"
+										style="border-color: rgb(82, 154, 111);color: rgb(34 131 34);padding-left: 20px !important;">
+										<n:i id="tgIcon" title="Trait Genes"
+											class="fa-regular fa-dna" />
+										<n:br />
+										<n:span id="traitgenesSpan"
+											title="traitGenes" class="ml-2 align-middle"
+											style="margin-left: 0.0rem!important;">
+											Trait Genes
+										</n:span>
+									</n:a>
+								</n:li>
+							</n:div>
+						</div>
+						<div id="div_myList">
+							<n:div id="myListDiv" style="z-index:40001"
+								title="Create MyList">
+								<n:li id="myListLink"
+									class="nav-item list-group-item pl-1 py-2">
+									<n:a class="nav-link"
+										href="MyList.zul"
+										style="border-color: rgb(82, 154, 111);color: rgb(34 131 34);padding-left: 20px !important;">
+										<n:i id="myListIcon"
+											title="Create MyList" class="fas fa-list" />
+										<n:br />
+										<n:span id="myListSpan"
+											title="Create MyList" class="ml-2 align-middle"
+											style="margin-left: 0.0rem!important;">
+											My List
+										</n:span>
+									</n:a>
+								</n:li>
+							</n:div>
+						</div>
+						<div id="div_download">
+							<n:div id="downloadDiv"
+								style="z-index:40001" title="Download">
+								<n:li id="downloadLink"
+									class="nav-item list-group-item pl-1 py-2">
+									<n:a class="nav-link"
+										title="Download" href="download.zul"
+										style="border-color: rgb(82, 154, 111);color: rgb(34 131 34);padding-left: 20px !important;">
+										<n:i id="downloadIcon"
+											class="fas fa-download" />
+										<n:br />
+										<n:span id="downloadSpan"
+											title="Download" class="ml-2 align-middle"
+											style="margin-left: 0.0rem!important;">
+											Download
+										</n:span>
+									</n:a>
+								</n:li>
+							</n:div>
+						</div>
+						<n:div id="helpDiv" style="z-index:40001"
+							title="Help">
+							<n:li id="helpLink"
+								class="nav-item list-group-item pl-1 py-2">
+								<n:a class="nav-link" href="#"
+									style="border-color: rgb(82, 154, 111);color: rgb(34 131 34);padding-left: 20px !important;">
+									<n:i id="helpIcon" title="Help"
+										class="fas fa-question" />
+									<n:br />
+									<n:span id="helpSpan" title="Help"
+										class="ml-2 align-middle"
+										style="margin-left: 0.0rem!important;">
+										Help
+									</n:span>
+								</n:a>
+							</n:li>
+						</n:div>
+					</n:ul>
+				</n:div>
+			</n:div>
+		</div>
+
+	</div>
+
+
+</zk>

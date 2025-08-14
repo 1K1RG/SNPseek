@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Rice Ideogram</title>
+
+    <!-- for chromosomes render -->
+    <link type="text/css" rel="stylesheet" href="src/css/ideogram.css" />
+    <script src="src/js/d3.min.js"></script>
+    <script src="src/js/ideogram.js"></script>
+    <script src="src/js/crossfilter.min.js"></script>
+    <script src="src/js/ideogram.filter.js"></script>
+
+    <!-- jQuery library -->
+    <script src="src/js/jquery-3.2.1.js"></script>
+    
+    <!-- for form render -->
+    <script src="src/js/jrf.form.js"></script>
+    <!-- for spinner -->
+    <script src="src/js/spin.min.js"></script>
+    
+    <!-- &+- jquery functions and plugins -->
+    <!-- &+- table export -->
+    <script src="src/js/jQuery plugins/FileSaver.min.js"></script>
+    <script src="src/js/jQuery plugins/tableexport.min.js"></script>
+
+    <!-- &+- svg zoom feature -->
+    <script src="src/js/jQuery plugins/svg-pan-zoom.min.js"></script>  
+    
+    <!-- &+- ideogram extended features -->
+    <script src="src/js/ideogram-extension.js"></script>
+
+    <!-- &+- dropdown menu css -->
+    <link type="text/css" rel="stylesheet" href="src/css/dropdownMenu.css">
+  </head>
+
+  <!-- all of the comments starting with the sequence of symbols &, +, and - [&+-] are all lines/blocks of code added by Jourish Abasolo (jjdcabasolo@github.com) -->
+
+  <body>
+    <div id="main-container">
+      <div id="sidebar">
+        <div>
+          <h1>Rice<br>Ideogram</h1>
+        </div>
+        <div>
+          <ul id="view-type">
+            <b>View type</b>
+            <br/>
+            <li>
+              <label for="view-type_histogram">
+                <input type="radio" name="view-type" id="view-type_histogram" onclick="getViewType(this.value)" value="Histogram" checked="checked">Histogram</input>
+              </label>
+              <label for="view-type_tracks" id="moveright">
+                <input type="radio" name="view-type" id="view-type_tracks" onclick="getViewType(this.value)" value="Tracks">Tracks</input>
+              </label>
+            </li>
+          </ul>
+        </div>
+        <br>
+        <div id="form-render-category">
+          <!-- &+- collapsbile structure inside the html that will eb fileed later on with the data coming from a json file -->
+          <div class="expandable-panel" id="cp-1">
+            <div class="expandable-panel-heading" id="collapsible-tg">
+                <p><img src="images/KLM_down-arrow.png" alt="*" height="10" width="10" id="arrow-tg" class="arrow-left-stuff"><span id="span-tg"></span></p>
+             </div>
+            <div class="expandable-panel-content">
+              <div style="height: 760px;" id="category-content-tg">
+                
+              </div>
+            </div>
+          </div>
+
+          <div class="expandable-panel" id="cp-2">
+            <div class="expandable-panel-heading" id="collapsible-qtl">
+              <p><img src="images/KLM_down-arrow.png" alt="*" height="10" width="10" id="arrow-qtl" class="arrow-left-stuff"><span id="span-qtl"></span></p>
+            </div>
+            <div class="expandable-panel-content">
+              <div style="height: 740px;" id="category-content-qtl">
+                
+              </div>
+            </div>
+          </div>
+                 
+          <div class="expandable-panel" id="cp-3">
+            <div class="expandable-panel-heading" id="collapsible-gq">
+             <p><img src="images/KLM_down-arrow.png" alt="*" height="10" width="10" id="arrow-gq" class="arrow-left-stuff"><span id="span-gq"></span></p>
+            </div>
+            <div class="expandable-panel-content">
+              <div style="height: 50px;" id="category-content-gq">
+                <p style="margin-top: 20px;">No gene queries created yet.</p>
+              </div>            
+            </div>
+          </div> 
+        </div>
+        <br>
+        <div id="instructions">
+          <div class="tab">
+            <button class="tablinks-anotherone" onclick="anotherTab(event, 'Instructions')" id="goToInstr">Instructions</button>
+            <button class="tablinks-anotherone" onclick="anotherTab(event, 'Settings')" id="">Settings</button>
+          </div>
+          <div id="Instructions" class="tabcontent-anotherone">
+            <ul>
+              <b>How to use</b>
+              <li>* <u>Select trait gene(s).</u></li>
+              <li>* <u>For histogram view</u>
+                <br>- hover mouse on a bar to see count</li>
+              <li>* <u>For tracks view</u>
+                <br>- hover mouse on annotation to see
+                <br>gene feature's name
+                <br>- click annotation to view gene
+                <br>feature in JBrowse</li>
+            </ul>
+          </div>
+          <div id="Settings" class="tabcontent-anotherone">
+            <b>Colorblind-friendly color scheme for track annotations:<br></b>
+            <p>Protans are people with protanomaly, a type of red-green color blindness in which the red cones do not detect enough red. Click the button below to activate.</p>
+            <span id="promode" class="button-color"><button type="button" onclick="colorBlindMode('proto')">Enable protan-friendly colors</button></span>
+            <p>Deutans are people with deuteranomaly, a type of red-green color blindness in which the green cones do not detect enough green. Click the button below to activate.</p>
+            <span id="deumode" class="button-color"><button type="button" onclick="colorBlindMode('deuto')">Enable deutan-friendly colors</button></span>
+            <p>Tritans are people with tritanomaly, a type of blue-yellow color blindness in which the blue cones do not detect enough blue. Click the button below to activate.</p>
+            <span id="trimode" class="button-color"><button type="button" onclick="colorBlindMode('trito')">Enable tritan-friendly colors</button></span>
+            <br><br>
+            <b>Default color scheme:<br></b>
+            <span id="normal" class="button-color"><button type="button" onclick="colorBlindMode('normal')">Enable default colors</button></span>
+          </div>
+        </div>
+      </div>
+
+      <span class="button-color" id="download-ideogram"><button class="exportImageButton" onclick="exportSVG()">Export to png</button></span>
+
+      <span class="button-color" id="enable-zoom"><button onclick="toggleZoom()">Enable zoom</button></span>
+      <span class="button-color" id="enable-pan"><button onclick="togglePan()">Enable pan</button></span>
+
+      <div id="searchbox">
+        <b>Search</b><span> gene position by keyword</span>
+        <form class="form-wrapper cf">
+          <input id="search-keyword" type="text" placeholder="Enter keyword here..." autofocus required>
+          <button type="button" onclick="triggerSearchBox()" id="search-button">Search</button>
+        </form>
+        <p id="searchbox-keyword-message"><span id="searchbox-color"></span></p>
+      </div>
+      
+      <!-- &+- the div where the ideogram will be rendered (rendered by ideogram.js) -->
+      <div id="chromosome-render"></div>
+      <br>
+
+      <!-- &+- tabs for the results - either JBrowse or gene table -->
+      <div class="gene-table" id="gt-div">
+        <div class="tab">
+          <button class="header-tab">Show results</button>
+          <button class="tablinks" onclick="toggleResult(event, 'JBrowseView')" id="defaultOpen">JBrowse</button>
+          <button class="tablinks" onclick="toggleResult(event, 'GeneTable')" id="goToTable">Gene table</button>
+        </div>
+        <div id="JBrowseView" class="tabcontent">
+          <iframe id="jbrowse" src="https://snpseekv3.irri-e-extension.com/jbrowse/"></iframe>
+        </div>
+        <div id="GeneTable" class="tabcontent">
+          <table id="gene-table-content" border="1" class="table"></table>
+        </div>
+      </div>
+    </div>
+
+    <script src="src/js/pagesetup.js"></script>  
+  </body>
+</html>

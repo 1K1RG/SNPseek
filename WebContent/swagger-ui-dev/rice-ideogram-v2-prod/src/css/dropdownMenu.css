@@ -1,0 +1,105 @@
+/* &+- css settings for the brush dropdown menu */
+
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    padding: 1px;
+}
+
+.file_menu {
+    width: 200px;
+    padding: 15px;
+    background-color: #212121;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.file_menu li {
+}
+
+.file_menu li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    display: block;
+}
+
+.file_menu li a:hover {
+    font-weight: bold;
+}
+
+.hover {
+	font-size: 15px;
+}
+
+.white-text {
+    font-size: 17px;
+    color: #E0E0E0;
+}
+
+.white-text-smaller {
+    font-size: 11px;
+    color: #E0E0E0;
+}
+
+.white-text-default {
+    color: #E0E0E0;
+}
+
+.inline-textbox {
+    width: 125px;
+}
+
+#startBPTextbox {
+    margin-left: 30px;
+    background-color: #EEEEEE;
+    border: 0;
+}
+
+#endBPTextbox{
+    margin-left: 35px;
+    background-color: #EEEEEE;
+    border: 0;
+}
+
+.header-menu {
+    padding-bottom: 2px;
+}
+
+#chr-name-details {
+    padding: 0px;
+    margin: 0px;    
+}
+
+#range-details {
+    padding-top: 5px;
+}
+
+.submit-chr-details {
+    margin-right: 7px;
+    float: right;   
+    background-color: #424242;
+    border: 0;
+    color: #EEEEEE;
+}
+
+.red-text {
+    padding: 0px;
+    margin: 0px;     
+    font-size: 11px;
+    color: #EF5350;
+    line-height: 10px;
+}
+
+/* &+- activating and deactivating links */
+
+.inactive-link {
+    color: #616161 !important;
+    pointer-events: none;
+    cursor: default;
+}
+
+.active-link {
+    pointer-events: all;
+    cursor: default;
+}

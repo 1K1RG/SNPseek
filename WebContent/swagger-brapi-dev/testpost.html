@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+  <TITLE>A Sample Form Using POST</TITLE>
+</HEAD> 
+
+<BODY BGCOLOR="#FDF5E6">
+<CENTER>
+<H2>A Sample Form Using POST</H2>
+
+<form action="/iric-portal/ws/brapi/v1/allelematrix-search" METHOD="POST"  style="display:block">
+   <table><tr><td><B>POST</B></td><td> /brapi/v1/allelematrix-search </td></tr>     
+   <tr><td>markerprofileDbId:    </td><td>
+   <textarea name="markerprofileDbId" cols="60" rows="10"></textarea> </td></tr>   
+  <tr><td> markerDbId:      </td><td>
+  <textarea name="markerDbId" cols="60" rows="10"></textarea></td></tr>   
+  <tr><td>format:   </td><td> <textarea name="format" cols=60 value="json"></textarea> </td></tr> 
+  <tr><td>expandHomozygotes:   </td><td> <textarea name="expandHomozygotes" cols=60 value="false"></textarea> </td></tr> 
+  <tr><td>unknownString:   </td><td> <textarea name="unknownString" cols=60 value="N"></textarea> </td></tr> 
+  <tr><td>sepUnphased:   </td><td> <textarea name="sepUnphased" cols=60 value="/"></textarea> </td></tr> 
+  </table>
+  <input type="submit" value="Submit">
+</form>
+
+</CENTER>
+</BODY></HTML>

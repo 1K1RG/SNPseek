@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Faq</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="assets/css/Accordion.css">
+    <link rel="stylesheet" href="assets/css/Faq-by-pomdre-1.css">
+    <link rel="stylesheet" href="assets/css/Faq-by-pomdre.css">
+    <link rel="stylesheet" href="assets/css/FAQ-Frequentlly-Asked-Questions-1.css">
+    <link rel="stylesheet" href="assets/css/FAQ-Frequentlly-Asked-Questions.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    
+        <div class="border rounded" role="tablist" id="accordion-1" style="color: rgb(57,198,80);">
+            <div class="card">
+                <div class="card-header" role="tab" style="color: rgb(13,17,14);background: #edf7ee;">
+                    <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="false" aria-controls="accordion-1 .item-1" href="#accordion-1 .item-1" style="color: rgb(8,123,34);"><strong><em class="accordionHeader">SEQUENCE DOWNLOAD</em></strong></a></h5>
+                </div>
+                <div class="collapse item-1" role="tabpanel" data-parent="#accordion-1" style="margin: 20px;">
+                    <div class="card-body">
+                        <div role="tablist" id="accordion-2">
+                            <div class="card">
+                                <div class="card-header" role="tab" class="accordion_qHeader">
+                                    <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="false" aria-controls="accordion-2 .item-1" href="#accordion-2 .item-1"><em class="styleHeader">What exactly am I downloading when I use Sequence Download Feature?</em></a></h5>
+                                </div>
+                                <div class="collapse item-1" role="tabpanel" data-parent="#accordion-2">
+                                    <div class="card-body">
+                                        <p class="card-text" style="color: rgb(10,10,10);margin: 20px;font-size:14px;line-height:1.4;">The FASTA formatted file you get from this tool is what may be called a "pseudo-sequence"; it is a result of <em>in silico</em> replacing reference bases at variant positions with the variant bases found in VCF.
+                                            It is not a biologically validated sequence, and in many cases it won't be faithful to the actual DNA sequence. One reason for that is that the SNPs present in the VCFs do not exhaust all sequence variants -
+                                            the indels and larger structural variants are all missing from this.If your region under study is longer than, say 150 nt, there is a very high chance that in the 3000 samples there are variants in this region
+                                            missing from VCFs and unaccounted for in this tool.Thus, proceed with caution, and do not expect this output to represent actual DNA data of varieties. The output may be acceptable for some population-genetic
+                                            analyses that are tolerant to some degree of omission, but it is not guaranteed to work for analyses requiring precise sequence such as primer design.<br></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" role="tab" class="accordion_qHeader"">
+                                    <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="false" aria-controls="accordion-2 .item-2" href="#accordion-2 .item-2"><em class="styleHeader">Why did my dataset go missing?</em></a></h5>
+                                </div>
+                                <div class="collapse item-2" role="tabpanel" data-parent="#accordion-2">
+                                    <div class="card-body">
+                                        <p class="card-text" style="color: rgb(10,10,10);margin: 20px;font-size:14px;line-height:1.4;">We used to provide SNP data for 4 lower-quality references (93-11, Kasalath, IR 64, DJ123).&nbsp;<br>One problem with that data was that the SNPs were not exhaustive, but incremental relative to other dataset. So
+                                            that when you need to find all SNPs for a region in 93-11, you would first need to get all SNPs from all aligning subregions in Nipponbare, then get the 93-11 SNPs. We realize this is suboptimal, and adds extra
+                                            burden on researchers.&nbsp;<br><br>As new higher quality references become available, we are preparing new SNP datasets for 3,010 genomes aligned to those references. These will replace the data that was removed.
+                                            Stay tuned.&nbsp;<br><br>If you really need SNP data for the previous references, the original single-sample VCF files are available on Amazon Web Services public 3k dataset.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" role="tab" class="accordion_qHeader">
+                                    <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="true" aria-controls="accordion-2 .item-3" href="#accordion-2 .item-3"><em class="styleHeader">Why can't I download all varieties?&nbsp;Should I submit multiple download queries?</em></a></h5>
+                                </div>
+                                <div class="collapse show item-3" role="tabpanel" data-parent="#accordion-2">
+                                    <div class="card-body">
+                                        <p class="card-text" style="color: rgb(10,10,10);margin: 20px;font-size:14px;line-height:1.4;">The tool has a limit of N varieties, and the maximal size of the region is 50kb. If you need more, please download from AWS directly and use GATK tool. &nbsp;<br>We limited the tool, as it is taxing our cloud
+                                            resources.<br><br>Please also refrain from submitting many queries at once. There is a storage limit on the AWS instance running the tool, and in case it gets exhausted, all ongoing jobs will be cancelled.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" role="tab" style="background: #edf7ee;">
+                    <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="false" aria-controls="accordion-1 .item-2" href="#accordion-1 .item-2" style="color: rgb(8,123,34);"><strong><em class="accordionHeader">HAPLOTYPE ANALYSIS</em></strong></a></h5>
+                </div>
+                <div class="collapse item-2" role="tabpanel" data-parent="#accordion-1" style="margin: 20px;">
+                    <div class="card-body">
+                        <div role="tablist" id="accordion-3">
+                            <div class="card">
+                                <div class="card-header" role="tab" class="accordion_qHeader">
+                                    <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="false" aria-controls="accordion-3 .item-1" href="#accordion-3 .item-1"><em class="styleHeader">Why do group alleles in haplotype view keep changing?</em></a></h5>
+                                </div>
+                                <div class="collapse item-1" role="tabpanel" data-parent="#accordion-3">
+                                    <div class="card-body">
+                                        <p class="card-text" style="color: rgb(10,10,10);margin: 20px;font-size:14px;line-height:1.4;">This behaviour had to do with the internal stochasticity of the K-means algorithm, which is employed when deciding on the "best" number of clusters.&nbsp;As such, changing results indicate there is no clear-cut
+                                            "best" number of clusters.<br><br>This behaviour will be changed in future, but please read the answer to the next Q.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" role="tab" class="accordion_qHeader">
+                                    <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="true" aria-controls="accordion-3 .item-2" href="#accordion-3 .item-2"><em class="styleHeader">What does the output of this tool represent, actually?</em></a></h5>
+                                </div>
+                                <div class="collapse show item-2" role="tabpanel" data-parent="#accordion-3">
+                                    <div class="card-body">
+                                        <p class="card-text" style="color: rgb(10,10,10);font-size: 14px;margin: 20px;font-size:14px;line-height:1.4;">The main goal of the haplotype viewer tool is to help visualize the structure and relationship between haplotypes at a locus.&nbsp;<br><br>What it does:<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1. Cluster
+                                            haplotypes in the region into "haplotype groups"<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;2. Visualize the genotypes, showing all genotypes from the same group together.<br>&nbsp; &nbsp; &nbsp; &nbsp;
+                                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; - It does so in a way that can account for "whole-genome" relatedness that is based on subpopulation classification by admixture.<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                            &nbsp;3. Output total number of varieties and that of each population, for each haplotype group cluster<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;4. Output some intermediate results useful for QC, such
+                                            as ...<br><br>What it does not<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1. Report all unique haplotypes in the region. (This task is easier, and may be done using the summary table itself)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" role="tab" style="background: #edf7ee;">
+                    <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="false" aria-controls="accordion-1 .item-3" href="#accordion-1 .item-3" style="color: rgb(8,123,34);"><strong><em class="accordionHeader">REPORTING BUGS AND COMMUNICATION WITH SNP-SEEK TEAM</em></strong></a></h5>
+                </div>
+                <div class="collapse item-3" role="tabpanel" data-parent="#accordion-1" style="margin: 20px;">
+                    <div class="card-body">
+                        <div role="tablist" id="accordion-4">
+                            <div class="card">
+                                <div class="card-header" role="tab" class="accordion_qHeader">
+                                    <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="false" aria-controls="accordion-4 .item-1" href="#accordion-4 .item-1"><em class="styleHeader">When will my request be looked into?</em></a></h5>
+                                </div>
+                                <div class="collapse item-1" role="tabpanel" data-parent="#accordion-4">
+                                    <div class="card-body">
+                                        <p class="card-text" style="color: rgb(10,10,10);margin: 20px;font-size:14px;line-height:1.4;">We assure users that we take note every request given by users.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" role="tab" class="accordion_qHeader">
+                                    <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="true" aria-controls="accordion-4 .item-2" href="#accordion-4 .item-2"><em class="styleHeader">How do I report a bug or request a new feature?</em></a></h5>
+                                </div>
+                                <div class="collapse show item-2" role="tabpanel" data-parent="#accordion-4">
+                                    <div class="card-body">
+                                        <p class="card-text" style="color: rgb(18,20,19);margin: 20px;font-size:14px;line-height:1.4;">Use the bug report form at&nbsp;Help - &gt; Report bug menu.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" role="tab" style="background: #edf7ee;">
+                    <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="true" aria-controls="accordion-1 .item-4" href="#accordion-1 .item-4" style="color: rgb(8,123,34);"><strong><em class="accordionHeader">OTHER QUESTIONS</em></strong></a></h5>
+                </div>
+                <div class="collapse show item-4" role="tabpanel" data-parent="#accordion-1" style="margin: 20px;">
+                    <div class="card-body">
+                        <div role="tablist" id="accordion-5">
+                            <div class="card">
+                                <div class="card-header" role="tab" class="accordion_qHeader">
+                                    <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="false" aria-controls="accordion-5 .item-1" href="#accordion-5 .item-1"><em class="styleHeader"> Are assembled sequences from the 3K RG dataset available in SNP-seek?</em><br></a></h5>
+                                </div>
+                                <div class="collapse item-1" role="tabpanel" data-parent="#accordion-5">
+                                    <div class="card-body">
+                                        <p class="card-text" style="color: rgb(10,10,10);margin: 20px;font-size:14px;line-height:1.4;">Assembled sequences are not in SNP-Seek, but check out this link for our collaborator's website, the 3,000 Rice Pan-Genome browser&nbsp;<a href="https://www.google.com/url?q=http://cgm.sjtu.edu.cn/3kricedb/&amp;sa=D&amp;source=hangouts&amp;ust=1591953465563000&amp;usg=AFQjCNHfZf76rQthrv2F18f_kDGlyhjCWg">http://cgm.sjtu.edu.cn/3kricedb/</a><br></p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" role="tab" class="accordion_qHeader">
+                                    <h5 class="mb-0"><a data-toggle="collapse" aria-expanded="true" aria-controls="accordion-5 .item-2" href="#accordion-5 .item-2"><em class="styleHeader">How to use the GWAS SNP dataset in TASSEL?</em></a></h5>
+                                </div>
+                                <div class="collapse show item-2" role="tabpanel" data-parent="#accordion-5">
+                                    <div class="card-body">
+                                        <p class="card-text" style="color: rgb(10,10,10);margin: 20px;font-size:14px;line-height:1.4;">The PLINK files available form Downloads page are in "binary PLINK" format (bed, bim, fam).To use with TASSEL, one needs a "text PLINK" format (ped and map files). Thus, to use our files with TASSEL, one needs to
+                                            convert binary plink to text plink. Here is how to do it on Windows. (If you use Mac or Linux, it is much easier and follows the same lines)<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;1. Download PLINK 1.90&nbsp;from
+                                            https://www.cog-genomics.org/plink2/&nbsp;(choose the file suitable for your operating system).<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;2. Unpack the archive.<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;3.
+                                            Create a folder on your desktop, named plinkdata<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;4. Put plink.exe (or plink file) AND the dataset you want to convert into this folder. I will use the example of the
+                                            1M GWAS dataset which&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;contains 3 files (pruned_v2.1.bed, pruned_v2.1.bim, pruned_v2.1.fam).<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                            &nbsp;5. Open&nbsp;PowerShell . Type<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <strong>$&nbsp;cd Desktop</strong><br><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; $ cd plinkdata</strong><br>&nbsp;
+                                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; (press Enter after typing&nbsp;to run each command)&nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; You should be inside the PLINK3K folder.
+                                            Type:&nbsp;<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>$&nbsp;ls</strong><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;and press Enter to check that files are
+                                            there.<br><br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Type<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<strong>$ .\plink --bfile pruned_v2.1 --recode tab --out 1Mdata</strong><br>&nbsp;
+                                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;and press Enter.<br>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;- This will create files <strong>1Mdata.ped</strong> and <strong>1Mdata.map</strong>                                            that can be used to be input in TASSEL via <strong>"Data -&gt; Load PLINK"</strong><br><br></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/Faq-by-pomdre.js"></script>
+</body>
+
+</html>

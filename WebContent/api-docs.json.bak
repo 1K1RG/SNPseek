@@ -1,0 +1,97 @@
+{
+"apiVersion": "1.0",
+"swaggerVersion": "1.0",
+"basePath": "http://pollux:8080/iric-portal/api-docs",
+"apis": 
+[
+{
+"path": "/variety.json",
+"description": "Endpoint for variety listings."
+},
+{
+"path": "/genotype.json",
+"description": "Endpoint for genotype queries."
+}
+
+
+]
+}
+
+{
+"apiVersion": "1.0",
+"swaggerVersion": "1.0",
+"basePath": "http://localhost:8080/iric-portal/api-docs",
+"apis": 
+[
+{
+"path": "/variety.json",
+"description": "Endpoint for variety listings."
+}
+
+]
+}
+
+
+
+
+{
+"apiVersion": "1.0",
+"swaggerVersion": "1.0",
+"basePath": "http://localhost:8080/iric-portal",
+"apis": 
+[
+{
+"path": "/variety",
+"description": "Variety query"
+},
+{
+"path": "/variety/{id}",
+"description": "Get variety details for id",
+"operations":[  
+                {  
+                    "method":"GET",
+                    "summary":"Returns variety details",
+                    "notes":"Returns a complete list of users details with a date of last modification.",
+                    "type":"Variety",
+                    "nickname":"getVariety",
+                    "produces":[  
+                        "application/json"
+                    ],
+                    "authorizations":{  
+ 
+                    },
+                    "parameters":[  
+                        {  
+                            "name":"id",
+                            "description":"Variety id",
+                            "required":true,
+                            "type":"long",
+                            "paramType":"path",
+                            "allowMultiple":false
+                        }
+                    ],
+                    "responseMessages":[  
+                        {  
+                            "code":200,
+                            "message":"Successful retrieval of variety detail",
+                            "responseModel":"User"
+                        },
+                        {  
+                            "code":404,
+                            "message":"Variety with given id does not exist"
+                        },
+                        {  
+                            "code":500,
+                            "message":"Internal server error"
+                        }
+                    ]
+                }
+            ]
+},
+
+{
+"path": "/genotype/getTable",
+"description": "SNP query"
+}
+]
+}

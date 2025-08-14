@@ -1,0 +1,12 @@
+spring.security.oauth2.client.registration.microsoft.client-id=${OAUTH_CLIENT_ID}
+spring.security.oauth2.client.registration.microsoft.client-secret=${OAUTH_CLIENT_SECRET}
+spring.security.oauth2.client.registration.microsoft.scope=openid, profile, User.Read
+spring.security.oauth2.client.registration.microsoft.authorization-grant-type=authorization_code
+spring.security.oauth2.client.registration.microsoft.redirect-uri={baseUrl}/login/oauth2/code/microsoft
+spring.security.oauth2.client.registration.microsoft.client-name=Microsoft
+
+spring.security.oauth2.client.provider.microsoft.authorization-uri=https://login.microsoftonline.com/common/oauth2/v2.0/authorize
+spring.security.oauth2.client.provider.microsoft.token-uri=https://login.microsoftonline.com/common/oauth2/v2.0/token
+spring.security.oauth2.client.provider.microsoft.user-info-uri=https://graph.microsoft.com/v1.0/me
+
+logging.level.org.springframework=DEBUG

@@ -1,0 +1,37 @@
+<!-- this is the dropdown menu structure which is located on jrf.form.js in a form of a string, this is rendered on the odegram itself inside the svg tag using jquery -->
+<div>
+	<ul class="hover">
+		<li class="hoverli"><ul class="file_menu">
+				<li class="header-menu"><b class="white-text">Options</b></li>
+				<li><a id="brush0" class="show-jbrowse"
+					onclick="redirectToJBrowse(this.id)">Show in JBrowse</a></li>
+				<li><a class="plot-genes" onclick="plotGeneAnnotation()">Plot
+						all genes</a></li>
+				<hr id="divider">
+				<li class="header-menu"><b class="white-text">Brush</b></li>
+				<li><a id="brush0" class="identify-the-brush"
+					onclick="deleteThisBrush(this.id)">Delete this brush</a></li>
+				<li><a onclick="deleteAllBrush()">Delete all brush</a></li>
+				<hr id="divider">
+				<li class="header-menu"><b class="white-text">Set base pair
+						range</b></li>
+				<li><form class="white-text-default">
+						<label for="StartBP">Start:</label><input type="number"
+							name="StartBP" value="startBp" class="inline-textbox"
+							id="startBPTextbox">
+					</form></li>
+				<li><form class="white-text-default">
+						<label for="EndBP">End:</label><input type="number" name="EndBP"
+							value="stopBp" class="inline-textbox" id="endBPTextbox">
+					</form></li>
+				<li id="range-details"><p class="white-text-smaller"
+						id="chr-name-details">
+						<b class="white-text-smaller" id="chr-name"></b>max:<b
+							class="white-text-smaller" id="chr-name-max"></b>
+						<button type="button" id="brush0" class="submit-chr-details"
+							onclick="setTheBrush(this.id)">Submit</button>
+					</p></li>
+				<li><p class="red-text" id="message-input-menu"></li>
+			</ul></li>
+	</ul>
+</div>

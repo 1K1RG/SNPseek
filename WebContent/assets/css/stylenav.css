@@ -1,0 +1,73 @@
+.horizontal, .vertical {
+	background-color: #EAE7E7;
+}
+
+.z-navbar {
+	position: absolute;
+	background-color: white;
+}
+
+.z-navbar-horizontal li {
+	min-width: 145px;
+}
+
+.z-navbar-vertical {
+	width: 240px;
+	height: 100%;
+}
+
+.z-navbar-vertical.z-navbar-collapsed {
+	width: inherit;
+}
+
+.z-navbar-horizontal.z-navbar-collapsed {
+	width: 580px;
+}
+
+.content {
+	padding: 0px;
+}
+
+.vertical .content {
+	padding-left: 240px;
+}
+
+.vertical .content.collapsed {
+	padding-left: 85px;
+	
+}
+
+.horizontal .content {
+	padding-top: 50px;
+}
+
+.content .title {
+	margin: 0;
+}
+
+.content .subTitle {
+	margin: 0;
+}
+
+.z-nav-text, .z-navitem-text {
+	font-size: 12px;
+}
+
+.z-navitem-text.z-navitem-text-popup.z-navitem-selected {
+	display: none !important;
+	font-size: 12px;
+}
+
+.z-navbar>ul ul .z-nav-text, .z-navbar>ul ul .z-navitem-text {
+	font-size: var(--ds-font-size-100,12px);
+	margin-left: 10px;
+	font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Fira Sans,Droid Sans,Helvetica Neue,sans-serif !important;
+}
+
+.z-nav-text, .z-navitem-text {
+	font-size: var(--ds-font-size-100,14px);
+}
+
+.z-nav-popup .z-nav-text, .z-nav-popup .z-navitem-text {
+    font-size: 11px;
+}

@@ -1,0 +1,141 @@
+<?page title="Contact Us" contentType="text/html;charset=UTF-8"?>
+<zk xmlns:n="native">
+	<n:div xmlns:n="native">
+
+
+		<style src="assets/bootstrap/css/bootstrap.min.css" />
+		<style
+			src="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" />
+		<style src="assets/fonts/fontawesome-all.min.css" />
+		<n:script src="https://www.google.com/recaptcha/api.js" async="async" defer="defer"></n:script>
+
+
+		<n:script>
+		  <![CDATA[
+			  function afterValidate(response) {
+			    
+				var action = "signup";
+				
+				 var token = grecaptcha.getResponse();
+			     console.log("reCAPTCHA token: ", token);
+				
+				console.log("reCAPTCHA validated: ", response);
+			    
+				// Log the event firing to make sure it reaches this point
+			    console.log("Firing event to ZK server with response and action...");
+				
+				zk.Widget.$('$recaptchaDiv').fire('onRecaptchaValidated', {'response': response, 'action': action, 'token': token}, {toServer: true});
+			    
+				console.log("reCAPTCHA firing OnUserRespond: ");
+			    var button = zk.Widget.$('$buttonSubmit');
+		        
+		        if (response) {
+		            button.setDisabled(false);  // Enable the button
+		        } else {
+		            button.setDisabled(true);  // Disable the button
+		        }
+			    
+			  }
+		  ]]>
+		</n:script>
+
+
+		<div
+			style="margin-top:150px;width:80%;margin-left:auto;margin-right:auto;"
+			apply="user.ui.module.RegisterController">
+			<n:div class="container">
+				<n:div class="card shadow-lg o-hidden border-0 my-5">
+					<n:div class="card-body p-0">
+						<n:div class="row">
+							<n:div class="col-lg-5 d-none d-lg-flex">
+								<n:div
+									class="flex-grow-1 bg-register-image"
+									style="background-image: url('./assets/img/login_2.png');background-size: 130%;">
+								</n:div>
+							</n:div>
+							<n:div class="col-lg-7">
+								<n:div class="p-5">
+									<n:div class="text-center">
+										<n:h4 class="text-dark mb-4">
+											Create an Account!
+										</n:h4>
+									</n:div>
+									<n:div class="form-group row">
+										<n:div
+											class="col-sm-6 mb-3 mb-sm-0">
+											<textbox
+												class="form-control form-control-user" type="text"
+												id="txtbox_fname" placeholder="First Name" name="first_name"
+												 />
+										</n:div>
+										<n:div class="col-sm-6">
+											<textbox
+												class="form-control form-control-user" type="text"
+												id="txtbox_lname" placeholder="Last Name" name="last_name"
+												 />
+
+										</n:div>
+									</n:div>
+									<n:div class="form-group">
+										<textbox
+											class="form-control form-control-user" type="email"
+											id="txtbox_email" placeholder="Email Address" name="email" />
+									</n:div>
+									<n:div class="form-group row">
+										<n:div
+											class="col-sm-6 mb-3 mb-sm-0">
+											<textbox
+												class="form-control form-control-user" type="password"
+												id="txtbox_password" placeholder="Password" name="password" />
+
+										</n:div>
+										<n:div class="col-sm-6">
+											<textbox
+												class="form-control form-control-user" type="password"
+												id="txbox_confirmpassword" placeholder="Repeat Password"
+												name="password_repeat" />
+
+										</n:div>
+									</n:div>
+
+									<!-- reCAPTCHA widget -->
+									<n:div class="form-group">
+										<label value="Recaptcha: " />
+										<div>
+											<n:div id="recaptcha"
+												class="g-recaptcha"
+												data-sitekey="6Lde5MEqAAAAAPfUDTkpvARIpETwSsiT-c0ne4eh"
+												data-callback="afterValidate" />
+
+										</div>
+										<div id="recaptchaDiv" visible="false"/>
+									</n:div>
+
+									<n:div class="form-group">
+										<button id="buttonSubmit"
+											class="btn btn-primary btn-block text-white btn-user"
+											disabled="true">
+											Register Account
+										</button>
+									</n:div>
+
+
+
+								</n:div>
+							</n:div>
+						</n:div>
+					</n:div>
+				</n:div>
+			</n:div>
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+			<script src="assets/js/chart.min.js"></script>
+			<script src="assets/js/bs-init.js"></script>
+			<script
+				src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js">
+			</script>
+			<script src="assets/js/theme.js"></script>
+		</div>
+
+	</n:div>
+</zk>

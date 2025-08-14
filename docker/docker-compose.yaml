@@ -1,0 +1,36 @@
+version: '3.7'
+services:
+  tomcat_eb:
+    build: ./tomcat
+    image: snpseekv3_app
+    container_name: snpseekv3_app
+    volumes:
+      - ./IRCStorage:/usr/local/tomcat/webapps/temp
+    ports:
+      - 80:8080
+    restart: on-failure
+    depends_on:
+      - postgresql
+    networks:
+      - eb
+
+  postgresql:
+    build: ./postgresDB
+    image: snpseekv3_db
+    container_name: snpseekv3_db
+    ports:
+      - 5432:5432
+    volumes:
+      - ./pg_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: "iric"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "user1234"
+      ALLOW_IP_RANGE: "0.0.0.0/0"
+    restart: always
+    networks:
+      - eb
+
+
+networks:
+  eb:

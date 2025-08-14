@@ -1,0 +1,22 @@
+<?page title="jbrowseiframe" contentType="text/html;charset=UTF-8"?>
+<zk>
+
+		<zscript>
+			import java.util.Map;
+			import org.irri.iric.portal.AppContext;
+			String jbrowsestart =  AppContext.getJbrowseDir();
+			jbrowsestart=jbrowsestart.trim();
+			Map paramap=Executions.getCurrent().getParameterMap();
+			String app=  ((String[])paramap.get("app"))[0];
+			String hostname=AppContext.getHostname();
+			String[] host = (String[])paramap.get("host");
+			if(host!=null) hostname=host[0]; 
+	        //String paramstr=jbrowsestart+"/"+ AppContext.convertParams2URL(paramap);
+	        String paramstr= hostname + "/" + app + "/"+ AppContext.convertParams2URL(paramap);
+	        AppContext.debug("loading " + paramstr);
+	        	
+        </zscript> 
+      
+      <iframe id="iframejbrowse" src="${paramstr}" width="100%" height="100%"/>
+      
+</zk>

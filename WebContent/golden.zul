@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk>
+	<vlayout hflex="1">
+		<div viewModel="@id('vm') @init('user.ui.module.MyViewModel')" hflex="1" height="600px">
+			<goldenlayout id="gl" hflex="1" vflex="1" orient="vertical" areas="@init(vm.areas)">
+				<goldenpanel id="project" area="A" title="Project" closable="false" >
+					<tree id="tree1" rows="4" mold="paging" pageSize="4">
+						<treecols sizable="true">
+							<treecol label="Name" />
+							<treecol label="Description" />
+						</treecols>
+						<treechildren>
+							<treeitem>
+								<treerow>
+									<treecell label="Item 1" />
+									<treecell label="Item 1 description" />
+								</treerow>
+							</treeitem>
+							<treeitem>
+								<treerow>
+									<treecell label="Item 2" />
+									<treecell label="Item 2 description" />
+								</treerow>
+								<treechildren>
+									<treeitem>
+										<treerow>
+											<treecell label="Item 2.1" />
+										</treerow>
+									</treeitem>
+									<treeitem>
+										<treerow>
+											<treecell label="Item 2.2" />
+											<treecell label="Item 2.2 is something who cares" />
+										</treerow>
+									</treeitem>
+								</treechildren>
+							</treeitem>
+							<treeitem label="Item 3" />
+						</treechildren>
+						<treefoot>
+							<treefooter label="Count" />
+							<treefooter label="Summary" />
+						</treefoot>
+					</tree>
+				</goldenpanel>
+				<goldenpanel id="files" area="A" title="Files">
+				</goldenpanel>
+				<goldenpanel id="main" area="B" hflex="2" title="Main" closable="false" draggable="false">
+					<textbox hflex="1" vflex="1" multiline="true"/>
+				</goldenpanel>
+				<goldenpanel id="side" area="C" title="Side" droppable="false">
+					<div hflex="1" vflex="1">
+					</div>
+				</goldenpanel>
+				<goldenpanel id="console" area="D" title="Console">
+				</goldenpanel>
+			</goldenlayout>
+			<button label="Add Panel" onClick="@command('addPanel', gl=gl)"/>
+		</div>
+		<div hflex="1" height="600px" apply="user.ui.module.MyComposer"/>
+	</vlayout>
+</zk>

@@ -1,0 +1,487 @@
+<?script rel="javascript" type="text/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"?>
+<?link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css"?>
+<zk xmlns:w="http://www.zkoss.org/2005/zk/client">
+	<n:div xmlns:n="native">
+		<n:meta name="viewport"
+			content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+		<n:script
+			src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js" />
+		<style
+			src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css" />
+
+		<n:script src="assets/js/jquery.min.js" />
+		<n:script src="assets/bootstrap/js/bootstrap.min.js" />
+		<n:script
+			src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js" />
+
+		<n:script src="assets/js/Collapsible-Sidebar.js" />
+		<n:script src="assets/js/Material-Text-Input.js" />
+		<style src="assets/bootstrap/css/bootstrap.min.css" />
+		<style
+			src="https://fonts.googleapis.com/css?family=Nunito+Sans" />
+		<style src="https://fonts.googleapis.com/css?family=Poppins" />
+		<style src="https://fonts.googleapis.com/css?family=Roboto" />
+		<style src="https://fonts.googleapis.com/css?family=Rubik" />
+		<style src="assets/fonts/fontawesome-all.min.css" />
+		<style src="assets/fonts/font-awesome.min.css" />
+		<style src="assets/fonts/fontawesome5-overrides.min.css" />
+		<style src="assets/css/Footer-Dark.css" />
+		<style src="assets/css/styles.css" />
+		<style src="assets/css/styles_genotype.css" />
+		<style src="assets/css/Collapsible-Sidebar.css" />
+		<style src="assets/css/sidebar_home.css" />
+		<style src="assets/css/stylenav.css" />
+
+
+
+		<window id="homeWin" border="none" width="100%" height="100%"
+			apply="org.irri.iric.portal.LoginController">
+			<n:div id="bodyContent">
+
+				<n:div id="bodyContent1"
+					style="margin: 20px;background-color: #e5f9e8">
+					<n:div class="row"
+						style="width: 80%;margin-left: auto;margin-right: auto;margin-top:20px;margin-bottom:20px;">
+						<n:div class="col-md-6 col-xl-3 mb-4">
+							<n:div
+								class="card shadow border-start-primary py-2 home_div">
+								<n:div class="card-body">
+									<n:div
+										class="row align-items-center no-gutters">
+										<n:div class="col me-2">
+											<n:div
+												class="text-uppercase text-primary fw-bold text-xs mb-1">
+												<n:span>
+													Dataset Available
+												</n:span>
+											</n:div>
+											<n:div
+												class="text-dark fw-bold h5 mb-0">
+												<n:span>6</n:span>
+											</n:div>
+										</n:div>
+										<n:div class="home_icons"
+											style="width: 90px;text-align: center;">
+											<n:i
+												class="fas fa-clipboard-list fa-2x text-gray-300">
+											</n:i>
+										</n:div>
+									</n:div>
+								</n:div>
+							</n:div>
+						</n:div>
+						<n:div class="col-md-6 col-xl-3 mb-4">
+							<n:div
+								class="card shadow border-start-success py-2 home_div">
+								<n:div class="card-body">
+									<n:div
+										class="row align-items-center no-gutters">
+										<n:div class="col me-2">
+											<n:div
+												class="text-uppercase text-success fw-bold text-xs mb-1">
+												<n:span>
+													Variety Names
+												</n:span>
+											</n:div>
+											<n:div
+												class="text-dark fw-bold h5 mb-0">
+												<n:span>3024</n:span>
+											</n:div>
+										</n:div>
+										<n:div class="home_icons"
+											style="width: 90px;text-align: center;">
+											<n:i
+												class="fas fa-seedling fa-2x text-gray-300">
+											</n:i>
+										</n:div>
+									</n:div>
+								</n:div>
+							</n:div>
+						</n:div>
+						<n:div class="col-md-6 col-xl-3 mb-4">
+							<n:div
+								class="card shadow border-start-info py-2 home_div">
+								<n:div class="card-body">
+									<n:div
+										class="row align-items-center no-gutters">
+										<n:div class="col me-2">
+											<n:div
+												class="text-uppercase text-info fw-bold text-xs mb-1">
+												<n:span>
+													Number of SNPs
+												</n:span>
+											</n:div>
+											<n:div
+												class="row g-0 align-items-center">
+												<n:div
+													class="col-auto">
+													<n:div
+														class="text-dark fw-bold h5 mb-0 me-3">
+														<n:span>
+															20 million +
+														</n:span>
+													</n:div>
+												</n:div>
+											</n:div>
+										</n:div>
+										<n:div class="home_icons"
+											style="width: 90px;text-align: center;">
+											<n:i
+												class="fas fa-clipboard-list fa-2x text-gray-300">
+											</n:i>
+										</n:div>
+									</n:div>
+								</n:div>
+							</n:div>
+						</n:div>
+						<n:div class="col-md-6 col-xl-3 mb-4">
+							<n:div
+								class="card shadow border-start-warning py-2 home_div">
+								<n:div class="card-body">
+									<n:div
+										class="row align-items-center no-gutters">
+										<n:div class="col me-2">
+											<n:div
+												class="text-uppercase text-warning fw-bold text-xs mb-1">
+												<n:span>
+													Total Visits
+												</n:span>
+											</n:div>
+											<n:div
+												class="text-dark fw-bold h5 mb-0">
+												<n:span>18</n:span>
+											</n:div>
+										</n:div>
+										<n:div class="home_icons">
+											<n:i
+												class="fas fa-chart-line fa-2x text-gray-300">
+											</n:i>
+										</n:div>
+									</n:div>
+								</n:div>
+							</n:div>
+						</n:div>
+					</n:div>
+
+					<n:div class="row"
+						style="width:90%; margin-left:auto;margin-right:auto;">
+
+						<n:div class="col-lg-7 col-xl-8">
+							<n:div class="card shadow mb-4"
+								style="border-radius:10px;">
+								<n:div
+									class="card-header d-flex justify-content-between align-items-center homeHeader">
+									<n:h6
+										class="text-primary fw-bold m-0"
+										style="color:#dfeae2!important">
+										About the Site
+									</n:h6>
+								</n:div>
+								<n:div class="card-body"
+									style="height:460px">
+
+									<div id="slider" sclass="myslider"
+										w:onBind="this.bxSlider = jq(this).bxSlider();"
+										w:reloadSlider="function() { this.bxSlider.reloadSlider();}">
+										<div
+											style="height:350px !important;width:900px !important;padding:70px !important;">
+											<div>
+												<n:h2
+													style="color:#4e665b;">
+													SNP-seek Version 3.0
+												</n:h2>
+												<n:p
+													style="font-size: 14px;">
+													This site provides
+													Genotype, Phenotype,
+													and Variety
+													Information for rice
+													(Oryza sativa L.).
+													SNP genotyping data
+													(called against
+													Nipponbare reference
+													Os-Nipponbare-Reference-IRGSP-1.0)
+													came from 3,000 Rice
+													Genomes Project .
+													Phenotype and
+													passport data for
+													the 3,000 rice
+													varieties came from
+													the International
+													Rice Genebank
+													Collection
+													Information System
+													(IRGCIS). We are a
+													part of an ongoing
+													effort by the
+													International Rice
+													Informatics
+													Consortium (IRIC) to
+													centralize
+													information access
+													to rice research
+													data and provide
+													computational tools
+													to facilitate rice
+													improvement via
+													discovery of new
+													gene-trait
+													associations and
+													accelerated
+													breeding.
+												</n:p>
+											</div>
+
+										</div>
+										<div sclass="slide">
+											<n:div
+												style="height:350px !important;width:900px !important;padding:70px !important;">
+												<n:p
+													style="font-size: 20px;">
+													PUBLICATION
+												</n:p>
+												<n:br />
+
+												<n:p
+													style="font-size: 16px;">
+													Mansueto, et al.
+													Rice SNP-seek
+													database update: new
+													SNPs, indels, and
+													queries.Nucl. Acids
+													Res.(2017) 45 (D1):
+													D1075-D1081. doi:
+													10.1093/nar/gkw1135
+													This paper describes
+													new features and
+													datasets added to
+													SNP-Seek in
+													2015-2017 as well as
+													software and
+													database updates.
+												</n:p>
+												<n:br />
+												<n:br />
+												<n:div
+													style="display: flex; justify-content: flex-end">
+													<n:button
+														class="btn btn-primary d-block btn-user w-100 my_buttonStyle"
+														style="width:300px!important;" type="submit">
+														See More
+													</n:button>
+												</n:div>
+
+											</n:div>
+
+										</div>
+										<div sclass="slide">
+											<n:div
+												style="height:350px !important;width:900px !important;padding:70px !important;">
+												<n:p
+													style="font-size: 20px;">
+													LATEST UPDATE
+												</n:p>
+											</n:div>
+
+										</div>
+									</div>
+
+								</n:div>
+							</n:div>
+						</n:div>
+
+						<n:div class="col-lg-5 col-xl-4">
+							<n:div class="card shadow mb-4"
+								style="border-radius:10px;height:95%;">
+								<n:div
+									class="card-header d-flex justify-content-between align-items-center homeHeader"
+									style="background: white!important;border: 0px;margin: auto;margin-top: 40px;">
+									<n:h6
+										class="text-primary fw-bold m-0">
+										Login Account
+									</n:h6>
+								</n:div>
+
+								<div id="loginfo" visible="false"
+									style="margin: auto;margin-right: auto;margin-left: auto; margin-top: 10px;width: 80%;padding-left: 10px;padding-right: 10px;height: 80%;">
+
+									<n:div
+										class="card-header d-flex justify-content-between align-items-center homeHeader"
+										style="background: white!important; border: 0px; margin: auto;  margin-left: 10%;  margin-top: 40px;">
+										<n:h8
+											class="text-primary fw-bold m-0">
+											<n:b
+												style="color: #b33737;font-size: 20px;">
+												You are currently login.
+											</n:b>
+										</n:h8>
+									</n:div>
+									<hlayout>
+										<hlayout
+											style="padding:20px;">
+											<image id="image_Id" />
+										</hlayout>
+										<vlayout
+											style="padding:10px;">
+											<hbox>
+												<label value="Name: " />
+												<label id="lbl_name" />
+											</hbox>
+											<hbox>
+												<label value="ID: " />
+												<label id="lbl_id" />
+											</hbox>
+											<hbox>
+												<label value="Email: " />
+												<label id="lbl_email" />
+											</hbox>
+											<hbox>
+												<label
+													value="Firstname: " />
+												<label
+													id="lbl_firstname" />
+											</hbox>
+											<hbox>
+												<label
+													value="Lastname: " />
+												<label
+													id="lbl_lastname" />
+											</hbox>
+										</vlayout>
+									</hlayout>
+								</div>
+								<div id="logform">
+									<n:div class="card-body"
+										style="height:420px;margin-left:70px;margin-right:70px;">
+
+										<n:form class="user">
+											<n:div class="mb-3">
+												<label value="Username" />
+												<textbox
+													id="txtbox_username" width="100%" style="font-size:12px;" />
+
+
+											</n:div>
+											<n:div class="mb-3">
+												<label value="Password" />
+												<textbox
+													id="txtbox_password" width="100%" style="font-size:12px;"
+													type="password" />
+
+											</n:div>
+											<n:div class="mb-3">
+												<n:div
+													class="custom-control custom-checkbox small">
+													<n:div
+														class="form-check">
+														<!-- <n:input
+															id="formCheck-1"
+															class="form-check-input custom-control-input"
+															type="checkbox" />
+															<n:label
+															class="form-check-label custom-control-label"
+															for="formCheck-1">
+															Remember Me
+															</n:label>
+														-->
+													</n:div>
+												</n:div>
+											</n:div>
+											<!-- class="btn btn-primary d-block btn-user w-100 my_buttonStyle"  -->
+											<button id="btn_login"
+												style="width: 100%;border-radius: 15px;">
+												Login
+											</button>
+											<n:hr />
+											<n:a href="login"
+												class="btn btn-primary d-block btn-google btn-user w-100 mb-2"
+												role="button"
+												style="background: white;
+    color: #007bff;
+    border-color: #4e9c81;
+    border-radius: 10px;">
+												<n:i
+													class="fab fa-google">
+												</n:i>
+												  Login with Google
+											</n:a>
+											<n:hr />
+										</n:form>
+										<n:div class="text-center">
+											<n:a class="small"
+												href="forgot-password.html">
+												Forgot Password?
+											</n:a>
+										</n:div>
+										<n:div class="text-center">
+											<n:a class="small"
+												href="register.zul">
+												Create an Account!
+											</n:a>
+										</n:div>
+									</n:div>
+								</div>
+							</n:div>
+						</n:div>
+					</n:div>
+					<!-- 
+						<n:div class="row">
+						<n:div class="col-lg-7 col-xl-8">
+						<n:div class="card shadow mb-4">
+						<n:div
+						class="card-header d-flex justify-content-between align-items-center homeHeader">
+						<n:h6 class="text-primary fw-bold m-0"
+						style="color:#4c894c!important">
+						Frequently Asked Questions
+						</n:h6>
+						</n:div>
+						<n:div class="card-body">
+						<iframe src="faq.html"
+						style="width:100%;height:900px;">
+						</iframe>
+						</n:div>
+						</n:div>
+						</n:div>
+						<n:div class="col-lg-5 col-xl-4">
+						<n:div class="card shadow mb-4">
+						<n:div
+						class="card-header d-flex justify-content-between align-items-center homeHeader">
+						<n:h6 class="text-primary fw-bold m-0"
+						style="color:#4c894c!important">
+						Latest Updates
+						</n:h6>
+						</n:div>
+						<n:div class="card-body"
+						style="height:950px">
+						<n:div>
+						
+						
+						</n:div>
+						
+						</n:div>
+						</n:div>
+						</n:div>
+						
+						</n:div>
+					-->
+
+
+				</n:div>
+			</n:div>
+		</window>
+		<!-- 
+			<n:footer class="footer-dark" style="z-index:4000 !important; height:20px;">
+			<n:div class="text-center">
+			<n:label class="text-center" style="font-size: 12px;">
+			2014 International Rice Research Institute. Los
+			Banos, Laguna, Philippines. This site is under
+			development. We schedule maintenance every Monday,
+			8-9:00 GMT (4-5PM Manila)
+			<n:br />
+			</n:label>
+			</n:div>
+			</n:footer> -->
+
+	</n:div>
+
+</zk>

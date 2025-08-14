@@ -1,0 +1,5 @@
+<zk>
+    <div vflex="1" hflex="1">
+        <label value="Welcome to the homepage!" />
+    </div>
+</zk>

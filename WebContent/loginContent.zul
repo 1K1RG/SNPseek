@@ -1,0 +1,294 @@
+<?script rel="javascript" type="text/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"?>
+<?link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css"?>
+<zk xmlns:w="http://www.zkoss.org/2005/zk/client">
+	<n:div xmlns:n="native">
+		<n:meta name="viewport"
+			content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+		<n:script
+			src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js" />
+		<style
+			src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css" />
+
+		<n:script src="assets/js/jquery.min.js" />
+		<n:script src="assets/bootstrap/js/bootstrap.min.js" />
+		<n:script
+			src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js" />
+
+		<n:script src="assets/js/Collapsible-Sidebar.js" />
+		<n:script src="assets/js/Material-Text-Input.js" />
+		<style src="assets/bootstrap/css/bootstrap.min.css" />
+		<style src="assets/css/Carousel-Hero.css" />
+		<style
+			src="https://fonts.googleapis.com/css?family=Nunito+Sans" />
+		<style src="https://fonts.googleapis.com/css?family=Poppins" />
+		<style src="https://fonts.googleapis.com/css?family=Roboto" />
+		<style src="https://fonts.googleapis.com/css?family=Rubik" />
+		<style src="assets/fonts/fontawesome-all.min.css" />
+		<style src="assets/fonts/font-awesome.min.css" />
+		<style src="assets/fonts/fontawesome5-overrides.min.css" />
+		<style src="assets/css/Footer-Dark.css" />
+		<style src="assets/css/styles.css" />
+		<style src="assets/css/styles_genotype.css" />
+		<style src="assets/css/Collapsible-Sidebar.css" />
+		<style src="assets/css/sidebar_home.css" />
+		<style src="assets/css/stylenav.css" />
+		
+		<style>
+		/* General link styles */
+        .login-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            font-size: 12px;
+            border-radius: 15px; /* Rounded corners */
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            margin-top: 10px;
+            width: 100%;
+            height: 40px;
+            text-align: center;
+        }
+
+        /* Google link styles */
+        .google-link {
+            background: #288067; /* Google blue */
+        }
+
+        .google-link img {
+            width: 20px;
+            margin-right: 10px;
+        }
+
+        /* Microsoft link styles */
+        .microsoft-link {
+            background: #0078D4; /* Microsoft blue */
+        }
+
+        .microsoft-link img {
+            width: 20px;
+            margin-right: 10px;
+        }
+		
+		</style>
+
+
+		<window id="homeWin" border="none" width="100%" height="100%"
+			apply="org.irri.iric.portal.LoginController">
+			<n:div id="bodyContent">
+
+				<!-- style="background-image: url('./assets/img/login_2.png') !important;background-repeat:no-repeat !important;background-position-x: center !important;background-position-y: center !important;background-size: 45% !important;"> -->
+
+
+				<n:div id="bodyContent1"
+					style="margin: 20px;margin-left:20px;">
+					<n:div class="container">
+						<n:div class="row justify-content-center">
+							<n:div
+								class="col-md-9 col-lg-12 col-xl-10">
+								<n:div
+									class="card shadow-lg o-hidden border-0 my-5">
+									<n:div class="card-body p-0">
+										<n:div class="row">
+											<n:div
+												class="col-lg-6 d-none d-lg-flex">
+												<n:div
+													class="flex-grow-1 bg-login-image"
+													style="background-image: url('./assets/img/login_2.png');background-size: 150%;">
+												</n:div>
+											</n:div>
+											<n:div class="col-lg-6">
+												<n:div class="p-5">
+													<n:div
+														class="text-center">
+														<n:h4
+															class="text-dark mb-4">
+															LOGIN
+														</n:h4>
+													</n:div>
+													<n:form
+														class="user">
+														<n:div
+															class="form-group">
+															<label
+																value="Username/Email" />
+															<textbox
+																id="txtbox_username" width="100%"
+																style="font-size:12px;"
+																class="form-control form-control-user" />
+														</n:div>
+														<n:div
+															class="form-group">
+															<label
+																value="Password" />
+															<textbox
+																id="txtbox_password"
+																class="form-control form-control-user" width="100%"
+																style="font-size:12px;" type="password" />
+
+														</n:div>
+														<n:div
+															class="form-group">
+															<n:div
+																class="custom-control custom-checkbox small">
+																<n:div
+																	class="form-check">
+																	<n:input
+																		id="formCheck-1"
+																		class="form-check-input custom-control-input"
+																		type="checkbox" />
+																</n:div>
+															</n:div>
+														</n:div>
+														<button
+															id="btn_login"
+															style="width: 100%;border-radius: 15px;height:40px;font:16px;">
+															Login
+														</button>
+														<n:div
+															class="form-group" style="display: flex; justify-content: center; align-items: center; height: 100%;margin:6px;">
+															
+															<a
+																href="register.zul" label="or Sign up" />
+
+														</n:div>
+														
+														<n:div
+															class="form-group" style="display: flex; justify-content: center; align-items: center; height: 100%;margin:6px;">
+															
+															<a
+																href="resetPassword.zul" label="Reset Password" />
+															
+														</n:div>
+
+														<n:hr />
+														
+														<n:a href="login" class="login-link google-link">
+													        <n:img src="./assets/img/googlelogo.png" alt="Google Logo"/>
+													        Sign in with Google
+													    </n:a>
+													
+													    <!-- Microsoft Login Link -->
+													    <n:a href="/microsoftLogin" class="login-link microsoft-link">
+													        <n:img src="./assets/img/cgiar.jpg" alt="Microsoft Logo"/>
+													        Sign in with cgiar.org
+													    </n:a>
+
+													    <!-- 
+														<n:a
+															href="login"
+															class="btn btn-primary btn-block text-white btn-google btn-user"
+															role="button">
+															<n:i
+																class="fab fa-google">
+															</n:i>
+															  Login with
+															Google
+														</n:a>
+														
+														<n:a
+															href="/microsoftLogin"
+															class="btn btn-primary btn-block text-white btn-google btn-user"
+															role="button">
+															<n:i
+																class="fab fa-google">
+															</n:i>
+															  Login with
+															cgiar.org
+														</n:a>
+														
+														 -->
+														<n:hr />
+													</n:form>
+												</n:div>
+											</n:div>
+										</n:div>
+									</n:div>
+								</n:div>
+							</n:div>
+						</n:div>
+					</n:div>
+
+
+					<!-- 
+						
+						<n:div class="row"
+						style="width:100%; margin-top:100px;   ">
+						<n:div class="col-lg-5 col-xl-6">
+						<n:div class="cardtransparent shadow mb-4"
+						style="border-radius:10px;border:0px !important;box-shadow: 0 0rem 0rem rgba(0,0,0,0)!important;">
+						<n:div>
+						<n:div>
+						<n:img class="img-fluid"
+						src="./assets/img/login_2.png"
+						style="margin-right:auto;margin-left:auto;" />
+						</n:div>
+						</n:div>
+						</n:div>
+						</n:div>
+						<n:div class="col-lg-5 col-xl-6">
+						<n:div class="cardtransparent shadow mb-4"
+						style="border-radius:10px;border:0px !important;box-shadow: 0 0rem 0rem rgba(0,0,0,0)!important;">
+						<n:div
+						class="card-header d-flex justify-content-between align-items-center homeHeader"
+						style="background: white!important;border: 0px;margin: auto;margin-top: 40px;">
+						<n:h6
+						class="text-primary fw-bold m-0">
+						Login Account
+						</n:h6>
+						</n:div>
+						
+						<n:div id="logform">
+						<n:div class="card-body"
+						style="height:420px;margin-left:20px;margin-right:20px;">
+						
+						<n:form class="user">
+						<n:div class="mb-3">
+						<label value="Username" />
+						<textbox
+						id="txtbox_username" width="100%" style="font-size:12px;" />
+						
+						
+						</n:div>
+						<n:div class="mb-3">
+						<label value="Password" />
+						<textbox
+						id="txtbox_password" width="100%" style="font-size:12px;"
+						type="password" />
+						
+						</n:div>
+						
+						<button id="btn_login"
+						style="width: 100%;border-radius: 15px;">
+						Login
+						</button>
+						<n:hr />
+						<n:a href="login"
+						class="btn btn-primary d-block btn-google btn-user w-100 mb-2"
+						role="button"
+						style="background: white;
+						color: #007bff;
+						border-color: #4e9c81;
+						border-radius: 10px;">
+						<n:i
+						class="fab fa-google">
+						</n:i>
+						  Login with Google
+						</n:a>
+						<n:hr />
+						</n:form>
+						
+						</n:div>
+						</n:div>
+						</n:div>
+						</n:div>
+						</n:div> -->
+				</n:div>
+			</n:div>
+		</window>
+
+
+	</n:div>
+
+</zk>

@@ -1,0 +1,179 @@
+<window id="createWindow" border="none" width="820px" height="830px"
+	apply="user.ui.module.workspace.CreateVarietyListController">
+	<div style="height:40px; background-color:#6fa379;padding:10px;">
+		<label>Add Custom List</label>
+	</div>
+	<div style="padding:10px;">
+		<vbox id="vboxEditNewList">
+			<div class="form-row" style="width:400px;height:35px;">
+				<div class="col-xl-3 offset-xl-0">
+					<div class="form-group">
+						<div class="text-left">
+							<label value="List name:"
+								style="font-size:11px;font-weight:bold;color:gray;" />
+						</div>
+					</div>
+				</div>
+
+				<div class="col offset-xl-0">
+					<div class="form-group">
+						<hbox>
+							<textbox id="txtboxEditListname"
+								style="font-size:11px;height:30px;width:250px;" />
+						</hbox>
+					</div>
+				</div>
+			</div>
+
+			<div class="form-row" style="width:400px;height:35px;">
+				<div class="col-xl-3 offset-xl-0">
+					<div class="form-group">
+						<div class="text-left">
+							<label value="Variety set   " pre="true" />
+						</div>
+					</div>
+				</div>
+
+				<div class="col offset-xl-0">
+					<div class="form-group">
+						<hbox>
+							<bandbox id="bandboxVarietyset"
+								autodrop="true" readonly="true" value="3k"
+								style="font-size:11px;" width="250px">
+								<bandpopup width="200px">
+									<listbox id="listboxDataset"
+										checkmark="true" multiple="true" seltype="multiple"
+										width="200px">
+									</listbox>
+								</bandpopup>
+							</bandbox>
+						</hbox>
+					</div>
+				</div>
+			</div>
+			<div class="form-row" style="width:800px;height:30px;">
+				<div class="col-xl-3 offset-xl-0">
+					<div class="form-group">
+						<div class="text-left">
+							<label
+								value="Varieties have phenotype columns  " pre="true" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-row" style="width:400px;height:30px;">
+				<div class="col-xl-3 offset-xl-0">
+					<div class="form-group">
+						<div class="text-left">
+
+						</div>
+					</div>
+				</div>
+
+				<div class="col offset-xl-0">
+					<div class="form-group">
+						<hbox>
+							<hbox>
+
+								<radiogroup id="rgPhenotype">
+									<hbox>
+										<radio id="radioNoPhenotype"
+											label="None" selected="true" radiogroup="rgPhenotype"
+											value="0" />
+										<radio id="radioQuantitative"
+											label="Quantitative" radiogroup="rgPhenotype" value="1" />
+										<radio id="radioCategorical"
+											label="Categorical" radiogroup="rgPhenotype" value="2" />
+									</hbox>
+								</radiogroup>
+							</hbox>
+						</hbox>
+					</div>
+				</div>
+			</div>
+			<div class="form-row" style="width:800px;height:30px;">
+				<div class="col-xl-3 offset-xl-0">
+					<div class="form-group">
+						<div class="text-left">
+							<label
+								value="Varieties have phenotype columns  " pre="true" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-row" style="width:400px;height:30px;">
+				<div class="col-xl-3 offset-xl-0">
+					<div class="form-group">
+						<div class="text-left">
+
+						</div>
+					</div>
+				</div>
+
+				<div class="col offset-xl-0">
+					<div class="form-group">
+						<hbox>
+							<hbox>
+
+								<radiogroup id="searchType">
+									<hbox>
+										<radio id="searchExact"
+											label="Exact" selected="true" radiogroup="searchType"
+											value="0" />
+										<radio id="searchWhiteSpace"
+											label="Whitespace-tolerant search" selected="true"
+											radiogroup="searchType" value="1" />
+										<radio id="searchFuzzy"
+											label="Fuzzy Search" radiogroup="searchType" value="2"
+											disabled="true" />
+									</hbox>
+								</radiogroup>
+							</hbox>
+						</hbox>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="form-row" style="width:800px;height:35px;">
+				<div class="col-xl-3 offset-xl-0">
+					<div class="form-group">
+						<div class="text-left">
+							<label pre="true"
+								value="Type or paste variety Name, IRIS ID or Accessions here. One variety per line" />
+							<a target="_blank"
+								href="http://iric.irri.org/resources/3000-genomes-project"
+								label="List of valid variety names." style="font-size:11px;" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-row" style="width:800px;">
+				<div class="col-xl-3 offset-xl-0">
+					<div class="form-group">
+						<div class="text-left">
+							<vbox>
+								<label id="labelVarietyFormat"
+									pre="true" value="Format: name/iris_id/accession"
+									style="color:blue;font-weight:bold" />
+								<textbox id="txtboxEditNewList"
+									rows="25" width="800px" style="font-size:11px;" />
+							</vbox>
+
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="form-row" style="width:800px;">
+				<div class="col-xl-3 offset-xl-0">
+					<div class="form-group">
+						<div class="text-left">
+							<button id="buttonSave">Save</button>
+							<button id="cancelButton">Cancel</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</vbox>
+	</div>
+</window>

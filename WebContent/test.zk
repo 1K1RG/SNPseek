@@ -1,0 +1,85 @@
+<?page title="new page title" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window  height="100%" width="100%" border="normal">
+	
+	<panel id="panel" title="Panel" framable="true" height="400px" width="700px"
+        maximizable="true" minimizable="true"  border="normal" collapsible="true" closable="true">
+        
+        <panelchildren>       
+		<tabbox >
+			<tabs>
+				<tab label="Find"></tab>
+				<tab label="Result"></tab>
+			</tabs>
+			<tabpanels>
+				<tabpanel>
+					<grid id="OwnerMultipleGrd" 
+						mold="paging" pageSize="5" style="align:top;">
+						<columns>
+							<column align="center" width="25px">
+								<checkbox></checkbox>
+							</column>
+							<column align="center">Taxonomy</column>
+							<column align="center">Asset Type</column>
+							<column align="center">Category</column>
+							<column align="center">Sub-Category</column>
+							<column align="center" width="25px">
+								<image id="AddTaxononomyImg"
+									src="/AMContribution/Icons/Add.png">
+								</image>
+							</column>
+						</columns>						
+					</grid>
+				</tabpanel>
+				
+				<tabpanel>
+					<grid id="demoGrid" 
+						mold="paging" pageSize="5" style="align:top;">						
+						<auxhead>
+							<auxheader>							
+							</auxheader>
+							<auxheader >
+								<image
+									src="/TaxonomyManager/Icons/funnel.png" />
+								<textbox id="filter1" width="100px" />
+							</auxheader>
+							<auxheader >
+								<image
+									src="/TaxonomyManager/Icons/funnel.png" />
+								<textbox id="filter2" width="100px" />
+							</auxheader>
+							<auxheader >
+								<image
+									src="/TaxonomyManager/Icons/funnel.png" />
+								<textbox id="filter3" width="100px" />
+							</auxheader>
+							<auxheader >
+								<image
+									src="/TaxonomyManager/Icons/funnel.png" />
+								<textbox id="filter4" width="100px" />
+							</auxheader>							
+						</auxhead>
+						<columns>							
+							<column width="25px"><checkbox></checkbox> </column>
+							<column>Taxonomy</column>
+							<column>Asset Type</column>
+							<column>Category</column>
+							<column>Sub-Category</column>							
+						</columns>						
+					</grid>
+					<div align="center">
+					<button>Submit</button> <button>Cancel</button>
+					</div>
+					
+				</tabpanel>
+			</tabpanels>
+		</tabbox>
+		 </panelchildren>
+	</panel>
+	<button label="restore">
+		<attribute name="onClick">
+			panel.setMinimized(false);
+		</attribute>
+	</button>
+	</window>
+</zk>

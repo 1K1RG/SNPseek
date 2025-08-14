@@ -1,0 +1,213 @@
+<zk xmlns:h="native">
+
+	<style src="assets/bootstrap/css/bootstrap.min.css" />
+	<style src="https://fonts.googleapis.com/css?family=Poppins" />
+	<style src="https://fonts.googleapis.com/css?family=Roboto" />
+	<style src="https://fonts.googleapis.com/css?family=Rubik" />
+	<style src="assets/fonts/fontawesome-all.min.css" />
+	<style src="assets/fonts/font-awesome.min.css" />
+	<style src="assets/fonts/fontawesome5-overrides.min.css" />
+	<style src="assets/css/Footer-Dark.css" />
+	<style src="assets/css/Ludens-Users---1-Login.css" />
+	<style src="assets/css/Material-Text-Input.css" />
+	<style
+		src="assets/css/Parallax-Effect-Template-Landing-Page-Bootstrap-4.css" />
+	<style src="assets/css/Pricing-Table.css" />
+	<style src="assets/css/Process-Steps.css" />
+	<style src="assets/css/styles.css" />
+	
+	<zscript>
+	import org.irri.iric.portal.AppContext;
+	String paramstr = AppContext.getJBrowseDefaulttracks(AppContext.getDefaultDataset());
+	//DNA,msu7gff,snp3k
+	</zscript>
+
+	<div xmlns:n="native">
+
+
+		<div style="background-color:white">
+			<n:nav class="navbar navbar-light navbar-expand-md"
+				style="padding-left:0px !important;">
+				<div class="container-fluid"
+					style="padding-left:0px !important;">
+					<n:a class="navbar-brand" href="index.zul"
+						style="color: rgba(247,239,239,0.9);font-size: 25px;">
+
+
+
+
+						<n:img class="rounded-circle"
+							src="assets/img/c7tx0SIy_400x400.jpg"
+							style="margin-left:10px; width: 30px;height: 30px;" />
+						&#160; Rice SNP-seek Database
+						<n:br></n:br>
+					</n:a>
+
+
+					<n:button data-toggle="collapse"
+						class="navbar-toggler" data-target="#navcol-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="navbar-toggler-icon"></span>
+					</n:button>
+
+				 <popup id="pp1">
+				        SOON!
+				    </popup>
+					<div
+						apply="org.irri.iric.portal.BannerController">
+						<menubar
+							style="border-top: 1px solid rgb(111 142 102) ! important ; border-bottom: 1px solid rgb(111 142 102) ! important ;
+						background: rgb(111 142 102) ! important ; color: rgb (255, 255, 255) ! important ;">
+							<menuitem label="Legacy SNP-Seek portal" href="http://snpseekv3.duckdns.org/v2" target="_blank" />
+							<menuitem label="Search" href="index.zul" style="font-weight: bold;"/>
+							<!-- 	<menu label="Search"
+								src="/images/iric/query.png"
+								style="border-top: 1px solid #075207 !important;
+								border-bottom: 1px solid #075207 !important;
+								background: #075207 !important;
+								color: rgb(255, 255, 255) !important;">
+								<menupopup>
+									<menuitem label="Genotype"
+										href="genotype.zul"
+										style="background: white !important;color: black !important;" />
+									<menuitem label="Varieties"
+										href="varieties.zul"
+										style="background: white !important;color: black !important;" />
+									<menuitem label="Gene Loci"
+										href="geneLoci.zul"
+										style="background: white !important;color: black !important;" />
+								</menupopup>
+							</menu>
+							 -->
+							<menuitem label="Pricing" popup="pp1"
+								 />
+
+						
+
+							<zscript>
+	boolean isAllignmentVisible = org.irri.iric.portal.AppContext
+			.showItem(org.irri.iric.portal.WebserverPropertyConstants.MENU_BROWSE_ALIGNMENT);
+	boolean isGenomeVisible = org.irri.iric.portal.AppContext
+			.showItem(org.irri.iric.portal.WebserverPropertyConstants.MENU_BROWSE_GENOME);
+	boolean isGwasVisible = org.irri.iric.portal.AppContext
+			.showItem(org.irri.iric.portal.WebserverPropertyConstants.MENU_BROWSE_GWAS);
+	boolean isMdsVisible = org.irri.iric.portal.AppContext
+			.showItem(org.irri.iric.portal.WebserverPropertyConstants.MENU_BROWSE_MDS);
+	boolean isPhylotreeVisible = org.irri.iric.portal.AppContext
+			.showItem(org.irri.iric.portal.WebserverPropertyConstants.MENU_BROWSE_PHYLOTREE);
+	boolean isTraitGenesVisible = org.irri.iric.portal.AppContext
+			.showItem(org.irri.iric.portal.WebserverPropertyConstants.MENU_BROWSE_TRAITGENES);
+	boolean isOrderVisible = org.irri.iric.portal.AppContext
+			.showItem(org.irri.iric.portal.WebserverPropertyConstants.MENU_ORDER_SEEDS);
+	boolean isDownloadGenesVisible = org.irri.iric.portal.AppContext
+			.showItem(org.irri.iric.portal.WebserverPropertyConstants.MENU_DOWNLOAD);
+	boolean isHelpVisible = org.irri.iric.portal.AppContext
+			.showItem(org.irri.iric.portal.WebserverPropertyConstants.MENU_HELP);
+	final String visibleAllignmentStr = String.valueOf(isAllignmentVisible);
+	final String visibleGenomeStr = String.valueOf(isGenomeVisible);
+	final String visibleGwasStr = String.valueOf(isGwasVisible);
+	final String visibleMdsStr = String.valueOf(isMdsVisible);
+	final String visiblePhylotreeStr = String.valueOf(isPhylotreeVisible);
+	final String visibleTraitGenesStr = String.valueOf(isTraitGenesVisible);
+	final String visibleOrderGenesStr = String.valueOf(isOrderVisible);
+	final String visibleDownloadGenesStr = String.valueOf(isDownloadGenesVisible);
+	final String visibleHelpGenesStr = String.valueOf(isHelpVisible);
+<![CDATA[
+	String visibleBrowse = "true";
+	if (visibleAllignmentStr.equals("false") && visibleGenomeStr.equals("false") && visibleGwasStr.equals("false")
+			&& visibleMdsStr.equals("false") && visiblePhylotreeStr.equals("false")
+			&& visibleTraitGenesStr.equals("false")) {
+		visibleBrowse = "false";
+	}
+]]>
+			
+			
+		</zscript>
+
+							<!-- <menuitem id="menuitem_order"
+								src="/images/iric/var5.png" label="Order Seeds" href="order.zul"
+								style="border-top: 1px solid #075207 !important;
+								border-bottom: 1px solid #075207 !important;
+								background: #075207 !important;
+								color: rgb(255, 255, 255) !important;" />
+							
+
+							<menuitem label="Settings"
+								style="border-top: 1px solid #075207 !important;
+									border-bottom: 1px solid #075207 !important;
+									background: #075207 !important;
+									color: rgb(255, 255, 255) !important;" />
+							-->
+							<menu label="Help"
+								 visible="${visibleHelpGenesStr}"
+								style="border-top: 1px solid rgb(111 142 102) !important;
+									border-bottom: 1px solid rgb(111 142 102) !important;
+									background: rgb(111 142 102) !important;
+									color: rgb(255, 255, 255) !important;">
+								<menupopup>
+									<menuitem
+										src="/images/iric/users_manual.png" label="User's Manual (soon)"
+										 />
+									<menuitem
+										src="/images/iric/srccode.png" label="Development"
+										href="https://bitbucket.org/irridev/iric_portal/src/master/"
+										target="_blank" />
+									<!-- <menuitem
+										src="/images/iric/users_manual.png"
+										label="NAR Supplementary Materials" href="suppl/index.html"
+										target="suppl" />
+										 -->
+									<menuitem
+										src="/images/iric/users_manual.png"
+										label="Legacy Web Services" href="swagger-ui/index.html"
+										target="swagger" />
+									<menuitem
+										src="/images/iric/users_manual.png"
+										label="BrAPI v1 Web Services" href="swagger-brapi/index.html"
+										target="swagger" />
+									<menuitem id="menuitemLegacydev"
+										src="/images/iric/users_manual.png"
+										label="Legacy Web Services Pollux"
+										href="swagger-ui-dev/index.html" target="swagger"
+										visible="false" />
+									<menuitem id="menuitemBrapidev"
+										src="/images/iric/users_manual.png"
+										label="BrAPI v1 Web Services Localhost"
+										href="swagger-brapi-dev/index.html" target="swagger"
+										visible="false" />
+
+									<menuitem
+										src="/images/iric/bug-32.ico" label="Report bugs"
+										href="_bugs.zul" />
+									<menuitem
+										src="/images/iric/about.png" label="Publications/Updates"
+										href="_about.zul" />
+									<menuitem
+										src="/images/iric/about.png" label="FAQs" href="_faq.zul" />
+								</menupopup>
+							</menu>
+							<menuitem label="Login" href="login.zul" id="mi_login"
+								style="border-top: 1px solid rgb(111 142 102) !important;
+									border-bottom: 1px solid rgb(111 142 102) !important;
+									background: rgb(111 142 102) !important;
+									color: rgb(255, 255, 255) !important;" />
+							<menu id="menuLogout">
+								<menupopup>
+									<menuitem label="logout"
+										href="logout" iconSclass="z-icon-sign-out" />
+								</menupopup>
+							</menu>
+
+
+
+
+						</menubar>
+					</div>
+
+				</div>
+			</n:nav>
+		</div>
+	</div>
+
+
+</zk>

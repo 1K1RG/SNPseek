@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Swagger UI</title>
+  <link rel="icon" type="image/png" href="images/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="images/favicon-16x16.png" sizes="16x16" />
+  <link href='css/typography.css' media='screen' rel='stylesheet' type='text/css'/>
+  <link href='css/reset.css' media='screen' rel='stylesheet' type='text/css'/>
+  <link href='css/screen.css' media='screen' rel='stylesheet' type='text/css'/>
+  <link href='css/reset.css' media='print' rel='stylesheet' type='text/css'/>
+  <link href='css/print.css' media='print' rel='stylesheet' type='text/css'/>
+  <script src='lib/jquery-1.8.0.min.js' type='text/javascript'></script>
+  <script src='lib/jquery.slideto.min.js' type='text/javascript'></script>
+  <script src='lib/jquery.wiggle.min.js' type='text/javascript'></script>
+  <script src='lib/jquery.ba-bbq.min.js' type='text/javascript'></script>
+  <script src='lib/handlebars-2.0.0.js' type='text/javascript'></script>
+  <script src='lib/underscore-min.js' type='text/javascript'></script>
+  <script src='lib/backbone-min.js' type='text/javascript'></script>
+  <script src='swagger-ui.js' type='text/javascript'></script>
+  <script src='lib/highlight.7.3.pack.js' type='text/javascript'></script>
+  <script src='lib/marked.js' type='text/javascript'></script>
+  <script src='lib/swagger-oauth.js' type='text/javascript'></script>
+
+  <script type="text/javascript">
+    $(function () {
+      var url = window.location.search.match(/url=([^&]+)/);
+      if (url && url.length > 1) {
+        url = decodeURIComponent(url[1]);
+      } else {
+        //url = "http://petstore.swagger.io/v2/swagger.json";
+        //url = "http://172.29.4.215:8080/iric-portal/api-docs.json";
+        //url = "http://202.90.159.218/iric-portal/brapi-docs.json";
+        url = "http://localhost:8080/iric_portal/brapi-docs-dev.json";
+      }
+      window.swaggerUi = new SwaggerUi({
+        url: url,
+        dom_id: "swagger-ui-container",
+        supportedSubmitMethods: ['get', 'post', 'put', 'delete', 'patch'],
+        onComplete: function(swaggerApi, swaggerUi){
+          if(typeof initOAuth == "function") {
+            initOAuth({
+              clientId: "your-client-id",
+              realm: "your-realms",
+              appName: "your-app-name"
+            });
+          }
+
+          $('pre code').each(function(i, e) {
+            hljs.highlightBlock(e)
+          });
+
+          addApiKeyAuthorization();
+        },
+        onFailure: function(data) {
+          log("Unable to Load SwaggerUI");
+        },
+        docExpansion: "none",
+        apisSorter: "alpha"
+      });
+
+		
+      function addApiKeyAuthorization(){
+      
+        //var key = encodeURIComponent($('#input_apiKey')[0].value);
+        var key = $('#input_apiKey')[0].value;
+        if(key && key.trim() != "") {
+        	
+        	var apiKeyAuth = new SwaggerClient.ApiKeyAuthorization("Authorization", key, "header");
+            window.swaggerUi.api.clientAuthorizations.add("Authorization", apiKeyAuth);
+            log("added key " + key);
+            
+            /*
+            //var apiKeyAuth = new SwaggerClient.ApiKeyAuthorization("api_key", key, "query");
+            //var apiKeyAuth = new SwaggerClient.ApiKeyAuthorization("api_key", key, "header");
+            window.swaggerUi.api.clientAuthorizations.add("api_key", apiKeyAuth);
+            log("added key " + key);
+            
+            //key = 'Bearer hdllHJlduie_276ksekdcddlssflje8fjfbhns8';
+        	var apiKeyAuth = new SwaggerClient.ApiKeyAuthorization("Authorization", encodeURIComponent("Bearer hdllHJlduie_276ksekdcddlssflje8fjfbhns8"), "header");
+       		 window.swaggerUi.api.clientAuthorizations.add("Authorization", apiKeyAuth);
+        	log("added key " + apiKeyAuth);
+        	*/
+        	
+        }
+      }
+
+      $('#input_apiKey').change(addApiKeyAuthorization);
+      
+      
+
+      // if you have an apiKey you would like to pre-populate on the page for demonstration purposes...
+      
+        var apiKey = "Bearer hdllHJlduie_276ksekdcddlssflje8fjfbhns8"; //"myApiKeyXXXX123456789";
+        $('#input_apiKey').val(apiKey);
+      
+
+	/*
+        var apiKey =  encodeURIComponent("Bearer hdllHJlduie_276ksekdcddlssflje8fjfbhns8");
+        $('#input_apiKey').val(apiKey);
+*/
+//	  window.swaggerUi.api.clientAuthorizations.add("api_key", new SwaggerClient.ApiKeyAuthorization("Authorization", encodeURIComponent("Bearer hdllHJlduie_276ksekdcddlssflje8fjfbhns8"), "header"));
+//      window.authorizations.add("api_key", new ApiKeyAuthorization("Authorization", "Bearer hdllHJlduie_276ksekdcddlssflje8fjfbhns8","header"));
+ 
+      window.swaggerUi.load();
+
+      function log() {
+        if ('console' in window) {
+          console.log.apply(console, arguments);
+        }
+      }
+  });
+  </script>
+</head>
+
+
+<body class="swagger-section">
+<div id='header'>
+  <div class="swagger-ui-wrap">
+    <a id="logo" href="http://swagger.io">swagger</a>
+    <form id='api_selector'>
+      <div class='input'><input placeholder="http://example.com/api" id="input_baseUrl" name="baseUrl" type="text"/></div>
+      <div class='input'><input placeholder="api_key" id="input_apiKey" name="apiKey" type="text"/></div>
+      <div class='input'><a id="explore" href="#">Explore</a></div>
+    </form>
+  </div>
+</div>
+
+
+<div id="message-bar" class="swagger-ui-wrap">&nbsp;</div>
+
+<h3>Note: POST token, with username and password, to login (use demo account) before using any calls in BrAPI</h3>
+
+<div id="swagger-ui-container" class="swagger-ui-wrap"></div>
+
+<!-- 
+<BR><BR><BR>
+<h3>Submit POST in JSON</h3>  
+<BR>
+<div class="swagger-ui-wrap">
+<div align="center>
+
+<form style="display:block">
+   <table><tr><td><B>POST</B></td><td> /brapi/v1/token </td></tr>     
+   <tr><td>JSON:    </td><td>
+   <textarea id="jsontoken" cols="60" rows="10">
+{
+	"username":"snpseek-user",
+	"password":"snpseek-user-pass"
+}
+	</textarea> </td></tr>   
+  </table>
+  <input type="submit" value="Submit" onclick="return postJson('/iric-portal/ws/brapi/v1/token','#jsontoken');">
+</form>
+
+
+<form style="display:block">
+   <table><tr><td><B>POST</B></td><td> /brapi/v1/allelematrix-search </td></tr>     
+   <tr><td>JSON:    </td><td>
+   <textarea id="jsontextarea" cols="60" rows="10">
+{
+	"markerprofileDbId":"10838",
+	"markerprofileDbId":"10848", 
+	"markerprofileDbId":"12848",
+	"markerprofileDbId":"11848",
+	"markerDbId":"chr01_15876685",
+	"markerDbId" : "chr01_15876807"
+}
+   </textarea> </td></tr>   
+  </table>
+  <input type="submit" value="Submit" onclick="return postJson('/iric-portal/ws/brapi/v1/allelematrix-search','#jsontextarea');">
+</form>
+
+<BR><BR>
+ <h4>POST Response Body</h4>  
+ <div class='block response_body'>
+   <textarea id="postresponsebody" cols="80"  rows="30"></textarea> </td></tr>
+ </div>  
+ 
+-->
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
+<script type="text/javascript" src="json2.js"></script>
+<script type="text/javascript">
+     function postJson(url,txtid ) {
+       //var frm = $(document.myform);
+       var jsontxt=$(txtid).val().replace(/<br>/g,"").replace(/<br\/>/g,"");
+       //var dat = JSON.stringify( frm.serializeArray());
+       var dat=jsontxt;
+
+       alert("I am about to POST this:\n\n" + dat);
+
+/*
+       $.post(
+         "/iric-portal/ws/brapi/v1/allelematrix-search",
+         dat,
+         function(data) {
+           alert("Response: " + data);
+         }
+       );
+  */     
+       
+      jQuery.ajax({
+    'type': 'POST',
+    'url': url,
+    'data': dat,
+    'contentType': "application/json",
+    'dataType': 'json',
+    'success':  function(data1) {
+           //alert("Response: " + JSON.stringify(data1));
+           $("textarea#postresponsebody").text(JSON.stringify(data1));
+         }
+    });
+       
+     };
+     
+   </script>
+</div>
+</div>
+
+</body>
+</html>

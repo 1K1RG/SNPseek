@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- For assistance related to logback-translator or configuration  -->
+<!-- files in general, please contact the logback user mailing list -->
+<!-- at http://www.qos.ch/mailman/listinfo/logback-user             -->
+<!--                                                                -->
+<!-- For professional support please see                            -->
+<!--    http://www.qos.ch/shop/products/professionalSupport         -->
+<!--                                                                -->
+<configuration>
+  <logger name="org.skyway.spring.util" level="ERROR"/>
+  <logger name="org.hibernate" level="DEBUG"/>
+  <logger name="org.springframework" level="ERROR"/>
+  <logger name="org.apache.commons" level="ERROR"/>
+  <logger name="org.springframework.core" level="WARN"/>
+  <logger name="org.springframework.beans" level="WARN"/>
+  <logger name="org.hibernate.loader.Loader" level="DEBUG"/>
+  <root level="ERROR"/>
+</configuration>

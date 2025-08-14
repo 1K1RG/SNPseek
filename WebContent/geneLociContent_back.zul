@@ -1,0 +1,1831 @@
+<zk>
+	<n:div xmlns:n="native">
+		<n:script src="assets/js/jquery.min.js" />
+		<n:script src="assets/bootstrap/js/bootstrap.min.js" />
+		<n:script
+			src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js" />
+
+		<n:script src="assets/js/Collapsible-Sidebar.js" />
+		<n:script src="assets/js/Material-Text-Input.js" />
+
+		<!-- Google tag (gtag.js) -->
+		<n:script async="async"
+			src="https://www.googletagmanager.com/gtag/js?id=G-6DY1MFCGZH">
+		</n:script>
+		<n:script>
+			window.dataLayer = window.dataLayer || []; function
+			gtag(){dataLayer.push(arguments);} gtag('js', new Date());
+
+			gtag('config', 'G-6DY1MFCGZH');
+
+			gtag('event', 'page_view', { 'page_path':
+			'/geneLociContent.zul' });
+
+		</n:script>
+
+
+		<style src="assets/bootstrap/css/bootstrap.min.css" />
+		<style
+			src="https://fonts.googleapis.com/css?family=Nunito+Sans" />
+		<style src="https://fonts.googleapis.com/css?family=Poppins" />
+		<style src="https://fonts.googleapis.com/css?family=Roboto" />
+		<style src="https://fonts.googleapis.com/css?family=Rubik" />
+		<style src="assets/fonts/fontawesome-all.min.css" />
+		<style src="assets/fonts/font-awesome.min.css" />
+		<style src="assets/fonts/fontawesome5-overrides.min.css" />
+		<style src="assets/css/Footer-Dark.css" />
+		<style src="assets/css/styles.css" />
+		<style src="assets/css/styles_genotype.css" />
+		<style src="assets/css/Collapsible-Sidebar.css" />
+		<style src="assets/css/sidebar_home.css" />
+		<style src="assets/css/genotypeSearch.css" />
+		<style>
+			.z-loading { background-color:#808080; border:1px outset
+			#A0A0A0; font-weight: bold; padding:2px;
+
+			cursor: wait; top: 50%; left: 45% !important; align: center;
+			vertical-align: middle;
+
+			position: fixed; margin-left: auto; margin-right: auto;
+			display: block;
+
+
+			}
+
+
+
+			writing-mode: bt-rl; filter: flipV flipH;
+
+			width:10px; height:90px; vertical-align: middle;
+			text-align:center; display:block; /* white-space:nowrap; */
+			}
+
+			.fontCardStyle{ font-size: 12px;color: #706e6e; font-family:
+			-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+			Ubuntu, Fira Sans, Droid Sans, Helvetica Neue, sans-serif
+			!important; }
+
+			.vertical5 { -webkit-writing-mode:vertical-lr;
+			-ms-writing-mode:tb-lr; writing-mode:vertical-lr;
+			width:20px; height:80px; text-align:center; filter: flipV
+			flipH; }
+
+			.vertical2 { -webkit-writing-mode:vertical-lr;
+			-ms-writing-mode:tb-lr; writing-mode:vertical-lr;
+			width:20px; height:80px; text-align:center; }
+
+			.vertical3 { -webkit-transform:rotate(-90deg);
+			-moz-transform:rotate(-90deg); -o-transform: rotate(-90deg);
+			-ms-transform:rotate(-90deg); transform: rotate(-90deg);
+			filter:
+			progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+			white-space:nowrap; display:block; bottom:0; width:20px;
+			height:80px; text-align:center; }
+
+
+			/* Cell Height and Font */ .mylist .z-listfooter-cnt,
+			.mylist .z-listcell-cnt,.mylist .z-listheader-cnt {
+			font-size: 6px; font-family: "Tahoma", verdana, arial,
+			sans-serif; height: 8px; }
+
+		</style>
+
+		<script>
+			function myFunction() {
+
+			var element =
+			document.getElementById("genotypeSearchSidebar");
+			element.classList.toggle("active");
+
+			}
+		</script>
+
+		<window id="genWin" border="none"
+			apply="user.ui.module.GeneLociQueryController" width="100%"
+			height="100vh">
+
+
+			<hlayout id="layoutResultId" class="text-left"
+				visible="false" width="95%"
+				style="margin-top:auto; margin-bottom:auto;background-color:rgb(255 255 255) ;     padding: 25px 15px 10px 15px;position:fixed;z-index:9;top:65px;width:100%;">
+
+				<button id="backQueryDiv" iconSclass="z-icon-reorder"
+					tooltiptext="Go to Input"
+					style="width:40px; padding:7px;font-size:16px; background-color:#9fc6a1; color:white;margin-top:-5px;border-radius:80px;" />
+
+				<!-- <label value="RESULT "
+					style="margin-right: 10px;margin-left: 20px;" /> -->
+				<n:div style="padding: 10px !important;"
+					class="card shadow border-start-primary py-2 home_div2">
+					<n:div class="card-body2">
+						<n:div class="row align-items-center no-gutters"
+							style="margin-top: -10px;">
+							<n:div class="col me-2">
+								<n:div>
+									<n:span style="font-size:13px;">
+										<label id="msgResult" />
+									</n:span>
+								</n:div>
+
+							</n:div>
+
+
+
+						</n:div>
+					</n:div>
+				</n:div>
+				<n:div
+					class="card shadow border-start-primary py-2 home_div2"
+					style="padding: 10px !important;">
+					<n:div class="card-body2">
+						<n:div class="row align-items-center no-gutters"
+							style="margin-top: -10px;">
+							<n:div class="col me-2">
+								<n:div>
+									<n:span style="font-size:13px;">
+
+										<label id="nmResult" />
+									</n:span>
+								</n:div>
+							</n:div>
+
+						</n:div>
+					</n:div>
+				</n:div>
+			</hlayout>
+
+			<n:div id="bodyContent" style="height:100%">
+				<n:div class="wrapper">
+					<!-- Sidebar Holder -->
+					<n:div id="div_nav"
+						style="position:absolute !important;height:100vh;">
+						<n:nav id="genotypeSearchSidebar"
+							style=" width: 480px !important;  overflow-y: auto;height:100%; "
+							tabindex="-1" role="dialog">
+							<n:div class="container">
+
+								<n:div class="form-row">
+									<n:div class="col"
+										style="margin-left: 5px;margin-top: 30px;">
+										<label
+											value="Search By Gene Loci"
+											style="font-size:16px;color:#3b4e36;" />
+									</n:div>
+									<div id="closeDiv"
+										visible="false">
+										<n:div class="col"
+											style="padding-left: 10px;margin-top: 5px;">
+											<n:div class="text-right">
+												<n:button
+													id="closeSidebar" class="btn" visible="true">
+													<n:i
+														class="fas fa-times">
+													</n:i>
+												</n:button>
+											</n:div>
+
+										</n:div>
+									</div>
+
+								</n:div>
+								<!-- 
+									<n:div class="form-row">
+									<n:div
+									style="width:580px !important;margin-left: 10px;margin-top: 15px;">
+									<textbox id="msgbox" readonly="true"
+									value="${msg}" width="97%" style="font-size:11px;" />
+									</n:div>
+									
+									</n:div>
+								-->
+								<n:form style="margin: 10px;">
+									<groupbox id="searchGroup"
+										open="true" width="450px" mold="3d" closable="false">
+										<caption label="Search"
+											style="font-size:13px;background-color:#3a6b35;">
+											<div id="datasetIcon"
+												class="fas fa-chevron-down">
+											</div>
+										</caption>
+										<n:div id="geneLociInputBox"
+											style="width:420px;">
+											<div class="form-row"
+												style="width: 430px;">
+												<div
+													class="col-xl-5 offset-xl-0 text-left">
+													<div
+														class="form-group">
+														<div
+															class="text-left">
+															<label
+																class="text-right"
+																style="color: rgb(0,0,0);font-size: 11px;">
+																Reference
+																Genome
+															</label>
+														</div>
+													</div>
+												</div>
+												<div
+													class="col offset-xl-0">
+													<div
+														class="form-group">
+														<listbox
+															id="listboxOrganism" class="reference-genome"
+															mold="select" disabled="false"
+															style="width:100% !important" />
+													</div>
+												</div>
+											</div>
+											<div class="form-row"
+												style="width: 430px;">
+												<div
+													class="col-xl-5 offset-xl-0">
+													<div
+														class="form-group">
+														<div
+															class="text-left">
+															<label
+																class="text-right"
+																style="color: rgb(0,0,0);font-size: 11px;">
+																Search
+																By
+															</label>
+														</div>
+													</div>
+												</div>
+												<zscript>
+	boolean isAnnotationVisible = org.irri.iric.portal.AppContext
+			.showItem(org.irri.iric.portal.WebserverPropertyConstants.SEARCH_LOCI_BY_ANNOTATION);
+	boolean isGoTermVisible = org.irri.iric.portal.AppContext
+			.showItem(org.irri.iric.portal.WebserverPropertyConstants.SEARCH_LOCI_BY_GO_TERM);
+	boolean isTraitVisible = org.irri.iric.portal.AppContext
+			.showItem(org.irri.iric.portal.WebserverPropertyConstants.SEARCH_LOCI_BY_TRAIT);
+	boolean isRegionVisible = org.irri.iric.portal.AppContext
+			.showItem(org.irri.iric.portal.WebserverPropertyConstants.SEARCH_LOCI_BY_REGION);
+	boolean isSequenceVisible = org.irri.iric.portal.AppContext
+			.showItem(org.irri.iric.portal.WebserverPropertyConstants.SEARCH_LOCI_BY_SEQUENCE);
+	boolean isSnpListVisible = org.irri.iric.portal.AppContext
+			.showItem(org.irri.iric.portal.WebserverPropertyConstants.SEARCH_LOCI_BY_SNPLIST);
+	boolean isGeneListVisible = org.irri.iric.portal.AppContext
+			.showItem(org.irri.iric.portal.WebserverPropertyConstants.SEARCH_LOCI_BY_GENELIST);
+	String visibleAnnotationStr = String.valueOf(isAnnotationVisible);
+	String visibleGoTermStr = String.valueOf(isGoTermVisible);
+	String visibleTraitStr = String.valueOf(isTraitVisible);
+	String visibleRegionStr = String.valueOf(isRegionVisible);
+	String visibleSequenceStr = String.valueOf(isSequenceVisible);
+	String visibleSnpListStr = String.valueOf(isSnpListVisible);
+	String visibleGeneListStr = String.valueOf(isGeneListVisible);
+</zscript>
+												<div
+													class="col offset-xl-0">
+													<div
+														class="form-group">
+														<listbox
+															id="listboxSearchby" class="search-by" mold="select"
+															style="width:100% !important">
+															<listitem
+																label="Annotation (by source)"
+																visible="${visibleAnnotationStr}" />
+															<listitem
+																selected="true" label="Gene name/symbol/function" />
+															<listitem
+																label="Gene Ontology term"
+																visible="${visibleGoTermStr}" />
+															<!--  listitem  label="Plant and Trait Ontology term"/ -->
+															<listitem
+																label="Trait" visible="${visibleTraitStr}" />
+															<listitem
+																label="Region" visible="${visibleRegionStr}" />
+															<listitem
+																id="listitemSequence" label="Sequence"
+																visible="${visibleSequenceStr}" />
+															<listitem
+																label="SNP Annotator (My SNP List)"
+																visible="${visibleSnpListStr}" />
+															<listitem
+																label="Gene set/networks"
+																visible="${visibleGeneListStr}" />
+														</listbox>
+													</div>
+												</div>
+											</div>
+											<div id="divGeneModel"
+												class="form-row" style="width: 430px;">
+												<div
+													class="col-xl-5 offset-xl-0">
+													<div
+														class="form-group">
+														<div
+															class="text-left">
+															<label
+																class="text-right"
+																style="color: rgb(0,0,0);font-size: 11px;">
+																Gene
+																Model
+
+															</label>
+														</div>
+													</div>
+												</div>
+												<div
+													class="col offset-xl-0">
+													<div
+														class="form-group">
+														<listbox
+															id="listboxAnnotation" class="gene-model" mold="select"
+															style="width:100% !important">
+															<!-- listitem  value="msu7only" label="MSU7" selected="true"/>
+																<listitem  value="raponly" label="RAP"/>
+																<listitem  value="iric" label="Merged MSU7,RAP,FGenesh (by IRIC)"/ -->
+															<listitem
+																value="all" label="All" selected="true" />
+														</listbox>
+
+													</div>
+												</div>
+											</div>
+
+											<div class="form-row"
+												style="width: 430px;">
+												<div
+													class="col-xl-5 offset-xl-0 text-left">
+													<div
+														class="form-group">
+														<label
+															value="Maximum interacting loci   " pre="true" />
+
+													</div>
+												</div>
+												<div
+													class="col offset-xl-0">
+													<div
+														class="form-group">
+														<div
+															id="divAdvancedOptions" visible="false" width="100%">
+															<textbox
+																id="textboxMaxInteracting" value=""
+																style="width:100%;height:30px;font-size:11px;" />
+
+														</div>
+													</div>
+												</div>
+											</div>
+
+										</n:div>
+									</groupbox>
+									<groupbox id="rowGeneFunction"
+										open="true" width="450px" mold="3d" visible="false">
+										<caption label="Gene Function"
+											style="font-size:13px;background-color:#3a6b35;">
+											<div id="rowGeneIcon"
+												class="fas fa-chevron-down">
+											</div>
+										</caption>
+
+
+										<div class="form-row"
+											style="width: 430px;">
+											<div
+												class="col-xl-5 offset-xl-0 text-left">
+												<div
+													class="form-group">
+													<listbox
+														id="listboxGenefunctionMatch" mold="select"
+														class="gene-function-select"
+														style="width:100% !important">
+														<listitem
+															label="whole word only" selected="true" />
+														<listitem
+															label="substring" />
+														<listitem
+															label="exact match" />
+														<listitem
+															label="regular expression" />
+													</listbox>
+												</div>
+											</div>
+											<div
+												class="col offset-xl-0">
+												<div
+													class="form-group">
+													<textbox
+														id="textboxGenefunction" class="input1-keyword"
+														width="100%" height="30px" style="font-size:11px;" />
+												</div>
+											</div>
+										</div>
+									</groupbox>
+
+									<groupbox id="rowGeneName"
+										open="true" width="450px" mold="3d" visible="true">
+										<caption label="Gene Name"
+											style="font-size:13px;background-color:#3a6b35;">
+											<div id="rowGeneNameIcon"
+												class="fas fa-chevron-down">
+											</div>
+										</caption>
+
+
+										<div class="form-row"
+											style="width: 430px;">
+											<div
+												class="col-xl-5 offset-xl-0 text-left">
+												<div
+													class="form-group">
+													<listbox
+														id="listboxGenenameMatch" mold="select"
+														class="gene-name-select" style="width:100% !important">
+														<listitem
+															label="whole word only" selected="true" />
+														<listitem
+															label="substring" />
+														<listitem
+															label="exact match" />
+														<listitem
+															label="regular expression" />
+													</listbox>
+													<listbox
+														id="listboxMyLocusListOntology" mold="select"
+														visible="false" />
+												</div>
+											</div>
+											<div
+												class="col offset-xl-0">
+												<div
+													class="form-group">
+													<textbox
+														id="textboxGenename" class="input2-keyword" width="100%"
+														height="30px" style="font-size:11px;" />
+												</div>
+											</div>
+										</div>
+
+
+									</groupbox>
+
+									<groupbox id="rowGoTerm" open="true"
+										width="450px" mold="3d" visible="false">
+										<caption label="Go Term"
+											style="font-size:13px;background-color:#3a6b35;">
+											<div id="rowGoTermIcon"
+												class="fas fa-chevron-down">
+											</div>
+										</caption>
+
+										<div class="form-row"
+											style="width: 430px;">
+											<div
+												class="col-xl-3 offset-xl-0 text-left">
+												<div
+													class="form-group">
+													<listbox
+														id="listboxCV" mold="select">
+														<listitem
+															value="biological_process" selected="true"
+															label="GO Biological process" />
+														<listitem
+															value="cellular_component" label="GO Cellular component" />
+														<listitem
+															value="molecular_function" label="GO Molecular function" />
+													</listbox>
+												</div>
+											</div>
+										</div>
+										<div class="form-row"
+											style="width: 430px;">
+											<div
+												class="col-xl-3 offset-xl-0 text-left">
+												<div
+													class="form-group">
+													<listbox
+														id="listboxGOTerm" mold="select"
+														style="width:490px !important;" />
+												</div>
+											</div>
+										</div>
+									</groupbox>
+
+									<groupbox id="rowPatoTerm"
+										open="true" width="450px" mold="3d" visible="false">
+										<caption label="PATO Term"
+											style="font-size:13px;background-color:#3a6b35;">
+											<div id="rowPatoTermIcon"
+												class="fas fa-chevron-down">
+											</div>
+										</caption>
+
+										<div class="form-row"
+											style="width: 430px;">
+											<div
+												class="col-xl-3 offset-xl-0 text-left">
+												<div
+													class="form-group">
+													<listbox
+														id="listboxCVPato" mold="select"
+														style="width:420px !important;">
+														<listitem
+															value="qtaro_gene_traits" label="Q-TARO Traits" />
+														<listitem
+															value="plant_trait_ontology"
+															label="TO Plant Trait Ontology (from Oryzabase)" />
+														<listitem
+															value="plant_anatomy"
+															label="PO Plant Anatomy (from Oryzabase)" />
+														<listitem
+															value="plant_structure_development_stage"
+															label="PO Development Stage (from Oryzabase)" />
+													</listbox>
+												</div>
+											</div>
+										</div>
+										<div class="form-row"
+											style="width: 430px;">
+											<div
+												class="col-xl-3 offset-xl-0 text-left">
+												<div class="form-group"
+													style="width:420px !important;">
+													<listbox
+														id="listboxPatoTerm" mold="select"
+														style="width:420px !important;" />
+													<label
+														id="labelPatoAncestors" value="" />
+													<listbox
+														id="listboxPatoAncestors" width="370px" height="100px"
+														visible="false" />
+													<label
+														id="labelPatoDescendants" value="" />
+													<listbox
+														id="listboxPatoDescendants" width="370px" height="100px"
+														visible="false" />
+												</div>
+											</div>
+										</div>
+									</groupbox>
+
+									<groupbox id="rowRegion" open="true"
+										width="450px" mold="3d" visible="false">
+										<caption label="Region"
+											style="font-size:13px;background-color:#3a6b35;">
+											<div id="rowSequenceIcon"
+												class="fas fa-chevron-down">
+											</div>
+										</caption>
+										<div class="form-row"
+											style="width: 430px;">
+											<div
+												class="col-xl-3 offset-xl-0 text-left">
+
+												<hbox>
+
+													<div
+														class="col-xl-5 offset-xl-0 text-left">
+														<div
+															class="form-group">
+
+															<custom-attributes
+																org.zkoss.zul.listbox.rod="true" />
+															<vbox>
+																<combobox
+																	id="listboxContig" buttonVisible="false"
+																	readonly="false" autodrop="true" width="130px" />
+																<hbox>
+																	<label
+																		value="Contig " pre="true" />
+																	<label
+																		id="labelChrExample" pre="true" value="(ex. chr01)"
+																		style="font-size:10px" />
+																</hbox>
+															</vbox>
+														</div>
+													</div>
+													<div
+														class="col offset-xl-0">
+														<div
+															class="form-group">
+															<hbox
+																width="100%" style="padding:5px;">
+																<vbox
+																	style="margin-right:15px;">
+
+																	<intbox
+																		id="intboxContigStart" />
+																	<label
+																		value="Start " pre="true" />
+																</vbox>
+																<vbox>
+
+																	<intbox
+																		id="intboxContigEnd" />
+																	<label
+																		value="End " pre="true" />
+																</vbox>
+															</hbox>
+														</div>
+													</div>
+												</hbox>
+
+											</div>
+										</div>
+
+
+
+									</groupbox>
+									<groupbox id="rowSequence"
+										open="true" width="450px" mold="3d" visible="false">
+										<caption label="Sequence"
+											style="font-size:13px;background-color:#3a6b35;">
+											<div id="rowRegionIcon"
+												class="fas fa-chevron-down">
+											</div>
+										</caption>
+										<div class="form-row"
+											style="width: 430px;">
+											<div>
+												<div
+													class="form-group">
+													<textbox
+														id="textboxSequence" class="blast-input-field" rows="7"
+														cols="57" />
+												</div>
+											</div>
+										</div>
+										<div class="form-row"
+											style="width: 430px;">
+											<div>
+												<div
+													class="form-group">
+													<button
+														id="buttonUploadSequence" upload="true,-1"
+														autodisable="self" label="Upload FASTA"
+														style="font-size:11px;" />
+													<label
+														id="labelUploadSequence" />
+												</div>
+											</div>
+										</div>
+										<n:br />
+										<div class="form-row"
+											style="width: 430px;">
+											<div>
+												<div
+													class="form-group">
+													<label
+														id="labelBlastType"
+														value="Search rice genome using a nucleotide query" />
+												</div>
+											</div>
+										</div>
+										<div class="form-row"
+											style="width: 430px;">
+											<div
+												class="col-xl-5 offset-xl-0 text-left">
+												<div
+													class="form-group">
+													<div
+														class="text-left">
+														<label
+															value="Query type " pre="true" />
+													</div>
+												</div>
+											</div>
+											<div
+												class="col offset-xl-0">
+												<div
+													class="form-group">
+													<listbox
+														id="listboxBlastType" class="blast-dropdown" mold="select"
+														style="width:90px!important">
+														<listitem
+															label="" selected="true" />
+														<listitem
+															label="blastn" />
+														<listitem
+															label="blastp" />
+														<listitem
+															label="blastx" />
+														<listitem
+															label="tblastn" />
+														<listitem
+															label="tblastx" />
+													</listbox>
+												</div>
+											</div>
+										</div>
+										<!-- <div
+											style="width:170px !important;">
+											<div class="form-group">
+											<label
+											value="Query type " pre="true" />
+											<listbox
+											id="listboxBlastType" class="blast-dropdown" mold="select"
+											style="width:90px!important">
+											<listitem label=""
+											selected="true" />
+											<listitem
+											label="blastn" />
+											<listitem
+											label="blastp" />
+											<listitem
+											label="blastx" />
+											<listitem
+											label="tblastn" />
+											<listitem
+											label="tblastx" />
+											</listbox>
+											
+											</div>
+											</div> 
+											<div
+											style="width:200px!important;">
+											<div class="form-group">
+											<label
+											value="Database type " pre="true" />
+											<listbox
+											id="listboxBlastDBType" class="database-type-select"
+											mold="select" style="width:100px!important;">
+											<listitem label=""
+											selected="true" />
+											<listitem
+											label="dna" />
+											<listitem
+											label="cds" />
+											<listitem
+											label="cdna" />
+											<listitem
+											label="upstream3000" />
+											</listbox>
+											
+											</div>
+											</div>-->
+										<div class="form-row"
+											style="width: 430px;">
+											<div
+												class="col-xl-5 offset-xl-0 text-left">
+												<div
+													class="form-group">
+													<div
+														class="text-left">
+														<label
+															value="Database type " pre="true" />
+													</div>
+												</div>
+											</div>
+											<div
+												class="col offset-xl-0">
+												<div
+													class="form-group">
+													<listbox
+														id="listboxBlastDBType" class="database-type-select"
+														mold="select" style="width:90px!important;">
+														<listitem
+															label="" selected="true" />
+														<listitem
+															label="dna" />
+														<listitem
+															label="cds" />
+														<listitem
+															label="cdna" />
+														<listitem
+															label="upstream3000" />
+													</listbox>
+												</div>
+											</div>
+										</div>
+										<div class="form-row"
+											style="width: 430px;">
+											<div
+												class="col-xl-5 offset-xl-0 text-left">
+												<div
+													class="form-group">
+													<div
+														class="text-left">
+														<label
+															value="Max Evalue" pre="true" />
+													</div>
+												</div>
+											</div>
+											<div
+												class="col offset-xl-0">
+												<div
+													class="form-group">
+													<textbox
+														id="textboxEvalue" value="10" width="90px"
+														class="z-max-evalue" height="30px" />
+												</div>
+											</div>
+										</div>
+
+										<!-- <div>
+											<div class="form-group">
+											
+											<label
+											value="Max Evalue" pre="true" />
+											<textbox
+											id="textboxEvalue" value="10" width="50px"
+											class="z-max-evalue" height="30px" />
+											</div>
+											</div> -->
+										<n:br />
+
+										<div class="form-row"
+											style="width: 430px;">
+											<hbox>
+												<label
+													value="Top hit per query sequence only  " pre="true" />
+												<checkbox
+													id="checkboxTopSequencehit" checked="false" />
+												<div
+													id="divIncludeSequence" visible="false">
+													<label
+														value="     Include aligned sequence  " pre="true" />
+													<checkbox
+														id="checkboxIncludeSequence" checked="false" />
+												</div>
+											</hbox>
+
+
+										</div>
+
+
+
+
+
+									</groupbox>
+									<groupbox id="rowMySnpList"
+										open="true" width="450px" mold="3d" visible="false">
+										<caption label="My SNP List"
+											style="font-size:13px;background-color:#3a6b35;">
+											<div id="rowMySnpListIcon"
+												class="fas fa-chevron-down">
+											</div>
+										</caption>
+
+										<div class="form-row"
+											style="width: 430px;">
+											<div
+												style="width:360px !important;">
+												<div
+													class="form-group">
+													<label
+														value="My SNP List" pre="true" />
+													<listbox
+														id="listboxMySNPList" mold="select"
+														style="width:270px !important;" />
+
+												</div>
+											</div>
+											<div
+												style="width:170px!important;">
+												<div
+													class="form-group">
+													<label value="+/-" />
+													<intbox
+														id="intboxPlusMinusBP" value="0"
+														style="width:50px !important;" />
+													<label
+														value="basepairs" />
+
+												</div>
+											</div>
+
+										</div>
+										<n:br />
+										<div class="form-row"
+											style="width: 430px;">
+											<div
+												style="width:600px !important;">
+												<div
+													class="form-group">
+													<checkbox
+														id="checkboxIncludeInteractions"
+														label="Include gene interactions (RiceNetv2, PRIN) (slow)" />
+
+												</div>
+											</div>
+										</div>
+										<div class="form-row"
+											style="width: 430px;">
+											<div
+												style="width:600px !important;">
+												<div
+													class="form-group">
+													<checkbox
+														id="checkboxIncludePromoters"
+														label="FGenesh++, PlantPromDB" />
+												</div>
+											</div>
+										</div>
+										<div class="form-row"
+											style="width: 430px;">
+											<div
+												style="width:600px !important;">
+												<div
+													class="form-group">
+													<checkbox
+														id="checkboxIncludeGO" label="Gene Ontology" />
+												</div>
+											</div>
+										</div>
+										<div class="form-row"
+											style="width: 430px;">
+											<div
+												style="width:600px !important;">
+												<div
+													class="form-group">
+													<checkbox
+														id="checkboxIncludePOTO" label="PO, TO, Q-TARO" />
+												</div>
+											</div>
+										</div>
+										<div class="form-row"
+											style="width: 430px;">
+											<div
+												style="width:600px !important;">
+												<div
+													class="form-group">
+													<checkbox
+														id="checkboxIncludeQTL" label="Q-TARO QTLs" />
+												</div>
+											</div>
+										</div>
+									</groupbox>
+									<groupbox id="rowGeneset"
+										open="true" width="450px" mold="3d" visible="false">
+										<caption label="Gene Set"
+											style="font-size:13px;background-color:#3a6b35;">
+											<div id="rowGenesetIcon"
+												class="fas fa-chevron-down">
+											</div>
+										</caption>
+
+										<div class="form-row"
+											style="width: 430px;">
+											<div
+												style="width:360px !important;">
+												<div
+													class="form-group">
+													<label
+														value="My Locus List " pre="true" />
+													<listbox
+														id="listboxMyLocusListGeneset" mold="select"
+														style="width:270px !important;" />
+
+												</div>
+											</div>
+										</div>
+										<n:br />
+										<div class="form-row"
+											style="width: 430px;">
+											<div>
+												<div class="form-group"
+													style="width:300px !important;">
+													<div
+														class="text-left">
+														<checkbox
+															id="checkboxRicenetv2direct" />
+														<label
+															value="Ricenetv2 direct neighbors  " pre="true" />
+
+													</div>
+												</div>
+											</div>
+											<div
+												class="col offset-xl-0">
+												<div
+													class="form-group">
+													<button label="GO"
+														disabled="true" id="buttonRicenetv2direct"
+														target="_ricenetnga" style="font-size:8px;height:5px;" />
+												</div>
+											</div>
+										</div>
+										<div class="form-row"
+											style="width: 430px;">
+											<div>
+												<div class="form-group"
+													style="width:300px !important;">
+													<div
+														class="text-left">
+														<checkbox
+															id="checkboxStringDB" />
+														<label
+															value="String-DB prot-prot interaction" pre="true" />
+
+													</div>
+												</div>
+											</div>
+											<div
+												class="col offset-xl-0">
+												<div
+													class="form-group">
+													<button label="GO"
+														disabled="true" id="buttonStringDB" target="_stringdb"
+														style="font-size:8px;height:5px;" />
+												</div>
+											</div>
+										</div>
+										<div class="form-row"
+											style="width: 430px;">
+											<div>
+												<div class="form-group"
+													style="width:300px !important;">
+													<div
+														class="text-left">
+														<checkbox
+															id="checkboxCarmoFunctional" />
+														<label
+															value="CARMO functional Annotation  " pre="true" />
+
+													</div>
+												</div>
+											</div>
+											<div
+												class="col offset-xl-0">
+												<div
+													class="form-group">
+													<button label="GO"
+														disabled="true" id="buttonCarmoFunctional"
+														target="_carmofunctional"
+														style="font-size:8px;height:5px;" />
+												</div>
+											</div>
+										</div>
+										<div class="form-row"
+											style="width: 430px;">
+											<div>
+												<div
+													class="form-group">
+													<div
+														class="text-left" style="width:300px !important;">
+														<checkbox
+															id="checkboxPlantGSEA" />
+														<label
+															value="Plant GSEA  " pre="true" />
+
+													</div>
+												</div>
+											</div>
+											<div
+												class="col offset-xl-0">
+												<div
+													class="form-group">
+													<button label="GO"
+														disabled="true" id="buttonPlantGSEA" target="_plantgsea"
+														style="font-size:8px;height:5px;" />
+												</div>
+											</div>
+										</div>
+										<div class="form-row"
+											style="width: 430px;">
+											<div>
+												<div
+													class="form-group">
+													<div
+														class="text-left" style="width:300px !important;">
+														<checkbox
+															id="checkboxAgriGO" />
+														<label
+															value="AgriGO  " pre="true" />
+
+													</div>
+												</div>
+											</div>
+											<div
+												class="col offset-xl-0">
+												<div
+													class="form-group">
+													<button label="GO"
+														disabled="true" id="buttonAgriGO" target="_agrigo"
+														style="font-size:8px;height:5px;" />
+												</div>
+											</div>
+										</div>
+										<div class="form-row"
+											style="width: 430px;">
+											<div>
+												<div class="form-group"
+													style="width:300px !important;">
+													<div
+														class="text-left">
+														<checkbox
+															id="checkboxIC4RExpr" />
+														<label
+															value="IC4R Expression (RAP loci only)  " pre="true" />
+
+													</div>
+												</div>
+											</div>
+											<div
+												class="col offset-xl-0">
+												<div
+													class="form-group">
+													<button label="GO"
+														disabled="true" id="buttonIC4RExpr" target="_ic4rexpr"
+														style="font-size:8px;height:5px;" />
+												</div>
+											</div>
+										</div>
+										<div class="form-row"
+											style="width: 430px;">
+											<div>
+												<div class="form-group"
+													style="width:300px !important;">
+													<div
+														class="text-left">
+														<checkbox
+															id="checkboxIC4RCoexpr" />
+														<label
+															value="IC4R Coexpression  (RAP loci only)" pre="true" />
+
+													</div>
+												</div>
+											</div>
+											<div
+												class="col offset-xl-0">
+												<div
+													class="form-group">
+													<button label="GO"
+														disabled="true" id="buttonIC4RCoexpr" target="_ic4rcoexpr"
+														style="font-size:8px;height:5px;" />
+												</div>
+											</div>
+										</div>
+									</groupbox>
+
+
+
+									<n:br />
+									<n:br />
+									<div id="rowGeneNameButtonDiv"
+										class="form-row" style="padding:10px;">
+										<n:div class="col">
+
+											<n:div class="text-right">
+												<button
+													id="searchGenenameButton"
+													label="Search by name/symbol/function"
+													style="font-size:11px;" />
+											</n:div>
+										</n:div>
+										<!-- <n:div class="col">
+											<n:div class="text-left">
+											<button label="Reset" id="reset"
+											onClick="" style="font-size:11px;" />
+											</n:div>
+											
+											</n:div>
+										-->
+									</div>
+									<div id="rowGoTermButtonDiv"
+										class="form-row" style="padding:10px;" visible="false">
+										<n:div class="col">
+											<n:div class="text-right">
+											</n:div>
+										</n:div>
+										<n:div class="col">
+											<n:div class="text-left">
+												<button
+													id="searchGOButton" label="Search by GO term"
+													style="font-size:11px;" />
+											</n:div>
+
+										</n:div>
+									</div>
+									<div id="rowGeneFunctionButtonDiv"
+										class="form-row" style="padding:10px;" visible="false">
+										<n:div class="col">
+
+											<n:div class="text-right">
+
+											</n:div>
+										</n:div>
+										<n:div class="col">
+											<n:div class="text-left">
+												<button
+													id="searchGenefunctionButton" label="Search by annotation"
+													style="font-size:11px;" />
+											</n:div>
+
+										</n:div>
+									</div>
+									<div id="rowRegionButtonDiv"
+										class="form-row" style="padding:10px;" visible="false">
+										<n:div class="col">
+
+											<n:div class="text-right">
+
+											</n:div>
+										</n:div>
+										<n:div class="col">
+											<n:div class="text-left">
+												<button
+													id="searchRegionButton" label="Search by region"
+													style="font-size:11px;" />
+											</n:div>
+
+										</n:div>
+									</div>
+									<div id="rowMySnpListButtonDiv"
+										class="form-row" style="padding:10px;" visible="false">
+										<n:div class="col">
+
+											<n:div class="text-right">
+
+											</n:div>
+										</n:div>
+										<n:div class="col">
+											<n:div class="text-left">
+												<button
+													id="searchMySnpListButton" label="Search SNP List"
+													style="font-size:11px;" />
+											</n:div>
+
+										</n:div>
+									</div>
+									<div id="rowPatoTermButtonDiv"
+										class="form-row" style="padding:10px;" visible="false">
+										<n:div class="col">
+
+											<n:div class="text-right">
+
+											</n:div>
+										</n:div>
+										<n:div class="col">
+											<n:div class="text-left">
+												<button
+													id="searchPatoButton" label="Search Plant/Trait term"
+													style="font-size:11px;" />
+											</n:div>
+
+										</n:div>
+									</div>
+									<div id="rowGenesetButtonDiv"
+										class="form-row" style="padding:10px;" visible="false">
+										<n:div class="col">
+
+											<n:div class="text-right">
+
+											</n:div>
+										</n:div>
+										<n:div class="col">
+											<n:div class="text-left">
+												<button
+													id="buttonMyLocusList" label="Gene set/enrichment"
+													style="font-size:11px;" />
+											</n:div>
+
+										</n:div>
+									</div>
+									<div id="rowSequenceButtonDiv"
+										class="form-row" style="padding:10px;" visible="false">
+										<n:div class="col">
+
+											<n:div class="text-right">
+
+											</n:div>
+										</n:div>
+										<n:div class="col">
+											<n:div class="text-right">
+												<button
+													id="searchByBlast" label="BLAST sequence"
+													style="font-size:11px;" />
+											</n:div>
+
+										</n:div>
+									</div>
+								</n:form>
+							</n:div>
+
+						</n:nav>
+					</n:div>
+					<div id="myModal">
+
+						<label value=".." />
+
+					</div>
+
+
+					<n:div id="content">
+						<n:div>
+							<div id="div_info" style="height:100vh ;">
+								<n:div class="row"
+									style="position: absolute;top:20%;left: 550px;margin-right:0px; margin-left:0px;height:400px;width:1100px">
+									<n:div class="col-lg-6"
+										style="box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15)!important;">
+										<n:div style="height:100%;">
+											<n:img class="img-fluid"
+												src="assets/img/7.png" style="margin-top:10%;" />
+										</n:div>
+
+									</n:div>
+									<n:div class="col-lg-5"
+										style="margin-top: auto;margin-bottom: auto;box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15)!important;padding:20px;height:100%;">
+										<n:div class="info">
+											<n:h3>Locus Query</n:h3>
+											<n:p class="fontCardStyle"
+												style="margin-top:20px;margin-left:20px;font-size: 12px;color: #706e6e; font-family:
+			-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+			Ubuntu, Fira Sans, Droid Sans, Helvetica Neue, sans-serif
+			!important;">
+
+												1. Select reference
+												genome
+												<n:br />
+												2. Select search
+												criterion:
+
+											</n:p>
+											<div
+												style="margin-left: 20px;">
+												<n:p
+													class="fontCardStyle"
+													style="margin-left:20px;font-size: 12px;color: #706e6e; font-family:
+			-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+			Ubuntu, Fira Sans, Droid Sans, Helvetica Neue, sans-serif
+			!important;">
+													a. gene function
+													<n:br />
+													b. gene name/symbols
+													<n:br />
+													c. GO term
+													<n:br />
+													d. contig and region
+													<n:br />
+													e. sequence
+													<n:br />
+													f. SNP positions
+													list
+													<n:br />
+													g. Gene set
+												</n:p>
+											</div>
+											<n:p class="fontCardStyle"
+												style="margin-left:20px;font-size: 12px;color: #706e6e; font-family:
+			-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+			Ubuntu, Fira Sans, Droid Sans, Helvetica Neue, sans-serif
+			!important;">
+												3. Click the Search
+												Button
+												<n:br />
+												Result Table: List of
+												matching loci
+											</n:p>
+
+										</n:div>
+									</n:div>
+								</n:div>
+							</div>
+
+
+							<div id="resultContentDiv" visible="false"
+								style="margin-bottom:20px;height:100%;width:100%;">
+								<goldenlayout id="resultGoldenLayout"
+									height="1300px" hflex="1"
+											style="margin-top: 10px;border:0px;padding-top:50px;">
+									<attribute name="areas">
+										A
+									</attribute>
+
+									<goldenpanel area="A"
+										id="locus_Result" class="locus_resultStyle" title="Data"
+										closable="false" visible="false"
+										style="border: 1px;
+										    border-style: solid;
+										    border-radius: 5px;
+										    border-color: #5b8877;">
+
+										<vbox>
+											<grid id="gridLocusInfo"
+												visible="true" width="100%">
+												<rows>
+													<row spans="4" />
+													<row spans="1,3">
+														<label
+															value="Locus name" />
+														<textbox
+															id="textboxLocusname" readonly="true" width="500px" />
+													</row>
+													<row spans="1,3">
+														<label
+															value="Position" />
+														<textbox
+															id="textboxPosition" readonly="true" width="500px" />
+													</row>
+													<row spans="1,3">
+														<label
+															value="Function (source annotation)" />
+														<textbox
+															id="textboxFunction" readonly="true" width="500px" />
+													</row>
+													<row spans="1,3">
+														<label
+															value="External links" />
+
+														<hbox>
+															<a
+																id="aMSU7" target="_xlocus" href="localhost"
+																label="MSU7  " visible="false"
+																style="font-size:12px;font-weight:bold" />
+															<vbox
+																width="15px" />
+															<a id="aRAP"
+																target="_xlocus" href="localhost" label="RAP  "
+																visible="false" style="font-size:12px;font-weight:bold" />
+															<vbox
+																width="15px" />
+															<a
+																id="aPhytozome" target="_xlocus" href="localhost"
+																label="Phytozome  " visible="false"
+																style="font-size:12px;font-weight:bold" />
+															<vbox
+																width="15px" />
+															<a
+																id="aOryzabase" target="_xlocus" href="localhost"
+																label="Oryzabase  " visible="false"
+																style="font-size:12px;font-weight:bold" />
+															<vbox
+																width="15px" />
+															<a
+																id="aGramene" target="_xlocus" href="localhost"
+																label="Gramene  " visible="false"
+																style="font-size:12px;font-weight:bold" />
+															<vbox
+																width="15px" />
+															<a
+																id="aKegg" target="_xlocus" href="localhost"
+																label="KEGG  " visible="false"
+																style="font-size:12px;font-weight:bold" />
+															<vbox
+																width="15px" />
+
+															<a
+																id="aUniprot" target="_xlocus" href="localhost"
+																label="Uniprot  " visible="false"
+																style="font-size:12px;font-weight:bold" />
+															<vbox
+																width="15px" />
+															<a
+																id="aNCBI" target="_xlocus" href="localhost"
+																label="NCBI  " visible="false"
+																style="font-size:12px;font-weight:bold" />
+															<vbox
+																width="15px" />
+															<a
+																id="aIC4RLit" target="_xlocus" href="localhost"
+																label="IC4R Lit  " visible="false"
+																style="font-size:12px;font-weight:bold" />
+
+														</hbox>
+													</row>
+													<row spans="1,3">
+														<label
+															value="Overlapping genes" />
+														<listbox
+															id="listboxOverlappinggenes" width="500px" />
+													</row>
+												</rows>
+											</grid>
+
+											<iframe id="iframeJbrowse"
+												align="left" visible="true"
+												style="width:95%;height:600px;border:0px inset;"
+												src="${jbrowsestart}" />
+										</vbox>
+
+
+									</goldenpanel>
+									<goldenpanel area="A"
+										id="variety_panelPassportResult"
+										title="Search By Gene Name/Symbol/Function Result"
+										class="variety_panelPassportResultStyle" closable="false"
+										visible="false">
+
+
+										<vbox width="100%">
+
+											<hbox height="20px" />
+											<hbox>
+												<hbox id="hboxDownload"
+													visible="false">
+													<label
+														value="    Download:  " pre="true" />
+													<button
+														id="buttonDownloadCSV" label="CSV" />
+													<hbox width="5px" />
+													<button
+														id="buttonDownloadTab" label="Tab" />
+													<hbox width="25px" />
+												</hbox>
+
+												<hbox id="hboxAddtolist"
+													visible="false">
+													<vbox width="20px" />
+													<button
+														id="buttonAddToList" label="Create Gene List:"
+														autodisable="self" tooltip="popupCreateList" />
+													<label
+														value="   List Name  " pre="true" />
+													<textbox
+														id="txtboxListname" width="200px" />
+												</hbox>
+
+
+											</hbox>
+
+											<hbox
+												id="hboxGenesetAnalysis" visible="false">
+												<label
+													value="Gene set analysis:" />
+												<vbox width="20px" />
+												<button
+													id="buttonRicenetV1" label="RiceNet V1 Interactions" />
+												<vbox width="20px" />
+												<button
+													id="buttonRicenetV2DirectNeighbors"
+													label="RiceNet V2 Direct Neighborhood" />
+												<vbox width="20px" />
+												<button
+													id="buttonRicenetV2ContextHubs"
+													label="RiceNet V2 Context Associated Hubs" />
+												<vbox width="20px" />
+												<button
+													id="buttonPantherOverrep"
+													label="Panther Overrepresentation Test" />
+											</hbox>
+
+
+
+											<!--  *********************   GENE LOCUS QUERY RESULTS DISPLAY  *********************************************************************************** -->
+											<zscript>
+	import org.irri.iric.portal.genomics.zkui.LocusListItemComparator;
+	Comparator lasc0 = new LocusListItemComparator(true, 0, 0);
+	Comparator ldsc0 = new LocusListItemComparator(false, 0, 0);
+	Comparator lasc1 = new LocusListItemComparator(true, 1, 0);
+	Comparator ldsc1 = new LocusListItemComparator(false, 1, 0);
+	Comparator lasc2 = new LocusListItemComparator(true, 2, 1);
+	Comparator ldsc2 = new LocusListItemComparator(false, 2, 1);
+	Comparator lasc3 = new LocusListItemComparator(true, 3, 1);
+	Comparator ldsc3 = new LocusListItemComparator(false, 3, 1);
+	Comparator lasc4 = new LocusListItemComparator(true, 4, 1);
+	Comparator ldsc4 = new LocusListItemComparator(false, 4, 1);
+	Comparator lasc6 = new LocusListItemComparator(true, 6, 0);
+	Comparator ldsc6 = new LocusListItemComparator(false, 6, 0);
+</zscript>
+
+
+											<listbox id="listboxLocus"
+												fixedLayout="true" mold="paging" pageSize="10"
+												visible="false" height="100%">
+												<listhead>
+													<listheader
+														label="LOCUS" width="180px" sortAscending="${lasc0}"
+														sortDescending="${ldsc0}" />
+													<listheader
+														label="CONTIG" width="120px" sortAscending="${lasc1}"
+														sortDescending="${ldsc1}" />
+													<listheader
+														label="START" width="100px" sortAscending="${lasc2}"
+														sortDescending="${ldsc2}" />
+													<listheader
+														label="STOP" width="100px" sortAscending="${lasc3}"
+														sortDescending="${ldsc3}" />
+													<listheader
+														label="STRAND" width="60px" sortAscending="${lasc4}"
+														sortDescending="${ldsc4}" />
+													<listheader
+														id="listheaderOverlapping" label="OVERLAPPING GENE MODELS"
+														width="300px" sort="auto" />
+													<listheader
+														label="DESCRIPTION" sortAscending="${lasc6}"
+														sortDescending="${ldsc6}" />
+												</listhead>
+											</listbox>
+
+											<zscript>
+	import org.irri.iric.portal.genomics.zkui.MarkerAnnotationSorter;
+	Comparator masc0 = new MarkerAnnotationSorter(true, 0);
+	Comparator mdsc0 = new MarkerAnnotationSorter(false, 0);
+	Comparator masc1 = new MarkerAnnotationSorter(true, 1);
+	Comparator mdsc1 = new MarkerAnnotationSorter(false, 1);
+</zscript>
+
+											<borderlayout
+												id="borderMarkerVar" height="800px" width="100%"
+												visible="false">
+												<north>
+													<hbox>
+														<hbox>
+															<label
+																value="Group by  " pre="true" style="font-weight:bold" />
+															<radiogroup
+																id="rgAnnotGroups" />
+															<label
+																pre="true" value="   Marker/Position" />
+															<radio
+																id="radioGroupbyMarker" radiogroup="rgAnnotGroups"
+																selected="true" />
+															<label
+																pre="true" value="   Gene locus" />
+															<radio
+																id="radioGroupbyGene" radiogroup="rgAnnotGroups" />
+															<label
+																pre="true" value="   QTL" />
+															<radio
+																id="radioGroupbyQtl" radiogroup="rgAnnotGroups" />
+														</hbox>
+
+														<hbox
+															style="font-weight:bold">
+															<label
+																pre="true" value=" Include:" />
+															<checkbox
+																id="checkboxListModel" label="gene model"
+																checked="true" />
+															<vbox
+																width="10px" />
+															<checkbox
+																id="checkboxListPromoter" label="in promoter"
+																checked="false" />
+															<vbox
+																width="10px" />
+															<checkbox
+																id="checkboxListRicenet" label="ricenet interaction"
+																checked="false" />
+															<vbox
+																width="10px" />
+															<checkbox
+																id="checkboxListPrin" label="prin interaction"
+																checked="false" />
+														</hbox>
+													</hbox>
+
+												</north>
+												<center border="0">
+													<listbox
+														id="listboxMarkerVar" width="100%" mold="paging"
+														pageSize="100" visible="false" vflex="1">
+														<listhead
+															sizable="true">
+															<listheader
+																label="CONTIG-POSITION" width="100px"
+																sortAscending="${masc0}" sortDescending="${mdsc0}" />
+															<!--  listheader label="POSITION" width="100px"   sortAscending="${masc1}" sortDescending="${mdsc1}" / -->
+														</listhead>
+													</listbox>
+												</center>
+											</borderlayout>
+
+
+											<grid id="gridGOTerms"
+												width="100%" mold="paging" pageSize="100" visible="false">
+												<columns>
+													<column
+														label="GO ACCESSION" width="120px" sort="auto" />
+													<column
+														label="GO TERM" width="400px" sort="auto" />
+													<column
+														label="LOCI COUNT" width="100px" sort="auto" />
+													<column label="CV"
+														width="100px" sort="auto" />
+												</columns>
+											</grid>
+
+											<!--  *********************   GENE LOCUS ALIGNMENT RESULTS DISPLAY  *********************************************************************************** -->
+
+											<zscript>
+	import org.irri.iric.portal.genomics.zkui.LocalAlignmentSorter;
+	Comparator aasc0 = new LocalAlignmentSorter(true, 0, 0);
+	Comparator adsc0 = new LocalAlignmentSorter(false, 0, 0);
+	Comparator aasc1 = new LocalAlignmentSorter(true, 1, 2);
+	Comparator adsc1 = new LocalAlignmentSorter(false, 1, 2);
+	Comparator aasc2 = new LocalAlignmentSorter(true, 2, 2);
+	Comparator adsc2 = new LocalAlignmentSorter(false, 2, 2);
+	Comparator aasc3 = new LocalAlignmentSorter(true, 3, 0);
+	Comparator adsc3 = new LocalAlignmentSorter(false, 3, 0);
+	Comparator aasc4 = new LocalAlignmentSorter(true, 4, 2);
+	Comparator adsc4 = new LocalAlignmentSorter(false, 4, 2);
+	Comparator aasc5 = new LocalAlignmentSorter(true, 5, 2);
+	Comparator adsc5 = new LocalAlignmentSorter(false, 5, 2);
+	Comparator aasc6 = new LocalAlignmentSorter(true, 6, 1);
+	Comparator adsc6 = new LocalAlignmentSorter(false, 6, 1);
+	Comparator aasc7 = new LocalAlignmentSorter(true, 7, 2);
+	Comparator adsc7 = new LocalAlignmentSorter(false, 7, 2);
+	Comparator aasc8 = new LocalAlignmentSorter(true, 8, 3);
+	Comparator adsc8 = new LocalAlignmentSorter(false, 8, 3);
+</zscript>
+
+											<listbox
+												id="listboxAlignment" class="blast-table" mold="paging"
+												pageSize="100" width="100%" visible="false">
+												<listhead>
+													<listheader
+														label="QUERY" width="400px" sortAscending="${aasc0}"
+														sortDescending="${adsc0}" />
+													<listheader
+														label="Q START" width="100px" sortAscending="${aasc1}"
+														sortDescending="${adsc1}" />
+													<listheader
+														label="Q END" width="100px" sortAscending="${aasc2}"
+														sortDescending="${adsc2}" />
+													<listheader
+														label="SUBJECT" width="180px" sortAscending="${aasc3}"
+														sortDescending="${adsc3}" />
+													<listheader
+														label="S START" width="100px" sortAscending="${aasc4}"
+														sortDescending="${adsc4}" />
+													<listheader
+														label="S END" width="100px" sortAscending="${aasc5}"
+														sortDescending="${adsc5}" />
+													<listheader
+														label="S STRAND" width="100px" sortAscending="${aasc6}"
+														sortDescending="${adsc6}" />
+													<listheader
+														label="MATCHES" width="150px" sortAscending="${aasc7}"
+														sortDescending="${adsc7}" />
+													<listheader
+														label="E VALUE" width="100px" sortAscending="${aasc8}"
+														sortDescending="${adsc8}" />
+												</listhead>
+											</listbox>
+										</vbox>
+
+
+									</goldenpanel>
+
+
+
+									<goldenpanel area="A"
+										id="variety_MDSResult" title="MDS Plot"
+										class="variety_MDSResultStyle" closable="false"
+										visible="false">
+
+
+										<div id="divMDSNeighbors">
+											<label
+												value="CLOSE RELATIVES (MDS Plot)"
+												style="font-size:14;font-weight:bold" />
+											<label
+												value="Drag area to zoom." />
+											<charts
+												id="chartMDSNeighbors" type="scatter" zoomType="xy"
+												title="Neighboring varieties" width="500" height="500" />
+											<hbox height="100%" />
+										</div>
+
+
+
+									</goldenpanel>
+
+									<goldenpanel area="A"
+										id="variety_panelPhenotypeResult" title="Phenotype"
+										class="variety_panelPhenotypeResultStyle" closable="false"
+										visible="false">
+
+
+										<a target="_blank"
+											href="/phenotype_dict.pdf" label="Phenotype data dictionary" />
+										<listbox
+											id="listboxGermPhenotypes" style="height:620px;">
+											<listhead>
+												<listheader>
+													DEFINITION
+												</listheader>
+												<listheader>
+													FIELD
+												</listheader>
+												<listheader>
+													VALUE
+												</listheader>
+											</listhead>
+										</listbox>
+									</goldenpanel>
+
+									<!-- <goldenpanel area="A"
+										id="variety_panelResult" class="variety_panelResultStyle"
+										title="Table Result" closable="false"
+										style="background-color:rgb(90,181, 109);font-size:12px;top:100px; left:35%;position:absolute;"
+										visible="false">
+										
+										
+										</goldenpanel>
+									-->
+								</goldenlayout>
+
+
+							</div>
+
+						</n:div>
+
+					</n:div>
+				</n:div>
+			</n:div>
+
+		</window>
+	</n:div>
+
+
+
+
+</zk>

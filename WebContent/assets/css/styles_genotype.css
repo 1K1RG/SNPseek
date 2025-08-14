@@ -1,0 +1,13 @@
+.bandpopupGenotype{
+	width:220px;
+	
+}
+
+.bandpopupItemGenotype{
+	width:100%;
+}
+
+.z-label, .z-radio-content, .z-checkbox-content, .z-loading{
+	font-size:12px;
+}
+

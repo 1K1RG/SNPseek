@@ -1,0 +1,520 @@
+<?script rel="javascript" type="text/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"?>
+<?link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css"?>
+<zk xmlns:w="http://www.zkoss.org/2005/zk/client">
+	<n:div xmlns:n="native">
+		<n:meta name="viewport"
+			content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
+		<n:script
+			src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js" />
+		<style
+			src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css" />
+
+		<n:script src="assets/js/jquery.min.js" />
+		<n:script src="assets/bootstrap/js/bootstrap.min.js" />
+		<n:script
+			src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js" />
+
+		<n:script src="assets/js/Collapsible-Sidebar.js" />
+		<n:script src="assets/js/Material-Text-Input.js" />
+		<style src="assets/bootstrap/css/bootstrap.min.css" />
+		<style src="assets/css/Carousel-Hero.css" />
+		<style
+			src="https://fonts.googleapis.com/css?family=Nunito+Sans" />
+		<style src="https://fonts.googleapis.com/css?family=Poppins" />
+		<style src="https://fonts.googleapis.com/css?family=Roboto" />
+		<style src="https://fonts.googleapis.com/css?family=Rubik" />
+		<style src="assets/fonts/fontawesome-all.min.css" />
+		<style src="assets/fonts/font-awesome.min.css" />
+		<style src="assets/fonts/fontawesome5-overrides.min.css" />
+		<style src="assets/css/Footer-Dark.css" />
+		<style src="assets/css/styles.css" />
+		<style src="assets/css/styles_genotype.css" />
+		<style src="assets/css/Collapsible-Sidebar.css" />
+		<style src="assets/css/sidebar_home.css" />
+		<style src="assets/css/stylenav.css" />
+
+		 <style>
+        table {
+            width: 100%;
+            border-collapse: collapse; /* Ensures borders inside the table are collapsed into a single border */
+        }
+        th, td {
+            border: 1px solid black; /* Solid black border for both table headers and data cells */
+            padding-left: 25px;
+            padding-right: 10px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            text-align: left;
+            
+        }
+        thead {
+            background-color:#bacab7;
+        }
+    </style>
+
+		<window id="homeWin" border="none" width="100%" height="100%"
+			apply="user.ui.module.HomeQueryController">
+			<n:div id="bodyContent">
+				<!--  style="background-image: url('./assets/img/home_irri.png') !important;background-repeat:no-repeat !important;background-position-x: right !important;background-position-y: center !important;background-size: 55% !important;">-->
+
+
+				<n:div id="bodyContent1"
+					style="margin: 20px;margin-left:20px;">
+
+					<n:div class="row">
+						<n:div class="col-md-6 col-xl-3 mb-4"
+							style="padding-right:5px;padding-left:5px;">
+							<n:div
+								class="card shadow border-start-primary py-2 home_div"
+								style="border-left: .65rem solid #73ab85!important;">
+								<n:div class="card-body">
+									<n:div
+										class="row align-items-center no-gutters">
+										<n:div class="col me-2">
+											<n:div
+												class="text-uppercase text-primary fw-bold text-xs mb-1">
+												<n:span
+													class="primaryTextStyle"
+													style="color:#709ac7 !important;">
+													Dataset Available
+												</n:span>
+											</n:div>
+											<n:div
+												class="text-dark fw-bold h5 mb-0">
+												<n:span
+													class="primaryTextStyle">
+													<label
+														style="font-size:1.25rem;" id="dsNumber" value="0" />
+												</n:span>
+											</n:div>
+										</n:div>
+										<n:div class="home_icons"
+											style="width: 90px;text-align: center;">
+											<n:i
+												class="fas fa-clipboard-list fa-2x text-gray-300">
+											</n:i>
+										</n:div>
+									</n:div>
+								</n:div>
+							</n:div>
+						</n:div>
+						<n:div class="col-md-6 col-xl-3 mb-4"
+							style="padding-right:15px;padding-left:15px;">
+							<n:div
+								class="card shadow border-start-success py-2 home_div"
+								style="border-left: .65rem solid #9ba677!important;">
+								<n:div class="card-body">
+									<n:div
+										class="row align-items-center no-gutters">
+										<n:div class="col me-2">
+											<n:div
+												class="text-uppercase text-success fw-bold text-xs mb-1">
+												<n:span
+													class="primaryTextStyle">
+													Varieties
+												</n:span>
+											</n:div>
+											<n:div
+												class="text-dark fw-bold h5 mb-0">
+												<n:span
+													class="primaryTextStyle">
+													3024
+												</n:span>
+											</n:div>
+										</n:div>
+										<n:div class="home_icons"
+											style="width: 90px;text-align: center;">
+											<n:i
+												class="fas fa-seedling fa-2x text-gray-300">
+											</n:i>
+										</n:div>
+									</n:div>
+								</n:div>
+							</n:div>
+						</n:div>
+						<n:div class="col-md-6 col-xl-3 mb-4"
+							style="padding-right:15px;padding-left:15px;">
+							<n:div
+								class="card shadow border-start-info py-2 home_div"
+								style="border-left: .65rem solid #86b3c6!important;">
+								<n:div class="card-body">
+									<n:div
+										class="row align-items-center no-gutters">
+										<n:div class="col me-2">
+											<n:div
+												class="text-uppercase text-info fw-bold text-xs mb-1">
+												<n:span
+													class="primaryTextStyle">
+													Number of SNPs
+												</n:span>
+											</n:div>
+											<n:div
+												class="row g-0 align-items-center">
+												<n:div
+													class="col-auto">
+													<n:div
+														class="text-dark fw-bold h5 mb-0 me-3">
+														<n:span
+															class="primaryTextStyle">
+															20 million +
+														</n:span>
+													</n:div>
+												</n:div>
+											</n:div>
+										</n:div>
+										<n:div class="home_icons"
+											style="width: 90px;text-align: center;">
+											<n:i
+												class="fas fa-clipboard-list fa-2x text-gray-300">
+											</n:i>
+										</n:div>
+									</n:div>
+								</n:div>
+							</n:div>
+						</n:div>
+						<n:div class="col-md-6 col-xl-3 mb-4"
+							style="padding-right:15px;padding-left:15px;">
+							<n:div
+								class="card shadow border-start-warning py-2 home_div"
+								style="border-left: .65rem solid #c5ae7e!important;">
+								<n:div class="card-body">
+									<n:div
+										class="row align-items-center no-gutters">
+										<n:div class="col me-2">
+											<n:div
+												class="text-uppercase text-warning fw-bold text-xs mb-1">
+												<n:span
+													class="primaryTextStyle">
+													Total Visits
+												</n:span>
+											</n:div>
+											<n:div
+												class="text-dark fw-bold h5 mb-0">
+												<n:span
+													class="primaryTextStyle">
+													18
+												</n:span>
+											</n:div>
+										</n:div>
+										<n:div class="home_icons">
+											<n:i
+												class="fas fa-chart-line fa-2x text-gray-300">
+											</n:i>
+										</n:div>
+									</n:div>
+								</n:div>
+							</n:div>
+						</n:div>
+					</n:div>
+
+					<n:div class="row"
+						style="width:100%; margin-top:20px;   ">
+						<n:div class="col-lg-5 col-xl-6">
+							<n:div class="cardtransparent shadow mb-4"
+								style="border-radius:10px;border:0px !important;box-shadow: 0 0rem 0rem rgba(0,0,0,0)!important;">
+								<n:div>
+									<n:div class="carousel slide"
+										style="height:500px;" data-ride="carousel" id="carousel-1">
+										<n:div class="carousel-inner">
+											<n:div
+												class="carousel-item active">
+												<n:div
+													class="jumbotron hero-nature carousel-hero">
+													<n:h1
+														class="hero-title">
+														About the Site
+													</n:h1>
+													<n:p
+														class="hero-subtitle">
+														This site
+														provides
+														Genotype,
+														Phenotype, and
+														Variety
+														Information for
+														rice (Oryza
+														sativa L.). SNP
+														genotyping data
+														(called against
+														<n:a
+															target="_blank"
+															href="http://rice.plantbiology.msu.edu/annotation_pseudo_current.shtml">
+															Nipponbare
+															reference
+															Os-Nipponbare-Reference-IRGSP-1.0
+														</n:a>
+														) came from
+														<n:a
+															target="_blank"
+															href="https://iric.irri.org/projects/3000-rice-genomes-project">
+															3,000 Rice
+															Genomes
+														</n:a>
+														Project.
+														Phenotype and
+														passport data
+														for the 3,000
+														rice varieties
+														came from the
+														International
+														Rice Genebank
+														Collection
+														Information
+														System (
+														<n:a
+															target="_blank"
+															href="http://irgcis.irri.org:81/grc/irgcishome.html">
+															IRGCIS
+														</n:a>
+														). We are a part
+														of an ongoing
+														effort by the
+														International
+														Rice Informatics
+														Consortium (
+														<n:a
+															target="_blank" href="http://iric.irri.org">
+															IRIC
+														</n:a>
+														) to centralize
+														information
+														access to rice
+														research data
+														and provide
+														computational
+														tools to
+														facilitate rice
+														improvement via
+														discovery of new
+														gene-trait
+														associations and
+														accelerated
+														breeding.
+													</n:p>
+													<n:p>
+														<n:a
+															class="btn btn-primary btn-lg hero-button" role="button"
+															style="color:#fff !important"
+															href="https://iric.irri.org/resources/3krg-in-aws">
+															Learn more
+															about 3k
+															Rice Genome
+															Project
+														</n:a>
+													</n:p>
+												</n:div>
+											</n:div>
+											<n:div
+												class="carousel-item">
+												<n:div
+													style="height:100%;">
+													<n:div
+														class="jumbotron hero-photography carousel-hero">
+														<n:h1
+															class="hero-title">
+															Publication
+														</n:h1>
+														<n:p
+															class="hero-subtitle">
+															Mansueto, et
+															al. Rice
+															SNP-seek
+															database
+															update: new
+															SNPs,
+															indels, and
+															queries.Nucl.
+															Acids
+															Res.(2017)
+															45 (D1):
+															D1075-D1081.
+															doi:
+															10.1093/nar/gkw1135
+															This paper
+															describes
+															new features
+															and datasets
+															added to
+															SNP-Seek in
+															2015-2017 as
+															well as
+															software and
+															database
+															updates.
+															<n:br />
+															<n:br />
+															<n:br />
+															<n:br />
+														</n:p>
+														<n:p>
+															<n:a
+																class="btn btn-primary btn-lg hero-button"
+																style="color:#fff !important" role="button" href="_about.zul">
+																See more
+																publications
+															</n:a>
+														</n:p>
+													</n:div>
+												</n:div>
+											</n:div>
+											<n:div
+												class="carousel-item">
+												<n:div
+													style="height:100%;">
+													<n:div
+														class="jumbotron hero-photography carousel-hero">
+														<n:h1
+															class="hero-title">
+															Version 3
+															Tiered Data
+															Access
+														</n:h1>
+														<n:div style="font-size:12px;margin-left:70px;margin-right:70px;margin-top:20px;color:#706e6e;font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Fira Sans, Droid Sans, Helvetica Neue, sans-serif !important;">
+															<n:table>
+																<n:thead>
+																	<n:tr>
+																		<n:th>
+																			User
+																			Tier
+																		</n:th>
+																		<n:th>
+																			Available
+																			Data
+																		</n:th>
+																	</n:tr>
+																</n:thead>
+																<n:tbody>
+																	<n:tr>
+																		<n:td>
+																			Anonymous 
+																		</n:td>
+																		<n:td>
+																			<n:ul>
+														                        <n:li>3kRG data only</n:li>
+														                    </n:ul>
+																		</n:td>
+																	</n:tr>
+																	<n:tr>
+																		<n:td>
+																			Registered
+																			non-IRRI
+																		</n:td>
+																		<n:td>
+																			<n:ul>
+														                        <n:li>3kRG
+																			+
+																			6
+																			datasets
+																			already
+																			in
+																			SNP-Seek
+																			v2
+																			against
+																			1
+																			reference
+																			genome</n:li>
+														                    </n:ul>
+																			
+																		</n:td>
+
+																	</n:tr>
+																	<n:tr>
+																		<n:td>
+																			Registered
+																			IRRI
+																			and
+																			paid-for
+																			subscribers
+																		</n:td>
+																		<n:td>
+																		<n:ul>
+														                        <n:li>3kRG
+																			x
+																			15
+																			reference
+																			genomes
+																			(indica
+																			MH63
+																			now
+																			available)</n:li>
+														                        <n:li>Upcoming:
+																			10K
+																			IRGC
+																			genomes
+																			(IRRI-KAUST),
+																			6k
+																			eGWAS
+																			lines
+																			(skim-seq)</n:li>
+														                    </n:ul>
+																			
+
+
+																			
+
+																		</n:td>
+																	</n:tr>
+																</n:tbody>
+															</n:table>
+														</n:div>
+
+													</n:div>
+												</n:div>
+											</n:div>
+
+										</n:div>
+										<n:div>
+											<n:a
+												class="carousel-control-prev" href="#carousel-1"
+												role="button" data-slide="prev" style="color: #01933b;">
+												<n:i
+													class="fa fa-chevron-left">
+												</n:i>
+												<n:span
+													class="sr-only">
+													Previous
+												</n:span>
+											</n:a>
+											<n:a
+												class="carousel-control-next" href="#carousel-1"
+												role="button" data-slide="next" style="color: #01933b;">
+												<n:i
+													class="fa fa-chevron-right">
+												</n:i>
+												<n:span
+													class="sr-only">
+													Next
+												</n:span>
+											</n:a>
+										</n:div>
+										<n:ol
+											class="carousel-indicators">
+											<n:li
+												data-target="#carousel-1" data-slide-to="0"
+												class="active">
+											</n:li>
+											<n:li
+												data-target="#carousel-1" data-slide-to="1">
+											</n:li>
+										</n:ol>
+									</n:div>
+
+								</n:div>
+							</n:div>
+						</n:div>
+						<n:div class="col-lg-5 col-xl-6">
+							<n:div class="cardtransparent shadow mb-4"
+								style="border-radius:10px;border:0px !important;box-shadow: 0 0rem 0rem rgba(0,0,0,0)!important;">
+								<n:div>
+									<n:img class="img-fluid"
+										src="./assets/img/main1127.png" />
+								</n:div>
+							</n:div>
+						</n:div>
+					</n:div>
+				</n:div>
+			</n:div>
+		</window>
+	</n:div>
+
+</zk>

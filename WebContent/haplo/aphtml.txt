@@ -1,0 +1,137 @@
+
+var imgwidth=8;
+var maxy=9284;
+var miny=546;
+var maxx= 687.07*imgwidth-29.05;
+var minx= 32.535*imgwidth+239.34;
+
+
+
+function  getXYlabel(x,y) {
+   // var ImagePerScreen=800*imgwidth/self.innerWidth;
+   // var ximg=x*screen2img;
+    var nx=   ((nX-1)*(x-minx)/(maxx-minx)+1).toFixed(0);
+    var ny=  2+nY-(nY*(y-miny)/(maxy-miny)+1).toFixed(0);
+
+    
+
+   // return '(x=' + Math.floor(x) + ',nx=' + nx + ', y=' + Math.floor(y) + ',ny=' + ny + ') ' + mapX[nx] + ', ' + mapY[ny];
+   // return '(self.innerWidth=' + self.innerWidth + ' x=' + x + ',nx=' + nx + ', y=' + y + ',ny=' + ny + ') ' + mapX[nx] + ', ' + mapY[ny] + ", imgwidth=" + imgwidth + ", minx=" + minx + ", maxx=" + maxx + ", miny=" + miny + ", maxy=" + maxy;
+    return mapX[nx] + ', ' + mapY[ny-1];
+}
+
+
+$(window).on('load', function() {
+	var tooltip = $( '<div id="tooltip">' ).appendTo( 'body' )[0];
+
+	if(genomic_coord)  {
+		var lastpos = Number(   String(mapX[nX]).split("-")[1] );
+		var firstpos= Number( String(mapX[1]).split("-")[1] );
+		imgwidth= Math.floor((lastpos-firstpos)/1000)+1;
+	} else {
+	 	imgwidth= Math.floor(nX/10)+1
+	}
+	if(show_gene){
+		maxy=9284;
+		miny=546;
+	} else {
+		maxy=9228;
+		miny=12;
+	}
+	
+	imgwidth= Math.max(imgwidth,8);
+	imgwidth= Math.min(imgwidth,24);
+	maxx= 687.07*imgwidth-29.05;
+	minx= 32.535*imgwidth+239.34;
+	var imgmaxx=800*imgwidth;
+	var imgmaxy=9600;
+	maxy=100*maxy/imgmaxy;
+	maxx=100*maxx/imgmaxx;
+	miny=100*miny/imgmaxy;
+	minx=100*minx/imgmaxx;
+	console.log('% minx=' +  minx +',miny=' + miny + ',maxy=' + maxx + ',maxy=' + maxy + ', genomic=' + genomic_coord + ', nvars=' + nY + ', nPos=' + nX)
+
+
+$( '.coords' ).
+    each(function () {
+        var pos = $( this ).position(),
+            top = pos.top,
+            left = pos.left,
+            width = $( this ).width(),
+            height = $( this ).height();
+
+            
+        
+        $( this ).
+            
+            mousemove(function ( e ) {
+
+  /*              var x = ( ( e.clientX - left ) / width ).toFixed( 3 ),
+                    y = ( ( height - ( e.clientY - top ) ) / height ).toFixed( 3 );
+                
+                $( tooltip ).text( x + ', ' + y ).css({
+                    left: e.clientX - 30,
+                    top: e.clientY - 30
+                }).show();
+
+                return;
+*/
+
+
+                var scrollx= $(document).scrollLeft(), 
+                    scrolly= $(document).scrollTop(),
+                    clientx=e.clientX ,clienty=e.clientY,
+                    //pagewidth=self.innerWidth,
+                    //pageheight=self.innerHeight;
+                    pagewidth=$(document).width(),
+                    //pageheight=$(document).height();
+                    pageheight=$(this).height();
+/*
+/*
+                var scrollx= 0, 
+                    scrolly= 0,
+                    clientx=e.pageX ,clienty=e.pageY;
+*/
+
+                var coorx = (( clientx + scrollx)*100/pagewidth), //.toFixed( 1 ),
+                    coory = (( clienty + scrolly)*100/pageheight); //.toFixed( 1 );
+
+                  //  console.log(clientx + '+' + scrollx + '-'  + minx + '=' + (clientx.toFixed(0) + scrollx.toFixed(0) - minx.toFixed(0) ) );
+                  //  console.log(clienty + '+' + scrolly + '-'  + miny + '=' + (clienty.toFixed(0)  + scrolly.toFixed(0)  - miny.toFixed(0) ) );
+
+                if(coorx<minx || coorx>maxx || coory<miny || coory>maxy) {
+                //if(coorx<0 || coorx>(maxx-minx) || coory<0 || coory>(maxy-miny)) {
+                //if(false) {
+                    //$( tooltip ).text().css().hide();
+                    $( tooltip ).hide();
+                }
+                else  {
+
+                    //$( tooltip ).text( 'x:' + coorx + ', clientX:' + clientx + ', minx:' + minx  + "\n y:" + coory + ', clienty:' + clienty + ', miny:' + miny).css({
+
+                    
+
+                    $( tooltip ).text(getXYlabel(coorx,coory)).css({
+                        left:  Math.max(10, Math.min(pagewidth-100,clientx - 30)),
+                        top: Math.max(10, Math.min(pageheight-50,clienty - 30))
+                    }).show();
+
+                }
+
+
+            }).
+            mouseleave(function () {
+                $( tooltip ).hide();
+            }); 
+    });
+    
+
+
+
+});//]]> 
+
+</script>
+
+  
+</head>
+

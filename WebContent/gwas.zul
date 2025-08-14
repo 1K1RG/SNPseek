@@ -1,0 +1,917 @@
+<?page title="GWAS" contentType="text/html;charset=UTF-8"?>
+<?component name="tipBox" macroURI="tipBox.zul"?>
+
+<zk xmlns:n="native">
+	<n:script src="assets/js/jquery.min.js" />
+	<n:script src="assets/bootstrap/js/bootstrap.min.js" />
+	<n:script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js" />
+
+	<n:script src="assets/js/Collapsible-Sidebar.js" />
+	<n:script src="assets/js/Material-Text-Input.js" />
+
+	<!-- Google tag (gtag.js) -->
+	<n:script async="async"
+		src="https://www.googletagmanager.com/gtag/js?id=G-6DY1MFCGZH">
+	</n:script>
+	<n:script>
+		window.dataLayer = window.dataLayer || []; function
+		gtag(){dataLayer.push(arguments);} gtag('js', new Date());
+
+		gtag('config', 'G-6DY1MFCGZH');
+
+		gtag('event', 'page_view', { 'page_path': '/gwas.zul' });
+
+	</n:script>
+
+
+	<style src="assets/bootstrap/css/bootstrap.min.css" />
+	<style src="https://fonts.googleapis.com/css?family=Nunito+Sans" />
+	<style src="https://fonts.googleapis.com/css?family=Poppins" />
+	<style src="https://fonts.googleapis.com/css?family=Roboto" />
+	<style src="https://fonts.googleapis.com/css?family=Rubik" />
+	<style src="assets/fonts/fontawesome-all.min.css" />
+	<style src="assets/fonts/font-awesome.min.css" />
+	<style src="assets/fonts/fontawesome5-overrides.min.css" />
+	<style src="assets/css/Footer-Dark.css" />
+	<style src="assets/css/styles.css" />
+	<style src="assets/css/styles_genotype.css" />
+	<style src="assets/css/Collapsible-Sidebar.css" />
+	<style src="assets/css/sidebar_home.css" />
+	<style src="assets/css/genotypeSearch.css" />
+	<style>
+		.z-loading { background-color:#808080; border:1px outset
+		#A0A0A0; font-weight: bold; padding:2px;
+
+		cursor: wait; top: 50%; left: 45% !important; align: center;
+		vertical-align: middle;
+
+		position: fixed; margin-left: auto; margin-right: auto; display:
+		block;
+
+
+		}
+
+		.z-loading-indicator { color: gray; border:0 none;
+
+		width: 100%; height: 100%; }
+
+		.z-loading { top: 50% !important; left: 45% !important; align:
+		center; vertical-align: middle; }
+
+
+	</style>
+	<script>
+		function myFunction() {
+
+		var element = document.getElementById("genotypeSearchSidebar");
+		element.classList.toggle("active"); }
+	</script>
+
+	<zscript>
+	import org.irri.iric.portal.AppContext;
+	String moduleparams = "";
+	moduleparams = AppContext.convertParams2URL(Executions.getCurrent().getParameterMap());
+</zscript>
+
+	<window border="none"
+		apply="user.ui.module.GwasDisplayController">
+
+		<hlayout id="layoutResultId" class="text-left" visible="false"
+			style="margin-top:auto; margin-bottom:auto;background-color:rgb(255 255 255) ;     padding: 25px 15px 10px 15px;position:fixed;z-index:9;top:65px;width:100%;">
+
+			<button id="backQueryDiv" iconSclass="z-icon-reorder"
+				tooltiptext="Go to Input"
+				style="width:40px; padding:7px;font-size:16px; background-color:#9fc6a1; color:white;margin-top:-5px;border-radius:80px;" />
+
+			<!-- <label value="RESULT "
+				style="margin-right: 10px;margin-left: 20px;" /> -->
+			<n:div style="padding: 10px !important;"
+				class="card shadow border-start-primary py-2 home_div2">
+				<n:div class="card-body2">
+					<n:div class="row align-items-center no-gutters"
+						style="margin-top: -10px;">
+						<n:div class="col me-2">
+							<n:div>
+								<n:span style="font-size:13px;">
+									VARIETIES:
+									<label id="varietyRsltCnt" />
+								</n:span>
+							</n:div>
+
+						</n:div>
+
+
+
+					</n:div>
+				</n:div>
+			</n:div>
+			<n:div
+				class="card shadow border-start-primary py-2 home_div2"
+				style="padding: 10px !important;">
+				<n:div class="card-body2">
+					<n:div class="row align-items-center no-gutters"
+						style="margin-top: -10px;">
+						<n:div class="col me-2">
+							<n:div>
+								<n:span style="font-size:13px;">
+									SNPs:
+									<label id="snpRsltCnt" />
+								</n:span>
+							</n:div>
+						</n:div>
+
+					</n:div>
+				</n:div>
+			</n:div>
+		</hlayout>
+		<n:div id="bodyContent" style="height:100%">
+			<n:div class="wrapper">
+				<n:nav id="genotypeSearchSidebar"
+					style="position:absolute !important; width: 450px !important;  overflow-y: auto;  height: 100%;"
+					tabindex="-1" role="dialog">
+					<n:div class="container">
+						<n:div class="form-row">
+							<n:div class="col"
+								style="margin-left: 10px;margin-top: 15px;">
+
+								<label value="GWAS Results and tools"
+									style="font-size:16px;color:#3b4e36;" />
+							</n:div>
+							<div id="closeDiv">
+								<n:div class="col"
+									style="padding-left: 10px;margin-top: 5px;">
+									<n:div class="text-right">
+										<n:button id="closeSidebar"
+											class="btn" visible="true">
+											<n:i class="fas fa-times">
+											</n:i>
+										</n:button>
+									</n:div>
+
+								</n:div>
+							</div>
+
+						</n:div>
+
+						<n:form style="margin: 10px;">
+							<groupbox id="gwasResults" open="true"
+								closable="false" width="420px" mold="3d">
+								<caption label="Stored GWAS Results"
+									style="font-size:13px;background-color:#3a6b35;">
+								</caption>
+								<n:div style="width:500px;">
+									<n:div class="form-row"
+										style="width: 500px;margin-bottom:10px;">
+										<n:div style="width:150px">
+											<n:div class="form-group">
+												<label
+													value="Select subpopulation   " pre="true" />
+											</n:div>
+										</n:div>
+										<n:div class="col">
+											<listbox
+												id="listboxSubpopulation" mold="select" />
+
+										</n:div>
+									</n:div>
+									<n:div class="form-row"
+										style="width: 500px;margin-bottom:10px;">
+										<n:div style="width:150px; ">
+											<n:div class="form-group">
+											</n:div>
+										</n:div>
+										<n:div class="col">
+											<radiogroup
+												id="rgTraitterm" />
+											<radio id="radioLegacyTrait"
+												selected="true" radiogroup="rgTraitterm" label="Legacy" />
+											<radio id="radioCoTrait"
+												radiogroup="rgTraitterm" label="CO Terms" />
+
+										</n:div>
+									</n:div>
+									<n:div class="form-row"
+										style="width: 500px;margin-bottom:10px;">
+										<n:div style="width:150px">
+											<n:div class="form-group">
+												<label
+													value="Select trait   " pre="true" />
+											</n:div>
+										</n:div>
+										<n:div class="col">
+											<listbox id="listboxTrait"
+												mold="select" />
+
+										</n:div>
+									</n:div>
+								</n:div>
+							</groupbox>
+
+							<!-- <n:hr style="width: 500px;" />  -->
+							<groupbox open="true" width="420px"
+								mold="3d" closable="false">
+								<caption
+									label="SNPs and Variety GWAS Lists: "
+									style="font-size:8px;background-color:#3a6b35;">
+								</caption>
+								<n:div style="width:500px;">
+									<n:div class="form-row"
+										style="width: 500px;margin-bottom:10px;">
+										<n:div style="width:150px">
+											<n:div class="form-group">
+												<label
+													value="SNP -log(P) list" pre="true" />
+											</n:div>
+										</n:div>
+										<n:div class="col">
+											<listbox id="listboxSnplist"
+												mold="select" width="150px" />
+
+										</n:div>
+									</n:div>
+
+									<n:div class="form-row"
+										style="width: 500px;margin-bottom:10px;">
+										<n:div style="width:150px">
+											<n:div class="form-group">
+												<label
+													value="Variety phenotype list" pre="true" />
+
+											</n:div>
+										</n:div>
+										<n:div class="col">
+											<listbox
+												id="listboxVarietylist" mold="select" width="150px" />
+
+										</n:div>
+									</n:div>
+								</n:div>
+							</groupbox>
+
+
+							<groupbox open="true" width="420px"
+								mold="3d" closable="false">
+								<caption label="Options"
+									style="font-size:11px;background-color:#3a6b35;color:#ffffff;">
+								</caption>
+								<n:div style="width:500px;">
+									<n:div class="form-row"
+										style="width: 500px;margin-bottom:10px;">
+										<n:div style="width:150px">
+											<n:div class="form-group">
+												<label
+													value="Display minimum -log10 P" pre="true" />
+
+											</n:div>
+										</n:div>
+										<n:div class="col">
+											<listbox
+												id="comboboxMinlogP" mold="select">
+												<listitem label="50" />
+												<listitem label="45" />
+												<listitem label="40" />
+												<listitem label="35" />
+												<listitem label="30" />
+												<listitem label="25" />
+												<listitem label="20" />
+												<listitem label="15" />
+												<listitem label="10" />
+												<listitem label="9" />
+												<listitem label="8" />
+												<listitem label="7" />
+												<listitem label="6" />
+												<listitem label="5"
+													selected="true" />
+												<listitem label="4" />
+												<listitem label="3" />
+												<listitem label="2" />
+											</listbox>
+
+										</n:div>
+									</n:div>
+								</n:div>
+								<n:div class="form-row"
+									style="width: 500px;margin-bottom:10px;">
+									<n:div style="width:150px">
+										<n:div class="form-group">
+											<label
+												value="Show chromosome" pre="true" />
+
+										</n:div>
+									</n:div>
+
+									<n:div class="col">
+										<listbox id="listboxChromosome"
+											width="100px" mold="select">
+											<listitem label="all"
+												selected="true" />
+											<listitem label="chr01" />
+											<listitem label="chr02" />
+											<listitem label="chr03" />
+											<listitem label="chr04" />
+											<listitem label="chr05" />
+											<listitem label="chr06" />
+											<listitem label="chr07" />
+											<listitem label="chr08" />
+											<listitem label="chr09" />
+											<listitem label="chr10" />
+											<listitem label="chr11" />
+											<listitem label="chr12" />
+										</listbox>
+
+									</n:div>
+
+									<n:div class="form-row"
+										style="width: 500px;margin-bottom:10px;">
+										<n:div style="width:150px">
+											<n:div class="form-group">
+
+											</n:div>
+										</n:div>
+										<n:div class="col">
+											<checkbox
+												id="checkboxJbrowse" checked="false" />
+											<label
+												value="Show JBrowse   " pre="true" />
+
+
+										</n:div>
+									</n:div>
+
+								</n:div>
+
+							</groupbox>
+							<n:br />
+							<n:br />
+							<n:div id="buttonBox" class="form-row"
+								style="width: 430px;">
+								<n:div class="col">
+
+									<n:div class="text-right">
+										<button id="searchButton"
+											label="Search" style="font-size:11px;" />
+
+									</n:div>
+								</n:div>
+								<n:div class="col">
+									<n:div class="text-left">
+										<button label="Reset" onClick=""
+											style="font-size:11px;" />
+									</n:div>
+
+								</n:div>
+
+							</n:div>
+
+
+
+
+						</n:form>
+					</n:div>
+
+				</n:nav>
+
+				<div id="myModal">
+
+					<label value=".." />
+
+				</div>
+
+				<n:div id="content">
+					<div id="div_info">
+						<n:div class="row"
+							style="width:20px; margin-left:480px;margin-right:auto;">
+							<n:div
+								style="margin-left:auto; margin-right:0px">
+								<n:div class="card-body2"
+									style="height:100%;">
+									<n:img src="assets/img/main1.png" />
+								</n:div>
+
+							</n:div>
+						</n:div>
+					</div>
+
+					<div id="resultContentDiv" visible="false"
+						style="margin-top:10px;margin-bottom:20px;height:100%;width:100%;">
+						<goldenlayout id="resultGoldenLayout"
+							height="1200px" hflex="1" style="margin-top: 10px;border:0px;">
+							<attribute name="areas">A</attribute>
+							<goldenpanel area="A" title="Manhattan Plot"
+								closable="false" style="height:600px;">
+								<charts id="chartManhattanXY"
+									type="scatter" title="Manhattan plot" width="1000" height="500"
+									zoomType="x" />
+								<label id="labelManhattan"
+									style="font-size:14px" />
+								<label id="labelAnnotations"
+									visible="false" style="font-family: arial;font-size:14px" />
+
+							</goldenpanel>
+
+							<goldenpanel area="A" title="Viewer Box"
+								closable="false" style="height:600px;">
+								<div id="divVarietylist">
+									<hbox>
+										<button id="buttonAddToListVar"
+											label="Create list" />
+										<textbox id="txtboxListnameVar"
+											width="300px" />
+									</hbox>
+									<hbox height="20px" />
+									<hbox>
+										<label
+											value="Selected varieties:  "
+											style="font-family:arial;font-size:16px" pre="true" />
+										<label id="labelVarietyMsg"
+											style="font-family:arial;font-size:14px" />
+									</hbox>
+									<listbox id="listboxVariety"
+										fixedLayout="true" mold="paging" pageSize="100">
+										<listhead>
+											<listheader sort="auto"
+												label="NAME">
+											</listheader>
+											<listheader sort="auto"
+												label="IRIS ID">
+											</listheader>
+											<listheader sort="auto"
+												label="ACCESSION">
+											</listheader>
+											<listheader sort="auto"
+												label="SUBPOPULATION">
+											</listheader>
+											<listheader sort="auto"
+												label="COUNTRY">
+											</listheader>
+											<listheader
+												id="listheaderPhenotype" sort="auto">
+											</listheader>
+										</listhead>
+									</listbox>
+								</div>
+							</goldenpanel>
+							<goldenpanel area="A" title="QQ Plot"
+								closable="false" style="height:500px;">
+								<n:div class="tipboxGwas">
+									<!-- <tipBox height="550px" width="250px"
+										desc="    GWAS RESULTS" details1="  View 3k GWAS Results:"
+										details2="   1. Select trait and subpopulation"
+										details3="  View user GWAS results"
+										details4="   1.a. Create SNP list with -logP values"
+										details5="     b. Select SNP list"
+										details6="   Results: Manhattan Plot"
+										details7="  View allele/subpopulation distribution"
+										details8="   2.a. For user data, create variety list"
+										details9="        with phenotype value"
+										details10="     b. Select variety list"
+										details11="   3. Click a point/peak on the MP"
+										details12="   Results: Allele and Variety Histograms      "
+										details13="  View varieties"
+										details14="   4. Select region from the Histograms"
+										details15="   Results: Variety list" />
+									-->
+									<image id="imageQQ" height="300px"
+										width="300px" />
+
+								</n:div>
+							</goldenpanel>
+							<goldenpanel area="A" title="Results"
+								closable="false" style="height:500px;">
+								<tabbox id="tabboxDisplay"><!-- width="100%" -->
+									<tabs>
+										<tab id="tabRegion"
+											label="Region viewer" selected="true" />
+										<tab id="tabPosition"
+											label="Genotype/Allele Histograms" disabled="true" />
+										<tab id="tabPopulation"
+											label="Population Histograms" />
+										<tab id="tabAnalysis"
+											label="Analyses" visible="false" />
+									</tabs>
+
+									<tabpanels>
+
+										<tabpanel id="tabpanelRegion">
+
+											<hbox height="30px" />
+											<label id="msgJbrowse"
+												visible="false" style="font-family: arial;font-size:16px" />
+
+											<hbox height="10px" />
+											<iframe id="iframeJbrowse"
+												align="left" visible="false"
+												style="width:95%;height:600px;border:0px inset;"
+												src="http://localhost:8080/" />
+
+											<hbox height="10px" />
+
+											<vbox>
+												<hbox>
+													<hbox
+														id="hboxAddtolist" visible="false">
+														<button
+															id="buttonAddToListSnp" label="Create SNP List:"
+															autodisable="self" tooltip="popupCreateList" />
+														<label
+															value="   List Name  " pre="true" />
+														<textbox
+															id="txtboxListnameSnp" width="200px" />
+													</hbox>
+													<hbox
+														id="hboxDownload" visible="false">
+														<label
+															value="    Download:  " pre="true" />
+														<button
+															id="buttonDownloadCSV" label="CSV" />
+														<hbox
+															width="5px" />
+														<button
+															id="buttonDownloadTab" label="Tab" />
+														<hbox
+															width="25px" />
+													</hbox>
+												</hbox>
+
+												<hbox
+													id="hboxAddtolistGenes" visible="false">
+													<button
+														id="buttonAddToListGene" label="Create Gene List:"
+														autodisable="self" tooltip="popupCreateListGenes" />
+													<label
+														value="   List Name  " pre="true" />
+													<textbox
+														id="txtboxListnameGene" width="200px" />
+
+													<hbox
+														style="font-weight:bold" visible="false">
+														<label
+															pre="true" value=" Include genes from:" />
+														<checkbox
+															id="checkboxListModel" label="gene model" checked="true" />
+														<vbox
+															width="10px" />
+														<checkbox
+															id="checkboxListPromoter" label="in promoter"
+															checked="false" />
+														<vbox
+															width="10px" />
+														<checkbox
+															id="checkboxListRicenet" label="ricenet interaction"
+															checked="false" />
+														<vbox
+															width="10px" />
+														<checkbox
+															id="checkboxListPrin" label="prin interaction"
+															checked="false" />
+													</hbox>
+												</hbox>
+											</vbox>
+
+
+
+
+											<zscript>
+	import org.irri.iric.portal.genomics.zkui.MarkerAnnotationSorter;
+	Comparator masc0 = new MarkerAnnotationSorter(true, 0);
+	Comparator mdsc0 = new MarkerAnnotationSorter(false, 0);
+	Comparator masc1 = new MarkerAnnotationSorter(true, 1);
+	Comparator mdsc1 = new MarkerAnnotationSorter(false, 1);
+</zscript>
+
+											<hbox height="10px" />
+
+
+											<borderlayout
+												id="borderMarkerVar" height="800px" width="100%"
+												visible="false">
+												<north>
+													<vbox>
+														<hbox>
+															<label
+																value="Group by  " pre="true" style="font-weight:bold" />
+															<radiogroup
+																id="rgAnnotGroups" />
+															<label
+																pre="true" value="   Marker/Position" />
+															<radio
+																id="radioGroupbyMarker" radiogroup="rgAnnotGroups"
+																selected="true" />
+															<label
+																pre="true" value="   Gene locus" />
+															<radio
+																id="radioGroupbyGene" radiogroup="rgAnnotGroups" />
+															<label
+																pre="true" value="   QTL" />
+															<radio
+																id="radioGroupbyQtl" radiogroup="rgAnnotGroups" />
+														</hbox>
+
+
+														<hbox>
+															<label
+																pre="true" value="(Slow) Include annotations from:  "
+																style="font-weight:bold" />
+															<vbox>
+																<checkbox
+																	id="checkboxIncludeInteractions"
+																	label="Interactions (RiceNetv2,PRIN)" />
+																<checkbox
+																	id="checkboxIncludePromoters"
+																	label="Promoters (FGenesh++,PlantPromDB)" />
+															</vbox>
+															<vbox>
+																<checkbox
+																	id="checkboxIncludeGO" label="Gene Ontology" />
+																<checkbox
+																	id="checkboxIncludePOTO" label="PO, TO, OGRO" />
+															</vbox>
+															<vbox>
+																<checkbox
+																	id="checkboxIncludeQTL" label="Q-TARO QTLs" />
+																<label
+																	value=" " />
+															</vbox>
+															<button
+																id="buttonUpdateAnnotations" label="Update Annotations"
+																visible="true" />
+														</hbox>
+
+
+
+													</vbox>
+												</north>
+												<center border="0">
+													<listbox
+														id="listboxMarkerVar" width="100%" mold="paging"
+														pageSize="100" visible="false" vflex="1">
+														<listhead
+															sizable="true">
+															<listheader
+																label="CONTIG-POSITION" width="100px"
+																sortAscending="${masc0}" sortDescending="${mdsc0}" />
+														</listhead>
+													</listbox>
+												</center>
+											</borderlayout>
+
+										</tabpanel>
+
+										<tabpanel
+											id="tabpanelPosition">
+											<hbox height="20px" />
+											<hbox>
+												<label
+													value="Select position   " pre="true" />
+												<listbox
+													id="listboxPosition" mold="select" />
+												<div visible="false"
+													id="divMultipositions">
+													<hbox>
+														<vbox
+															width="50px" />
+														<label
+															value="Select multiple positions   " pre="true" />
+														<listbox
+															id="listboxMultiPosition" multiple="true"
+															checkmark="false" seltype="multiple" rows="5"
+															width="120px" />
+														<vbox
+															width="20px" />
+														<label
+															value="Phenotype bins   " pre="true" />
+														<listbox
+															id="listboxPhenotypeBins" mold="select">
+															<listitem />
+															<listitem
+																label="10" />
+															<listitem
+																label="20" />
+															<listitem
+																label="50" />
+														</listbox>
+														<vbox
+															width="20px" />
+														<button
+															id="buttonDisplayHist" label="Show Histograms" />
+													</hbox>
+
+												</div>
+												<vbox width="30px" />
+												<label
+													value="Normalize " pre="true" />
+												<checkbox
+													id="checkboxNormalize" checked="false" />
+												<vbox width="30px" />
+												<vbox>
+													<label
+														id="labelPositions" value="" style="font-size:14px" />
+													<label
+														value="Select points/regions in the histogram to display the varieties. Click on legend to show/hide data series."
+														style="font-size:14px" />
+												</vbox>
+											</hbox>
+
+											<vbox width="20px" />
+											<hbox>
+												<charts
+													id="chartAlleleHist" type="scatter"
+													title="Allele Histogram" width="500" height="500"
+													zoomType="xy" />
+												<vbox width="50px" />
+												<charts
+													id="chartGenotypeHist" type="scatter"
+													title="Genotype Histogram" width="500" height="500"
+													zoomType="xy" />
+											</hbox>
+
+
+										</tabpanel>
+
+
+										<tabpanel
+											id="tabpanelPopulations">
+											<hbox height="20px" />
+											<hbox>
+												<label
+													value="Normalize " pre="true" />
+												<vbox width="20px" />
+												<checkbox
+													id="checkboxNormalizePopulation" />
+											</hbox>
+											<vbox width="30px" />
+											<label
+												value="Select points/regions in the histogram to display the varieties. Click on legend to show/hide data series."
+												style="font-size:14px" />
+
+											<hbox>
+												<charts
+													id="chartSubpopHist" type="scatter"
+													title="Subpopulation Histogram" width="500" height="500"
+													zoomType="xy" />
+												<vbox
+													id="vboxSubpopCheckbox" visible="false" />
+												<vbox width="50px" />
+												<charts
+													id="chartGenSubpopHist" type="scatter"
+													title="Variety groups Histogram" width="500" height="500"
+													zoomType="xy" />
+											</hbox>
+										</tabpanel>
+
+
+										<tabpanel
+											id="tabpanelAnalyses">
+
+											<hbox>
+												<label
+													value="Genotype1" />
+												<listbox
+													id="listboxGenotype1" mold="select" />
+												<vbox width="20px" />
+												<label
+													value="Genotype2" />
+												<listbox
+													id="listboxGenotype2" mold="select" />
+												<vbox width="20px" />
+												<vbox>
+													<hbox>
+														<label
+															value="Bins" />
+														<intbox
+															id="intboxBins" value="10" />
+														<vbox
+															width="20px" />
+														<label
+															value="Max features" />
+														<intbox
+															id="intboxMaxFeatures" value="5" />
+														<vbox
+															width="20px" />
+														<label
+															value="Min count (%)" />
+														<intbox
+															id="intboxMinCountPercent" value="10" />
+														<vbox
+															width="20px" />
+														<button
+															id="buttonMinOverlap" label="Find Min Overlap"
+															width="200px" />
+														<vbox
+															width="20px" />
+													</hbox>
+													<hbox>
+														<label
+															value="Best scores" />
+														<listbox
+															id="listboxBest" mold="select" />
+														<vbox
+															width="20px" />
+														<label
+															value="Iteration" />
+														<listbox
+															id="listboxMLIteration" mold="select" />
+													</hbox>
+												</vbox>
+
+											</hbox>
+											<hbox>
+												<charts
+													id="chartSmoothHist" type="scatter"
+													title="Genotype Histogram" width="500" height="500"
+													zoomType="xy" />
+												<charts
+													id="chartSmoothPhen" type="scatter"
+													title="Genotype Histogram" width="500" height="500"
+													zoomType="xy" />
+											</hbox>
+											<charts id="chartsTopScores"
+												type="line" title="Top scores" width="500" height="500"
+												zoomType="xy" />
+										</tabpanel>
+									</tabpanels>
+								</tabbox>
+							</goldenpanel>
+
+						</goldenlayout>
+
+
+
+						<popup id="popupCreateList" width="300px">
+							<html>
+								
+								<![CDATA[ Create list of SNPs ]]>
+								
+							</html>
+						</popup>
+						<popup id="popupCreateListGenes"
+							width="300px">
+							<html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+								
+								<![CDATA[ Create list of genes from
+								checked annotations ]]>
+								
+								
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						</html>
+						</popup>
+
+					</div>
+				</n:div>
+			</n:div>
+		</n:div>
+	</window>
+
+
+</zk>

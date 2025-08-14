@@ -1,0 +1,21 @@
+<?page title="helpiframe" contentType="text/html;charset=UTF-8"?>
+<zk xmlns:n="native">
+	<!-- Google tag (gtag.js) -->
+			<n:script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-6DY1MFCGZH"></n:script>
+			<n:script>
+			  window.dataLayer = window.dataLayer || [];
+			  function gtag(){dataLayer.push(arguments);}
+			  gtag('js', new Date());
+			
+			  gtag('config', 'G-6DY1MFCGZH');
+			  
+			  gtag('event', 'page_view', {
+				  'page_path': '/_jbrowse2.zul' 
+				});
+			  
+			</n:script>
+	<style src="assets/css/doc_styles.css" />
+	<iframe id="iframejbrowse2"
+		src="https://snpseek.irri.org/_ideo.zul?tracks=DNA,msu7gff,msu7snpsv2,msu7indelsv2&amp;app=rice-ideogram" width="100%" style="padding:20px;"
+		height="100vh" />
+</zk>

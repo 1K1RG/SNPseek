@@ -1,0 +1,9 @@
+option_settings:
+  aws:elasticbeanstalk:container:tomcat:jvmoptions:
+    Xms: 1024m
+    Xmx: 2048m
+    JVM Options: '-Xmn128m'
+  aws:elasticbeanstalk:application:environment:
+    API_ENDPOINT: snpseekv3-beta-env.eba-h2yvxumx.ap-southeast-1.elasticbeanstalk.com/
+  aws:elasticbeanstalk:environment:proxy:
+    ProxyServer: apache

@@ -1,0 +1,8 @@
+commands:
+  create_env_vars:
+    command: "source /etc/profile"
+    ignoreErrors: true
+  installR:
+    command: "amazon-linux-extras install R4"
+  installDocker:
+    command: "amazon-linux-extras install docker"

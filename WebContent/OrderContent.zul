@@ -1,0 +1,248 @@
+<zk>
+	<n:div xmlns:n="native">
+		<n:script src="assets/js/jquery.min.js" />
+		<n:script src="assets/bootstrap/js/bootstrap.min.js" />
+		<n:script
+			src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js" />
+
+		<n:script src="assets/js/Collapsible-Sidebar.js" />
+		<n:script src="assets/js/Material-Text-Input.js" />
+		<!-- Google tag (gtag.js) -->
+			<n:script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-6DY1MFCGZH"></n:script>
+			<n:script>
+			  window.dataLayer = window.dataLayer || [];
+			  function gtag(){dataLayer.push(arguments);}
+			  gtag('js', new Date());
+			
+			  gtag('config', 'G-6DY1MFCGZH');
+			  
+			  gtag('event', 'page_view', {
+				  'page_path': '/OrderContent.zul' 
+				});
+			  
+			</n:script>
+		<style src="assets/bootstrap/css/bootstrap.min.css" />
+		<style
+			src="https://fonts.googleapis.com/css?family=Nunito+Sans" />
+		<style src="https://fonts.googleapis.com/css?family=Poppins" />
+		<style src="https://fonts.googleapis.com/css?family=Roboto" />
+		<style src="https://fonts.googleapis.com/css?family=Rubik" />
+		<style src="assets/fonts/fontawesome-all.min.css" />
+		<style src="assets/fonts/font-awesome.min.css" />
+		<style src="assets/fonts/fontawesome5-overrides.min.css" />
+		<style src="assets/css/Footer-Dark.css" />
+		<style src="assets/css/styles.css" />
+		<style src="assets/css/styles_genotype.css" />
+		<style src="assets/css/Collapsible-Sidebar.css" />
+		<style src="assets/css/sidebar_home.css" />
+
+		<style>
+			.z-loading { background-color:#808080; border:1px outset
+			#A0A0A0; font-weight: bold; padding:2px;
+
+			cursor: wait; top: 50%; left: 45% !important; align: center;
+			vertical-align: middle;
+
+			position: fixed; margin-left: auto; margin-right: auto;
+			display: block;
+
+
+			}
+
+			
+
+			writing-mode: bt-rl; filter: flipV flipH;
+
+			width:10px; height:90px; vertical-align: middle;
+			text-align:center; display:block; /* white-space:nowrap; */
+			}
+
+
+			.vertical5 { -webkit-writing-mode:vertical-lr;
+			-ms-writing-mode:tb-lr; writing-mode:vertical-lr;
+			width:20px; height:80px; text-align:center; filter: flipV
+			flipH; }
+
+			.vertical2 { -webkit-writing-mode:vertical-lr;
+			-ms-writing-mode:tb-lr; writing-mode:vertical-lr;
+			width:20px; height:80px; text-align:center; }
+
+			.vertical3 { -webkit-transform:rotate(-90deg);
+			-moz-transform:rotate(-90deg); -o-transform: rotate(-90deg);
+			-ms-transform:rotate(-90deg); transform: rotate(-90deg);
+			filter:
+			progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+			white-space:nowrap; display:block; bottom:0; width:20px;
+			height:80px; text-align:center; }
+
+
+			/* Cell Height and Font */ .mylist .z-listfooter-cnt,
+			.mylist .z-listcell-cnt,.mylist .z-listheader-cnt {
+			font-size: 6px; font-family: "Tahoma", verdana, arial,
+			sans-serif; height: 8px; }
+
+		</style>
+		<script>
+			function myFunction() {
+
+			var element =
+			document.getElementById("genotypeSearchSidebar");
+			element.classList.toggle("active"); }
+		</script>
+
+
+		<window id="orderWin" border="none" width="100%"
+			apply="user.ui.module.OrderQueryController" height="100%">
+			<zscript>
+	import org.zkoss.zkplus.spring.SpringUtil;
+	import org.irri.iric.portal.admin.WorkspaceFacade;
+	import javax.servlet.http.HttpSession;
+	import org.zkoss.zul.SimpleListModel;
+	import org.zkoss.zk.ui.Sessions;
+	import org.irri.iric.portal.AppContext;
+	import org.irri.iric.portal.variety.zkui.VarietyListItemRenderer;
+	import org.irri.iric.portal.genomics.zkui.LocusListItemRenderer;
+	import org.irri.iric.portal.admin.SNPChrPositionListitemRenderer;
+	import java.util.*;
+WorkspaceFacade workspace = (WorkspaceFacade)SpringUtil.getBean("WorkspaceFacade");
+			       	List listVarlistNames = new ArrayList();
+			       	//if(listVarlistNames.size()==0) listVarlistNames.add("");
+			       	//listVarlistNames.addAll( workspace.getVarietylistNames( (HttpSession)Sessions.getCurrent().getNativeSession()  ));
+			       	listVarlistNames.addAll( workspace.getVarietylistNames(  ));
+			       	AppContext.debug("listVarlistNames=" + listVarlistNames.size());
+			
+					List listContigs =  new ArrayList();
+						listContigs.add("");listContigs.add("chr01");listContigs.add("chr02");listContigs.add("chr03");listContigs.add("chr04");listContigs.add("chr05");listContigs.add("chr06");
+					listContigs.add("chr07");listContigs.add("chr08");listContigs.add("chr09");listContigs.add("chr10");listContigs.add("chr11");listContigs.add("chr12");listContigs.add("ANY");
+				
+					AppContext.debug("myworkspace.zul init done..")
+</zscript>
+
+
+			<n:div id="bodyContent">
+				<n:div class="wrapper">
+
+
+
+					<n:div id="content">
+						<n:div>
+							<n:div class="mainDiv-Sidebar">
+								<div id="resultHeader"
+									style="width:100%;background-color:white;display:none;"
+									visible="true">
+								</div>
+								<n:div
+									style="margin-left:50px;margin-top:10px">
+									<vbox>
+										<n:div class="form-row"
+											style="border-radius: 15px;">
+											<n:div class="col"
+												style="padding: 5px;">
+												<hlayout
+													valign="middle">
+													<label
+														value="User List" class="boxlabel" />
+													<combobox
+														id="combobox_userList" />
+													<button
+														id="button_Copy" label="Copy Accessions" />
+													<button
+														id="button_reload" label="Reload" />
+
+												</hlayout>
+											</n:div>
+											<n:div
+												style="margin-left:auto;margin-right:0px;padding-left: 10px;margin-top: 5px;">
+												<n:div
+													class="text-right">
+												</n:div>
+
+											</n:div>
+										</n:div>
+										<hlayout id="hlayout_message"
+											visible="true" sclass="z-valign-middle"
+											style="margin-top:10px;margin-bottom:10px;">
+											<vlayout hflex="1">
+												<div
+													style="color: #31708f;background-color: #d9edf7;border-color: #bce8f1;padding:10px;">
+
+													Steps in Ordering
+													Seeds.
+													<n:br />
+													<n:br />
+													1. Select list of
+													Accessions.
+													<n:br />
+													2.Create an account
+													to GRIN-GLOBAL.
+													<n:a
+														style="font-size:12px;"
+														href="https://gringlobal.irri.org/gringlobal"
+														target="_blank">
+														https://www.irri.org/rice-seeds
+													</n:a>
+													<n:br />
+													2. Click "Copy
+													Accessions" to get
+													your accession list.
+													<n:br />
+													3. Go to
+													<n:a
+														style="font-size:12px;"
+														href="https://gringlobal.irri.org/gringlobal/search"
+														target="_blank">
+														https://www.irri.org/rice-seeds
+													</n:a>
+													<n:br />
+													4. Paste your list
+													in the search box.
+													<n:br />
+												</div>
+											</vlayout>
+										</hlayout>
+										<vbox id="vboxListMembers"
+											visible="true">
+											<label id="labelNItems"
+												visible="true" />
+
+											<listbox
+												id="listboxVarieties" width="97%" height="500px"
+												visible="true" mold="paging" pageSize="50">
+												<listhead
+													sizable="true">
+													<listheader
+														label="NAME" />
+													<listheader
+														label="IRIS ID" />
+													<listheader
+														label="ACCESSION" />
+													<listheader
+														label="SUBPOPULATION" />
+													<listheader
+														label="COUNTRY" />
+													<listheader
+														id="listheaderPhenotype" label="PHENOTYPE VALUE"
+														visible="false" />
+												</listhead>
+											</listbox>
+
+										</vbox>
+									</vbox>
+
+								</n:div>
+							</n:div>
+
+						</n:div>
+
+					</n:div>
+				</n:div>
+			</n:div>
+
+		</window>
+	</n:div>
+
+
+
+
+</zk>

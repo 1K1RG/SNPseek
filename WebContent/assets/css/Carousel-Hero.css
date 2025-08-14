@@ -1,0 +1,42 @@
+div.jumbotron.carousel-hero {
+  color: #fff;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  margin-bottom: 0;
+  background-color: #ffffff00;
+}
+/*
+div.jumbotron.hero-nature {
+  background-image: url('../../assets/img/carousel5.png');
+}
+
+div.jumbotron.hero-photography {
+  background-image: url('../../assets/img/carousel5.png');
+}
+
+div.jumbotron.hero-technology {
+  background-image: url('../../assets/img/carousel5.png');
+}
+*/
+
+h1.hero-title, h2.hero-title, h3.hero-title {
+  text-shadow: 0 3px 3px rgb(159 152 152 / 40%);
+  color: #469566;
+  font-size: 25px;
+}
+
+p.hero-subtitle {
+  max-width: 600px;
+  margin: 5px auto;
+  padding: 10px 15px;
+  font-size: 14px;
+  color: #706e6e;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Fira Sans,Droid Sans,Helvetica Neue,sans-serif !important;
+}
+
+.carousel-indicators li{
+	background-color: #28a745 !important;
+}

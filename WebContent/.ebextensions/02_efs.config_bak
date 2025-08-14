@@ -1,0 +1,48 @@
+files:
+  "/etc/efs-mount.sh":
+    mode: "000755"
+    owner: root
+    group: root
+    content: |
+      #!/bin/bash
+      # Variables
+      EFS_ID=fs-0e15afb845a78b397
+      MOUNT_POINT=/mnt/efs
+      EFS_DNS=fs-0e15afb845a78b397.efs.ap-southeast-1.amazonaws.com:/ 
+
+      # Install NFS client if not already installed
+      if ! rpm -q nfs-utils; then
+        yum install -y nfs-utils
+      fi
+
+      # Create mount point directory
+      if [ ! -d "$MOUNT_POINT" ]; then
+        mkdir -p $MOUNT_POINT
+      fi
+
+      # Mount the EFS file system
+      mount -t nfs4 $EFS_DNS $MOUNT_POINT
+
+      # Add EFS mount entry to /etc/fstab for persistence
+      grep -q "$EFS_DNS" /etc/fstab || echo "$EFS_DNS $MOUNT_POINT nfs4 defaults,_netdev 0 0" >> /etc/fstab
+      
+
+commands:
+  02_run_efs_mount_script:
+    command: "/etc/efs-mount.sh"
+
+container_commands:
+  02_verify_efs_mount:
+    command: |
+      if mount | grep -q '/mnt/efs'; then
+        echo "EFS is mounted successfully."
+        if [ -w /mnt/efs ]; then
+          echo "EFS mount is writable."
+        else
+          echo "EFS mount is not writable." >&2
+          exit 1
+        fi
+      else
+        echo "EFS mount failed." >&2
+        exit 1
+      fi

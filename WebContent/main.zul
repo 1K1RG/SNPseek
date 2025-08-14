@@ -1,0 +1,75 @@
+<zk xmlns:w="http://www.zkoss.org/2005/zk/client">
+	<div xmlns:n="native">
+		<n:script src="assets/bootstrap/js/bootstrap.min.js" />
+		<n:script
+			src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js" />
+
+		<n:script src="assets/js/vanilla-zoom.js" />
+		<n:script src="assets/js/theme.js" />
+
+		<style src="assets/bootstrap/css/bootstrap.min.css" />
+		<style
+			src="https://fonts.googleapis.com/css?family=arial,sans-serif:400,400i,700,700i,600,600i" />
+		<style src="assets/fonts/simple-line-icons.min.css" />
+		<style
+			src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" />
+		<style src="assets/css/vanilla-zoom.min.css" />
+
+		<style src="assets/css/styles.css" />
+
+		<style src="assets/css/stylenav.css" />
+
+		<zscript>
+			import org.irri.iric.portal.AppContext;
+			String paramstr = AppContext.getJBrowseDefaulttracks(AppContext.getDefaultDataset());
+			//DNA,msu7gff,snp3k
+		</zscript>
+
+		<window id="genWin" border="none"
+			style="height:100% !important;" width="100%"
+			apply="user.ui.module.SidebarController">
+			<n:body>
+				<div id="container" sclass="vertical">
+					<navbar id="navbar" orient="vertical"
+						style="background:#ededed;margin: 0px 0;min-width: 85px;"
+						collapsed="false">
+						<navitem id="collapseId" label="Collapse"
+							iconSclass="z-icon-th-large" class="nav-icon" />
+						<nav id="search" label="Search"
+							iconSclass="z-icon-search" open="true" class="nav-icon">
+							<navitem id="searchGenotype"
+								label="By Genotype"
+								style="font-size:11px;font-family: 'arial,sans-serif' !important; background:#ededed;margin: 0px 0;font-size:12px;"
+								iconSclass="z-icon-list-alt" />
+							<navitem id="searchVariety"
+								iconSclass="z-icon-pagelines" label="By Variety"
+								style="font-size:11px;font-family: 'arial,sans-serif' !important;background:#ededed;margin: 0px 0;font-size:12px;" />
+							<navitem id="searchGeneLoci"
+								label="By Gene Loci" iconSclass="z-icon-tasks"
+								style="font-size:11px;font-family: 'arial,sans-serif' !important;background:#ededed;margin: 0px 0;font-size:12px;" />
+						</nav>
+						<navitem id="jbrowse" label="Jbrowse"
+							iconSclass="z-icon-exchange" class="nav-icon" />
+						<navitem id="jbrowse2" label="Jbrowse 2"
+							iconSclass="z-icon-exchange" class="nav-icon" />
+						<navitem id="gwas" label="GWAS"
+							iconSclass="z-icon-bar-chart-o" class="nav-icon" />
+						<navitem id="traitGenes" label="Trait Genes"
+							iconSclass="z-icon-bar-chart-o" class="nav-icon" />
+						<navitem id="download" label="Download"
+							iconSclass="z-icon-download" class="nav-icon" />
+						<navitem id="myList" label="My List"
+							iconSclass="z-icon-th-list" class="nav-icon" />
+						<navitem id="orderSeeds" label="Order Seeds"
+							iconSclass="z-icon-shopping-cart" class="nav-icon" />
+
+					</navbar>
+					<include id="contentInclude" mode="instant"
+						sclass="content" src="home.zul"  />
+
+
+				</div>
+			</n:body>
+		</window>
+	</div>
+</zk>

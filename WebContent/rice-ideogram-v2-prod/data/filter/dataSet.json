@@ -1,0 +1,734 @@
+{
+    "traitGenes": {
+        "id": "category-content-tg",
+        "appendToClass": "span-tg",
+        "header": "Trait genes",
+        "collapsible_content": [
+            {
+                "tag": "li",
+                "html": {
+                    "name": "oryzabase_trait_genes",
+                    "id": "filter-traitGenes-oryzabase_trait_genes",
+                    "type": "checkbox",
+                    "caption": "Oryzabase Trait Gene Loci",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "oryzabase_trait_genes",
+                    "class": "checkbox-data-trait"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtaro_trait_genes",
+                    "id": "filter-traitGenes-qtaro_trait_genes",
+                    "type": "checkbox",
+                    "caption": "All QTARO trait genes",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtaro_trait_genes",
+                    "class": "checkbox-data-trait"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtarogenes_bacterial_blight_resistance",
+                    "id": "filter-traitGenes-qtarogenes_bacterial_blight_resistance",
+                    "type": "checkbox",
+                    "caption": "Bacterial blight resistance",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtarogenes_bacterial_blight_resistance",
+                    "class": "checkbox-data-trait"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtarogenes_blast_resistance",
+                    "id": "filter-traitGenes-qtarogenes_blast_resistance",
+                    "type": "checkbox",
+                    "caption": "Blast resistance",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtarogenes_blast_resistance",
+                    "class": "checkbox-data-trait"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtarogenes_cold_tolerance",
+                    "id": "filter-traitGenes-qtarogenes_cold_tolerance",
+                    "type": "checkbox",
+                    "caption": "Cold tolerance",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtarogenes_cold_tolerance",
+                    "class": "checkbox-data-trait"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtarogenes_culm_leaf",
+                    "id": "filter-traitGenes-qtarogenes_culm_leaf",
+                    "type": "checkbox",
+                    "caption": "Culm leaf",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtarogenes_culm_leaf",
+                    "class": "checkbox-data-trait"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtarogenes_drought_tolerance",
+                    "id": "filter-traitGenes-qtarogenes_drought_tolerance",
+                    "type": "checkbox",
+                    "caption": "Drought tolerance",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtarogenes_drought_tolerance",
+                    "class": "checkbox-data-trait"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtarogenes_dwarf",
+                    "id": "filter-traitGenes-qtarogenes_dwarf",
+                    "type": "checkbox",
+                    "caption": "Dwarf",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtarogenes_dwarf",
+                    "class": "checkbox-data-trait"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtarogenes_eating_quality",
+                    "id": "filter-traitGenes-qtarogenes_eating_quality",
+                    "type": "checkbox",
+                    "caption": "Eating quality",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtarogenes_eating_quality",
+                    "class": "checkbox-data-trait"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtarogenes_flowering",
+                    "id": "filter-traitGenes-qtarogenes_flowering",
+                    "type": "checkbox",
+                    "caption": "Flowering",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtarogenes_flowering",
+                    "class": "checkbox-data-trait"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtarogenes_germination_dormancy",
+                    "id": "filter-traitGenes-qtarogenes_germination_dormancy",
+                    "type": "checkbox",
+                    "caption": "Germination dormancy",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtarogenes_germination_dormancy",
+                    "class": "checkbox-data-trait"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtarogenes_insect_resistance",
+                    "id": "filter-traitGenes-qtarogenes_insect_resistance",
+                    "type": "checkbox",
+                    "caption": "Insect resistance",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtarogenes_insect_resistance",
+                    "class": "checkbox-data-trait"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtarogenes_lethality",
+                    "id": "filter-traitGenes-qtarogenes_lethality",
+                    "type": "checkbox",
+                    "caption": "Lethality",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtarogenes_lethality",
+                    "class": "checkbox-data-trait"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtarogenes_lodging_resistance",
+                    "id": "filter-traitGenes-qtarogenes_lodging_resistance",
+                    "type": "checkbox",
+                    "caption": "Lodging resistance",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtarogenes_lodging_resistance",
+                    "class": "checkbox-data-trait"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtarogenes_morphological_trait",
+                    "id": "filter-traitGenes-qtarogenes_morphological_trait",
+                    "type": "checkbox",
+                    "caption": "Morphological trait",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtarogenes_morphological_trait",
+                    "class": "checkbox-data-trait"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtarogenes_other_disease_resistance",
+                    "id": "filter-traitGenes-qtarogenes_other_disease_resistance",
+                    "type": "checkbox",
+                    "caption": "Other disease resistance",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtarogenes_other_disease_resistance",
+                    "class": "checkbox-data-trait"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtarogenes_other_soil_stress_tolerance",
+                    "id": "filter-traitGenes-qtarogenes_other_soil_stress_tolerance",
+                    "type": "checkbox",
+                    "caption": "Other soil stress tolerance",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtarogenes_other_soil_stress_tolerance",
+                    "class": "checkbox-data-trait"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtarogenes_other_stress_resistance",
+                    "id": "filter-traitGenes-qtarogenes_other_stress_resistance",
+                    "type": "checkbox",
+                    "caption": "Other stress resistance",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtarogenes_other_stress_resistance",
+                    "class": "checkbox-data-trait"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtarogenes_others",
+                    "id": "filter-traitGenes-qtarogenes_others",
+                    "type": "checkbox",
+                    "caption": "Others",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtarogenes_others",
+                    "class": "checkbox-data-trait"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtarogenes_panicle_flower",
+                    "id": "filter-traitGenes-qtarogenes_panicle_flower",
+                    "type": "checkbox",
+                    "caption": "Panicle flower",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtarogenes_panicle_flower",
+                    "class": "checkbox-data-trait"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtarogenes_physiological_trait",
+                    "id": "filter-traitGenes-qtarogenes_physiological_trait",
+                    "type": "checkbox",
+                    "caption": "Physiological trait",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtarogenes_physiological_trait",
+                    "class": "checkbox-data-trait"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtarogenes_resistance_or_tolerance",
+                    "id": "filter-traitGenes-qtarogenes_resistance_or_tolerance",
+                    "type": "checkbox",
+                    "caption": "Resistance or tolerance",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtarogenes_resistance_or_tolerance",
+                    "class": "checkbox-data-trait"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtarogenes_root",
+                    "id": "filter-traitGenes-qtarogenes_root",
+                    "type": "checkbox",
+                    "caption": "Root",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtarogenes_root",
+                    "class": "checkbox-data-trait"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtarogenes_salinity_tolerance",
+                    "id": "filter-traitGenes-qtarogenes_salinity_tolerance",
+                    "type": "checkbox",
+                    "caption": "Salinity tolerance",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtarogenes_salinity_tolerance",
+                    "class": "checkbox-data-trait"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtarogenes_seed",
+                    "id": "filter-traitGenes-qtarogenes_seed",
+                    "type": "checkbox",
+                    "caption": "Seed",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtarogenes_seed",
+                    "class": "checkbox-data-trait"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtarogenes_sheath_blight_resistance",
+                    "id": "filter-traitGenes-qtarogenes_sheath_blight_resistance",
+                    "type": "checkbox",
+                    "caption": "Sheath blight resistance",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtarogenes_sheath_blight_resistance",
+                    "class": "checkbox-data-trait"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtarogenes_shoot_seedling",
+                    "id": "filter-traitGenes-qtarogenes_shoot_seedling",
+                    "type": "checkbox",
+                    "caption": "Shoot seedling",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtarogenes_shoot_seedling",
+                    "class": "checkbox-data-trait"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtarogenes_source_activity",
+                    "id": "filter-traitGenes-qtarogenes_source_activity",
+                    "type": "checkbox",
+                    "caption": "Source activity",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtarogenes_source_activity",
+                    "class": "checkbox-data-trait"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtarogenes_sterility",
+                    "id": "filter-traitGenes-qtarogenes_sterility",
+                    "type": "checkbox",
+                    "caption": "Sterility",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtarogenes_sterility",
+                    "class": "checkbox-data-trait"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtarogenes_submergency_tolerance",
+                    "id": "filter-traitGenes-qtarogenes_submergency_tolerance",
+                    "type": "checkbox",
+                    "caption": "Submergency tolerance",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtarogenes_submergency_tolerance",
+                    "class": "checkbox-data-trait"
+                }
+            }
+        ]
+    },
+
+    "qtl": {
+        "id": "category-content-qtl",
+        "appendToClass": "span-qtl",
+        "header": "QTL (from QTARO database)",
+        "collapsible_content":[
+            {
+                "tag": "li",
+                "html": {
+                    "name": "qtaroqtl",
+                    "id": "filter-qtl-qtaroqtl",
+                    "type": "checkbox",
+                    "caption": "Rice Quantitative Trait Loci",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "QTARO QTL",
+                    "class": "checkbox-data-qtl"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtaroqtl_bacterial_blight_resistance",
+                    "id": "filter-qtl-qtaroqtl_bacterial_blight_resistance",
+                    "type": "checkbox",
+                    "caption": "Bacterial blight resistance",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtaroqtl_bacterial_blight_resistance",
+                    "class": "checkbox-data-qtl"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtaroqtl_blast_resistance",
+                    "id": "filter-qtl-qtaroqtl_blast_resistance",
+                    "type": "checkbox",
+                    "caption": "Blast resistance",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtaroqtl_blast_resistance",
+                    "class": "checkbox-data-qtl"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtaroqtl_cold_tolerance",
+                    "id": "filter-qtl-qtaroqtl_cold_tolerance",
+                    "type": "checkbox",
+                    "caption": "Cold tolerance",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtaroqtl_cold_tolerance",
+                    "class": "checkbox-data-qtl"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtaroqtl_culm_leaf",
+                    "id": "filter-qtl-qtaroqtl_culm_leaf",
+                    "type": "checkbox",
+                    "caption": "Culm leaf",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtaroqtl_culm_leaf",
+                    "class": "checkbox-data-qtl"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtaroqtl_drought_tolerance",
+                    "id": "filter-qtl-qtaroqtl_drought_tolerance",
+                    "type": "checkbox",
+                    "caption": "Drought tolerance",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtaroqtl_drought_tolerance",
+                    "class": "checkbox-data-qtl"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtaroqtl_dwarf",
+                    "id": "filter-qtl-qtaroqtl_dwarf",
+                    "type": "checkbox",
+                    "caption": "Dwarf",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtaroqtl_dwarf",
+                    "class": "checkbox-data-qtl"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtaroqtl_eating_quality",
+                    "id": "filter-qtl-qtaroqtl_eating_quality",
+                    "type": "checkbox",
+                    "caption": "Eating quality",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtaroqtl_eating_quality",
+                    "class": "checkbox-data-qtl"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtaroqtl_flowering",
+                    "id": "filter-qtl-qtaroqtl_flowering",
+                    "type": "checkbox",
+                    "caption": "Flowering",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtaroqtl_flowering",
+                    "class": "checkbox-data-qtl"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtaroqtl_germination_dormancy",
+                    "id": "filter-qtl-qtaroqtl_germination_dormancy",
+                    "type": "checkbox",
+                    "caption": "Germination dormancy",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtaroqtl_germination_dormancy",
+                    "class": "checkbox-data-qtl"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtaroqtl_insect_resistance",
+                    "id": "filter-qtl-qtaroqtl_insect_resistance",
+                    "type": "checkbox",
+                    "caption": "Insect resistance",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtaroqtl_insect_resistance",
+                    "class": "checkbox-data-qtl"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtaroqtl_lethality",
+                    "id": "filter-qtl-qtaroqtl_lethality",
+                    "type": "checkbox",
+                    "caption": "Lethality",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtaroqtl_lethality",
+                    "class": "checkbox-data-qtl"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtaroqtl_lodging_resistance",
+                    "id": "filter-qtl-qtaroqtl_lodging_resistance",
+                    "type": "checkbox",
+                    "caption": "Lodging resistance",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtaroqtl_lodging_resistance",
+                    "class": "checkbox-data-qtl"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtaroqtl_morphological_trait",
+                    "id": "filter-qtl-qtaroqtl_morphological_trait",
+                    "type": "checkbox",
+                    "caption": "Morphological trait",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtaroqtl_morphological_trait",
+                    "class": "checkbox-data-qtl"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtaroqtl_other_disease_resistance",
+                    "id": "filter-qtl-qtaroqtl_other_disease_resistance",
+                    "type": "checkbox",
+                    "caption": "Other disease resistance",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtaroqtl_other_disease_resistance",
+                    "class": "checkbox-data-qtl"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtaroqtl_other_soil_stress_tolerance",
+                    "id": "filter-qtl-qtaroqtl_other_soil_stress_tolerance",
+                    "type": "checkbox",
+                    "caption": "Other soil stress tolerance",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtaroqtl_other_soil_stress_tolerance",
+                    "class": "checkbox-data-qtl"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtaroqtl_other_stress_resistance",
+                    "id": "filter-qtl-qtaroqtl_other_stress_resistance",
+                    "type": "checkbox",
+                    "caption": "Other stress resistance",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtaroqtl_other_stress_resistance",
+                    "class": "checkbox-data-qtl"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtaroqtl_others",
+                    "id": "filter-qtl-qtaroqtl_others",
+                    "type": "checkbox",
+                    "caption": "Others",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtaroqtl_others",
+                    "class": "checkbox-data-qtl"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtaroqtl_panicle_flower",
+                    "id": "filter-qtl-qtaroqtl_panicle_flower",
+                    "type": "checkbox",
+                    "caption": "Panicle flower",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtaroqtl_panicle_flower",
+                    "class": "checkbox-data-qtl"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtaroqtl_physiological_trait",
+                    "id": "filter-qtl-qtaroqtl_physiological_trait",
+                    "type": "checkbox",
+                    "caption": "Physiological trait",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtaroqtl_physiological_trait",
+                    "class": "checkbox-data-qtl"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtaroqtl_resistance_or_tolerance",
+                    "id": "filter-qtl-qtaroqtl_resistance_or_tolerance",
+                    "type": "checkbox",
+                    "caption": "Resistance or tolerance",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtaroqtl_resistance_or_tolerance",
+                    "class": "checkbox-data-qtl"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtaroqtl_root",
+                    "id": "filter-qtl-qtaroqtl_root",
+                    "type": "checkbox",
+                    "caption": "Root",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtaroqtl_root",
+                    "class": "checkbox-data-qtl"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtaroqtl_salinity_tolerance",
+                    "id": "filter-qtl-qtaroqtl_salinity_tolerance",
+                    "type": "checkbox",
+                    "caption": "Salinity tolerance",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtaroqtl_salinity_tolerance",
+                    "class": "checkbox-data-qtl"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtaroqtl_seed",
+                    "id": "filter-qtl-qtaroqtl_seed",
+                    "type": "checkbox",
+                    "caption": "Seed",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtaroqtl_seed",
+                    "class": "checkbox-data-qtl"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtaroqtl_sheath_blight_resistance",
+                    "id": "filter-qtl-qtaroqtl_sheath_blight_resistance",
+                    "type": "checkbox",
+                    "caption": "Sheath blight resistance",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtaroqtl_sheath_blight_resistance",
+                    "class": "checkbox-data-qtl"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtaroqtl_shoot_seedling",
+                    "id": "filter-qtl-qtaroqtl_shoot_seedling",
+                    "type": "checkbox",
+                    "caption": "Shoot seedling",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtaroqtl_shoot_seedling",
+                    "class": "checkbox-data-qtl"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtaroqtl_source_activity",
+                    "id": "filter-qtl-qtaroqtl_source_activity",
+                    "type": "checkbox",
+                    "caption": "Source activity",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtaroqtl_source_activity",
+                    "class": "checkbox-data-qtl"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtaroqtl_sterility",
+                    "id": "filter-qtl-qtaroqtl_sterility",
+                    "type": "checkbox",
+                    "caption": "Sterility",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtaroqtl_sterility",
+                    "class": "checkbox-data-qtl"
+                }
+            }
+            , {
+                "tag": "li",
+                "html": {
+                    "name": "qtaroqtl_submergency_tolerance",
+                    "id": "filter-qtl-qtaroqtl_submergency_tolerance",
+                    "type": "checkbox",
+                    "caption": "Submergency tolerance",
+                    "onclick": "return toggleFilter(this)",
+                    "tracks": "qtaroqtl_submergency_tolerance",
+                    "class": "checkbox-data-qtl"
+                }
+            }
+        ]
+    },
+
+    "geneQuery": {
+        "id": "category-content-gq",
+        "appendToClass": "span-gq",
+        "header": "Gene queries",
+        "collapsible_content": [
+
+        ]
+    }
+}

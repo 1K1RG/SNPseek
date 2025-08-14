@@ -1,0 +1,20 @@
+<?page title="Contact Us" contentType="text/html;charset=UTF-8"?>
+<zk xmlns:n="native">
+	<style src="assets/css/register_styles.css" />
+	<window title="Register" border="none"
+		style="margin-top:50px;width:80%;margin-left:auto;margin-right:auto;"
+		apply="user.ui.module.ValidationController">
+
+		<vlayout>
+			<hbox>
+				<vbox>
+					<vbox width="20%" />
+					<vlayout>
+						<label value="Email sent successfully to your email. "/>
+					</vlayout>
+				</vbox>
+				<vbox width="20%" />
+			</hbox>
+		</vlayout>
+	</window>
+</zk>

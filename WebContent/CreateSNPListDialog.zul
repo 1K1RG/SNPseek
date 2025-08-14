@@ -1,0 +1,79 @@
+<window id="createWindow" border="none" width="520px" height="910px"
+	apply="user.ui.module.workspace.CreateSNPListController">
+	<div style="height:40px; background-color:#6fa379;padding:10px;">
+		<label>Add SNP List</label>
+	</div>
+
+	<div style="padding:10px;">
+		<vbox id="vboxEditNewList">
+			<div id="divMsgSNP">
+
+				<vbox>
+					<hbox>
+						<label value="List name:"
+							style="font-weight:bold;color:gray;" />
+						<textbox id="txtboxEditListname" style="font-size:11px;"/>
+					</hbox>
+					<label id="labelMsgSNP" pre="true"
+						value="Set chromosome and SNP positions here" />
+					<hbox id="hboxDatasetSnps" visible="true">
+						<!-- label value="Dataset   "  pre="true"/ -->
+					</hbox>
+
+					<hbox visible="false">
+						<label value="Chromosome" visible="false" />
+						<vbox width="5px" />
+						<listbox id="selectChromosome" mold="select"
+							rows="1" visible="false" />
+
+
+					</hbox>
+
+					<hbox>
+						<checkbox id="checkboxVerifySNP" checked="false"
+							label="  Verify if SNP is in " tooltip="popupVerifySNP" />
+						<label value="Variant set" />
+						<vbox width="15px" />
+						<listbox id="listboxVariantset" multiple="true"
+							checkmark="true" seltype="multiple" rows="4" width="200px" />
+
+					</hbox>
+
+					<checkbox id="checkboxAutoconfirm" checked="true"
+						label="  Autoconfirm (forced for >50 positions)"
+						tooltip="popupAutoconfirm" />
+
+					<div id="divSNPMoreData" visible="true">
+						<vbox>
+							<separator />
+							<checkbox id="checkboxSNPAlelle"
+								checked="false"
+								label="SNPs have allele column (for allele filtering)" />
+							<checkbox id="checkboxSNPPValue"
+								checked="false"
+								label="SNPs have -log(p) column (from GWAS analysis)" />
+						</vbox>
+					</div>
+					<label id="labelMsgFormat" pre="true"
+						value="Format:  chromosome position"
+						style="color:blue;font-weight:bold" />
+					<textbox id="txtboxEditNewList" rows="25"
+						width="500px" style="font-size:11px;"/>
+				</vbox>
+
+			</div>
+
+			<div class="form-row"
+				style="width:800px;margin-top:10px;">
+				<div class="col-xl-3 offset-xl-0">
+					<div class="form-group">
+						<div class="text-left">
+							<button id="buttonSave">Save</button>
+							<button id="cancelButton">Cancel</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</vbox>
+	</div>
+</window>

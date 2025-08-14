@@ -1,0 +1,41 @@
+<groupbox id="tipbox" mold="3d" width="${empty arg.width ? '400px': arg.width}" 
+				height="${empty arg.height ? '350px': arg.height}" style="border-color:white">
+
+<!--  groupbox id="tipbox" mold="3d" width="${arg.width}"  height="${arg.height}" style="border-color:white" -->
+	<style>
+	    .desc { color:green;font-weight:bold;font-family:arial;font-size:14px; } 
+	    .pic { width:80px; height:80px; }
+	    .details { color:darkgreen;font-weight:bold;font-family:arial;font-size:12px } 
+	</style>
+	<!--  caption label="${empty arg.title ? 'No Title': arg.title}" / -->
+	<vbox align="left" style="background:lightgreen;border-color:white" >
+
+	    <label pre="true" class="desc" value="${empty arg.desc ? 
+	    		'This Product have no description.': arg.desc}" />
+	    <!--  image class="pic" src="${arg.img}" href="${arg.href}" / -->
+	    <!-- button label="${empty arg.desc ? 
+	    		'This Product have no description.': arg.desc}"
+	    	   image="${arg.img}" width="200px" height="200px" href="${arg.href}"/ -->
+	    
+	    <label class="details" value="${empty arg.details1 ? '': arg.details1}" pre="true"/>	   
+	    <label class="details" value="${empty arg.details2 ? '': arg.details2}" pre="true" />	   
+	    <label class="details" value="${empty arg.details3 ? '': arg.details3}" pre="true" />	   
+	    <label class="details" value="${empty arg.details4 ? '': arg.details4}" pre="true" />	   
+	    <label class="details" value="${empty arg.details5 ? '': arg.details5}" pre="true" />	   
+	    <label class="details" value="${empty arg.details6 ? '': arg.details6}" pre="true" />	   
+	    <label class="details" value="${empty arg.details7 ? '': arg.details7}" pre="true" />	   
+	    <label class="details" value="${empty arg.details8 ? '': arg.details8}" pre="true" />	   
+	    <label class="details" value="${empty arg.details9 ? '': arg.details9}" pre="true" />	   
+	    <label class="details" value="${empty arg.details10 ? '': arg.details10}" pre="true" />	   
+	    <label class="details" value="${empty arg.details11 ? '': arg.details11}" pre="true" />	   
+	    <label class="details" value="${empty arg.details12 ? '': arg.details12}" pre="true" />	   
+	    <label class="details" value="${empty arg.details13 ? ' ': arg.details13}" pre="true" />	   
+	    <label class="details" value="${empty arg.details14 ? ' ': arg.details14}" pre="true" />	   
+	    <label class="details" value="${empty arg.details15 ? ' ': arg.details15}" pre="true" />	   
+	    <label class="details" value="${empty arg.details16 ? ' ': arg.details16}" pre="true" />	   
+	    <label class="details" value="${empty arg.details17 ? ' ': arg.details17}" pre="true" />	   
+	    <label class="details" value="${empty arg.details18 ? ' ': arg.details18}" pre="true" />	   
+	 
+	</vbox>
+	
+</groupbox>

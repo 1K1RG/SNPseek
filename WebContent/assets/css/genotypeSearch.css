@@ -1,0 +1,83 @@
+.z-goldenlayout .lm_header .lm_tab .lm_title {
+	font-size: 12px;
+	font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Fira Sans,Droid Sans,Helvetica Neue,sans-serif !important;
+}
+
+.menu_style>a {
+	color: black !important;
+}
+
+.myOddColor{
+	background:red;
+}
+
+.z-listbox-header {
+    width: 100%;
+    background: #5b8877;
+    position: relative;
+    overflow: hidden;
+}
+
+.menupopup_style>ul>li>a {
+	color: black !important;
+}
+
+.z-goldenlayout .lm_header .lm_tab.lm_active {
+	background: #eaefec;
+	color: #14830c;
+}
+
+.z-goldenlayout .lm_header .lm_tab.lm_active:hover {
+	color: #075207;
+}
+
+.z-goldenlayout .lm_header {
+    background: #51996F !important ;
+}
+
+.z-column-content, .z-row-content, .z-group-content,
+	.z-groupfoot-content, .z-footer-content {
+	padding: 6.4px 7px;
+}
+
+.z-biglistbox-header-content {
+	padding: 10px 16px;
+	line-height: .8em;
+}
+
+.z-auxhead {
+	height: 110px !important;
+}
+
+.lm_splitter, .lm_vertical {
+	background-color: #c8dbcb;
+	
+}
+
+.z-goldenlayout .lm_splitter:hover {
+    background: #81a38a;
+}
+
+.z-tabbox, .z-tabbox-top {
+	height: 100% !important;
+}
+
+.z-goldenlayout .lm_header .lm_tab {
+	color: rgb(255, 255, 255);
+}
+
+.home_div {
+	border-radius: 140px;
+	height:80px;
+	width:300px;
+	margin-top: 10px;
+}
+
+.no-gutters>.col, .no-gutters>[class*=col-] {
+    padding-right: 0;
+    padding-left: 30px;
+}
+
+.card-body2 {
+    padding: 0.7rem;
+}

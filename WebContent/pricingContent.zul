@@ -1,0 +1,184 @@
+<zk>
+	<n:div xmlns:n="native">
+
+		<n:script src="assets/js/jquery.min.js" />
+		<n:script src="assets/bootstrap/js/bootstrap.min.js" />
+		<n:script
+			src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js" />
+
+		<n:script src="assets/js/Collapsible-Sidebar.js" />
+		<n:script src="assets/js/Material-Text-Input.js" />
+		<style src="assets/bootstrap/css/bootstrap.min.css" />
+		<style
+			src="https://fonts.googleapis.com/css?family=Nunito+Sans" />
+		<style src="https://fonts.googleapis.com/css?family=Poppins" />
+		<style src="https://fonts.googleapis.com/css?family=Roboto" />
+		<style src="https://fonts.googleapis.com/css?family=Rubik" />
+		<style src="assets/fonts/fontawesome-all.min.css" />
+		<style src="assets/fonts/font-awesome.min.css" />
+		<style src="assets/fonts/fontawesome5-overrides.min.css" />
+		<style src="assets/css/Footer-Dark.css" />
+		<style src="assets/css/styles.css" />
+		<style src="assets/css/styles_genotype.css" />
+		<style src="assets/css/Collapsible-Sidebar.css" />
+		<style src="assets/css/sidebar_home.css" />
+
+
+
+
+		<n:div id="bodyContent">
+			<n:div id="bodyContent1">
+				<n:section id="pricing" class="section">
+					<n:div class="container">
+						<n:div class="row">
+							<n:div class="col-12">
+								<n:div
+									class="pricing-text section-header text-center">
+									<n:h2 class="text-center"
+										id="pricing-table-heading">
+										Pricing Plans
+									</n:h2>
+									<n:div class="desc-text">
+										<n:p>
+											&lt;insert description&gt;
+										</n:p>
+									</n:div>
+								</n:div>
+							</n:div>
+						</n:div>
+						<n:div class="row pricing-tables">
+							<n:div
+								class="col-12 col-md-4 col-lg-4 pricing-tables">
+								<n:div
+									class="pricing-table text-center">
+									<n:div class="pricing-details">
+										<n:h3>
+											FREE
+											<n:br />
+										</n:h3>
+										<n:h1>
+											<span>
+												<n:i
+													class="fa fa-dollar dollar">
+												</n:i>
+											</span>
+											&#160;00
+										</n:h1>
+										<n:div
+											class="text-left mx-auto">
+											<n:ul>
+
+												<n:li>
+													<span>
+														&#10004;
+													</span>
+													3k dataset only
+												</n:li>
+												<n:li>
+													<span>
+														&#10006;
+													</span>
+													Download Feature
+													<n:br />
+												</n:li>
+												<n:li>
+													<span>
+														&#10006;
+													</span>
+													Export Results to
+													Galaxy
+													<n:br />
+												</n:li>
+												<n:li>
+													<span>
+														&#10006;
+													</span>
+													No Ads
+													<n:br />
+												</n:li>
+
+											</n:ul>
+										</n:div>
+									</n:div>
+									<n:div
+										class="text-center plan-button">
+										<a
+											class="text-center d-sm-inline-block d-md-inline d-lg-inline-block d-xl-inline-block btn btn-border"
+											href="#">
+											purchase
+										</a>
+									</n:div>
+								</n:div>
+							</n:div>
+							<n:div
+								class="col-12 col-md-4 col-lg-4 pricing-tables">
+								<n:div
+									class="pricing-table text-center">
+									<n:div class="pricing-details">
+										<n:h3>standard</n:h3>
+										<n:h1>
+											<n:span>
+												<n:i
+													class="fa fa-dollar dollar">
+												</n:i>
+											</n:span>
+											&#160;TBD
+										</n:h1>
+										<n:div
+											class="text-left mx-auto">
+											<n:ul>
+												<n:li>
+													<span>
+														&#10004;
+													</span>
+													Access to All
+													Uploaded Datasets
+													<n:br />
+												</n:li>
+												<n:li>
+													<span>
+														&#10004;
+													</span>
+													Download Feature
+													<n:br />
+												</n:li>
+												<n:li>
+													<span>
+														&#10004;
+													</span>
+													Export Results to
+													Galaxy
+													<n:br />
+												</n:li>
+												<n:li>
+													<span>
+														&#10004;
+													</span>
+													No Ads
+													<n:br />
+												</n:li>
+											</n:ul>
+										</n:div>
+									</n:div>
+									<n:div class="plan-button">
+										<a
+											class="text-center d-sm-inline-block d-md-inline d-lg-inline-block d-xl-inline-block btn btn-border standard"
+											href="#">
+											purchase
+										</a>
+									</n:div>
+								</n:div>
+							</n:div>
+						</n:div>
+					</n:div>
+				</n:section>
+			</n:div>
+		</n:div>
+
+
+	</n:div>
+
+
+
+
+</zk>

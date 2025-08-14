@@ -1,0 +1,731 @@
+/*
+Developed by Eric Weitz (https://github.com/eweitz)
+*/
+
+html {
+    height: 1400px;
+}
+
+body {
+    font: 12px Arial;
+    line-height: 19.6px;
+}
+
+svg {
+    margin-left: 10px;
+    width: 1100px;
+}
+
+text {
+    /*
+    Tahoma has excellent readability and
+    space utilization at small sizes.
+    More: http://ux.stackexchange.com/a/3334
+    */
+    font: 9px Tahoma;
+    fill: #000;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.chromosome {
+    cursor: pointer;
+}
+
+.ghost {
+    opacity: 0.2;
+}
+
+.hidden {
+    display: none;
+}
+
+.bandLabelStalk line {
+    stroke: #AAA;
+    stroke-width: 1;
+}
+
+.chromosomeBorder,
+.acen {
+    stroke: #000;
+    stroke-width: 0.5;
+}
+
+.syntenyBorder {
+    stroke: #AAA;
+    stroke-width: 1;
+}
+
+.brush .extent {
+    fill: #F00;
+    stroke: #F00;
+    fill-opacity: .3;
+    shape-rendering: crispEdges;
+}
+
+/* NCBI stain density colors */
+
+.gneg {
+    fill: #FFF
+}
+
+.gpos25 {
+    fill: #BBB
+}
+
+.gpos33 {
+    fill: #AAA
+}
+
+.gpos50 {
+    fill: #888
+}
+
+.gpos66 {
+    fill: #666
+}
+
+.gpos75 {
+    fill: #444
+}
+
+.gpos100 {
+    fill: #000
+}
+
+.acen {
+    fill: #FDD
+}
+
+.stalk {
+    fill: #CCE;
+}
+
+.gvar {
+    fill: #DDF
+}
+
+
+/* Used when overlaid with annotations */
+
+.faint .gneg {
+    fill: #FFF
+}
+
+.faint .gpos25 {
+    fill: #EEE
+}
+
+.faint .gpos33 {
+    fill: #EEE
+}
+
+.faint .gpos50 {
+    fill: #EEE
+}
+
+.faint .gpos66 {
+    fill: #EEE
+}
+
+.faint .gpos75 {
+    fill: #EEE
+}
+
+.faint .gpos100 {
+    fill: #DDD
+}
+
+.faint .acen {
+    fill: #FEE
+}
+
+.faint .stalk {
+    fill: #EEF;
+}
+
+.faint .gvar {
+    fill: #EEF
+}
+
+/* lmlawas [*] */
+/* for side bar [*] */
+
+ul {
+    list-style: none;
+    padding-left: 10px;
+    float: left;
+}
+
+/* for linear scale [*] */
+
+.axis {
+    shape-rendering: crispEdges;
+}
+
+.y.axis line,
+.y.axis path {
+    fill: none;
+    stroke: #000;
+}
+
+
+/* for divs [*] */
+
+#jbrowse {
+    width: 100%;
+    height: 450px;
+}
+
+#sidebar {
+    float: left;
+}
+
+#searchbox {
+    float: left;
+    position: absolute;
+    margin-top: 70px;
+}
+
+#search-keyword {
+    border: 0;
+    height: 20px;
+    width: 195px;
+}
+
+#searchbox-keyword-message {
+    margin-top: -1px;
+    float: right;
+    font-weight: 900;
+    color: red;
+}
+
+#view-type {
+    position: absolute;
+    margin-top: 55px;
+}
+
+#form-render {
+    height: 200px;
+    width: 250px;
+    float: left;
+    overflow: auto;
+    overflow-x: hidden;
+    position: absolute;
+    margin-top: 100px;
+}
+
+#form-render-qtl {
+    height: 200px;
+    width: 250px;
+    float: left;
+    overflow: auto;
+    overflow-x: hidden;
+    position: absolute;
+    margin-top: 290px;
+}
+
+#form-render-brush {
+    float: left;
+    overflow: auto;
+    overflow-x: hidden;
+    position: absolute;
+    margin-top: 480px;
+}
+
+#instructions {
+    float: left;
+    height: 100px;
+    position: absolute;
+    margin-top: 540px;
+}
+
+#chromosome-render {
+    position: absolute;
+    margin-left: 250px;
+}
+
+/* jjdcabasolo &+- */
+/* &+- css for the buttons */
+.button-color button {
+    border: 0;
+    padding: 8px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    background-color: #616161;
+    color: white;
+}
+
+.button-color button:hover {
+    background-color: #424242;
+    color: #EEEEEE;
+}
+
+#nightmodebutton button {
+    background-color: #757575;
+    color: white;
+}
+
+.button-default {
+    background-color: #616161;
+    color: white;
+}
+
+.button-default:hover {
+    background-color: #424242;
+    color: #EEEEEE;
+}
+
+#lightmode button{
+    background-color: #333333;
+    color: white;
+}
+#darkmode button{
+    background-color: #333333;
+    color: white;
+}
+#promode button{
+    background-color: #333333;
+    color: white;
+}
+#deumode button{
+    background-color: #333333;
+    color: white;
+}
+#trimode button{
+    background-color: #333333;
+    color: white;
+}
+
+#download-ideogram button{
+    position: absolute;
+    top: 854px;
+    left: 357px;
+    z-index: 100000000000000000000;
+}
+
+#enable-zoom button{
+    position: absolute;
+    top: 854px;
+    left: 460px;
+    z-index: 100000000000000000000;
+}
+
+#enable-pan button{
+    position: absolute;
+    top: 854px;
+    left: 569px;
+    z-index: 100000000000000000000;
+}
+
+.button-default {
+    border: 0;
+    padding: 8px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    margin-left: 6px;
+}
+
+/* &+- color blocks found at the track selector */
+
+.color-block {
+    background-color: blue;
+    display: inline;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding-left: 14px;
+}
+
+.spinner {
+    margin-top: 22%;
+}
+
+#divider {
+    border: 1px solid #757575;
+}
+
+/* &+- annotation css */
+
+.singleposition path:hover {
+    fill: #424242;
+    stroke: #424242;
+    transform: translateY(3px) scale(1.5);
+    -webkit-transition: transform 0.2s;
+    /* Safari */
+    transition: transform 0.2s;
+}
+
+.rangedannot path:hover {
+    fill: #424242;
+    stroke: #424242;
+    transform: translateY(6px);
+    -webkit-transition: transform 0.2s;
+    /* Safari */
+    transition: transform 0.2s;
+}
+
+/* &+- gene table css */
+
+.gene-table {
+    margin-top: 850px;
+}
+
+table {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24);
+    margin-bottom: 2em;
+    background-color: #212121;
+    border: 0;
+    border-collapse: collapse;
+    color: #EEEEEE;
+}
+
+.table th,
+.table td {
+    text-align: left;
+    padding: 10px;
+    vertical-align: top;
+    border: inherit;
+}
+
+.table thead {
+    background-color: #212121;
+}
+
+.table thead tr {
+    box-shadow: 0 4px 2px -2px #212121;
+}
+
+.table tbody {
+    background-color: #303030;
+}
+
+#gene-table-content {
+    position: absolute;
+    width: 100px;
+}
+
+#gene-table-content th,
+#gene-table-content td {
+    text-align: left;
+}
+
+#gene-table-content td:nth-child(1),
+#gene-table-content th:nth-child(1) {
+    min-width: 40px;
+}
+
+#gene-table-content td:nth-child(2),
+#gene-table-content th:nth-child(2) {
+    min-width: 60px;
+}
+
+#gene-table-content td:nth-child(3),
+#gene-table-content th:nth-child(3) {
+    min-width: 60px;
+}
+
+#gene-table-content td:nth-child(4),
+#gene-table-content th:nth-child(4) {
+    min-width: 110px;
+}
+
+#gene-table-content td:nth-child(5),
+#gene-table-content th:nth-child(5) {
+    min-width: 35px;
+}
+
+#gene-table-content td:nth-child(6),
+#gene-table-content th:nth-child(6) {
+    min-width: 110px;
+}
+
+#gene-table-content td:nth-child(7),
+#gene-table-content th:nth-child(7) {
+    min-width: 110px;
+}
+
+#gene-table-content td:nth-child(8),
+#gene-table-content th:nth-child(8) {
+    min-width: 110px;
+}
+
+#gene-table-content td:nth-child(9),
+#gene-table-content th:nth-child(9) {
+    min-width: 110px;
+}
+
+#gene-table-content td:nth-child(10),
+#gene-table-content th:nth-child(10) {
+    width: 110px;
+}
+
+#gene-table-content td:nth-child(11),
+#gene-table-content th:nth-child(11) {
+    min-width: 200px;
+}
+
+/*
+#gene-table-content td:nth-child(1),
+#gene-table-content th:nth-child(1) {
+    min-width: 40px;
+}
+
+#gene-table-content td:nth-child(2),
+#gene-table-content th:nth-child(2) {
+    min-width: 110px;
+}
+
+#gene-table-content td:nth-child(3),
+#gene-table-content th:nth-child(3) {
+    min-width: 100px;
+}
+
+#gene-table-content td:nth-child(4),
+#gene-table-content th:nth-child(4) {
+    min-width: 100px;
+}
+
+#gene-table-content td:nth-child(5),
+#gene-table-content th:nth-child(5) {
+    min-width: 110px;
+}
+
+#gene-table-content td:nth-child(6),
+#gene-table-content th:nth-child(6) {
+    min-width: 100px;
+}
+
+#gene-table-content td:nth-child(7),
+#gene-table-content th:nth-child(7) {
+    min-width: 60px;
+}
+
+#gene-table-content td:nth-child(8),
+#gene-table-content th:nth-child(8) {
+    min-width: 60px;
+}
+
+#gene-table-content td:nth-child(9),
+#gene-table-content th:nth-child(9) {
+    min-width: 100px;
+}
+
+#gene-table-content td:nth-child(10),
+#gene-table-content th:nth-child(10) {
+    width: 35px;
+}
+
+#gene-table-content td:nth-child(11),
+#gene-table-content th:nth-child(11) {
+    min-width: 200px;
+}*/
+
+#gene-table-content thead {
+    font-weight: 900;
+    color: #EEEEEE;
+}
+
+#gene-table-content thead tr {
+    display: block;
+    position: relative;
+}
+
+#gene-table-content tbody {
+    display: block;
+    overflow-y: auto;
+    height: 400px;
+    overflow-x: hidden;
+}
+
+
+/* &+- scrollbar: thank you https://codepen.io/devstreak/pen/dMYgeO for the scrollbar */
+
+#gene-table-content tbody::-webkit-scrollbar-track,
+#form-render::-webkit-scrollbar-track,
+#form-render-qtl::-webkit-scrollbar-track,
+#form-render-brush::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #303030;
+}
+
+#gene-table-content tbody::-webkit-scrollbar,
+#form-render::-webkit-scrollbar,
+#form-render-qtl::-webkit-scrollbar,
+#form-render-brush::-webkit-scrollbar {
+    width: 15px;
+    background-color: #303030;
+}
+
+#form-render::-webkit-scrollbar-track,
+#form-render-qtl::-webkit-scrollbar-track,
+#form-render-brush::-webkit-scrollbar-track {
+    background-color: white;
+}
+
+#form-render::-webkit-scrollbar,
+#form-render-qtl::-webkit-scrollbar,
+#form-render-brush::-webkit-scrollbar {
+    background-color: white;
+}
+
+#gene-table-content tbody::-webkit-scrollbar-thumb,
+#form-render::-webkit-scrollbar-thumb,
+#form-render-qtl::-webkit-scrollbar-thumb,
+#form-render-brush::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #FDD;
+}
+
+
+/* &+- tabs: thank you https://www.w3schools.com/howto/howto_js_tabs.asp for this sleek and minimalist tabs */
+
+div.tab {
+    overflow: hidden;
+    border-radius: 2px;
+    background-color:transparent;
+    width: 900px;
+}
+
+div.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 8px 16px;
+    transition: 0.3s;
+}
+
+div.tab button:hover {
+    background-color: #ddd;
+}
+
+div.tab button.active {
+    background-color: #ccc;
+}
+
+.tabcontent {
+    border-radius: 2px;
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    width: 1240px;
+}
+
+.tabcontent-anotherone {
+    border-radius: 2px;
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    width: 230px;
+    overflow: auto;
+    overflow-x: none;
+    height: 150px;
+}
+
+.header-tab {
+    pointer-events: none;
+    font-weight: 700;
+    background-color: white !important;
+}
+
+.li-content {
+    margin-left: 10px;
+}
+
+/* &+- collapsible panels: thank you https://webdevdoor.com/jquery/expandable-collapsible-panels-jquery for this awesome collapsible panel */
+
+.expandable-panel {
+    width: 240px;
+    position: relative;
+    min-height: 50px;
+    overflow: auto;
+}
+
+.expandable-panel-heading {
+    margin-top: -15px;
+    width: 100%;
+    cursor: pointer;
+    height: 40px;
+    clear: both;
+    background-color: #EEEEEE;
+    position: relative;
+    border-radius: 2px;
+    font-weight: 600;
+}
+
+.expandable-panel-heading:hover {
+    background-color: #ddd;
+    transition: background-color 0.5s;
+}
+
+.expandable-panel-heading p {
+    padding: 11px 11px 11px 11px;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.expandable-panel-content {
+    padding: 0 15px 0 15px;
+    margin-top: -999px;
+}
+
+.expandable-panel-content p:last-child {
+    padding-bottom: 15px;
+}
+
+.expandable-panel-content img {
+    float: right;
+    padding-left: 12px;
+}
+
+#cp-2 {
+    margin-top: -13px;
+}
+
+#cp-3 {
+    margin-top: -13px;
+}
+
+.arrow-left-stuff {
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+#form-render-category {
+    margin-top: 85px;
+    position: absolute;
+    height: 460px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+}
+
+#form-render-category::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: white;
+}
+
+#form-render-category::-webkit-scrollbar {
+    width: 15px;
+    background-color: white;
+}
+
+#form-render-category::-webkit-scrollbar-thumb {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+    background-color: #80CBC4;
+}
+
+.hoverable-li:hover {
+    background-color: #E0E0E0;
+    width: 220px;
+    padding-left: 16px;
+    margin-left: -15px;
+}

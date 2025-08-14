@@ -1,0 +1,8 @@
+<window width="80%" title="Session Timeout" border="normal" apply="user.ui.module.TimeoutController">
+	<vbox>
+The page or component you request is no longer available.
+This is normally caused by timeout, opening too many Web pages, or rebooting
+the server.
+Redirecting to main page in <label id="lbl_time"/> seconds.
+	</vbox>
+</window>

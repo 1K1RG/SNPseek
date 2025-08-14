@@ -1,0 +1,178 @@
+<?page title="Contact Us" contentType="text/html;charset=UTF-8"?>
+<zk xmlns:n="native">
+	<n:div xmlns:n="native">
+		<n:script src="assets/js/jquery.min.js" />
+		<n:script src="assets/bootstrap/js/bootstrap.min.js" />
+		<n:script
+			src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js" />
+
+		<n:script src="assets/js/Collapsible-Sidebar.js" />
+		<n:script src="assets/js/Material-Text-Input.js" />
+		<style src="assets/bootstrap/css/bootstrap.min.css" />
+		<style
+			src="https://fonts.googleapis.com/css?family=Nunito+Sans" />
+		<style src="https://fonts.googleapis.com/css?family=Poppins" />
+		<style src="https://fonts.googleapis.com/css?family=Roboto" />
+		<style src="https://fonts.googleapis.com/css?family=Rubik" />
+		<style src="assets/fonts/fontawesome-all.min.css" />
+		<style src="assets/fonts/font-awesome.min.css" />
+		<style src="assets/fonts/fontawesome5-overrides.min.css" />
+		<style src="assets/css/Footer-Dark.css" />
+		<style src="assets/css/styles.css" />
+		<style src="assets/css/styles_genotype.css" />
+		<style src="assets/css/Collapsible-Sidebar.css" />
+		<style src="assets/css/sidebar_home.css" />
+		<style src="assets/css/genotypeSearch.css" />
+ 		<script type="text/javascript"
+		src='https://www.google.com/recaptcha/api.js' defer="true" />
+		<script>
+		
+		<![CDATA[ 
+		          function afterValidate(response){
+					zk.Widget.$('$recaptcha').fire('onUserRespond',{'response':response},
+						{
+						toServer:true
+						}
+					); } ]]>
+		
+		</script>
+		<script type="text/javascript">
+		  var onloadCallback = function() {
+		    alert("grecaptcha is ready!");
+		  };
+		</script>
+		
+		<style>
+			.z-loading { background-color:#808080; border:1px outset
+			#A0A0A0; font-weight: bold; padding:2px;
+
+			cursor: wait; top: 50%; left: 45% !important; align: center;
+			vertical-align: middle;
+
+			position: fixed; margin-left: auto; margin-right: auto;
+			display: block;
+
+
+			}
+
+			.vertical { -moz-transform: rotate(-90deg) translate(0,
+			100%); -moz-transform-origin: 0% 100%; -o-transform:
+			rotate(-90deg) translate(0, 100%); -o-transform-origin: 0%
+			100%; -webkit-transform: rotate(-90deg) translate(0, 100%);
+			-webkit-transform-origin: 0% 100%; transform: rotate(-90deg)
+			translate(0, 100%); transform-origin: 0% 100%;
+
+			writing-mode: bt-rl; filter: flipV flipH;
+
+			width:30px; height:90px; vertical-align: middle;
+			text-align:center; display:block; /* white-space:nowrap; */
+			}
+
+
+			.vertical5 { -webkit-writing-mode:vertical-lr;
+			-ms-writing-mode:tb-lr; writing-mode:vertical-lr;
+			width:30px; height:80px; text-align:center; filter: flipV
+			flipH; }
+
+			.vertical2 { -webkit-writing-mode:vertical-lr;
+			-ms-writing-mode:tb-lr; writing-mode:vertical-lr;
+			width:30px; height:80px; text-align:center; }
+
+			.vertical3 { -webkit-transform:rotate(-90deg);
+			-moz-transform:rotate(-90deg); -o-transform: rotate(-90deg);
+			-ms-transform:rotate(-90deg); transform: rotate(-90deg);
+			filter:
+			progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+			white-space:nowrap; display:block; bottom:0; width:30px;
+			height:80px; text-align:center; }
+
+
+			/* Cell Height and Font */ .mylist .z-listfooter-cnt,
+			.mylist .z-listcell-cnt,.mylist .z-listheader-cnt {
+			font-size: 6px; font-family: "Tahoma", verdana, arial,
+			sans-serif; height: 8px; }
+
+		</style>
+		<script>
+			function myFunction() {
+
+			var element =
+			document.getElementById("genotypeSearchSidebar");
+			element.classList.toggle("active"); }
+		</script>
+		<window title="Register" border="none"
+			style="margin-top:150px;width:80%;margin-left:auto;margin-right:auto;"
+			apply="user.ui.module.RegisterController">
+
+			<vlayout>
+				<hbox>
+					<vbox>
+						<vbox width="20%" />
+						<grid style="background: #e7e4c2">
+							<columns>
+								<column width="150px" />
+								<column width="100%" />
+							</columns>
+							<rows>
+								<row spans="2"></row>
+								<row>
+									<label value="Firstname" />
+									<textbox id="txtbox_firstname"
+										width="100%" />
+								</row>
+								<row>
+									<label value="Lastname" />
+									<textbox id="txtbox_lastname"
+										width="100%" />
+								</row>
+								<row>
+									<label value="Password" />
+									<textbox id="txtbox_password"
+										type="password" width="100%" />
+								</row>
+
+								<row>
+									<label value="Confirm Password" />
+									<textbox id="txtbox_password2"
+										type="password" width="100%" />
+								</row>
+
+								<row>
+									<label value="Email" />
+									<textbox
+										constraint="/.+@.+\.[a-z]+/: Please enter an e-mail address"
+										id="txtboxEmail" width="100%" />
+								</row>
+								<row>
+									<label value="Institution" />
+									<textbox id="txtboxOrganization"
+										width="100%" />
+								</row>
+								<row>
+									<label value="Recaptcha" />
+									<div>
+										<n:div id="recaptcha" class="g-recaptcha" data-sitekey="6LcIXrMqAAAAAMK1piENcVVW9vxqOwVW7K_sesuE" data-callback="afterValidate"></n:div>
+									</div>
+								</row>
+								<row>
+									<label />
+									<hbox>
+										<button id="buttonSubmit">
+											Submit
+										</button>
+										<vbox width="30px" />
+										<button id="buttonReset">
+											Clear Filters
+										</button>
+									</hbox>
+								</row>
+							</rows>
+						</grid>
+					</vbox>
+					<vbox width="20%" />
+				</hbox>
+			</vlayout>
+		</window>
+	</n:div>
+</zk>

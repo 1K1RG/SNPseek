@@ -1,0 +1,1300 @@
+<zk>
+	<n:div xmlns:n="native">
+		<n:script src="assets/js/jquery.min.js" />
+		<n:script src="assets/bootstrap/js/bootstrap.min.js" />
+		<n:script
+			src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js" />
+
+		<n:script src="assets/js/Collapsible-Sidebar.js" />
+		<n:script src="assets/js/Material-Text-Input.js" />
+
+		<!-- Google tag (gtag.js) -->
+		<n:script async="async"
+			src="https://www.googletagmanager.com/gtag/js?id=G-6DY1MFCGZH">
+		</n:script>
+		<n:script>
+			window.dataLayer = window.dataLayer || []; function gtag(){
+			dataLayer.push(arguments); }
+
+			gtag('js', new Date());
+
+			gtag('config', 'G-6DY1MFCGZH');
+
+			gtag('event', 'page_view', {
+			'page_path':'/varietiesContent.zul' });
+
+		</n:script>
+
+		<style src="assets/bootstrap/css/bootstrap.min.css" />
+		<style
+			src="https://fonts.googleapis.com/css?family=Nunito+Sans" />
+		<style src="https://fonts.googleapis.com/css?family=Poppins" />
+		<style src="https://fonts.googleapis.com/css?family=Roboto" />
+		<style src="https://fonts.googleapis.com/css?family=Rubik" />
+		<style src="assets/fonts/fontawesome-all.min.css" />
+		<style src="assets/fonts/font-awesome.min.css" />
+		<style src="assets/fonts/fontawesome5-overrides.min.css" />
+		<style src="assets/css/Footer-Dark.css" />
+		<style src="assets/css/styles.css" />
+		<style src="assets/css/styles_genotype.css" />
+		<style src="assets/css/Collapsible-Sidebar.css" />
+		<style src="assets/css/sidebar_home.css" />
+		<style src="assets/css/genotypeSearch.css" />
+
+
+
+
+		<style>
+			<!-- cut/hide the vertical borders in the grid rows -->
+			tr.z-row td.z-row-inner { border-right: 0px #CCC; }
+
+			.vertilcardStyle{ border-left: .65rem solid
+			#73ab85!important; border:1px green; border-style:solid;
+			border-radius:10px; margin-bottom:20px; margin-left:25px;
+			margin-right:25px; }
+
+			.fontCardStyle{ font-size: 12px;color: #706e6e; font-family:
+			-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+			Ubuntu, Fira Sans, Droid Sans, Helvetica Neue, sans-serif
+			!important; }
+
+			.valueStyle{ font-size:12px; font-weight:bold; color:
+			#c34a55;
+
+			}
+
+			.bg-container { width: 100%; height: 400px; /* Set height as
+			needed */ background-image: url('assets/img/8.png');
+			background-size: cover; /* Scales image to cover the div */
+			background-position: center; /* Centers the image */
+			background-repeat: no-repeat;/* Prevents repeating */ }
+		</style>
+		<script>
+			function myFunction() {
+
+			var element =
+			document.getElementById("genotypeSearchSidebar");
+			element.classList.toggle("active");
+
+			}
+		</script>
+		<window id="genWin" border="none"
+			apply="user.ui.module.VarietyQueryController" width="100%"
+			height="100%">
+			<hlayout id="layoutResultId" class="text-left"
+				visible="false" width="95%"
+				style="margin-top:auto; margin-bottom:auto;background-color:rgb(255 255 255) ;     padding: 25px 15px 10px 15px;position:fixed;z-index:9;top:65px;width:100%;">
+
+				<button id="backQueryDiv" iconSclass="z-icon-reorder"
+					tooltiptext="Go to Input"
+					style="width:40px; padding:7px;font-size:16px;    background-color: #ffffff;color: #53b164;margin-top:-5px;border-radius:15px !important;" />
+
+
+				<div hflex="1">
+					<n:div style="padding: 10px !important;"
+						class="card shadow border-start-primary py-2 home_div2">
+						<n:div class="card-body2">
+							<n:div
+								class="row align-items-center no-gutters"
+								style="margin-top: -10px;">
+								<n:div class="col me-2">
+									<n:div>
+										<n:span
+											style="font-size:13px;">
+											<label id="varietyRsltCnt" />
+											<textbox id="msgbox" visible="false"/>
+										</n:span>
+									</n:div>
+
+								</n:div>
+							</n:div>
+						</n:div>
+					</n:div>
+				</div>
+
+			</hlayout>
+
+
+			<n:div id="bodyContent" style="height:100%; ">
+				<n:div class="wrapper" style="height:90vh;">
+					<!-- Sidebar Holder -->
+					<n:nav id="genotypeSearchSidebar"
+						style="position:absolute !important; width: 455px !important;  overflow-y: auto;  height: 90vh;"
+						tabindex="-1" role="dialog">
+						<n:div class="container">
+
+							<n:div class="form-row">
+								<n:div class="col"
+									style="margin-left: 10px;margin-top: 15px;">
+
+									<label value="Search By Variety"
+										style="font-size:16px;color:#3b4e36;" />
+								</n:div>
+								<div id="closeDiv">
+									<n:div class="col"
+										style="padding-left: 10px;margin-top: 5px;">
+										<n:div class="text-right">
+											<n:button id="closeSidebar"
+												class="btn" visible="true">
+												<n:i
+													class="fas fa-times">
+												</n:i>
+											</n:button>
+										</n:div>
+
+									</n:div>
+								</div>
+
+							</n:div>
+
+
+							<n:form style="margin: 10px;">
+								<groupbox id="VarietyGroup" open="true"
+									width="420px" mold="3d">
+									<caption label="Variety"
+										style="font-size:13px;background-color:#3a6b35;">
+										<div id="datasetIcon"
+											class="fas fa-chevron-down">
+										</div>
+									</caption>
+									<n:div>
+										<div class="form-row"
+											style="width: 500px;">
+											<div
+												class="col-xl-3 offset-xl-0 text-left">
+												<div
+													class="form-group">
+													<div
+														class="text-left">
+														<label
+															class="text-right"
+															style="color: rgb(0,0,0);font-size: 11px;">
+															Variety Set
+														</label>
+													</div>
+
+												</div>
+
+											</div>
+											<div
+												class="col offset-xl-0">
+												<div
+													class="form-group">
+													<hbox id="refBox">
+														<bandbox
+															id="bandboxVarietyset" autodrop="true" readonly="true"
+															style="font-size:11px; width:255px;">
+															<bandpopup
+																width="200px" class="bandpopupGenotype">
+																<listbox
+																	id="listboxDataset" checkmark="true" multiple="true"
+																	seltype="multiple">
+																</listbox>
+															</bandpopup>
+														</bandbox>
+													</hbox>
+												</div>
+											</div>
+										</div>
+										<div class="form-row"
+											style="width: 500px;">
+											<div
+												class="col-xl-3 offset-xl-0">
+												<div
+													class="form-group">
+													<div
+														class="text-left">
+														<label
+															class="text-right"
+															style="color: rgb(0,0,0);font-size: 11px;">
+															Designation
+														</label>
+													</div>
+												</div>
+											</div>
+
+											<div
+												class="col offset-xl-0">
+												<div
+													class="form-group">
+													<label pre="true"
+														value="(ex. loto::gervex 104-c1)" style="font-size:10px"
+														id="labelExampleVarname" />
+													<hbox>
+														<combobox
+															id="comboVarname" autodrop="true" buttonVisible="false"
+															width="255px" class="z-combobox-designation" />
+
+
+													</hbox>
+												</div>
+											</div>
+										</div>
+										<zscript>
+	boolean isAccVisible = org.irri.iric.portal.AppContext
+			.showItem(org.irri.iric.portal.WebserverPropertyConstants.SEARCH_VARIETY_BY_ACCESSION);
+	String visibleAccStr = String.valueOf(isAccVisible);
+</zscript>
+										<div class="form-row"
+											style="width: 500px;">
+											<div
+												class="col-xl-3 offset-xl-0">
+												<div
+													class="form-group">
+													<div
+														class="text-left">
+														<label
+															class="text-right"
+															style="color: rgb(0,0,0);font-size: 11px;">
+															Accession
+														</label>
+													</div>
+												</div>
+											</div>
+											<div
+												class="col offset-xl-0">
+												<div
+													class="form-group">
+													<label
+														style="color: rgb(0,0,0);font-size: 10px;"
+														id="labelExampleAccession"
+														value="(ex. IRGC
+														122151)">
+													</label>
+													<hbox>
+														<combobox
+															id="comboAccession" class="z-combobox-accession"
+															autodrop="true" buttonVisible="false" width="255px" />
+
+													</hbox>
+
+												</div>
+											</div>
+										</div>
+										<zscript>
+	boolean isSubPopVisible = org.irri.iric.portal.AppContext
+			.showItem(org.irri.iric.portal.WebserverPropertyConstants.SEARCH_VARIETY_BY_SUBPOPULATION);
+	String visibleSubPopStr = String.valueOf(isSubPopVisible);
+</zscript>
+										<div class="form-row"
+											style="width: 500px;">
+											<div
+												class="col-xl-3 offset-xl-0">
+												<div
+													class="form-group">
+													<div
+														class="text-left">
+														<label
+															class="text-right"
+															style="color: rgb(0,0,0);font-size: 11px;">
+															Subpopulation
+
+														</label>
+													</div>
+												</div>
+											</div>
+											<div
+												class="col offset-xl-0">
+												<div
+													class="form-group">
+													<label
+														style="color: rgb(0,0,0);font-size: 9px;"
+														id="labelExampleSubpop" value="(ex. trop)">
+
+
+													</label>
+													<hbox>
+														<!--  combobox id="comboSubpopulation" class="z-subpopulation-dropdown" autocomplete="false" autodrop="false" buttonVisible="true" width="150px"/ -->
+														<listbox
+															id="listboxSubpopulation"
+															class="z-subpopulation-dropdown" mold="select"
+															style="width:255px!important;" />
+
+													</hbox>
+												</div>
+											</div>
+										</div>
+										<zscript>
+	boolean isAssayVisible = org.irri.iric.portal.AppContext
+			.showItem(org.irri.iric.portal.WebserverPropertyConstants.SEARCH_VARIETY_BY_ASSAYID);
+	String visibleAssayStr = String.valueOf(isAssayVisible);
+</zscript>
+										<div class="form-row"
+											style="width: 500px;">
+											<div
+												class="col-xl-3 offset-xl-0">
+												<div
+													class="form-group">
+													<div
+														class="text-left">
+														<label
+															class="text-right"
+															style="color: rgb(0,0,0);font-size: 11px;">
+															Assay ID
+
+														</label>
+													</div>
+												</div>
+											</div>
+											<div
+												class="col offset-xl-0">
+												<div
+													class="form-group">
+													<label
+														style="color: rgb(0,0,0);font-size: 10px;"
+														id="labelExampleIrisId"
+														value="(ex. iris
+														313-10000)">
+
+
+													</label>
+													<hbox>
+														<combobox
+															id="comboIrisId" class="z-combobox-irisid"
+															autodrop="true" buttonVisible="false" width="255px" />
+
+													</hbox>
+
+
+
+												</div>
+											</div>
+										</div>
+										<zscript>
+	boolean isCountryVisible = org.irri.iric.portal.AppContext
+			.showItem(org.irri.iric.portal.WebserverPropertyConstants.SEARCH_VARIETY_BY_COUNTRY);
+	String visibleCountryStr = String.valueOf(isCountryVisible);
+</zscript>
+										<div class="form-row"
+											style="width: 500px;">
+											<div
+												class="col-xl-3 offset-xl-0">
+												<div
+													class="form-group">
+													<div
+														class="text-left">
+														<label
+															class="text-right"
+															style="color: rgb(0,0,0);font-size: 11px;">
+															Country
+
+														</label>
+													</div>
+												</div>
+											</div>
+											<div
+												class="col offset-xl-0">
+												<div
+													class="form-group">
+													<combobox
+														id="comboCountry" class="z-combobox-country"
+														autodrop="true" buttonVisible="false" width="255px" />
+												</div>
+											</div>
+										</div>
+									</n:div>
+								</groupbox>
+								<groupbox id="passportGroup"
+									open="false" width="420px" mold="3d">
+									<caption label="Passport"
+										style="font-size:13px;background-color:#3a6b35;">
+										<div id="passportIcon"
+											class="fas fa-chevron-down">
+										</div>
+									</caption>
+									<n:div>
+										<div class="form-row"
+											style="width: 500px;">
+											<div
+												class="col-xl-3 offset-xl-0">
+												<div
+													class="form-group">
+													<div
+														class="text-left">
+														<a
+															target="_blank" href="/passport_dict.pdf"
+															label="Data dictionary" style="font-size:11px" />
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="form-row"
+											style="width: 500px;">
+											<div
+												class="col offset-xl-0">
+												<div
+													class="form-group">
+													<vbox
+														id="vboxPassportConstraints">
+														<hbox>
+															<listbox
+																id="listboxPassport" class="z-passport-dropdown"
+																mold="select" rows="1" style="width:200px !important;" />
+															<label
+																pre="true" value=" = " />
+															<listbox
+																id="listboxPassportValue" class="z-passport-arrow"
+																mold="select" rows="1" style="width:150px !important;" />
+
+														</hbox>
+													</vbox>
+												</div>
+											</div>
+										</div>
+										<div class="form-row"
+											style="width: 500px;">
+
+											<div class="col">
+												<div
+													class="form-group">
+													<div
+														class="text-right">
+														<button
+															id="buttonAddPassConstraint" label="Add"
+															tooltip="popupAddPassport" style="font-size:11px;" />
+													</div>
+												</div>
+											</div>
+										</div>
+									</n:div>
+								</groupbox>
+								<groupbox id="phenotypeGroup"
+									open="false" width="420px" mold="3d">
+									<caption label="Phenotype"
+										style="font-size:13px;background-color:#3a6b35;">
+										<div id="phenotypeIcon"
+											class="fas fa-chevron-down">
+										</div>
+									</caption>
+									<n:div>
+
+										<div class="form-row"
+											style="width: 500px;">
+											<div
+												class="col-xl-3 offset-xl-0">
+												<div
+													class="form-group">
+													<div
+														class="text-left">
+														<a
+															target="_blank" href="/phenotype_dict.pdf"
+															label="Data dictionary" style="font-size:11px;" />
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="form-row"
+											style="width: 500px;">
+
+											<div class="col">
+												<div
+													class="form-group">
+													<div
+														class="text-left">
+														<hbox>
+
+															<radiogroup
+																id="rgTraitterm" />
+															<radio
+																id="radioLegacyTrait" selected="true"
+																radiogroup="rgTraitterm" label="Legacy"
+																style="font-size:11px;" />
+															<radio
+																id="radioCoTrait" radiogroup="rgTraitterm"
+																label="CO Terms" style="font-size:11px;" />
+														</hbox>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="form-row"
+											style="width: 500px;">
+
+
+											<div
+												class="col offset-xl-0">
+												<div
+													class="form-group">
+													<vbox>
+														<hbox
+															visible="false">
+															<a id="aCO"
+																href="http://www.cropontology.org/ontology/CO_320/Rice"
+																label="Rice Crop"
+																style="font-size:12px;font-weight:bold"
+																target="_ontologies" />
+															<label
+																value="/" style="font-size:12px;font-weight:bold" />
+															<!--  a id="aTO" href="http://palea.cgrb.oregonstate.edu/trait_ontology/cgi-bin/trait_amigo/term_details?term=TO:0000387" target="_ontologies" label="Plant Trait"  style="font-size:12px;font-weight:bold"/ -->
+															<a id="aTO"
+																href="http://browser.planteome.org/amigo/term/TO:0000387"
+																target="_ontologies" label="Plant Trait"
+																style="font-size:12px;font-weight:bold" />
+															<label
+																pre="true" value=" Ontology  "
+																style="font-size:12px;font-weight:bold" />
+															<listbox
+																id="listboxPtocoterm" class="z-phenotype-ontology"
+																mold="select" rows="1" width="250px"
+																tooltip="popupListboxPtoco" />
+														</hbox>
+														<vbox
+															id="vboxPhenConstraints">
+															<hbox>
+																<listbox
+																	id="listboxPhenotypes" class="z-phenotype-dropdown"
+																	mold="select" rows="1" style="width:200px!important;" />
+																<listbox
+																	id="listboxPhenComparator" class="z-phenotype-check"
+																	mold="select" style="width:75px!important;" rows="1" />
+																<listbox
+																	id="listboxPhenValue" class="z-phenotype-empty"
+																	mold="select" rows="1" style="width:100px!important;" />
+
+															</hbox>
+														</vbox>
+													</vbox>
+												</div>
+											</div>
+										</div>
+										<div class="form-row"
+											style="width: 500px;">
+
+											<div class="col">
+												<div
+													class="form-group">
+													<div
+														class="text-right">
+														<button
+															id="buttonAddPhenConstraint" class="z-phenotype-add"
+															label="Add" tooltip="popupAddPhenotype"
+															style="font-size:11px;" />
+													</div>
+												</div>
+											</div>
+										</div>
+									</n:div>
+								</groupbox>
+								<groupbox id="mylistGroup" open="true"
+									width="420px" mold="3d">
+									<caption label="My List"
+										style="font-size:13px;background-color:#3a6b35;">
+										<div id="mylistIcon"
+											class="fas fa-chevron-down">
+										</div>
+									</caption>
+
+									<div class="form-row"
+										style="width: 500px;">
+										<div
+											class="col-xl-3 offset-xl-0">
+											<div class="form-group">
+												<div
+													class="text-left">
+													<label
+														class="text-right"
+														style="color: rgb(0,0,0);font-size: 11px;">
+														My Variety List
+
+													</label>
+												</div>
+											</div>
+										</div>
+										<div class="col offset-xl-0">
+											<div class="form-group">
+												<vbox>
+													<listbox
+														id="listboxMyVariety" mold="select" rows="1" />
+													<label pre="true"
+														value=" (return only varieties in my list)"
+														style="font-size:10px" />
+												</vbox>
+											</div>
+										</div>
+									</div>
+
+								</groupbox>
+								<n:br />
+								<n:br />
+								<n:div class="form-row"
+									style="width: 420px;margin-bottom:20px;">
+									<n:div class="col">
+
+										<n:div class="text-right">
+											<button id="buttonSearch"
+												label="Search" style="font-size:11px;" />
+										</n:div>
+									</n:div>
+									<n:div class="col">
+										<n:div class="text-left">
+											<button label="Reset"
+												id="buttonReset" style="font-size:11px;" />
+										</n:div>
+
+									</n:div>
+
+								</n:div>
+
+							</n:form>
+						</n:div>
+
+					</n:nav>
+					<div id="myModal">
+
+						<label value=".." />
+
+					</div>
+
+					<n:div id="content"
+						style="    overflow: auto; position: absolute;">
+						<n:div>
+							<div>
+								<div id="div_info"
+									style="height:100vh ;">
+									<n:div class="row"
+										style="position: absolute;top:10%;left: 550px;margin-right:0px; margin-left:0px;height:550px;width:1100px">
+										<n:div class="col-lg-6"
+											style="box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15)!important;">
+											<n:div
+												style="height:100%;">
+												<n:img class="img-fluid"
+													src="assets/img/8.png" style="margin-top:25%;" />
+											</n:div>
+
+										</n:div>
+
+										<n:div class="col-lg-5"
+											style="margin-top: auto;margin-bottom: auto;box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15)!important;padding:20px;height:100%;">
+											<n:div class="info">
+												<n:h3>
+													Variety Query
+												</n:h3>
+												<n:p
+													class="fontCardStyle" style="margin:20px;">
+													A. Select Variety
+													Name or IRIS ID
+													Result: PASSPORT and
+													PHENOTYPE data
+													<n:br />
+													B. Select Country
+													and/or Subpopulation
+													and/or Passport
+													and/or Phenotype
+													<n:br />
+													<n:br />
+													If
+													Passport/Phenotype
+													is selected,
+
+
+													set the contraint
+													Value
+													<n:br />
+													<n:br />
+													Add multiple
+													Passport/Phenotype
+													as
+
+													necessary. All
+													constraints are
+													ANDed
+													<n:br />
+													Result Table: List
+													of varieties matched
+
+
+													<n:br />
+													<n:br />
+													  Tree: Phylogenetic
+													tree for the result
+													set
+
+
+													<n:br />
+													<n:br />
+													MDS:
+													Multi-dimensional
+													scaling plot for
+
+													the result set
+												</n:p>
+												<n:h3>
+													For Selection:
+												</n:h3>
+												<label
+													class="fontCardStyle">
+													Varieties:
+												</label>
+												<label
+													class="valueStyle" id="varietyCnt" hflex="1" />
+												<label
+													class="fontCardStyle">
+													Accessions:
+												</label>
+												<label
+													class="valueStyle" id="accessionCnt" hflex="1" />
+												<label
+													class="fontCardStyle">
+													IRIS IDs:
+												</label>
+												<label
+													class="valueStyle" id="irisCnt" hflex="1" />
+												<label
+													class="fontCardStyle">
+													Countries:
+												</label>
+												<label
+													class="valueStyle" id="countriesCnt" hflex="1" />
+												<label
+													class="fontCardStyle">
+													Subpopulation:
+												</label>
+												<label
+													class="valueStyle" id="subpopCnt" hflex="1" />
+												<label
+													class="fontCardStyle">
+													Passport Fields:
+												</label>
+												<label
+													class="valueStyle" id="passportCnt" hflex="1" />
+												<label
+													class="fontCardStyle">
+													Phenotypes:
+												</label>
+												<label
+													class="valueStyle" id="phenotypesCnt" hflex="1" />
+
+
+											</n:div>
+										</n:div>
+									</n:div>
+								</div>
+								<div id="resultContentDiv"
+									visible="false"
+									style="margin-bottom:20px;height:100%;width:100%;margin-top:60px;">
+
+									<goldenlayout
+										id="resultGoldenLayout" height="100vh" hflex="1"
+										style="margin-top: 10px;border:0px;">
+										<attribute name="areas">
+											A
+										</attribute>
+
+										<goldenpanel area="A"
+											id="gp_passport" title="Passport" closable="false"
+											popup="popupTooltip" class="highlighted-tab">
+
+
+											<vbox>
+												<coachmark id="m1"
+													target="popupTooltip" visible="false">
+													Passport details.
+												</coachmark>
+
+												<popup
+													id="popupTooltip">
+													<label
+														value="This is a popup tooltip!" />
+												</popup>
+												<menubar
+													id="download_menubar" width="100%"
+													style="background:#e9ecef">
+													<menu
+														label="Download" id="menu_download"
+														style="background:#e9ecef;color: black !important;"
+														class="menu_style">
+														<menupopup
+															style="background: #e9ecef !important;color: black !important;"
+															class="menupopup_style">
+															<menuitem
+																id="buttonDownloadFastq" label="FastQ"
+																iconSclass="z-icon-file-o" class="menuitem_style" />
+															<menuitem
+																id="buttonDownloadFastqc" label="FastQC"
+																iconSclass="z-icon-file-o" class="menuitem_style" />
+															<menuitem
+																id="buttonDownloadBAM" label="BAM"
+																iconSclass="z-icon-file-o" class="menuitem_style" />
+															<menuitem
+																id="buttonDownloadVCF" label="VCF"
+																iconSclass="z-icon-file-o" class="menuitem_style" />
+
+														</menupopup>
+
+													</menu>
+												</menubar>
+												<grid>
+													<rows
+														height="40px">
+														<row
+															style="font-size:11px !important; height:40px !important">
+															Designation
+															<textbox
+																id="textboxGermDesignation" class="designation-content"
+																readonly="true" style="font-size:11px !important;" />
+														</row>
+														<row
+															style="font-size:11px !important; height:40px !important">
+															Accession
+															<textbox
+																id="textboxGermAccession" class="accession-content"
+																readonly="true" style="font-size:11px !important;" />
+														</row>
+														<row
+															style="font-size:11px !important; height:40px !important">
+															<label
+																id="labelIRISId" value="IRIS ID" />
+															<textbox
+																id="textboxIRISId" class="irisidcontent" readonly="true"
+																style="font-size:11px !important;" />
+														</row>
+														<row
+															style="font-size:11px !important; height:40px !important">
+															Subpopulation
+															<textbox
+																id="textboxGermSubpopulation" readonly="true"
+																style="font-size:11px !important;" />
+														</row>
+														<row
+															style="font-size:11px !important; height:40px !important">
+															Country
+															<textbox
+																id="textboxGermCountry" readonly="true"
+																style="font-size:11px !important;" />
+														</row>
+													</rows>
+												</grid>
+												<tabbox
+													style="height:8000px;">
+													<tabs>
+														<tab
+															id="tabPassportIRGCIS" label="IRGCIS" />
+														<tab
+															id="tabPassportGenesys" label="Genesys" />
+													</tabs>
+													<tabpanels>
+														<tabpanel
+															style="height:620px;">
+															<a
+																target="_blank" href="/passport_dict.pdf"
+																label="Passport data dictionary" />
+															<listbox
+																id="listboxGermPassport">
+																<listhead>
+																	<listheader>
+																		DEFINITION
+																	</listheader>
+																	<listheader>
+																		FIELD
+																	</listheader>
+																	<listheader>
+																		VALUE
+																	</listheader>
+																</listhead>
+															</listbox>
+														</tabpanel>
+														<tabpanel
+															style="height:100vh !important;">
+															<listbox
+																id="listboxGermPassportGenesys">
+																<listhead>
+																	<listheader>
+																		DEFINITION
+																	</listheader>
+																	<listheader>
+																		FIELD
+																	</listheader>
+																	<listheader>
+																		VALUE
+																	</listheader>
+																</listhead>
+															</listbox>
+														</tabpanel>
+													</tabpanels>
+												</tabbox>
+
+											</vbox>
+
+
+										</goldenpanel>
+
+										<goldenpanel area="A"
+											id="gp_phenotype" title="Phenotype" closable="false"
+											popup="true">
+
+											<a target="_blank"
+												href="/phenotype_dict.pdf"
+												label="Phenotype data dictionary" />
+											<listbox
+												id="listboxGermPhenotypes" style="height:620px;">
+												<listhead>
+													<listheader>
+														DEFINITION
+													</listheader>
+													<listheader>
+														FIELD
+													</listheader>
+													<listheader>
+														VALUE
+													</listheader>
+												</listhead>
+											</listbox>
+										</goldenpanel>
+										<goldenpanel area="A"
+											id="gp_resultTable" title="Table Result" closable="false"
+											popup="true">
+											<div>
+												<hlayout
+													id="hboxAddtolist"
+													style="background:#e9ecef; padding-bottom:10px;">
+													<menubar
+														id="menubar_dwnloadTbResult" width="100%"
+														style="background:#e9ecef;order-top: 0px solid; border-bottom: 0px solid">
+														<menu
+															label="Download" id="menu_dwnloadTbResult"
+															style="background:#e9ecef;color: black !important;"
+															class="menu_style">
+															<menupopup
+																style="background: #e9ecef !important;color: black !important;"
+																class="menupopup_style">
+																<menuitem
+																	id="buttonDownloadCSV" label="CSV"
+																	iconSclass="z-icon-file-o" class="menuitem_style" />
+																<menuitem
+																	id="buttonDownloadTab" label="Tab"
+																	iconSclass="z-icon-file-o" class="menuitem_style" />
+															</menupopup>
+
+														</menu>
+													</menubar>
+													<button
+														id="buttonAddToList" label="Create List:"
+														autodisable="self" tooltip="popupCreateList" />
+													<label
+														value="   List Name  " pre="true" />
+													<textbox
+														id="txtboxListname" width="200px" />
+												</hlayout>
+
+
+												<hbox visible="false">
+													<button
+														id="buttonCheckAll" label="Check All" />
+													<vbox width="20px" />
+													<button
+														id="buttonUncheckAll" label="Uncheck All" />
+													<vbox width="20px" />
+												</hbox>
+
+
+												<listbox
+													id="listboxVarietyresult" mold="paging" pageSize="100"
+													visible="true" emptyMessage="0 Result">
+													<listhead>
+														<listheader
+															sort="auto">
+														</listheader>
+														<listheader
+															sort="auto">
+														</listheader>
+														<listheader
+															sort="auto">
+														</listheader>
+														<listheader
+															sort="auto">
+														</listheader>
+														<listheader
+															sort="auto">
+														</listheader>
+													</listhead>
+												</listbox>
+											</div>
+										</goldenpanel>
+										<goldenpanel area="A"
+											id="gp_phylo" title="Phylotree" closable="false"
+											popup="true">
+											<vbox>
+												<!-- label value="The tree is constructed using  Neighbor-Joining method based on 400,000 core SNPs" style="font-family: arial;font-size:12px" / -->
+
+												<hbox
+													id="hboxSubpopColor1">
+													<label value="ind1A"
+														style="color:#60e0c0" />
+													<label value="ind1B"
+														style="color:aquamarine" />
+													<label value="ind2"
+														style="color:#336622" />
+													<label value="ind3"
+														style="color:#339910" />
+													<!--  label value="trop1" style="color:steelblue"/>
+														<label value="trop2" style="color:#2045c0"/ -->
+													<label value="trop"
+														style="color:steelblue" />
+													<label
+														value="subtrop" style="color:#2045c0" />
+													<label value="aro"
+														style="color:purple" />
+													<label value="temp"
+														style="color:lightskyblue" />
+													<label value="aus"
+														style="color:orange" />
+													<label value="admix"
+														style="color:gray" />
+													<label value="japx"
+														style="color:#acacfc" />
+													<label value="indx"
+														style="color:#9cbb9c" />
+												</hbox>
+
+												<hbox
+													id="hboxSubpopColor2" visible="false">
+													<label value="ind1"
+														style="color:#60e0c0" />
+													<label value="ind1A"
+														style="color:#60e0c0" />
+													<label value="ind1B"
+														style="color:#65e5c5" />
+													<label
+														value="ind1B-1" style="color:#50aa99" />
+													<label
+														value="ind1B-2" style="color:#306600" />
+													<label value="ind2"
+														style="color:#336622" />
+													<label value="ind2A"
+														style="color:#306600" />
+													<label value="ind2B"
+														style="color:#507755" />
+													<label value="ind3"
+														style="color:#339910" />
+													<label value="ind3A"
+														style="color:#339910" />
+													<label value="ind3B"
+														style="color:#299506" />
+													<label
+														value="ind3B-1" style="color:#a2cd5a" />
+													<label
+														value="ind3B-2" style="color:#33cc77" />
+													<label value="trop"
+														style="color:#4682b4" />
+													<label value="tropA"
+														style="color:#4f94cd" />
+													<label value="tropB"
+														style="color:#3163aa" />
+													<label
+														value="subtrop" style="color:#2045c0" />
+													<label value="aro"
+														style="color:purple" />
+													<label value="temp"
+														style="color:lightskyblue" />
+													<label value="aus1"
+														style="color:#ee9a00" />
+													<label value="aus2"
+														style="color:#ad6020" />
+													<label value="ausx"
+														style="color:#b07060" />
+													<label value="admix"
+														style="color:gray" />
+													<label value="japx"
+														style="color:#acacfc" />
+													<label value="indx"
+														style="color:#9cbb9c" />
+												</hbox>
+
+
+												<!--  hbox id="hboxSubpopColor2" visible="false">	
+													<label value="ind1" style="color:#60e0c0"/>	
+													<label value="ind1.1" style="color:#60e0c0"/>	
+													<label value="ind1.2" style="color:#65e5c5"/>	
+													<label value="ind1.2.1" style="color:#50aa99"/>	
+													<label value="ind1.2.2" style="color:#306600"/>	
+													<label value="ind2" style="color:#336622"/>	
+													<label value="ind2.1" style="color:#306600"/>	
+													<label value="ind2.2" style="color:#507755"/>	
+													<label value="ind3" style="color:#339910"/>	
+													<label value="ind3.1" style="color:#339910"/>	
+													<label value="ind3.2" style="color:#299506"/>	
+													<label value="ind3.2.1" style="color:#a2cd5a"/>	
+													<label value="ind3.2.2" style="color:#33cc77"/>	
+													<label value="trop1" style="color:#4682b4"/>	
+													<label value="trop1.1" style="color:#4f94cd"/>	
+													<label value="trop1.2" style="color:#3163aa"/>	
+													<label value="trop2" style="color:#2045c0"/>	
+													<label value="aro" style="color:purple"/>	
+													<label value="temp" style="color:lightskyblue"/>	
+													<label value="aus1" style="color:#ee9a00"/>	
+													<label value="aus2" style="color:#ad6020"/>	
+													<label value="ausx" style="color:#b07060"/>	
+													<label value="admix" style="color:gray"/>	
+													<label value="japx" style="color:#acacfc"/>	
+													<label value="indx" style="color:#9cbb9c"/>	
+													</hbox -->
+
+
+												<!--  hbox v1>
+													<label value="admx" style="color:#006666"/>
+													<label value="aus" style="color:#CC7A52"/> 
+													<label value="trop/temp" style="color:#FF33CC"/>
+													<label value="inax" style="color:#00CC99"/> 
+													<label value="temp" style="color:#0066FF"/> 
+													<label value="aro" style="color:#AD8533"/> 
+													<label value="trop" style="color:#FF3300"/>
+													<label value="japx" style="color:#FFCC00"/>
+													<label value="ind1" style="color:#009900"/>
+													<label value="ind3" style="color:#99CC00"/>
+													<label value="ind2" style="color:#718C64"/>
+													<label value="indx" style="color:#A3FFA3"/>
+													<label value="temp/trop" style="color:#6600CC"/> 
+													</hbox -->
+
+												<!-- hbox>
+													<label value="Color by subpopulation "/><label value="IND " style="color:blue"/> <label value="AUS " style="color:orange"/> <label value="TEMP " style="color:pink"/> <label value="MAGIC " style="color:violet"/>
+													<label value="TROP " style="color:green"/> <label value="ARO " style="color:silver"/> <label value="ADM " style="color:aqua"/> <label value="JAP " style="color:firebrick"/> <label value="NONE" style="color:black"/> 
+													</hbox -->
+												<!--  hbox>
+													<label value="Color by subpopulation: " pre="true"/>
+													<label value="NONE" style="color:black"/>
+													<label value="Aus_boro" style="color:green"/>
+													<label value="Aus_boro, Arom" style="color:greenyellow"/>
+													<label value="Aus_boro, AusB" style="color:darkolivegreen"/>
+													</hbox>
+													<hbox>
+													<label value="Basmati_sadri, Admx" style="color:sandybrown"/>
+													<label value="Basmati_sadri" style="color:peru"/>
+													<label value="Basmati_sadri, Arom" style="color:burlywood"/>
+													<label value="Intermediate type, Temp" style="color:gold"/>
+													<label value="Intermediate type, Japx" style="color:palegoldenrod"/>
+													<label value="Intermediate type, Arom" style="color:yellow"/>
+													<label value="Intermediate type" style="color:wheat"/>
+													<label value="Indica" style="color:blue"/>
+													<label value="Indica, AusB" style="color:dodgerblue"/>
+													<label value="Indica, Indi" style="color:aqua"/>
+													</hbox>
+													<hbox>
+													<label value="Japonica, Admx" style="color:crimson"/>
+													<label value="Temperate japonica, Indi" style="color:firebrick"/>
+													<label value="Temperate japonica, Temp" style="color:pink"/>
+													<label value="Temperate japonica, Admx" style="color:red"/>
+													<label value="Temperate japonica" style="color:deeppink"/>
+													<label value="Tropical japonica" style="color:lightsalmon"/>
+													<label value="Tropical japonica, Trop" style="color:palevioletred"/>
+													<label value="Tropical japonica, Admx" style="color:fuchsia"/>
+													<label value="Tropical japonica, Temp" style="color:hotpink"/>
+													<label value="Japonica" style="color:orangered"/>
+													</hbox -->
+
+
+
+												<iframe
+													id="iframePhylotree" style="height:1500px;width:2000px" />
+												<!-- 
+													xmlns:ca="http://www.zkoss.org/2005/zk/client/attribute"
+													ca:onload="treeLoaded(this)">
+													<attribute name="onCreate">
+													Clients.showBusy(self,"Loading tree...");
+													</attribute>
+													<attribute name="onTreeLoaded">
+													Clients.clearBusy(self);
+													</attribute>
+													</iframe -->
+
+											</vbox>
+										</goldenpanel>
+										<goldenpanel area="A"
+											id="gp_mdsResult" title="(RESULTS) MDS Plot" closable="false"
+											style="height:750px;" popup="true" visible="false">
+
+											<vbox>
+
+												<hbox>
+													<label
+														value="Drag area to zoom." />
+													<checkbox
+														id="checkboxShowMDSLabel" label="Show variety names"
+														checked="true" visible="false" />
+													<vbox width="400px" />
+													<label
+														value="Highlight variety:  " pre="true" />
+													<listbox
+														id="listboxHighlightVariety" mold="select" width="200px" />
+													<vbox width="50px" />
+													<label
+														value="list:  " pre="true" />
+													<listbox
+														id="listboxHighlightVarietyList" mold="select"
+														width="150px" />
+													<button
+														id="buttonHighlight" label="Highlight variety"
+														visible="false" />
+
+
+
+												</hbox>
+												<hbox>
+													<label
+														value="Size by phenotype value: " pre="true" />
+													<listbox
+														id="listboxMDSPhenotype" mold="select" width="200px" />
+													<label
+														id="labelMDSPhenotype" />
+
+
+												</hbox>
+
+
+												<charts id="chartMDS"
+													type="scatter" zoomType="xy" title="Varieties MDS plot"
+													width="800" height="800" />
+												<label
+													value="Variety distance based on IBS using core SNPs" />
+											</vbox>
+
+										</goldenpanel>
+
+										<goldenpanel area="A"
+											id="gp_mdsCloseRelatives" title="(Close Relatives) MDS Plot"
+											closable="false" style="height:750px;" popup="true"
+											visible="true">
+											<div>
+												<div
+													id="divMDSNeighbors">
+													<label
+														value="CLOSE RELATIVES (MDS Plot)"
+														style="font-size:14;font-weight:bold" />
+													<label
+														value="Drag area to zoom." />
+													<charts
+														id="chartMDSNeighbors" type="scatter" zoomType="xy"
+														title="Neighboring varieties" width="500" height="500" />
+													<hbox height="100%" />
+												</div>
+											</div>
+
+										</goldenpanel>
+										<goldenpanel area="A"
+											id="gp_template" title="(Close Relatives) MDS Plot"
+											closable="false" style="height:750px;" popup="true"
+											visible="false">
+										</goldenpanel>
+
+
+
+
+									</goldenlayout>
+
+
+
+								</div>
+							</div>
+						</n:div>
+
+					</n:div>
+				</n:div>
+			</n:div>
+
+		</window>
+	</n:div>
+
+
+
+
+</zk>

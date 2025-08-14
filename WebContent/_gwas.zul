@@ -1,0 +1,17 @@
+<?link rel="stylesheet" type="text/css" href="/style.css"?>
+<?link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" ?>
+<?link rel="icon" href="/favicon.ico" type="image/x-icon" ?>
+
+<?script type="text/javascript"><![CDATA[
+window.Boot_progressbox = function (){}
+]]>?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="/template.zul"?>
+<zk>
+ 		<zscript>
+ 			import org.irri.iric.portal.AppContext;
+	        String moduleparams="";
+	        moduleparams=AppContext.convertParams2URL(Executions.getCurrent().getParameterMap());	
+        </zscript>
+
+    <include self="@define(content)" src="/gwas.zul${moduleparams}"/>
+</zk>

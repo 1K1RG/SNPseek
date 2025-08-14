@@ -1,0 +1,108 @@
+tasks sa irri 101 hahaha
+
+13 June 2017 tues || Ideogram @ github: 
+ ✔ aralin yung https://github.com/eweitz/ideogram @done (17-06-16 11:11)
+ ✔ set-up / paganahin sa laptop mo muna @done (17-06-16 11:11)
+
+14 June 2017 wed || Brush intro:
+ ✔ aralin yung brush feature ng ideogram.js @done (17-06-16 11:11)
+ ✔ gawing vertical yung brush @done (17-06-16 11:11)
+
+15 June 2017 thurs || Multiple brush:
+<from l.mansueto@irri.org> "I mean, initially no brush, then when the mouse pointer is clicked in a chromosome , a rectangle appears and resizes as the mouse is moved (downward or upward along a chromosome) . and when the mouse button is released, the brush stays with the size of the rectangle.. just like in zoom functionalities of some image editor.."
+ ✔ hoverable brush @done (17-06-16 11:11)
+  ✔ lumalabas on hover @done (17-06-16 11:11)
+  ✔ nawawala kapag wala na yung mouse @done (17-06-16 11:11)
+
+16 June 2017 fri || More brush features:
+ ✔ lakihan yung borders para mag-hide yung brush @created(17-06-16 11:18) @done (17-06-21 10:23)
+ ✔ change icon to zoom @created(17-06-16 11:18) @done (17-06-16 11:40)
+ ✔ lagyan ng menu (right click sa browser) @done (17-06-21 11:01)
+  ✔ show in jbrowse @created(17-06-16 11:18) @done (17-06-21 10:23)
+  ✔ show statistics @created(17-06-16 11:18) @done (17-06-21 10:23)
+ ✔ nasa right side lang yung menu @done (17-06-21 11:01)
+  ✔ stay in place kapag minu-move na yung brush @created(17-06-16 11:18) @done (17-06-21 11:01)
+ ✔ aralin yung BP location @done (17-06-23 15:36)
+  ✔ mas maganda siguro kung yung data ay nag-aappear na @created(17-06-16 11:18) @done (17-06-23 15:36)
+other changes made
+ ✔ yung settings ng config ay i-pattern na dun sa ginagawa mo ngayon @created(17-06-16 16:46) @done (17-06-21 11:01)
+
+23 June 2017 fri || Base-pair struggle:
+ ✔ pakita yung mga coordinates ng base-pairs @created(17-06-23 15:34) @done (17-06-23 15:34)
+ ✔ install apache tomcat at windows @created(17-06-23 15:35) @done (17-06-23 15:37)
+ ✔ aralin yung annotations - tracks tapos dapat gawing linya yung mga coordinates na nasa loob ng isang range @created(17-06-23 15:36) @done (17-06-28 15:38)
+ ✔ install apache tomcat at desktop @created(17-06-23 15:37) @done (17-06-27 19:32)
+
+27 June 2017 tues || Migration and the accomplishment of the brush:
+ ✔ ilipat yung milestone sa brush dun sa ubuntuMate desktop @created(17-06-27 19:33) @done (17-06-28 15:34)
+ ✔ lagyan na ng mga kailangang stuff yung ubuntuMate @created(17-06-28 15:34) @done (17-06-28 15:40)
+  ✔ sublime text @created(17-06-28 15:39) @done (17-06-28 15:39)
+  ✔ apache tomcat server @created(17-06-28 15:39) @done (17-06-28 15:39)
+  ✔ isang disenteng desktop -- modify theme (grabe kapanget ng desktop) @created(17-06-28 15:39) @done (17-06-28 15:39)
+
+28 June 2018 wed || Updating annotations:
+ ✔ ayusin yung traitGenes.json, idadgdag yung QTL (files in email) @created(17-06-28 15:36) @done (17-06-29 13:20)
+ ✔ as of the moment, kapag ang difference nung startPx at stopPx ay more than 5, gawing horizontal line @created(17-06-28 15:36) @done (17-07-03 10:01)
+  ✔ gawin na lang sigurong dot? pag nagdikit-dikit naman sila ay mukha na silang guhit -- nasa gitna daw, leave a space. @created(17-06-28 15:38) @done (17-07-03 10:01)
+ ✔ make backup -- GITHUB IS LIFE @created(17-06-28 15:40) @done (17-06-28 16:03)
+ ✘ ilipat yung genomic coordinates sa right side @created(17-06-28 17:53) @cancelled (17-06-29 13:19)
+ ✔ lagay ka ng parang maliit na checkbox pero yung fill ay yung color niya sa annotation @created(17-06-29 08:33) @done (17-06-29 13:18)
+
+ 29 June 2017 thurs || Progress presentation week 2:
+ ✔ gawin visible lahat ng brush ulit @created(17-06-29 13:18) @done (17-06-30 10:54)
+ ✔ lagyan ng extra menu @created(17-06-29 13:18) @done (17-07-03 10:01)
+  ✔ delete this brush @created(17-06-29 13:18) @done (17-06-30 10:54)
+  ✔ delete all brush @created(17-06-29 13:18) @done (17-06-30 10:54)
+  ✔ enter refined coordinates @created(17-06-29 13:18) @done (17-07-03 10:01)
+
+30 June 2017 fri || Chatting with my supervisor sa GMail and the QTL success:
+ ✔ nawawala yung show in jbrowse na menu kapag marami nang brushes @created(17-06-30 10:54) @done (17-07-03 14:36)
+ ✔ paganahin yung delete this/all brush @created(17-06-30 10:54) @done (17-06-30 10:55)
+ ✔ paganahin ng ayos yung data ng QTL @created(17-06-30 10:55) @done (17-06-30 10:55)
+ ✘ please verify daw yung pagbabago ng kulay sa histogram hahaha complicated daw @created(17-06-30 10:55) @cancelled (17-07-03 09:12)
+ ✘ try daw yung multiple brushe  s sa isang chromosome @created(17-06-30 10:56) @cancelled (17-07-03 16:57)
+<from l.mansueto@irri.org> "Yung refine coordinate, when selected shows a dialog that asks for the start and end coordinates (initial value set to the current values)) of and applies to the currently hovered brush.."
+ ✔ refined coordinate settings @created(17-06-30 11:45) @done (17-07-03 10:01)
+
+3 July 2017 mon || console.logger():
+ ✔ ayusin yung mga annotations @created(17-07-03 09:03) @done (17-07-03 09:12)
+  ✔ yung positioning nung annotations, parang mga naliligaw @created(17-07-03 09:03) @done (17-07-03 09:04)
+  ✔ ayusin yung add tracks @created(17-07-03 09:04) @done (17-07-03 09:07)
+  ✔ ayusin yung remove tracks @created(17-07-03 09:04) @done (17-07-03 09:07)
+ ☐ BUG: pag both pinindot yung riceQTL at oryzabase @created(17-07-03 09:05)
+ ☐ FIX: yung color tracks sana kapag may check yung both parties dapat hindi mawawala yung color block sa trait or QTL @created(17-07-03 09:06)
+ ✔ BUG: hindi nagana yung brush kapag may annotations na yung chromosome :( @created(17-07-03 09:11) @done (17-07-04 10:13)
+ ✔ TODO: lagyan ng start-end info yung form @created(17-07-03 10:01) @done (17-07-03 14:37)
+ ✔ TODO: form checking siguro for start and end? @created(17-07-03 10:01) @done (17-07-03 14:37)
+ ✔ TODO: form checking:: kapag sobra sa max :( @created(17-07-03 16:56) @done (17-07-04 08:58)
+<from l.mansueto@irri.org> 
+ ✘ use QTL (blue description) on hover, @created(17-07-03 16:57) @cancelled (17-07-04 16:22)
+ ✘ append descriptions for overlapping QTL, @created(17-07-03 16:57) @cancelled (17-07-04 16:22)
+ ✔ initialize start-end with current boundaries, @created(17-07-03 16:57) @done (17-07-04 09:09)
+ ✔ display brush with tracks, @created(17-07-03 16:57) @done (17-07-04 10:13)
+ ✔ link QTL click to JBrowse, @created(17-07-03 16:57) @done (17-07-04 12:44)
+
+4 Jul 2017 tues || meeting jbrowse:
+ ✔ BUG: sa unang creation ng brush, kapag hindi siya sa first ginawa, hindi magrereflect yung change (extent) @created(17-07-04 10:14) @done (17-07-20 08:42)
+ ✔ lakihan ng kaunti yung width ng ranged track annotation @created(17-07-04 10:17) @done (17-07-04 11:31)
+ ✘ add length nung brush @created(17-07-04 10:27) @cancelled (17-07-11 16:23)
+ ✘ WHYNOT: draggable and resizable jbrowse frame! @created(17-07-04 10:56) @cancelled (17-07-11 16:23)
+ ✔ update on overlapping:: di kaya because of the use of asynchronous function @created(17-07-04 13:25) @done (17-07-04 16:22)
+   ✔ what if lagyan na lang ng triangle pataas (coming from the middle) tapos may effect na colorchange?? on hover @created(17-07-04 13:25) @done (17-07-04 16:22)
+ ✔ link brush to Jbrowse @created(17-07-04 16:25) @done (17-07-05 09:13)
+
+11 July 2017 tues || wtf happened (one week after):
+ ✔ change show statistics to show all genes @created(17-07-11 16:18) @done (17-07-11 17:33)
+ ✔ remove force histogram - show results for brush selection tracks @created(17-07-11 16:19) @done (17-07-11 17:33)
+ ✔ append search queries dun sa gene query na table hahaha @created(17-07-11 16:19) @done (17-07-20 08:42)
+ ✔ create a tab for jbrowse and genetable @created(17-07-11 16:20) @done (17-07-11 17:33)
+ ✔ pagsamahin yung contents ng trait genes sa QTL na .json file @created(17-07-11 16:20) @done (17-07-13 16:04)
+ ✔ add gene query section (both brush selection and search queries) @created(17-07-11 16:20) @done (17-07-13 16:04)
+ ✔ add collapsible with three rows: QTL, traitdata, geneQuery @created(17-07-11 16:21) @done (17-07-13 16:04)
+ ✔ download table button daw (.tsb) @created(17-07-11 16:22) @done (17-07-20 08:42)
+ ☐ color blind section @created(17-07-11 16:22)
+
+ 17 Jul 2017 mon || other features:
+ ☐ fix histogram links @created(17-07-17 09:57)
+ ☐ fix histogram colros @created(17-07-17 09:57)
+ ☐  @created(17-07-17 09:58)

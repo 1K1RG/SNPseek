@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="src" path="src/main/resources"/>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/args4j.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/breeze.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/bsh.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/closure-compiler-externs.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/closure-compiler-unshaded.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/error_prone_annotations.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/Filters.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/flashchart.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/gmapsz.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/gson.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/guava.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/iceblue_c.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/itext.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jarnc2obj.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jasperreports.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/javassist.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jcommon.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jfreechart.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jsinterop-annotations.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jsr305.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jxl.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/log4j-1.2.17.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/log4j-api-2.14.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/log4j-core-2.14.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mdsj.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/myforester.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/sam-1.38.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/sapphire.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/silvertail.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/slf4j-api.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/slf4j-jdk14.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/timelinez.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/timeplotz.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/xmlbeans-5.0.0.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/zcommon.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/zel.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/zhtml.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/zk.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/zkbind.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/zkcharts.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/zkcharts-sources.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/zkex.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/zkmax.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/zkplus.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/zkplus-legacy.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/zkwebfragment.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/zml.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/zsoup.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/zuljsp.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/zuti.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/zweb.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/zweb-dsp.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jarfitsobj.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jarh5obj.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jarhdfobj.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-codec.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-collections.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-collections4-4.4.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-compress-1.20.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-fileupload.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-io.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/commons-logging.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jarhdf5-2.10.1.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/zul-1.0.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk-17">
+		<attributes>
+			<attribute name="module" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v9.0">
+		<attributes>
+			<attribute name="owner.project.facets" value="jst.web"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry combineaccessrules="false" kind="src" path="/snpseek-datasource"/>
+	<classpathentry kind="output" path="target/classes"/>
+</classpath>

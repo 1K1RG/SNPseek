@@ -1,0 +1,37 @@
+<?script rel="javascript" type="text/javascript" href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"?>
+<?link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css"?>
+
+<zk xmlns:w="http://www.zkoss.org/2005/zk/client" xmlns:n="native">
+
+	<!-- Google tag (gtag.js) -->
+	<n:script async="async"
+		src="https://www.googletagmanager.com/gtag/js?id=G-6DY1MFCGZH">
+	</n:script>
+	<n:script>
+		window.dataLayer = window.dataLayer || []; function
+		gtag(){dataLayer.push(arguments);} gtag('js', new Date());
+
+		gtag('config', 'G-6DY1MFCGZH');
+	</n:script>
+
+
+
+
+	<style>
+		body { padding: 0 0; }
+
+	</style>
+	<borderlayout hflex="1" vflex="1" style="padding:0px!important">
+    <north border="none" style="padding:0px!important; height:65px;">
+        <include src="/banner.zul" />
+    </north>
+
+    <center id="mainContent" autoscroll="true" border="none" flex="true" self="@insert(content)" vflex="1">
+    </center>
+
+    <south height="25px" border="none" style="padding:0px!important">
+        <include src="/footer.zul" />
+    </south>
+</borderlayout>
+
+</zk>

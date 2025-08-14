@@ -1,0 +1,20 @@
+<?page title="Validate" contentType="text/html;charset=UTF-8"?>
+<zk xmlns:n="native">
+	<style src="assets/css/register_styles.css" />
+	<window title="Validate" border="none"
+		style="margin-top:50px;width:80%;margin-left:auto;margin-right:auto;"
+		apply="user.ui.module.ValidationController">
+
+		<vlayout>
+			<hbox>
+				<vbox>
+					<vbox width="20%" />
+					<hlayout style="padding: 50px;">
+						<label id="msg" style="margin-right:auto; margin-left:auto;"  />
+					</hlayout>
+				</vbox>
+				<vbox width="20%" />
+			</hbox>
+		</vlayout>
+	</window>
+</zk>

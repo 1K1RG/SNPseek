@@ -1,0 +1,2645 @@
+<zk xmlns:w="http://www.zkoss.org/2005/zk/client">
+	<n:div xmlns:n="native">
+		<n:script src="assets/js/jquery.min.js" />
+		<n:script src="assets/bootstrap/js/bootstrap.min.js" />
+		<n:script
+			src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js" />
+
+		<n:script src="assets/js/Collapsible-Sidebar.js" />
+		<n:script src="assets/js/Material-Text-Input.js" />
+
+		<!-- Google tag (gtag.js) -->
+		<n:script async="async"
+			src="https://www.googletagmanager.com/gtag/js?id=G-6DY1MFCGZH">
+		</n:script>
+		<n:script>
+			window.dataLayer = window.dataLayer || []; function
+			gtag(){dataLayer.push(arguments);} gtag('js', new Date());
+
+			gtag('config', 'G-6DY1MFCGZH');
+
+			gtag('event', 'page_view', { 'page_path':
+			'/genotypeContent.zul' });
+
+		</n:script>
+
+
+		<style src="assets/bootstrap/css/bootstrap.min.css" />
+		<style
+			src="https://fonts.googleapis.com/css?family=Nunito+Sans" />
+		<style src="https://fonts.googleapis.com/css?family=Poppins" />
+		<style src="https://fonts.googleapis.com/css?family=Roboto" />
+		<style src="https://fonts.googleapis.com/css?family=Rubik" />
+		<style src="assets/fonts/fontawesome-all.min.css" />
+		<style src="assets/fonts/font-awesome.min.css" />
+		<style src="assets/fonts/fontawesome5-overrides.min.css" />
+		<style src="assets/css/Footer-Dark.css" />
+		<style src="assets/css/styles_genotype.css" />
+		<style src="assets/css/Collapsible-Sidebar.css" />
+		<style src="assets/css/sidebar_home.css" />
+		<style src="assets/css/genotypeSearch.css" />
+		<style src="assets/css/stylenav.css" />
+
+		<style>
+
+			.image-container { display: flex; justify-content: center;
+			/* Center horizontally */ align-items: center; /* Center
+			vertically */ height: 300px; /* Set a height or use %/vh */
+			border: 1px solid #ccc; /* Optional: just to see the div */
+			}
+
+
+			.cvertical { -moz-transform: rotate(-90deg) translate(0,
+			100%); -moz-transform-origin: 0% 100%; -o-transform:
+			rotate(-90deg) translate(0, 100%); -o-transform-origin: 0%
+			100%; -webkit-transform: rotate(-90deg) translate(0, 100%);
+			-webkit-transform-origin: 0% 100%; transform: rotate(-90deg)
+			translate(0, 100%); transform-origin: 0% 100%;
+
+			writing-mode: bt-rl; filter: flipV flipH;
+
+			width:30px; height:90px; vertical-align: middle;
+			text-align:center; display:block; /* white-space:nowrap; */
+			color:#201d1d; font-family:
+			-apple-system,BlinkMacSystemFont,Segoe
+			UI,Roboto,Oxygen,Ubuntu,Fira Sans,Droid Sans,Helvetica
+			Neue,sans-serif; }
+
+
+			.vertical5 { -webkit-writing-mode:vertical-lr;
+			-ms-writing-mode:tb-lr; writing-mode:vertical-lr;
+			width:30px; height:80px; text-align:center; filter: flipV
+			flipH; }
+
+			.vertical2 { -webkit-writing-mode:vertical-lr;
+			-ms-writing-mode:tb-lr; writing-mode:vertical-lr;
+			width:30px; height:80px; text-align:center; }
+
+			.vertical3 { -webkit-transform:rotate(-90deg);
+			-moz-transform:rotate(-90deg); -o-transform: rotate(-90deg);
+			-ms-transform:rotate(-90deg); transform: rotate(-90deg);
+			filter:
+			progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+			white-space:nowrap; display:block; bottom:0; width:30px;
+			height:80px; text-align:center; }
+
+
+			/* Cell Height and Font */ .mylist .z-listfooter-cnt,
+			.mylist .z-listcell-cnt,.mylist .z-listheader-cnt {
+			font-size: 6px; font-family:
+			-apple-system,BlinkMacSystemFont,Segoe
+			UI,Roboto,Oxygen,Ubuntu,Fira Sans,Droid Sans,Helvetica
+			Neue,sans-serif; height: 8px; }
+
+		</style>
+		<script>
+			function myFunction() {
+
+			var element =
+			document.getElementById("genotypeSearchSidebar");
+			element.classList.toggle("active"); }
+		</script>
+
+		<zscript>
+	int countNum = 30;
+</zscript>
+
+		<window id="genWin" border="none"
+			apply="user.ui.module.GenotypeQueryController" width="100%"
+			height="90vh">
+
+			<window id="popup" visible="false" height="390px"
+				width="600px">
+				<div>
+					<vlayout>
+						<video
+							src="assets/vid/IRRI Video_ Rice is Life in Asia.mp4"
+							controls="false" autoplay="true" loop="false" />
+						<hlayout id="skipLayout">
+							<label id="skip" value="Skip ad in " />
+							<label id="time" />
+						</hlayout>
+						<hlayout id="closeLayout" visible="false">
+							<button id="closeAd">Skip Ad</button>
+
+						</hlayout>
+					</vlayout>
+				</div>
+				<timer id="close" delay="1000" repeats="true">
+					<attribute name="onTimer">
+	if (countNum == 0) {
+		closeLayout.setVisible(true);
+		skipLayout.setVisible(false);
+		close.stop();
+		return;
+	}
+	time.value = "" + --countNum + " secs";
+</attribute>
+				</timer>
+			</window>
+
+
+			<radiogroup id="snpcolor" />
+			<radiogroup id="synonymoussnps" />
+			<radiogroup id="radiogroupShowsnps" />
+
+
+			<hlayout id="layoutResultId" class="text-left"
+				visible="false" width="95%"
+				style="margin-top:auto; margin-bottom:auto;background-color:rgb(255 255 255) ;     padding: 25px 15px 10px 15px;position:fixed;z-index:9;top:65px;width:100%;">
+
+				<button id="backQueryDiv" iconSclass="z-icon-reorder"
+					tooltiptext="Go to Input"
+					style="width:40px; padding:7px;font-size:16px;    background-color: #ffffff;color: #53b164;margin-top:-5px;border-radius:15px !important;" />
+
+
+				<div hflex="1">
+					<n:div style="padding: 10px !important;"
+						class="card shadow border-start-primary py-2 home_div2">
+						<n:div class="card-body2">
+							<n:div
+								class="row align-items-center no-gutters"
+								style="margin-top: -10px;">
+								<n:div class="col me-2">
+									<n:div>
+										<n:span
+											style="font-size:13px;">
+											<label id="varietyRsltCnt" />
+										</n:span>
+									</n:div>
+
+								</n:div>
+							</n:div>
+						</n:div>
+					</n:div>
+				</div>
+
+			</hlayout>
+
+
+
+			<n:div id="bodyContent" style="height:100%">
+				<n:div class="wrapper" style="height:90vh;">
+					<!-- Sidebar Holder -->
+					<n:div id="div_nav"
+						style="position:absolute !important;height:100vh;">
+						<n:nav id="genotypeSearchSidebar"
+							style=" width: 455px !important;  overflow-y: auto;height:90vh; "
+							tabindex="-1" role="dialog">
+
+							<n:div class="container">
+								<n:div class="form-row">
+									<n:div class="col"
+										style="margin-left: 5px;margin-top: 30px;">
+
+										<hbox>
+											<label
+												value="Search By Genotype"
+												style="font-size:15px !important;color:#3b4e36;font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Fira Sans,Droid Sans,Helvetica Neue,sans-serif !important" />
+											<checkbox id="check_adv"
+												value="Advance Search"
+												style="width: 15px;height: 15px;font-size: small;" />
+											<label
+												value="Include Advance Options"
+												style="font-size:10px !important;color:#3b4e36;font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Fira Sans,Droid Sans,Helvetica Neue,sans-serif !important" />
+
+										</hbox>
+									</n:div>
+
+									<div id="closeDiv">
+										<n:div class="col"
+											style="padding-left: 10px;margin-top: 5px;">
+											<n:div class="text-right">
+												<n:button
+													id="closeSidebar" class="btn" visible="true">
+													<n:i
+														class="fas fa-times">
+													</n:i>
+												</n:button>
+											</n:div>
+
+										</n:div>
+									</div>
+
+								</n:div>
+
+								<n:form style="margin: 10px;">
+
+									<groupbox id="datasetGroup"
+										open="true" width="400px" mold="3d">
+										<caption label="Dataset"
+											class="captionLabelStyle">
+											<div id="datasetIcon"
+												class="fas fa-chevron-down">
+											</div>
+										</caption>
+										<n:div id="varietyInputBox"
+											style="width:420px;">
+
+											<div class="form-row"
+												style="width: 430px;">
+												<div
+													class="col-xl-4 offset-xl-0">
+													<div
+														class="form-group">
+														<div
+															class="text-left">
+															<label
+																class="text-right"
+																style="color: #706e6e;font-size: 11px;">
+																Reference
+															</label>
+														</div>
+													</div>
+												</div>
+												<div
+													class="col offset-xl-0">
+													<div
+														class="form-group">
+														<listbox
+															id="listboxReference" mold="select" rows="1"
+															disabled="false">
+															<listitem
+																label="Nipponbare2" />
+															<listitem
+																label="MH63" />
+														</listbox>
+													</div>
+												</div>
+											</div>
+											<div class="form-row"
+												style="width: 430px;">
+												<div
+													class="col-xl-4 offset-xl-0">
+													<div
+														class="form-group">
+														<div
+															class="text-left">
+															<label
+																class="text-right"
+																style="color: #706e6e;font-size: 11px;">
+																Variety
+																Set
+															</label>
+														</div>
+													</div>
+												</div>
+												<div
+													class="col offset-xl-0">
+													<div
+														class="form-group">
+														<hbox
+															id="refBox">
+															<bandbox
+																id="bandboxVarietyset" autodrop="true" readonly="true"
+																class="inputTextLong inputLabelStyle">
+																<bandpopup
+																	class="bandpopupGenotype">
+																	<listbox
+																		id="listboxVarietyset" checkmark="true"
+																		multiple="true" seltype="multiple">
+																	</listbox>
+																</bandpopup>
+															</bandbox>
+														</hbox>
+													</div>
+												</div>
+											</div>
+											<div class="form-row"
+												style="width: 430px;">
+												<div
+													class="col-xl-4 offset-xl-0">
+													<div
+														class="form-group">
+														<div
+															class="text-left">
+															<n:label
+																class="labelStyle">
+																Snp Set
+															</n:label>
+														</div>
+													</div>
+												</div>
+												<div
+													class="col offset-xl-0">
+													<div
+														class="form-group">
+														<hbox
+															id="refBox2">
+															<bandbox
+																id="bandboxVariantset" autodrop="true" readonly="true"
+																class="inputTextLong">
+																<bandpopup
+																	class="bandpopupGenotype">
+																	<vbox
+																		width="200px">
+																		<listbox
+																			id="listboxVariantset" checkmark="true"
+																			multiple="true" seltype="multiple">
+																		</listbox>
+																	</vbox>
+																</bandpopup>
+															</bandbox>
+														</hbox>
+														<div
+															id="divRunid" visible="false">
+
+															<vbox>
+																<label
+																	pre="true" value="  Select from multiple runs"
+																	style="font-weight:bold" />
+																<bandbox
+																	id="bandboxRunid" autodrop="true" readonly="true">
+																	<bandpopup
+																		width="200px">
+																		<listbox
+																			id="listboxRunid" checkmark="true" multiple="true"
+																			seltype="multiple" width="200px">
+																		</listbox>
+																	</bandpopup>
+																</bandbox>
+															</vbox>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div id="advOptionDataset"
+												visible="false">
+												<div
+													style="border-top: 1px solid #169316; margin: 20px 0;" />
+												<div id="adv_option1"
+													class="form-row" style="width: 430px;">
+													<div
+														class="col-xl-4 offset-xl-0">
+														<div
+															class="form-group">
+															<div
+																class="text-left">
+																<label
+																	class="text-right"
+																	style="color: #706e6e;font-size: 11px;">
+
+																</label>
+															</div>
+														</div>
+													</div>
+													<div
+														class="col offset-xl-0">
+														<div
+															class="form-group">
+															<vbox>
+
+																<radiogroup
+																	id="radiogroupVarlistType" />
+																<hbox>
+																	<radio
+																		id="radioUseAccession" selected="true"
+																		radiogroup="radiogroupVarlistType" />
+																	<label
+																		value="Use accession " pre="true" />
+																</hbox>
+																<hbox>
+																	<radio
+																		id="radioUseVarname"
+																		radiogroup="radiogroupVarlistType" />
+																	<label
+																		value="Variety name" pre="true" />
+																</hbox>
+															</vbox>
+														</div>
+													</div>
+												</div>
+												<div id="adv_option2"
+													class="form-row" style="width: 430px;">
+													<div
+														class="col-xl-4 offset-xl-0">
+														<div
+															class="form-group">
+															<div
+																class="text-left">
+																<label
+																	class="text-right"
+																	style="color: #706e6e;font-size: 11px;">
+																	Pairwise
+																</label>
+															</div>
+														</div>
+													</div>
+													<div
+														class="col offset-xl-0">
+														<div
+															class="form-group">
+															<vbox>
+																<combobox
+																	id="comboVar1" class="pairwise1" autodrop="true"
+																	buttonVisible="false" width="235px" />
+																<label
+																	id="labelExampleVariety" pre="true"
+																	value="(ex. IRGC 122151)" style="font-size:10px" />
+																<combobox
+																	id="comboVar2" class="pairwise2" autodrop="true"
+																	buttonVisible="false" width="235px" />
+
+															</vbox>
+														</div>
+													</div>
+												</div>
+												<div
+													style="border-top: 1px solid #169316; margin: 20px 0;" />
+											</div>
+
+											<div class="form-row"
+												style="width: 430px;">
+												<div
+													class="col-xl-4 offset-xl-0">
+													<div
+														class="form-group">
+														<div
+															class="text-left">
+															<n:label
+																class="labelStyle">
+																Subpopulation
+															</n:label>
+														</div>
+													</div>
+												</div>
+												<div
+													class="col offset-xl-0">
+													<div
+														class="form-group">
+														<listbox
+															id="listboxSubpopulation" mold="select"
+															class="inputLabelStyle" />
+
+														<vbox
+															width="10px" visible="false" />
+														<label
+															value="All Varieties" visible="false" />
+														<checkbox
+															id="checkboxAllvarieties" checked="true" visible="false" />
+														<vbox
+															width="10px" />
+													</div>
+												</div>
+											</div>
+											<div class="form-row"
+												style="width: 430px;">
+												<div
+													class="col-xl-4 offset-xl-0">
+													<div
+														class="form-group">
+														<div
+															class="text-left">
+															<n:label
+																class="labelStyle">
+																Variety
+																List
+															</n:label>
+														</div>
+													</div>
+												</div>
+												<div
+													class="col offset-xl-0">
+													<div
+														class="form-group">
+														<listbox
+															id="listboxMyVarieties" mold="select" />
+													</div>
+												</div>
+											</div>
+										</n:div>
+									</groupbox>
+
+									<groupbox open="true" width="400px"
+										id="regionGroup" mold="3d">
+										<caption label="Region"
+											class="captionLabelStyle">
+											<div id="regionIcon"
+												class="fas fa-chevron-down" />
+
+										</caption>
+										<n:div id="regionInputBox"
+											style="width:420px;">
+											<n:div class="form-row"
+												style="width: 430px;">
+												<n:div
+													style="display:none;">
+													<hbox
+														visible="false" id="advanceOptions2">
+														<label>
+															Referencessss:
+														</label>
+														<listbox
+															id="listboxReference2" mold="select" rows="1"
+															disabled="false" tooltip="popupReference" />
+
+
+														<vbox
+															width="10px" />
+														<label
+															pre="true" tooltip="popupShowallrefalleles">
+															Show all
+															reference
+															alleles
+														</label>
+														<checkbox
+															id="checkboxShowAllRefAlleles" />
+
+														<vbox
+															width="10px" />
+
+														<div
+															id="divShowNPBPositions" visible="false">
+															<hbox>
+																<label
+																	pre="true">
+																	Show
+																	Nipponbare
+																	positions
+																</label>
+																<checkbox
+																	id="checkboxShowNPBPosition" />
+															</hbox>
+														</div>
+
+													</hbox>
+												</n:div>
+												<div class="form-row"
+													style="width: 430px;">
+													<div
+														class="col-xl-4 offset-xl-0">
+														<div
+															class="form-group">
+															<div
+																class="text-left">
+																<n:label
+																	class="labelStyle">
+																	Chromosome
+																</n:label>
+															</div>
+														</div>
+													</div>
+													<div
+														class="col offset-xl-0">
+														<div
+															class="form-group">
+															<combobox
+																id="selectChr" class="z-chromosome-input"
+																buttonVisible="false" readonly="false" autodrop="true"
+																width="230px">
+																<!--  fulfill="onOpen" -->
+															</combobox>
+															<n:br />
+															<label
+																id="labelChrExample" pre="true" value="(ex. chr1)"
+																style="font-size:10px" />
+														</div>
+													</div>
+												</div>
+
+
+												<div class="form-row"
+													style="width: 430px;">
+													<div
+														class="col-xl-4 offset-xl-0">
+														<div
+															class="form-group">
+															<div
+																class="text-left">
+																<n:label
+																	class="labelStyle">
+
+																</n:label>
+															</div>
+														</div>
+													</div>
+													<div
+														class="col offset-xl-0">
+														<div
+															class="form-row">
+															<n:div
+																class="col offset-xl-0" style="max-width:120px;">
+																<intbox
+																	id="intStart" class="z-start-input" width="150px"
+																	constraint="no negative" />
+																 
+																<n:br />
+																<n:label
+																	class="labelStyle">
+																	Start
+																</n:label>
+															</n:div>
+															<n:div
+																class="col offset-xl-0">
+																<intbox
+																	id="intStop" class="z-end-input" width="70px"
+																	constraint="no negative" />
+																 
+																<n:br />
+																<n:label
+																	class="labelStyle">
+																	 
+																	End
+																</n:label>
+																<label
+																	id="labelLength" value="" style="font-size:10px" />
+															</n:div>
+
+														</div>
+														<div
+															class="form-row">
+															<n:div
+																class="col-xl-2 offset-xl-0">
+
+															</n:div>
+
+														</div>
+													</div>
+												</div>
+
+											</n:div>
+											<div
+												style="border-top: 1px solid #169316; margin: 20px 0;" />
+											<div class="form-row"
+												style="width: 430px;">
+												<div
+													class="col-xl-4 offset-xl-0">
+													<div
+														class="form-group">
+														<div
+															class="text-left">
+															<n:label
+																class="labelStyle">
+																Gene
+																Locus
+															</n:label>
+														</div>
+													</div>
+												</div>
+												<div
+													class="col offset-xl-0">
+													<div
+														class="form-group">
+														<combobox
+															id="comboGene" class="z-genelocus-input"
+															buttonVisible="false" readonly="false" width="230px"
+															autodrop="true" fulfill="onOpen" />
+														<n:br />
+														<label
+															id="labelLocusExample" pre="true"
+															value="(ex. loc_os01g01010) " style="font-size:9px" />
+													</div>
+												</div>
+											</div>
+											<div class="form-row"
+												style="width: 430px;">
+												<div
+													class="col-xl-4 offset-xl-0">
+													<div
+														class="form-group">
+														<div
+															class="text-left">
+															<n:label
+																class="labelStyle">
+																SNP List
+															</n:label>
+														</div>
+													</div>
+												</div>
+												<div
+													class="col offset-xl-0">
+													<div
+														class="form-group">
+														<listbox
+															id="listboxMySNPList" mold="select"
+															tooltip="popupMySNPList" width="100%" />
+													</div>
+												</div>
+											</div>
+											<div class="form-row"
+												style="width: 430px;">
+												<div
+													class="col-xl-4 offset-xl-0">
+													<div
+														class="form-group">
+														<div
+															class="text-left">
+															<n:label
+																class="labelStyle">
+																Locus
+																List
+															</n:label>
+														</div>
+													</div>
+												</div>
+												<div
+													class="col offset-xl-0">
+													<listbox
+														id="listboxMyLocusList" mold="select"
+														tooltip="popupMyLocusList" width="100px" visible="true" />
+												</div>
+											</div>
+
+											<div id="advOptionRegion"
+												visible="false">
+												<div
+													style="border-top: 1px solid #169316; margin: 20px 0;" />
+												<div id="adv_option3"
+													class="form-row" style="width: 430px;">
+													<div
+														class="col-xl-4 offset-xl-0">
+														<div
+															class="form-group">
+															<div
+																class="text-left">
+																<label
+																	class="text-right"
+																	style="color: #706e6e;font-size: 11px;">
+																	Match
+																	genotype:
+																	snp/alleles
+																</label>
+															</div>
+														</div>
+													</div>
+													<div
+														class="col offset-xl-0">
+														<div
+															class="form-group">
+															<listbox
+																id="listboxAlleleFilter" mold="select"
+																tooltip="popupAlleleFilter" width="100px" />
+														</div>
+													</div>
+												</div>
+												<div id="adv_option4"
+													class="form-row" style="width: 430px;">
+													<div
+														class="col-xl-4 offset-xl-0">
+														<div
+															class="form-group">
+															<div
+																class="text-left">
+																<label
+																	class="text-right"
+																	style="color: #706e6e;font-size: 11px;">
+																	Variety
+																</label>
+															</div>
+														</div>
+													</div>
+													<div
+														class="col offset-xl-0">
+														<div
+															class="form-group">
+															<listbox
+																id="listboxVarietyAlleleFilter" mold="select"
+																tooltip="popupVarietyAlleleFilter" width="100px" />
+														</div>
+													</div>
+												</div>
+											</div>
+										</n:div>
+									</groupbox>
+
+
+									<groupbox open="false" width="400px"
+										id="optionsGroup" mold="3d">
+										<caption label="Options"
+											class="captionLabelStyle">
+											<div id="optionIcon"
+												class="fas fa-chevron-right" />
+										</caption>
+
+										<n:div id="optionInputBox"
+											style="width:420px;">
+											<n:div class="form-row"
+												style="width: 430px;">
+												<div
+													class="col-xl-4 offset-xl-0">
+													<div
+														class="form-group">
+
+														<n:label
+															class="text-right labelStyle">
+															Variant: 
+															<n:br />
+														</n:label>
+
+													</div>
+												</div>
+												<div
+													class="col offset-xl-0">
+													<div
+														class="form-group">
+														<vbox>
+															<checkbox
+																id="checkboxIndel" label="Include indels" />
+
+															<checkbox
+																label="Mismatch Only" id="checkboxMismatchOnly"
+																checked="false" />
+														</vbox>
+
+													</div>
+												</div>
+											</n:div>
+											<div
+												style="border-top: 1px solid #169316; margin: 20px 0;" />
+											<n:div class="form-row"
+												style="width: 430px;">
+												<div
+													class="col-xl-4 offset-xl-0">
+
+													<n:label
+														class="labelStyle">
+														Show Phenotype: 
+														<n:br />
+													</n:label>
+
+												</div>
+												<n:hr />
+												<div
+													class="col offset-xl-0">
+													<vbox>
+														<n:div>
+
+															<radiogroup>
+																<vbox>
+																	<radio
+																		id="radioLegacyTrait" label="legacy" checked="true" />
+																	<radio
+																		id="radioCoTrait" label="CO Terms" />
+																</vbox>
+															</radiogroup>
+
+
+														</n:div>
+														<n:div
+															class="form-row 2">
+															<n:div
+																class="col">
+
+																<listbox
+																	id="listboxPhenotype" mold="select" width="150px" />
+
+															</n:div>
+														</n:div>
+
+													</vbox>
+													<div
+														visible="false">
+														<label
+															value="    Dataset  " pre="true"
+															style="font-weight:bold;" visible="false" />
+														<listbox
+															id="listboxDataset" class="z-dataset-dropdown"
+															mold="select" width="80px" visible="false">
+															<listitem
+																value="3k" label="3kRGP" selected="true" />
+															<listitem
+																value="hdra" label="HDRA" />
+															<listitem
+																value="gq92" label="GQ92" />
+															<listitem
+																value="wissuwa" label="WISSUWA9" />
+															<listitem
+																value="3k+hdra" label="3k+HDRA" />
+															<listitem
+																value="3k+gq92" label="3k+GQ92" />
+															<listitem
+																value="3k+wissuwa" label="3k+WISSUWA9" />
+															<listitem
+																value="all" label="All" />
+														</listbox>
+														<listbox
+															id="listboxDatasetSnpOps" mold="select" width="80px"
+															visible="false">
+															<listitem
+																label="intersect" selected="true" />
+															<listitem
+																label="union" />
+														</listbox>
+													</div>
+
+													<n:div
+														class="form-row">
+														<n:div
+															class="col offset-xl-0">
+															<n:div
+																class="form-group">
+
+															</n:div>
+														</n:div>
+													</n:div>
+												</div>
+											</n:div>
+											<div id="advOptionOptions"
+												visible="false">
+												<div
+													style="border-top: 1px solid #169316; margin: 20px 0;" />
+												<div id="adv_option5"
+													class="form-row" style="width: 430px;">
+													<div
+														class="col-xl-4 offset-xl-0">
+														<div
+															class="form-group">
+															<div
+																class="text-left">
+																<label
+																	class="text-right"
+																	style="color: #706e6e;font-size: 11px;">
+																	SNP
+																	coloring
+																</label>
+															</div>
+														</div>
+													</div>
+													<div
+														class="col offset-xl-0">
+														<div
+															class="form-group">
+															<vbox>
+																<hbox>
+																	<radio
+																		id="radioColorMismatch" label="" radiogroup="snpcolor"
+																		selected="true" />
+																	<label
+																		value="Reference mismatch"
+																		tooltip="popupSNPColoringMismatch" />
+																</hbox>
+																<hbox>
+																	<radio
+																		id="radioColorAllele" label="" radiogroup="snpcolor" />
+																	<label
+																		value="Nucleotide" tooltip="popupSNPColoringAllele" />
+																</hbox>
+															</vbox>
+
+														</div>
+													</div>
+												</div>
+												<div
+													style="border-top: 1px solid #169316; margin: 20px 0;" />
+											</div>
+											<!-- END ADVANCE OPTION -->
+											<n:div class="form-row"
+												style="width: 430px;">
+												<n:div
+													class="col-xl-4 offset-xl-0">
+
+													<n:label
+														class="labelStyle">
+														Include SNPS
+														<n:br />
+													</n:label>
+
+												</n:div>
+												<n:div
+													class="col offset-xl-0">
+													<n:div
+														class="form-row 2">
+														<n:div
+															class="col">
+
+															<radio
+																id="radioAllSnps" label="All" class="radioTxt"
+																radiogroup="radiogroupShowsnps" checked="true" />
+															<n:br />
+															<radio
+																id="radioNonsynHighlights"
+																radiogroup="radiogroupShowsnps"
+																label="All , highlight Nonsynonymous " class="radioTxt" />
+															<n:br />
+															<div
+																visible="false">
+																<vbox
+																	width="6px" />
+																<radio
+																	id="radioNonsynSnps" label=""
+																	radiogroup="radiogroupShowsnps" disabled="false" />
+																<label
+																	value="Non-synonymous only" tooltip="popupNonsynSnps" />
+															</div>
+															<radio
+																id="radioNonsynSnpsPlusSplice"
+																label="Non-synonymous only"
+																radiogroup="radiogroupShowsnps" class="radioTxt" />
+
+
+														</n:div>
+													</n:div>
+												</n:div>
+											</n:div>
+											<div
+												style="border-top: 1px solid #169316; margin: 20px 0;" />
+											<n:div class="form-row"
+												style="width: 430px;">
+												<n:div
+													class="col-xl-4 offset-xl-0">
+
+
+													<n:label
+														class="labelStyle">
+														Missing Allele
+													</n:label>
+
+												</n:div>
+												<n:div
+													class="col offset-xl-0">
+													<n:div
+														class="form-row 2">
+														<n:hr />
+														<n:div
+															class="col">
+															<listbox
+																id="listboxMissingAllele" mold="select" width="120px">
+																<listitem
+																	value="ignore" selected="true" label="Ignore in count" />
+																<listitem
+																	value="half" label="0.5 mis/0.5match" />
+															</listbox>
+														</n:div>
+													</n:div>
+												</n:div>
+											</n:div>
+										</n:div>
+									</groupbox>
+									<n:br />
+									<n:br />
+									<n:div id="buttonBox"
+										class="form-row" style="width: 430px;">
+										<n:div class="col">
+
+											<n:div class="text-right">
+												<button
+													id="searchButton" label="Search" style="font-size:11px;" />
+
+											</n:div>
+										</n:div>
+										<n:div class="col">
+											<n:div class="text-left">
+												<button label="Reset"
+													id="buttonReset" onClick="" style="font-size:11px;" />
+											</n:div>
+										</n:div>
+									</n:div>
+								</n:form>
+							</n:div>
+
+						</n:nav>
+					</n:div>
+
+					<div id="myModal">
+
+						<label value=".." />
+
+					</div>
+
+
+
+					<n:div id="content">
+							<div>
+								<div id="div_info"
+									style="height:100vh ;">
+									<n:div class="row"
+										style="position: absolute;top:20%;left: 550px;margin-right:0px; margin-left:0px;">
+
+										<n:div class="col-lg-6"
+											style="box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15)!important;">
+											<n:div
+												class="image_container" style="height:100%">
+												<n:img class="img-fluid"
+													src="assets/img/6.png" style="margin-top:10%;"/>
+											</n:div>
+
+										</n:div>
+										<n:div class="col-lg-5"
+											style="margin-top: auto;margin-bottom: auto;box-shadow: 0 .15rem 1.75rem 0 rgba(58,59,69,.15)!important;padding:20px;">
+											<n:div class="info">
+												<n:h3>SNP Query</n:h3>
+												<n:div
+													class="summary">
+													<n:p
+														style="font-size: 12px;color: #706e6e;
+    													font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Fira Sans, Droid Sans, Helvetica Neue, sans-serif !important;">
+														1.  Select two
+														varieties to
+														compare; OR
+														<n:br />
+														    Compare All
+														Varieties,
+														members of a
+														Subpopulation
+														<n:br />
+														    or Variety
+														List, with the
+														Reference
+														<n:br />
+														 2. Specify
+														region(chromosome,
+														start and end)
+														<n:br />
+														            Gene
+														Os_xxGyyyyyyy
+														(RAPDB name)
+														<n:br />
+														            or
+														LOC_OsxxGyyyyy
+														(RGAP7 name)
+														<n:br />
+														 3. Set options
+														and click action
+														button
+													</n:p>
+													<n:h5>Results</n:h5>
+													<n:p
+														style="font-size: 12px;color: #706e6e;
+    													font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Fira Sans, Droid Sans, Helvetica Neue, sans-serif !important;">
+														  Table: Allele
+														for Varieties x
+														SNP positions
+														<n:br />
+														  JBrowse: SNPs
+														plot in genome
+														<n:br />
+														  Tree:
+														Phylogenetic
+														tree based on
+														the number
+														<n:br />
+														  of allele
+														mismatches in
+														the region
+														<n:br />
+														  PhyloJBrowse:
+														SNPs in JBrowse
+														with varieties
+														<n:br />
+														  ordered using
+														phylotree
+														clustering
+														result.
+													</n:p>
+												</n:div>
+											</n:div>
+										</n:div>
+									</n:div>
+								</div>
+
+
+
+								<div id="resultContentDiv"
+									visible="false"
+									style="margin-bottom:20px;height:100%;width:100%;">
+
+
+									<vlayout>
+										<goldenlayout
+											id="resultGoldenLayout" height="1300px" hflex="1"
+											style="margin-top: 10px;border:0px;padding-top:50px;">
+											<attribute name="areas">
+												A
+											</attribute>
+											<goldenpanel area="A"
+												id="gp_resultTable" title="Result" closable="false"
+												popup="false" style="padding:0px">
+												<!-- <borderlayout>
+													<west
+													id="resultOptions" title="Result Options"
+													style="max-width:340px;min-width:340px;width:340px;background:white !important;overflow-y:auto;"
+													splittable="true" collapsible="true">
+													
+													<vlayout
+													style="border: 0px;width:310px !important; height:590px;">
+													<grid
+													style="border:0px;">
+													<columns>
+													<column
+													width="70px" />
+													<column />
+													</columns>
+													<rows>
+													<row
+													style="background:#e8e9db !important; border-color: #e8e9db !important;">
+													<label
+													value="File Type"
+													style="font-size:13px;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;" />
+													<combobox
+													id="cmbo_filetype" style="width:190px !important;"
+													readonly="true">
+													<comboitem
+													label="CSV" />
+													<comboitem
+													label="Tab" />
+													<comboitem
+													label="Plink" />
+													<comboitem
+													label="Flapjack" />
+													</combobox>
+													</row>
+													<row
+													style="background:#e8e9db !important; border-color: #e8e9db !important;">
+													<label />
+													<button
+													label="Download" id="btn_download" disabled="true"
+													style="width: 190px !important;border-radius: 10px;" />
+													</row>
+													</rows>
+													</grid> -->
+												<!-- <label
+													value="Download"
+													style="font-size:13px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;" />
+													<hlayout
+													style="border: 0px;">
+													<button
+													id="buttonDownloadCsv"
+													style="color: #3b6c4f !important; background: white !important; border: 1px; border-style: SOLID; border-color: #1f833a !important; width: 60px;font-size: 10px !important;border-radius:25px;padding: 6px 8px 8px 8px;"
+													label="CSV" />
+													<button
+													id="buttonDownloadTab"
+													style="color: #3b6c4f !important; background: white !important; border: 1px; border-style: SOLID; border-color: #1f833a !important; width: 60px;font-size: 10px !important;border-radius:25px;padding: 6px 8px 8px 8px;"
+													label="Tab" />
+													<button
+													id="buttonDownloadPlink"
+													style="color: #3b6c4f !important; background: white !important; border: 1px; border-style: SOLID; border-color: #1f833a !important; width: 60px;font-size: 10px !important;border-radius:25px;padding: 6px 8px 8px 8px;"
+													label="Plink" />
+													<button
+													id="buttonDownloadFlapjack"
+													style="color: #3b6c4f !important; background: white !important; border: 1px; border-style: SOLID; border-color: #1f833a !important; width: 60px;font-size: 10px !important;border-radius:25px;padding: 6px 8px 8px 8px;"
+													label="Flapjack" />
+													</hlayout>
+												-->
+												<!-- <n:hr />
+													<grid
+													style="border:0px;">
+													<columns>
+													<column
+													width="70px" />
+													<column />
+													</columns>
+													<rows>
+													<row
+													style="background:#e8e9db !important; border-color: #e8e9db !important;">
+													<label
+													value="Listname"
+													style="font-size:13px;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;" />
+													<textbox
+													id="listname" style="width:190px !important;" />
+													</row>
+													<row
+													style="background:#e8e9db !important; border-color: #e8e9db !important;">
+													<label />
+													<button
+													label="Create List" id="btn_createList"
+													style="width: 190px !important;border-radius: 10px;" />
+													</row>
+													</rows>
+													</grid>
+													<n:hr />
+													<grid
+													style="border:0px;">
+													<columns>
+													<column
+													width="70px" />
+													<column />
+													</columns>
+													<rows>
+													<row
+													style="background:#e8e9db !important;border-color: #e8e9db !important;">
+													<label
+													value="Filters"
+													style="font-size:13px;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;" />
+													<label
+													style="font-size:13px;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;" />
+													</row>
+													<row
+													style="background:#e8e9db !important; border-color: #e8e9db !important;">
+													<label
+													value="Column: "
+													style="font-size:13px;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;" />
+													<listbox
+													id="listboxPosition" mold="select" rows="1"
+													style="width:190px !important;" />
+													
+													</row>
+													<row
+													style="background:#e8e9db !important;border-color: #e8e9db !important;">
+													<label
+													value="Value: "
+													style="font-size:13px;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;" />
+													<listbox
+													id="listboxAllele" mold="select" rows="1"
+													style="width:190px !important;" />
+													
+													</row>
+													<row
+													style="background:#e8e9db !important;border-color: #e8e9db  !important;">
+													<label
+													style="font-size:13px;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;" />
+													<hlayout>
+													<button
+													id="buttonFilterAllele" label="Apply Filter"
+													style="font-size: 11px;border-radius: 10px;" />
+													<button
+													id="buttonClearFilterAllele" label="Clear"
+													style="font-size: 11px;width: 85px; border-radius: 10px;" />
+													</hlayout>
+													</row>
+													</rows>
+													</grid>
+													<n:hr />
+													<label
+													value="Active Filters" />
+													<vlayout
+													id="filterLayout" />
+													
+													
+													
+													
+													</vlayout>
+													</west>
+													<center>
+												-->
+												<vlayout>
+
+													<hlayout
+														style="background:#e9ecef; padding-bottom:10px;">
+														<menubar
+															id="download_menubar" width="100%"
+															style="background:#e9ecef;order-top: 0px solid; border-bottom: 0px solid">
+															<menu
+																label="Download" id="menu_download"
+																style="background:#e9ecef;color: black !important;"
+																class="menu_style">
+																<menupopup
+																	style="background: #e9ecef !important;color: black !important;"
+																	class="menupopup_style">
+																	<menuitem
+																		id="menuitem_downloadCSV" label="CSV"
+																		iconSclass="z-icon-file-o" class="menuitem_style" />
+																	<menuitem
+																		id="menuitem_downloadTab" label="Tab"
+																		iconSclass="z-icon-file-o" class="menuitem_style" />
+																	<menuitem
+																		id="menuitem_downloadPlink" label="PLINK"
+																		iconSclass="z-icon-file-o" class="menuitem_style" />
+																	<menuitem
+																		id="menuitem_downloadFlapjack" label="Flapjack"
+																		iconSclass="z-icon-file-o" class="menuitem_style" />
+																</menupopup>
+															</menu>
+														</menubar>
+														<space
+															bar="true" spacing="15px" />
+														<label
+															value="Listname"
+															style="font-size:13px;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;" />
+														<textbox
+															id="textboxVarlistName" style="width:190px !important;" />
+
+														<button
+															label="Create List" id="buttonCreateVarlist"
+															style="width: 190px !important;border-radius: 10px;" />
+														<space
+															bar="true" spacing="15px" />
+														<label
+															value="Filters"
+															style="font-size:13px;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;" />
+														<label
+															style="font-size:13px;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;" />
+														<label
+															value="Column: "
+															style="font-size:13px;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;" />
+														<listbox
+															id="listboxPosition" mold="select" rows="1"
+															style="width:190px !important;" />
+														<label
+															value="Value: "
+															style="font-size:13px;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;" />
+														<listbox
+															id="listboxAllele" mold="select" rows="1"
+															style="width:190px !important;" />
+														<label
+															style="font-size:13px;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;" />
+														<hlayout>
+															<button
+																id="buttonFilterAllele" label="Apply Filter"
+																style="font-size: 11px;border-radius: 10px;" />
+															<button
+																id="buttonClearFilterAllele" label="Clear"
+																style="font-size: 11px;width: 85px; border-radius: 10px;" />
+														</hlayout>
+													</hlayout>
+
+
+													<hbox visible="true"
+														id="hboxColorcodeSNPQuery"
+														style="margin-top:15px;margin:0px auto">
+														<label
+															value="Allele color code: " style="font-weight:bold"
+															pre="true" />
+														<label
+															value="mismatch " style="color:red" pre="true" />
+														<!-- label value="synonymous " style="color:lightgray;background:white"  pre="true"/ -->
+
+														<label
+															value="non-synonymous "
+															style="color:red;background:black;font-weight:bold"
+															pre="true" />
+														<label
+															value="splice donor SNP " style="color:aqua" pre="true" />
+														<label
+															value="splice acceptor SNP " style="color:chartreuse"
+															pre="true" />
+														<label
+															value="gap - " pre="true" />
+
+													</hbox>
+													<div
+														style="display:none">
+														<vbox
+															id="divDownloadOnlyMsg" class="download-only-message"
+															visible="false">
+															<label
+																id="labelDownloadOnlyMsg"
+																style="font-weight:bold;font-size:14px" />
+															<hbox>
+																<radiogroup
+																	id="rgWait" />
+																<label
+																	style="font-weight:bold;font-size:12px"
+																	class="download-message-one"
+																	value="Operation can take some time to finish. (~5 mins/1000snps). Varieties are NOT sorted by score/mismatch/match." />
+																<div
+																	visible="false">
+																	<radio
+																		id="radioWait" radiogroup="rgWait" />
+																	<label
+																		style="font-weight:bold;font-size:12px" pre="true"
+																		value=" WAIT or " />
+																	<radio
+																		id="radioAsync" radiogroup="rgWait" selected="true" />
+																	<label
+																		style="font-weight:bold;font-size:12px" pre="true"
+																		value=" QUERY AND CHECK LATER" />
+																</div>
+															</hbox>
+															<vbox>
+																<hbox
+																	id="hboxPolluxUrl" class="download-message-two"
+																	visible="false">
+																	<label
+																		style="font-weight:bold;font-size:12px"
+																		value="For large downloads, users within IRRI may use the local server at " />
+																	<a
+																		class="download-message-three"
+																		href="http://pollux:8080/iric-portal/_snp.zul"
+																		label="http://pollux:8080/iric-portal/_snp.zul"
+																		target="_pollux" />
+																</hbox>
+																<hbox>
+																	<label
+																		id="labelDownloadProgressMsg"
+																		style="font-weight:bold;font-size:12px" />
+																	<vbox
+																		width="20px" />
+																	<a
+																		id="aDownloadProgressURL" target="_job" />
+																</hbox>
+																<hbox
+																	id="hboxDownload" class="download-tab"
+																	visible="false">
+																	<label
+																		pre="true" value="Download  "
+																		style="font-weight:bold;" />
+																	<button
+																		id="buttonDownloadCsv" class="z-download-csv"
+																		label="CSV" width="80px" height="30px"
+																		autodisable="self" />
+																	<vbox
+																		width="10px" />
+																	<button
+																		id="buttonDownloadTab" class="z-download-tab"
+																		label="Tab" width="80px" height="30px"
+																		autodisable="self" />
+																	<vbox
+																		width="10px" />
+																	<button
+																		id="buttonDownloadPlink" class="z-download-plink"
+																		label="Plink" width="80px" height="30px"
+																		autodisable="self" />
+																	<vbox
+																		width="10px" />
+																	<button
+																		id="buttonDownloadFlapjack"
+																		class="z-download-flapjack" label="Flapjack"
+																		width="80px" height="30px" autodisable="self" />
+																	<vbox
+																		width="20px" />
+																	<checkbox
+																		id="checkboxCreateHaplotype"
+																		class="haplotype-invisible" checked="false"
+																		label=" Generate Haplotype Map" visible="false" />
+																</hbox>
+
+															</vbox>
+														</vbox>
+													</div>
+													<vlayout>
+														<hbox
+															class="biglistbox-table" style="margin: 0 auto;">
+															<grid
+																id="gridBiglistheader" visible="false" height="580px"
+																width="680px"
+																style="overflow-x: hidden; overflow-y:hidden; width:330px;"
+																oddRowSclass="myOddColor" sclass="testClass">
+																<auxhead
+																	id="auxhead1Header" height="97px" visible="false">
+																	<auxheader
+																		id="auxheader11Header" label="Variety name"
+																		sclass="word-wrap" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																</auxhead>
+																<auxhead
+																	id="auxhead2Header" height="32px" visible="false">
+																	<auxheader
+																		id="auxheader21Header" label="Alleles"
+																		sclass="word-wrap" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																</auxhead>
+																<auxhead
+																	height="114px" visible="true">
+																	<auxheader
+																		id="auxheader3Header" label="Nipponbare positions"
+																		sclass="word-wrap" />
+																	<auxheader
+																		id="auxheaderIrisid" label="Assay" />
+																	<auxheader
+																		label="Accession" />
+																	<auxheader
+																		id="auxheader3Phenotype" label="" />
+																</auxhead>
+																<columns>
+																	<column
+																		id="column4Header" label="Nipponbare" width="330px"
+																		height="20px" />
+																	<column
+																		width="175px">
+																	</column>
+																	<column
+																		width="175px">
+																	</column>
+																	<column
+																		width="0px" visible="false">
+																	</column>
+																</columns>
+																<auxhead
+																	id="auxheadAlleles1" height="32px" visible="false">
+																	<auxheader
+																		id="auxheaderAlleles1" label="" sclass="word-wrap" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																</auxhead>
+																<auxhead
+																	id="auxheadAlleles2" height="32px" visible="false">
+																	<auxheader
+																		id="auxheaderAlleles2" label="" sclass="word-wrap" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																</auxhead>
+																<auxhead
+																	id="auxheadAlleles3" height="32px" visible="false">
+																	<auxheader
+																		id="auxheaderAlleles3" label="" sclass="word-wrap" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																</auxhead>
+																<auxhead
+																	id="auxheadAlleles4" height="32px" visible="false">
+																	<auxheader
+																		id="auxheaderAlleles4" label="" sclass="word-wrap" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																</auxhead>
+																<auxhead
+																	id="auxheadAlleleFilter" height="32px"
+																	visible="false">
+																	<auxheader
+																		id="auxheaderAlleleFilter" label="Query alleles"
+																		sclass="word-wrap" style="font-color:blue" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																	<auxheader
+																		label="" />
+																</auxhead>
+
+															</grid>
+
+															<biglistbox
+																height="600px" w:onScroll="jq('$tip').fadeOut();"
+																id="biglistboxArray" width="700px" xmlns:w="client"
+																style="font-size:10px">
+
+															</biglistbox>
+
+														</hbox>
+													</vlayout>
+												</vlayout>
+												<!-- </center>
+													</borderlayout>
+												-->
+											</goldenpanel>
+											<goldenpanel area="A"
+												id="gp_alleleFreq" title="Allele Frequency"
+												closable="false">
+												<hbox
+													id="hboxAlleleFrequency">
+													<vbox
+														width="180px">
+
+														<radiogroup
+															id="radiogroupAllelefreqcount" />
+														<radiogroup
+															id="radiogroupMajorminor" />
+														<hbox
+															height="30px" />
+														<radio
+															id="radioShowAlleleFrequency"
+															label="Show allele frequency"
+															radiogroup="radiogroupAllelefreqcount" selected="true"
+															style="font-size:11px;" />
+														<radio
+															id="radioShowAlleleCount" label="Show allele count"
+															radiogroup="radiogroupAllelefreqcount"
+															style="font-size:11px;" />
+														<radio
+															id="radioShowGenotypeFrequency"
+															label="Show genotype frequency"
+															radiogroup="radiogroupAllelefreqcount"
+															style="font-size:11px;" />
+														<radio
+															id="radioShowGenotypeCount" label="Show genotype count"
+															radiogroup="radiogroupAllelefreqcount"
+															style="font-size:11px;" />
+														<hbox
+															height="10px" />
+														<radio
+															id="radioMajorAlleles" label="Major alleles"
+															radiogroup="radiogroupMajorminor" selected="true"
+															style="font-size:11px;" />
+														<radio
+															id="radioMinorAlleles" label="Minor alleles"
+															radiogroup="radiogroupMajorminor"
+															style="font-size:11px;" />
+														<radio
+															id="radio3rdAlleles" label="3rd alleles"
+															radiogroup="radiogroupMajorminor"
+															style="font-size:11px;" />
+														<radio
+															id="radio4thAlleles" label="4th alleles"
+															radiogroup="radiogroupMajorminor" visible="false"
+															style="font-size:11px;" />
+														<hbox
+															height="10px" />
+														<label
+															value="Click in legend to hide/show series"
+															style="font-size:11px;" />
+														<button
+															id="buttonResetzoom" label="Reset Zoom" visible="false" />
+													</vbox>
+
+													<charts
+														id="chartAlleleFrequency" type="line"
+														title="Allele frequency" width="1000" height="400"
+														zoomType="xy" />
+												</hbox>
+
+											</goldenpanel>
+											<!-- 
+												<goldenpanel area="C"
+												id="goldenPanel_mdsPlot" title="MDS Plot"
+												closable="false">
+												<vbox>
+												
+												<hbox>
+												<label
+												value="Drag area to zoom." />
+												<vbox
+												width="400px" />
+												<label
+												value="Highlight variety:  " pre="true" />
+												<listbox
+												id="listboxHighlightVariety" mold="select" width="200px" />
+												<vbox
+												width="50px" />
+												<label
+												value="list:  " pre="true" />
+												<listbox
+												id="listboxHighlightVarietyList" mold="select"
+												width="150px" />
+												<button
+												id="buttonHighlight" label="Highlight variety"
+												visible="false" />
+												
+												
+												
+												</hbox>
+												<hbox>
+												
+												<label
+												id="labelMDSPhenotype" />
+											-->
+
+											<!-- zscript><![CDATA[			
+												listboxMDSPhenotype.setModel(new SimpleListModel(listPhenotype));
+												listboxMDSPhenotype.setSelectedIndex(0);
+												]]></zscript -->
+											<!-- 
+												</hbox>
+												<charts
+												id="chartMDS" type="scatter" zoomType="xy"
+												title="Varieties MDS plot" width="800" height="800" />
+												
+												<label
+												value="Variety distance based on pairwise allele mismatch among queried variants." />
+												<label
+												value="MDS coordinates computed using MDSJ (http://algo.uni-konstanz.de/software/mdsj)" />
+												
+												</vbox>
+												</goldenpanel>
+											-->
+											<goldenpanel area="A"
+												id="gp_pairwise" title="Pairwise Variety Comparison Table"
+												closable="false">
+												<div id="divPairwise"
+													visible="false">
+
+													<!--  *********************   DISPLAY PAIRWAISE VARIETY COMPARISON TABLE  *********************************************************************************** -->
+
+
+													<hbox>
+														<label
+															pre="true" value="Download  " style="font-weight:bold;" />
+														<button
+															id="buttonDownloadPairwiseCsv" label="CSV" width="60px"
+															height="30px" autodisable="self" />
+														<vbox
+															width="10px" />
+														<button
+															id="buttonDownloadPairwiseTab" label="Tab" width="60px"
+															height="30px" autodisable="self" />
+													</hbox>
+													<hbox height="10px" />
+
+													<listbox
+														id="listboxSnpresult" class="pairwise-table"
+														fixedLayout="true" mold="paging" pageSize="100">
+														<auxhead
+															id="auxheadMultirefPairwise" visible="false">
+															<auxheader
+																id="auxheaderMultirefPairwise" label="" colspan="3" />
+															<auxheader
+																label="NIPPONBARE" colspan="3" />
+															<auxheader
+																label="COMPARE VARIETIES" colspan="2" />
+														</auxhead>
+														<listhead
+															class="haplotype-table">
+															<listheader
+																id="listheader1MultirefPairwise" visible="false"
+																label="CONTIG" />
+															<listheader
+																id="listheader2MultirefPairwise" visible="false"
+																label="POSITION" />
+															<listheader
+																id="listheader3MultirefPairwise" visible="false"
+																label="REFERENCE" />
+															<listheader
+																label="CONTIG" />
+															<listheader
+																label="POSITION" />
+															<listheader
+																id="listHeaderVar2Reference" label="NPB REFERENCE" />
+															<listheader
+																id="listheaderVar1MultirefPairwise">
+															</listheader>
+															<listheader
+																id="listheaderVar2MultirefPairwise">
+															</listheader>
+														</listhead>
+													</listbox>
+												</div>
+											</goldenpanel>
+
+											<goldenpanel
+												id="gp_snpeffect" area="A" title="Snp Effect"
+												closable="false">
+												<vlayout>
+													<toolbar
+														id="toolbar_download" visible="false">
+														<hlayout>
+															<button
+																id="btn_downloadSnpEffect" label="Download" />
+														</hlayout>
+													</toolbar>
+													<listbox
+														id="listboxSnpeff" mold="paging" pageSize="15"
+														sizedByContent="true" span="true">
+														<listhead
+															sizable="true">
+
+															<listheader
+																label="POSITION" sort="auto" width="10%" />
+															<listheader
+																label="&quot;DELETERIOUSNESS&quot;" sort="auto"
+																width="10%" sortAscending="${snpeffasc1}"
+																sortDescending="${snpeffdsc1}" />
+															<listheader
+																label="Alt (ANN)" sort="auto" width="100px" />
+															<listheader
+																label="Effect (ANN)" sort="auto" width="100px" />
+															<listheader
+																label="Putative_impact (ANN)" sort="auto" width="10%" />
+															<listheader
+																label="Gene Name (ANN)" sort="auto" width="10%" />
+															<listheader
+																label="Gene ID (ANN)" sort="auto" width="10%" />
+															<listheader
+																label="Feature type (ANN)" sort="auto" width="10%" />
+															<listheader
+																label="Feature ID (ANN)" sort="auto" width="10%" />
+															<listheader
+																label="Transcript Biotype (ANN)" sort="auto"
+																width="10%" />
+															<listheader
+																label="Rank/Total (ANN)" sort="auto" width="10%" />
+															<listheader
+																label="HGV S.c (ANN)" sort="auto" width="10%" />
+															<listheader
+																label="HGV S.p (ANN)" sort="auto" width="10%" />
+															<listheader
+																label="cDNA position (ANN)" sort="auto" width="10%" />
+															<listheader
+																label="cDS position (ANN)" sort="auto" width="10%" />
+															<listheader
+																label="Protein position" sort="auto" width="10%" />
+															<listheader
+																label="Distance to feature (ANN)" sort="auto"
+																width="10%" />
+															<listheader
+																label="Errors,Warnings Info msgs (ANN)" sort="auto"
+																width="10%" />
+															<listheader
+																label="LOF" sort="auto" width="10%" />
+															<listheader
+																label="NMD" sort="auto" width="10%" />
+														</listhead>
+													</listbox>
+
+												</vlayout>
+
+											</goldenpanel>
+											<goldenpanel area="A"
+												id="gp_jbrowse" title="Jbrowse" closable="false">
+												<vbox
+													style="height:100%;width:100%;">
+													<hbox>
+														<label
+															id="msgJbrowse" visible="false"
+															style="font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;font-size:16px" />
+
+														<hbox
+															width="80px" />
+
+														<div
+															id="divNucleotide" visible="false">
+															<label
+																value="SNP Genotype Track color code:     " pre="true" />
+															<label
+																value="A  " style="color:green" pre="true" />
+															<label
+																value="T  " style="color:red" pre="true" />
+															<label
+																value="G  " style="color:orange" pre="true" />
+															<label
+																value="C  " style="color:blue" pre="true" />
+															<label
+																value="heterozygous   "
+																style="color:yellow;background:gray" pre="true" />
+														</div>
+
+														<div
+															id="divNucleotideIndels" visible="false">
+															<label
+																value="SNP Genotype Track color code:     " pre="true" />
+															<label
+																value="insertion  " style="color:green" pre="true" />
+															<label
+																value="snp/substitution   " style="color:red"
+																pre="true" />
+															<label
+																value="deletion  " style="color:blue" pre="true" />
+															<label
+																value="heterozygous   "
+																style="color:yellow;background:gray" pre="true" />
+															<label
+																value="reference   " style="color:black" pre="true" />
+														</div>
+
+
+														<div
+															id="divMismatch" visible="false">
+															<label
+																value="SNP Genotype Track color code:     " pre="true" />
+															<label
+																value="non-synonymous mismatch " style="color:red"
+																pre="true" />
+															<label
+																value="synonymous mismatch " style="color:darkgray"
+																pre="true" />
+															<!--  label value="allele match   " style="color:white;background:lightgray" pre="true"/ -->
+															<label
+																value="heterozygous   "
+																style="color:yellow;background:gray" pre="true" />
+															<!-- label value="insertion   " style="color:green" pre="true"/>
+																<label value="deletion   " style="color:blue" pre="true"/>
+																<label value="reference   " style="color:black" pre="true"/ -->
+															<label
+																value="splice donor SNP " style="color:aqua" pre="true" />
+															<label
+																value="splice acceptor SNP " style="color:chartreuse"
+																pre="true" />
+
+														</div>
+
+														<!--  div id="divBlackSyn"  visible="false">
+															<label value="synonymous mismatch " style="color:darkgray" pre="true"/>
+															</div -->
+
+													</hbox>
+													<iframe
+														id="iframeJbrowse" align="left" visible="true"
+														style="width:100%;height:100%;border:0px inset;"
+														src="${jbrowsestart}" />
+
+
+												</vbox>
+
+
+											</goldenpanel>
+											<goldenpanel area="A"
+												id="gp_template" title="template" closable="false">
+											</goldenpanel>
+											<goldenpanel area="A"
+												id="gp_haplotype" title="Haplotype" closable="false">
+												<borderlayout
+													style="height:100%;">
+													<west
+														id="HaplotypeViewHeader" title="Haplotype View Options"
+														style="max-width:300px;min-width:300px;width:310px;"
+														splittable="true" collapsible="true">
+														<toolbar>
+															<vbox
+																height="100%">
+																<label
+																	value="Resolution " pre="true" />
+																<listbox
+																	id="listboxHaploResolution" mold="select"
+																	style="width:240px!important;" tooltip="test1"
+																	tooltiptext="Test2">
+																	<listitem
+																		value="SNP" label="per SNP" selected="true" />
+																	<listitem
+																		value="100" label="per 100bp" />
+																	<listitem
+																		value="10" label="per 10bp" />
+																</listbox>
+																<vbox
+																	height="20px" />
+																<label
+																	value="Clustering distance weight " pre="true" />
+																<hbox>
+																	<label
+																		id="labelGlobal" value="Global 0.15" />
+																	<slider
+																		id="sliderClusterWieght" mode="decimal" step="0.05"
+																		maxpos="1.0" minpos="0.0" curpos="0.85" width="150px" />
+																	<label
+																		id="labelLocal" value="Local 0.85" />
+																	<vbox
+																		width="20px" />
+																</hbox>
+																<button
+																	id="buttonHaploUpdate" label="Update"
+																	style="font-size:12px;" />
+																<vbox
+																	height="20px" />
+																<label
+																	value="Download" />
+																<hbox>
+																	<button
+																		id="buttonHaploOrder" class="z-variety-order"
+																		label="Variety order" disabled="true"
+																		style="font-size:12px;" />
+																	<vbox
+																		width="10px" />
+																	<button
+																		id="buttonHaploImage" class="z-image" label="Image"
+																		disabled="true" style="font-size:12px;" />
+																</hbox>
+																<vbox
+																	height="20px" />
+																<label
+																	value="Group varieties (by haplotypes) using"
+																	pre="true" />
+																<vbox
+																	width="20px" />
+																<listbox
+																	id="listboxKgroupMethod" mold="select"
+																	style="width:240px !important">
+																	<!--  listitem value="kmeans" label="K-means"  -->
+																	<listitem
+																		value="nogroups" label="no grouping" />
+																	<listitem
+																		value="autogroup" label="auto-group" />
+																	<listitem
+																		value="cuttreegroup" label="cuttree: groups"
+																		selected="true" />
+																	<!--  listitem value="cuttreegroup_norm" label="cuttree: groups (relative # of groups)"/ -->
+																	<listitem
+																		value="cuttreeheight" label="cuttree: height" />
+																	<listitem
+																		value="cuttreeheight_norm"
+																		label="cuttree: height (normalized log)" />
+																</listbox>
+																<vbox
+																	width="10px" />
+																<decimalbox
+																	id="intboxKgroupThreshold" value="0" visible="false" />
+																<!--  slider id="sliderCuttreeThreshold" mode="decimal" step="1.0" maxpos="100.0" minpos="0.0" curpos="75.0" visible="false" width="150px"/ -->
+																<!--  textbox id="textboxCuttreeThreshold" value="75.0" readonly="true" width="60px" visible="false"/ -->
+																<hbox>
+																	<slider
+																		id="sliderCuttreeThreshold" mode="decimal" step="1.0"
+																		maxpos="15.0" minpos="1.0" curpos="3.0" visible="true"
+																		width="200px" />
+																	<textbox
+																		id="textboxCuttreeThreshold" value="3.0"
+																		readonly="true" width="50px" style="font-size:12px"
+																		visible="true" />
+																</hbox>
+																<listbox
+																	id="listboxAutogroup" mold="select" width="150px"
+																	visible="false">
+																	<listitem
+																		value="pamk" label="pamk" />
+																	<listitem
+																		value="calinski" label="calinski" selected="true" />
+																</listbox>
+																<vbox
+																	height="20px" />
+																<label
+																	value="Image resolution" />
+																<listbox
+																	id="listboxImagesize" mold="select"
+																	style="width:240px!important;" visible="true">
+																	<listitem
+																		value="0" label="low (72dpi)" />
+																	<listitem
+																		value="2" label="medium (300dpi)" selected="true" />
+																	<listitem
+																		value="1" label="high (800dpi)" />
+																</listbox>
+															</vbox>
+														</toolbar>
+													</west>
+													<center
+														border="0">
+														<vlayout>
+															<tabbox>
+																<tabs>
+																	<tab
+																		id="tabHaploHaploview" label="Haplotype"
+																		selected="true" />
+																	<tab
+																		id="tabHaploGroupAlleles" label="Group alleles" />
+																	<tab
+																		id="tabHaploAutogroups"
+																		label="Autogroup calculations" />
+																	<tab
+																		id="tabHaploTree" label="Phylogenetic tree" />
+																</tabs>
+																<tabpanels>
+																	<tabpanel
+																		id="haplotypeFrame">
+																		<iframe
+																			id="iframeHaplotype" width="100%" height="490px" />
+																	</tabpanel>
+																	<tabpanel>
+																		<vbox
+																			id="vboxGroupAlleleFrequency" visible="false">
+																			<label
+																				value="Group major alleles"
+																				style="font-size:18px;font-weight:bold" />
+																			<button
+																				id="buttonDownloadGroupMatrix"
+																				class="z-download-alleles"
+																				label="Download group alleles" width="200px" />
+																			<div
+																				style="overflow:auto;position:relative">
+																				<listbox
+																					id="listboxGroupAlleleMatrix" width="80%">
+																					<listhead
+																						id="listheadGroupAlleleMatrix" sizable="true">
+																						<listheader
+																							label="KGROUP" sort="auto" />
+																						<!--  listheader label="SAMPLES"/ -->
+																						<listheader
+																							label="SUBPOP:COUNT" />
+																						<listheader
+																							label="SAMPLES" sort="auto" />
+																						<listheader
+																							label="FREQUEMCY" sort="auto" />
+																					</listhead>
+																				</listbox>
+																			</div>
+																			<hbox
+																				height="30px" />
+																			<label
+																				value="Select a Phenotype to display value distribution for each group"
+																				style="font-size:12px;font-weight:bold" />
+																			<button
+																				id="buttonAddPhenValuesToMatrix"
+																				label="Append values to table" visible="false" />
+																			<hbox
+																				width="100%">
+
+																				<vbox
+																					width="700px">
+																					<div
+																						id="divGroupPhenoQuant" visible="false">
+																						<hbox>
+																							<label>
+																								Type
+																							</label>
+																							<vbox
+																								width="20px" />
+																							<radiogroup
+																								id="rgPhenochartType">
+																								<hbox>
+																									<radio
+																										id="radioGroupPhenotypeBox" label="box plot"
+																										radiogroup="rgPhenochartType" selected="true" />
+																									<vbox
+																										width="30px" />
+																									<radio
+																										id="radioGroupPhenotypeErrorbars"
+																										label="error bars"
+																										radiogroup="rgPhenochartType" />
+																								</hbox>
+																							</radiogroup>
+																						</hbox>
+
+																						<div
+																							id="divGroupPhenoQuantBox">
+																							<hbox>
+																								<checkbox
+																									id="checkboxOutlierGroupPhenotypeBox"
+																									label="Show 1.5xIQR outliers" />
+																								<vbox
+																									width="100px" />
+																								<label
+																									value="(select region to show varieties)" />
+																							</hbox>
+																							<charts
+																								id="chartGroupPhenotypeBox" type="boxplot"
+																								title="Group phenotype quartiles"
+																								visible="false" zoomType="xy" />
+																						</div>
+																						<charts
+																							id="chartGroupPhenotypeErrorbars"
+																							title="Group phenotype mean+stddev" zoomType="xy"
+																							visible="false" />
+																					</div>
+
+																					<div
+																						id="divGroupPhenoCat">
+																						<hbox>
+																							<checkbox
+																								id="checkboxNormalizeStackedCategories"
+																								label="Normalize category count" />
+																							<vbox
+																								width="100px" />
+																							<label
+																								value="(click region to show varieties)" />
+																						</hbox>
+																						<charts
+																							id="chartGroupPhenotypeStacked" type="column"
+																							title="Group phenotype value" visible="false"
+																							zoomType="y" />
+																					</div>
+																				</vbox>
+																				<vbox>
+																					<label
+																						id="labelGroupVarietyPhenotype" visible="false" />
+																					<listbox
+																						id="listboxGroupVarietyPhenotypeStacked"
+																						visible="false" mold="paging" pageSize="20">
+																						<listhead>
+																							<listheader
+																								label="VARIETY" sort="auto" />
+																							<listheader
+																								label="ACCESSION" sort="auto" />
+																							<listheader
+																								label="SUBPOP" sort="auto" />
+																							<listheader
+																								id="listheaderGroupVarietyPhenotypeStackedPhenotype"
+																								sort="auto" />
+																						</listhead>
+																					</listbox>
+																				</vbox>
+																			</hbox>
+																			<vbox
+																				height="30px" />
+																			<hbox>
+																				<vbox
+																					width="200px">
+																					<radiogroup
+																						id="radiogroupGroupAllelefreqcount" />
+																					<radiogroup
+																						id="radiogroupGroupMajorminor" />
+																					<hbox
+																						height="30px" />
+																					<radio
+																						id="radioGroupShowAlleleFrequency"
+																						label="Show allele frequency"
+																						radiogroup="radiogroupGroupAllelefreqcount"
+																						selected="true" />
+																					<radio
+																						id="radioGroupShowAlleleCount"
+																						label="Show allele count"
+																						radiogroup="radiogroupGroupAllelefreqcount" />
+																					<radio
+																						id="radioGroupShowGenotypeFrequency"
+																						label="Show genotype frequency"
+																						radiogroup="radiogroupGroupAllelefreqcount" />
+																					<radio
+																						id="radioGroupShowGenotypeCount"
+																						label="Show genotype count"
+																						radiogroup="radiogroupGroupAllelefreqcount" />
+																					<hbox
+																						height="10px" />
+																					<radio
+																						id="radioGroupMajorAlleles" label="Major alleles"
+																						radiogroup="radiogroupGroupMajorminor"
+																						selected="true" />
+																					<radio
+																						id="radioGroupMinorAlleles" label="Minor alleles"
+																						radiogroup="radiogroupGroupMajorminor" />
+																					<radio
+																						id="radioGroup3rdAlleles" label="3rd alleles"
+																						radiogroup="radiogroupGroupMajorminor" />
+																					<radio
+																						id="radioGroup4thAlleles" label="4th alleles"
+																						radiogroup="radiogroupGroupMajorminor"
+																						visible="false" />
+																					<hbox
+																						height="10px" />
+																					<label
+																						value="Click in legend to hide/show series" />
+																					<button
+																						id="buttonGroupResetzoom" label="Reset Zoom"
+																						visible="false" />
+																				</vbox>
+
+																				<charts
+																					id="chartGroupAlleleFrequency" type="line"
+																					title="Group Allele frequency" width="1000"
+																					height="400" zoomType="xy" />
+																			</hbox>
+																		</vbox>
+																	</tabpanel>
+																	<tabpanel>
+																		<iframe
+																			id="iframeAutogroups" width="100%" height="1000px" />
+																	</tabpanel>
+																	<tabpanel>
+																		<vbox>
+																			<hbox>
+																				<button
+																					id="buttonHaploDownloadNewick"
+																					label="Download Newick" />
+																				<vbox
+																					width="20px" />
+																				<button
+																					id="buttonHaploDisplayTree" label="Display Tree" />
+																			</hbox>
+																			<iframe
+																				id="iframeHaplotypeTree" width="100%"
+																				height="1000px" />
+																		</vbox>
+																	</tabpanel>
+																</tabpanels>
+															</tabbox>
+														</vlayout>
+													</center>
+												</borderlayout>
+
+											</goldenpanel>
+
+
+
+
+
+
+										</goldenlayout>
+									</vlayout>
+								</div>
+							</div>
+					</n:div>
+				</n:div>
+			</n:div>
+			<popup id="popupMySNPList" width="300px">
+				<html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					
+					<![CDATA[ Get only alleles from positions in the
+					list. <br />1kRiCA list contains the SNP positions
+					for Version 3 of the panel <br />The list can also
+					be created in <b>My List</b> in the menu.]]>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+				</html>
+			</popup>
+
+
+		</window>
+	</n:div>
+</zk>

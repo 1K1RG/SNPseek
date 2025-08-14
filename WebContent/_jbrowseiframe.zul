@@ -1,0 +1,38 @@
+<?page title="jbrowseiframe" contentType="text/html;charset=UTF-8"?>
+<zk xmlns:n="native">
+      
+      	<zscript>
+			import org.irri.iric.portal.AppContext;
+			String jbrowsestart =  AppContext.getJbrowseDir();
+			jbrowsestart=jbrowsestart.trim();
+	        String paramstr=jbrowsestart+"/"+ AppContext.convertParams2URL(Executions.getCurrent().getParameterMap());
+	        AppContext.debug("loading " + paramstr);	
+        </zscript> 
+        <n:script src="assets/js/jquery.min.js" />
+		<n:script src="assets/bootstrap/js/bootstrap.min.js" />
+		<n:script
+			src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js" />
+
+		<n:script src="assets/js/Collapsible-Sidebar.js" />
+		<n:script src="assets/js/Material-Text-Input.js" />
+		<style src="assets/bootstrap/css/bootstrap.min.css" />
+		<style
+			src="https://fonts.googleapis.com/css?family=Nunito+Sans" />
+		<style src="https://fonts.googleapis.com/css?family=Poppins" />
+		<style src="https://fonts.googleapis.com/css?family=Roboto" />
+		<style src="https://fonts.googleapis.com/css?family=Rubik" />
+		<style src="assets/fonts/fontawesome-all.min.css" />
+		<style src="assets/fonts/font-awesome.min.css" />
+		<style src="assets/fonts/fontawesome5-overrides.min.css" />
+		<style src="assets/css/Footer-Dark.css" />
+		<style src="assets/css/styles.css" />
+		<style src="assets/css/styles_genotype.css" />
+		<style src="assets/css/Collapsible-Sidebar.css" />
+		<style src="assets/css/sidebar_home.css" />
+		<style src="assets/css/genotypeSearch.css" />
+      
+      <iframe id="iframejbrowse" src="${paramstr}" width="100%" height="100%" style="margin-left: 30px;width: 95%;
+    height: 99%;
+    margin-right: 30px;"/>
+      
+</zk>

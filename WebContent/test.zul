@@ -1,0 +1,39 @@
+<?page title="Table Result: Add Filter" contentType="text/html;charset=UTF-8"?>
+<zk>
+	<window id="filterWin" title="Table Result: Add Filter" border="normal" height="100%" width="100%">
+		<vbox style="margin:10px;">
+			<hbox>
+				<label value="Table Filters" style="font-weight:bold;" />
+				<vbox width="20px" />
+				<label>Column:</label>
+				<listbox id="listboxPosition" mold="select" rows="1" />
+				<hbox width="15px" />
+				<label>Value:</label>
+				<listbox id="listboxAllele" mold="select" rows="1" />
+				<hbox width="15px" />
+				<button id="buttonFilterAllele" label="Add Filter" />
+				<button id="buttonClearFilterAllele"
+					label="Clear All Filters" />
+			</hbox>
+
+			<hbox visible="false">
+				<label value="Sort by SNP list alleles"
+					style="font-weight:bold;" />
+				<vbox width="20px" />
+				<listbox id="listboxSNPListAlleles" mold="select"
+					rows="1" />
+
+
+				<hbox width="15px" />
+				<button id="buttonSNPSorter" label="Sort SNPs" />
+				<hbox width="15px" />
+				<checkbox id="checkboxSNPSorterMismatchonly"
+					label=" Exclude no single match" visible="false" />
+			</hbox>
+			<hbox>
+				<label value="Active filters" style="font-weight:bold;" />
+				<label id="labelFilterResult" />
+			</hbox>
+		</vbox>
+	</window>
+</zk>

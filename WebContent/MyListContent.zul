@@ -1,0 +1,558 @@
+<zk>
+	<n:div xmlns:n="native">
+		<n:script src="assets/js/jquery.min.js" />
+		<n:script src="assets/bootstrap/js/bootstrap.min.js" />
+		<n:script
+			src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js" />
+
+		<n:script src="assets/js/Collapsible-Sidebar.js" />
+		<n:script src="assets/js/Material-Text-Input.js" />
+
+		<!-- Google tag (gtag.js) -->
+		<n:script async="async"
+			src="https://www.googletagmanager.com/gtag/js?id=G-6DY1MFCGZH">
+		</n:script>
+		<n:script>
+			window.dataLayer = window.dataLayer || []; function
+			gtag(){dataLayer.push(arguments);} gtag('js', new Date());
+
+			gtag('config', 'G-6DY1MFCGZH');
+
+			gtag('event', 'page_view', { 'page_path':
+			'/MyListContent.zul' });
+
+		</n:script>
+
+		<style src="assets/bootstrap/css/bootstrap.min.css" />
+		<style
+			src="https://fonts.googleapis.com/css?family=Nunito+Sans" />
+		<style src="https://fonts.googleapis.com/css?family=Poppins" />
+		<style src="https://fonts.googleapis.com/css?family=Roboto" />
+		<style src="https://fonts.googleapis.com/css?family=Rubik" />
+		<style src="assets/fonts/fontawesome-all.min.css" />
+		<style src="assets/fonts/font-awesome.min.css" />
+		<style src="assets/fonts/fontawesome5-overrides.min.css" />
+		<style src="assets/css/Footer-Dark.css" />
+		<style src="assets/css/styles.css" />
+		<style src="assets/css/styles_genotype.css" />
+		<style src="assets/css/Collapsible-Sidebar.css" />
+		<style src="assets/css/sidebar_home.css" />
+
+		<style>
+			.z-loading { background-color:#808080; border:1px outset
+			#A0A0A0; font-weight: bold; padding:2px;
+
+			cursor: wait; top: 50%; left: 45% !important; align: center;
+			vertical-align: middle;
+
+			position: fixed; margin-left: auto; margin-right: auto;
+			display: block;
+
+
+			}
+
+
+
+			writing-mode: bt-rl; filter: flipV flipH;
+
+			width:10px; height:90px; vertical-align: middle;
+			text-align:center; display:block; /* white-space:nowrap; */
+			}
+
+
+			.vertical5 { -webkit-writing-mode:vertical-lr;
+			-ms-writing-mode:tb-lr; writing-mode:vertical-lr;
+			width:20px; height:80px; text-align:center; filter: flipV
+			flipH; }
+
+			.vertical2 { -webkit-writing-mode:vertical-lr;
+			-ms-writing-mode:tb-lr; writing-mode:vertical-lr;
+			width:20px; height:80px; text-align:center; }
+
+			.vertical3 { -webkit-transform:rotate(-90deg);
+			-moz-transform:rotate(-90deg); -o-transform: rotate(-90deg);
+			-ms-transform:rotate(-90deg); transform: rotate(-90deg);
+			filter:
+			progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+
+			white-space:nowrap; display:block; bottom:0; width:20px;
+			height:80px; text-align:center; }
+
+
+			/* Cell Height and Font */ .mylist .z-listfooter-cnt,
+			.mylist .z-listcell-cnt,.mylist .z-listheader-cnt {
+			font-size: 6px; font-family: "Tahoma", verdana, arial,
+			sans-serif; height: 8px; }
+
+		</style>
+		<script>
+			function myFunction() {
+
+			var element =
+			document.getElementById("genotypeSearchSidebar");
+			element.classList.toggle("active"); }
+		</script>
+
+
+		<window id="myListWin" border="none"
+			apply="user.ui.module.WorkspaceController" width="100%"
+			height="100%">
+			<zscript>
+	import org.zkoss.zkplus.spring.SpringUtil;
+	import org.irri.iric.portal.admin.WorkspaceFacade;
+	import javax.servlet.http.HttpSession;
+	import org.zkoss.zul.SimpleListModel;
+	import org.zkoss.zk.ui.Sessions;
+	import org.irri.iric.portal.AppContext;
+	import org.irri.iric.portal.variety.zkui.VarietyListItemRenderer;
+	import org.irri.iric.portal.genomics.zkui.LocusListItemRenderer;
+	import org.irri.iric.portal.admin.SNPChrPositionListitemRenderer;
+	import java.util.*;
+WorkspaceFacade workspace = (WorkspaceFacade)SpringUtil.getBean("WorkspaceFacade");
+			       	List listVarlistNames = new ArrayList();
+			       	//if(listVarlistNames.size()==0) listVarlistNames.add("");
+			       	//listVarlistNames.addAll( workspace.getVarietylistNames( (HttpSession)Sessions.getCurrent().getNativeSession()  ));
+			       	listVarlistNames.addAll( workspace.getVarietylistNames(  ));
+			       	AppContext.debug("listVarlistNames=" + listVarlistNames.size());
+			
+					List listContigs =  new ArrayList();
+						listContigs.add("");listContigs.add("chr01");listContigs.add("chr02");listContigs.add("chr03");listContigs.add("chr04");listContigs.add("chr05");listContigs.add("chr06");
+					listContigs.add("chr07");listContigs.add("chr08");listContigs.add("chr09");listContigs.add("chr10");listContigs.add("chr11");listContigs.add("chr12");listContigs.add("ANY");
+				
+					AppContext.debug("myworkspace.zul init done..")
+</zscript>
+
+
+			<n:div id="bodyContent" style="height:890px">
+				<n:div class="wrapper">
+					<!-- Sidebar Holder -->
+					<n:nav id="genotypeSearchSidebar"
+						style="position:absolute !important; width:550px !important;height:100vh;"
+						tabindex="-1" role="dialog">
+						<n:div class="container">
+							<hbox height="20px" />
+							<n:div class="form-row">
+								<n:div class="col"
+									style="margin-left: 5px;margin-top: 10px;">
+
+									<label value="My List"
+										style="font-size:16px;color:#3b4e36;" />
+								</n:div>
+								<n:div class="col"
+									style="padding-left: 10px;margin-top: 5px;">
+									<n:div class="text-right">
+										<n:button id="closeSidebar"
+											class="btn" visible="true">
+											<n:i class="fas fa-times">
+											</n:i>
+										</n:button>
+									</n:div>
+
+								</n:div>
+							</n:div>
+
+
+							<n:div class="form-row">
+								<n:div
+									style="width:580px !important;margin-left: 10px;margin-top: 15px;background-color:rgb(164 201 168);padding:10px">
+									<label style="color:black;">
+										NOTE: Lists are not saved in the
+										server and available only for
+										this session.
+									</label>
+									<n:br />
+									<label style="color:black;">
+										Click Download button to save
+										your created lists for future
+										reference.
+									</label>
+									<n:br />
+									<label style="color:black;">
+										Click Upload button to recreate
+										your list from previously
+										downloaded MyList file.
+									</label>
+
+								</n:div>
+
+							</n:div>
+							<n:form style="margin: 10px;">
+								<groupbox id="ListTypeGroup" open="true"
+									width="520px" mold="3d" closable="false">
+									<caption label="List Type"
+										style="font-size:13px;background-color:#3a6b35;">
+										<div id="ListTypeIcon"
+											class="fas fa-chevron-down">
+										</div>
+									</caption>
+									<n:div id="createListbox"
+										style="width:500px;">
+										<div class="form-row"
+											style="width: 600px;height:35px;">
+											<div
+												class="col-xl-3 offset-xl-0">
+												<div
+													class="form-group">
+													<div
+														class="text-left">
+														<label
+															value="List Type:  " pre="true" style="font-size:11px;" />
+													</div>
+												</div>
+											</div>
+											<div
+												class="col offset-xl-0">
+												<div
+													class="form-group">
+													<hbox>
+														<radiogroup
+															visible="true">
+															<hlayout>
+																<radio
+																	id="radioVariety" label="Variety" selected="true"
+																	style="font-size:11px;" />
+																<radio
+																	id="radioSNP" label="SNP" style="font-size:11px;" />
+																<radio
+																	id="radioLocus" label="Locus" style="font-size:11px;" />
+															</hlayout>
+														</radiogroup>
+													</hbox>
+												</div>
+											</div>
+										</div>
+									</n:div>
+								</groupbox>
+								<groupbox id="varietyListGrpBx"
+									open="true" width="520px" mold="3d" closable="false">
+									<caption id="captionListId"
+										label="Variety List"
+										style="font-size:13px;background-color:#3a6b35;">
+										<div id="datasetIcon"
+											class="fas fa-chevron-down">
+										</div>
+									</caption>
+									<n:div id="varietyList_div"
+										style="width:500px;">
+										<div class="form-row"
+											style="width: 600px;height:35px;">
+											<div
+												class="col-xl-3 offset-xl-0">
+												<div
+													class="form-group">
+													<div
+														class="text-left">
+														<label
+															class="text-right"
+															style="color: rgb(0,0,0);font-size: 11px;">
+															Select List
+
+														</label>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="form-row"
+											style="width: 600px;">
+											<div>
+												<div
+													class="form-group">
+													<div
+														class="text-left">
+														<listbox
+															id="listboxListnames" width="490px" height="200px"
+															checkmark="false" multiple="true" seltype="multiple"
+															style="border: 1px;
+    border-style: solid;
+    border-color: #237311" />
+													</div>
+												</div>
+											</div>
+
+										</div>
+										<div class="form-row"
+											style="width: 600px;">
+											<div>
+												<div
+													class="form-group">
+													<div
+														class="text-left">
+														<label>
+															Set
+															Operations:
+															(enabled on
+															multiple
+															list
+															selection,
+															press
+															Ctrl+click
+															to select
+															multiple
+															items)
+														</label>
+													</div>
+												</div>
+											</div>
+
+										</div>
+										<div class="form-row"
+											style="width: 600px;height:35px;">
+											<div
+												style="width: 300px;">
+												<div
+													class="form-group">
+													<div
+														class="text-left">
+													</div>
+												</div>
+											</div>
+											<div
+												class="col offset-xl-0">
+												<div
+													class="form-group">
+													<hbox>
+														<button
+															id="buttonCreate" label="Create" style="font-size:11px;" />
+														<button
+															id="buttonSave" label="Save" visible="false"
+															style="font-size:11px;" />
+														<button
+															id="buttonCancel" label="Cancel" visible="false"
+															style="font-size:11px;" />
+														<button
+															class="buttonDeleteClass" id="buttonDelete"
+															label="Delete"
+															style="font-size:11px;background-color:#951111;color:white; margin-left:5px;" />
+													</hbox>
+												</div>
+											</div>
+										</div>
+
+
+									</n:div>
+								</groupbox>
+								<groupbox id="ListVarietyGroupBox"
+									open="true" visible="false" width="520px" mold="3d"
+									closable="false">
+									<caption
+										label="Save Union/Intersect List"
+										style="font-size:13px;background-color:#3a6b35;">
+										<div id="ListVarietyGroupIcon"
+											class="fas fa-chevron-down">
+										</div>
+									</caption>
+									<n:div id="varietyListboxDiv"
+										style="width:500px;">
+										<div class="form-row"
+											style="width: 600px;">
+											<div
+												style="width: 130px;">
+												<div
+													class="form-group">
+													<div
+														class="text-left">
+														<label
+															value="Result list name: " pre="true"
+															style="font-size:11px;" />
+													</div>
+												</div>
+											</div>
+
+										</div>
+									</n:div>
+								</groupbox>
+								<groupbox id="divSetOps" open="false"
+									visible="false" width="520px" mold="3d" closable="true">
+									<caption
+										label="Save Union/Intersect List"
+										style="font-size:13px;background-color:#3a6b35;">
+										<div id="divSetOpsIcon"
+											class="fas fa-chevron-down">
+										</div>
+									</caption>
+									<n:div id="divSetOps2"
+										style="width:500px;">
+										<div class="form-row"
+											style="width: 600px;">
+											<div
+												style="width: 130px;">
+												<div
+													class="form-group">
+													<div
+														class="text-left">
+														<label
+															value="Result list name: " pre="true"
+															style="font-size:11px;" />
+													</div>
+												</div>
+											</div>
+											<div
+												class="col offset-xl-0">
+												<div
+													class="form-group">
+													<hbox>
+														<textbox
+															id="textboxResultSet" value="" style="font-size:11px;" />
+
+														<button
+															id="buttonUnion" label="Union" style="font-size:11px;" />
+														<button
+															id="buttonIntersect" label="Intersect"
+															style="font-size:11px;" />
+													</hbox>
+
+												</div>
+											</div>
+										</div>
+									</n:div>
+								</groupbox>
+								<groupbox id="downloadGroupSet"
+									open="true" width="520px" mold="3d" closable="false">
+									<caption label="Download / Upload"
+										style="font-size:13px;background-color:#3a6b35;">
+										<div id="downloadIcon"
+											class="fas fa-chevron-down">
+										</div>
+									</caption>
+									<n:div id="divSetOps2"
+										style="width:500px;">
+										<div class="form-row"
+											style="width: 600px;">
+											<div>
+												<div
+													class="form-group">
+													<hbox height="20px" />
+													<hbox>
+														<button
+															id="buttonDownload" label="Download"
+															style="font-size:11px;" />
+														<hbox
+															width="20px" />
+														<button
+															id="buttonUpload" label="Upload" style="font-size:11px;" />
+
+													</hbox>
+
+												</div>
+											</div>
+										</div>
+									</n:div>
+								</groupbox>
+
+
+
+								<n:br />
+								<n:br />
+							</n:form>
+						</n:div>
+
+					</n:nav>
+
+
+					<n:div id="content">
+						<n:div>
+							<n:div class="mainDiv-Sidebar">
+								<div id="resultHeader"
+									style="width:100%;background-color:white;display:none;"
+									visible="false">
+								</div>
+								<n:div
+									style="margin-left:50px;margin-top:10px">
+									<n:div class="form-row"
+										style="border-radius: 15px;">
+										<n:div class="col"
+											style="padding: 5px;">
+											<hlayout>
+												<div id="backQueryDiv"
+													style="border-style: solid; width: 120px; padding: 5px; border-radius: 7px; border-color: white ;border-width: 0px; background-color: #5b9867;"
+													class="divBtn">
+													<hbox>
+														<n:i
+															class="fas fa-share-square"
+															style="font-size: 20px; color: white">
+														</n:i>
+														<vbox>
+															<label
+																value="Open Query"
+																style="padding-left:10px;color: white;font-size:12px;" />
+														</vbox>
+													</hbox>
+
+												</div>
+											</hlayout>
+										</n:div>
+										<n:div
+											style="margin-left:auto;margin-right:0px;padding-left: 10px;margin-top: 5px;">
+											<n:div class="text-right">
+											</n:div>
+
+										</n:div>
+									</n:div>
+									<vbox id="vboxListMembers"
+										visible="false">
+										<label id="labelNItems"
+											visible="true" />
+
+										<listbox id="listboxVarieties"
+											width="97%" height="500px" visible="false" mold="paging"
+											pageSize="50">
+											<listhead sizable="true">
+												<listheader
+													label="NAME" />
+												<listheader
+													label="IRIS ID" />
+												<listheader
+													label="ACCESSION" />
+												<listheader
+													label="SUBPOPULATION" />
+												<listheader
+													label="COUNTRY" />
+												<listheader
+													id="listheaderPhenotype" label="PHENOTYPE VALUE"
+													visible="false" />
+											</listhead>
+										</listbox>
+										<listbox id="listboxPositions"
+											width="97%" height="500px" visible="false" mold="paging"
+											pageSize="50">
+											<listhead sizable="true">
+												<listheader
+													id="listheaderPosition" label="CHR : POSITION" />
+											</listhead>
+										</listbox>
+										<listbox id="listboxLocus"
+											width="97%" height="500px" visible="false" mold="paging"
+											pageSize="50">
+											<listhead sizable="true">
+												<listheader
+													label="NAME" />
+												<listheader
+													label="CONTIG" />
+												<listheader
+													label="START" />
+												<listheader
+													label="STOP" />
+												<listheader
+													label="STRAND" />
+												<listheader
+													label="DESCRIPTION" />
+											</listhead>
+										</listbox>
+									</vbox>
+
+								</n:div>
+							</n:div>
+
+						</n:div>
+
+					</n:div>
+				</n:div>
+			</n:div>
+
+		</window>
+	</n:div>
+
+
+
+
+</zk>

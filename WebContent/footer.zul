@@ -1,0 +1,36 @@
+<zk xmlns:h="native">
+
+	<style src="assets/bootstrap/css/bootstrap.min.css" />
+	<style src="https://fonts.googleapis.com/css?family=Poppins" />
+	<style src="https://fonts.googleapis.com/css?family=Roboto" />
+	<style src="https://fonts.googleapis.com/css?family=Rubik" />
+	<style src="assets/fonts/fontawesome-all.min.css" />
+	<style src="assets/fonts/font-awesome.min.css" />
+	<style src="assets/fonts/fontawesome5-overrides.min.css" />
+	<style src="assets/css/Footer-Dark.css" />
+	<style src="assets/css/Ludens-Users---1-Login.css" />
+	<style src="assets/css/Material-Text-Input.css" />
+	<style
+		src="assets/css/Parallax-Effect-Template-Landing-Page-Bootstrap-4.css" />
+	<style src="assets/css/Pricing-Table.css" />
+	<style src="assets/css/Process-Steps.css" />
+	<style src="assets/css/styles.css" />
+
+	<div xmlns:n="native">
+		<n:footer class="footer-dark"
+			style="z-index:4000 !important; height:25px;left: 0px;">
+			<n:div class="text-center">
+				<n:label class="text-center" style="font-size: 12px;">
+					2014 International Rice Research Institute. Los
+					Banos, Laguna, Philippines. This site is under
+					development. We schedule maintenance every Monday,
+					8-9:00 GMT (4-5PM Manila) VERSION: 8.13.4
+					<n:br />
+				</n:label>
+			</n:div>
+		</n:footer>
+
+	</div>
+
+
+</zk>

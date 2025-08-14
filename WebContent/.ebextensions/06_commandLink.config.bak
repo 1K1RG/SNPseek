@@ -1,0 +1,3 @@
+commands:
+  01_create_symlink:
+    command: sudo ln -s /mnt/efs/iric-portal-files/temp/ /var/lib/tomcat9/webapps/temp 
